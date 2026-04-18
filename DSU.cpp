@@ -3,6 +3,8 @@
 using namespace std;
 /*
 attach to the parent node
+挂到秩小的那里
+判断是否是同一个集合的
 */
 const ll N = 1e5 + 5;
 ll fa[N], rk[N];

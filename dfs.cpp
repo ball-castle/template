@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int N = 1e5 + 10;
@@ -10,7 +9,7 @@ void dfs(int u) {
     visited[u] = true;
     // the operation for every point
     for(int v : g[u]) {
-        if (!visited[v]) {
+        if(!visited[v]) {
             dfs(v);
         }
     }
