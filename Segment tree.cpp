@@ -2,7 +2,10 @@
 #define ll long long 
 using namespace std;
 
-
+/*
+核心在于二分
+修改 查询 
+*/
 
 const int N = 1e5 + 5; //最大数组长度
 int a[N];      //原数组
@@ -15,9 +18,9 @@ void build(int node, int l, int r) {
         return;
     }
     int mid = (l + r) >> 1;
-    build(node*2, l, mid);         //左子树
-    build(node*2+1, mid+1, r);     //右子树
-    tree[node] = tree[node*2] + tree[node*2+1]; //父节点合并信息
+    build(node * 2, l, mid);         //左子树
+    build(node * 2 + 1, mid + 1, r);     //右子树
+    tree[node] = tree[node * 2] + tree[node * 2 + 1]; //父节点合并信息
 }
 
 // 单点修改，把 a[pos] 变成 val
@@ -37,6 +40,6 @@ int query(int node, int l, int r, int L, int R) {
     if(R < l || r < L) return 0;           //不相交
     if(L <= l && r <= R) return tree[node];//完全包含
     int mid = (l + r) >> 1;
-    return query(node*2, l, mid, L, R) +
-           query(node*2+1, mid+1, r, L, R);
+    return query(node * 2, l, mid, L, R) +
+           query(node * 2 + 1, mid + 1, r, L, R);
 }

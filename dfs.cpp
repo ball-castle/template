@@ -9,9 +9,7 @@ void dfs(int u) {
     visited[u] = true;
     // the operation for every point
     for(int v : g[u]) {
-        if(!visited[v]) {
-            dfs(v);
-        }
+        if(!visited[v]) dfs(v);
     }
 }
 
