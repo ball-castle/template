@@ -10,6 +10,11 @@ using namespace std;
 const int N = 1e5 + 5; //最大数组长度
 int a[N];      //原数组
 int tree[N*4]; //线段树数组
+ll lazy[N * 4];
+
+void pushup(int node) {
+    tree[node] = tree[node * 2] + tree[node * 2 + 1];
+}
 
 // 建树
 void build(int node, int l, int r) {
@@ -30,9 +35,46 @@ void update(int node, int l, int r, int pos, int val) {
         return;
     }
     int mid = (l + r) >> 1;
-    if(pos <= mid) update(node*2, l, mid, pos, val);
-    else update(node*2+1, mid+1, r, pos, val);
-    tree[node] = tree[node*2] + tree[node*2+1];
+    if(pos <= mid) update(node * 2, l, mid, pos, val);
+    else update(node * 2 + 1, mid + 1, r, pos, val);
+    tree[node] = tree[node * 2] + tree[node * 2 + 1];
+}
+
+
+
+void pushdown(int node, int l, int r) {
+    if(lazy[node] == 0) return;
+
+    int mid = (l + r) >> 1;
+
+    apply(node * 2, l, mid, lazy[node]);
+    apply(node * 2 + 1, mid + 1, r, lazy[node]);
+
+    lazy[node] = 0;
+}
+
+
+// 给 node 这个区间整体加 val
+void apply(int node, int l, int r, ll val) {
+    tree[node] += (r - l + 1) * val;
+    lazy[node] += val;
+}
+// 区间修改：把 [L, R] 全部加 val
+
+void modify(int node, int l, int r, int L, int R, ll val) {
+    if(L <= l && r <= R) {
+        apply(node, l, r, val);
+        return;
+    }
+
+    pushdown(node, l, r);
+
+    int mid = (l + r) >> 1;
+
+    if(L <= mid) modify(node * 2, l, mid, L, R, val);
+    if(R > mid) modify(node * 2 + 1, mid + 1, r, L, R, val);
+
+    pushup(node);
 }
 
 // 区间查询，查询 [L, R] 的和
