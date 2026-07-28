@@ -6,15 +6,16 @@ using namespace std;
 核心在于二分
 修改 查询 
 */
+//区间修改区间查询
 
 const int N = 1e5 + 5; //最大数组长度
 int a[N];      //原数组
 int tree[N*4]; //线段树数组
-ll lazy[N * 4];
-
+ll lazy[N * 4]; //  lazy[node] node 结点已经被加过某个值但是没有传给它的儿子
+// 把左右结点往上传
 void pushup(int node) {
     tree[node] = tree[node * 2] + tree[node * 2 + 1];
-}
+} 
 
 // 建树
 void build(int node, int l, int r) {
