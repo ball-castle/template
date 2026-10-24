@@ -1,0 +1,34 @@
+{
+  "id": "BM05",
+  "title": "原解直接收录 二分选题 CF913D",
+  "source": "competition/models/choose_tasks.cpp",
+  "when": "选择k个对象后，单个对象资格又依赖最终k，且总时间有限。",
+  "contract": "原CF913D题面：n<=2e5，a_i<=n，t_i<=1e4,T<=1e9。完整独立程序，入口main；check只由原二分对1..n调用。",
+  "idea": "保留原注释的突破：不计分对象只会有负作用，先猜最终得分k，再挑资格满足且时间最少的k个。",
+  "proof": "删除不得分对象不减得分且放松限制；固定k时选最小耗时k个最优；可行k的任意更小值可通过删对象得到。",
+  "complexity": "O(nlogn)时间、O(n)空间。",
+  "usage": "独立编译运行；输入5 300与五组(a,t)，输出得分2及任意合法选择。不要与另一份main直接拼接。",
+  "example": "官方第二例n=2,T=100，耗时787/788，答案0；第三例42+58=100，两题资格2，答案2。",
+  "pitfalls": [
+    "不能只按时间贪心而忽略资格随总数变化。",
+    "check(0)并非该原接口支持场景，原main从1开始搜索。",
+    "源码存在不等于线上AC；当前验证为300组全子集差分。"
+  ],
+  "patch": false,
+  "origins": [
+    {
+      "path": "cf/other/Hello_2018/D.cpp",
+      "idea": "用户原始注释、结构体node、全局n/T/p、check和二分全部保留。",
+      "issue": "官方范围内未发现功能问题。",
+      "change": "仅复制到权威模板仓库并统一LF换行；不改算法和接口。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "exercise_url": "https://codeforces.com/problemset/problem/913/D",
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "dependencies": [],
+  "test": "tests/round02/test_model_tools.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "PG08",
+  "title": "多源BFS",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/multisource_bfs.hpp",
+  "when": "每个点距最近医院/出口/起火点的最少步数。",
+  "contract": "依赖PG03；sources每个点在1..n，可重复或为空；所有源距离0，共用dist/fa/path。",
+  "complexity": "O(n+m+源数)时间，O(n+m)空间。",
+  "idea": "把所有源同时入队，等价于一个虚拟起点零代价连到所有源。",
+  "proof": "第0层就是全部源；分层不变式给出min_s dist(s,v)，不需要每个源单独BFS。",
+  "pitfalls": [
+    "每个源依次调用单源bfs会覆盖之前结果。",
+    "源点时间不同不能都设0，需要最短路或分层事件。",
+    "空源集合应全部不可达。"
+  ],
+  "example": "链1-2-3-4-5，sources={1,5,1}：dist=[0,1,2,1,0]。",
+  "usage": "init(5);\nfor(int i=1;i<5;++i){g[i].push_back(i+1);g[i+1].push_back(i);}\nbfs(vector<int>{1,5,1});",
+  "origins": [
+    {
+      "path": "template/bfs.cpp",
+      "idea": "同一队列层序。",
+      "issue": "原模板只有一个起点。",
+      "change": "只扩展初始化：全部源去重入队。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "PG03"
+  ],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

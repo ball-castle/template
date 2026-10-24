@@ -1,0 +1,33 @@
+{
+  "id": "PM03",
+  "title": "负数向下/向上整除",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/integer_division.hpp",
+  "when": "不等式取整、负数坐标分桶、二分边界与容量除法。",
+  "contract": "a,b为ll，b!=0；排除a=LLONG_MIN,b=-1（数学商2^63超出ll）。floor_div/ceil_div返回数学下取整/上取整。",
+  "complexity": "O(1)时间/空间。",
+  "idea": "C++向零截断；有余数且商应为负则floor减一，商应为正则ceil加一。",
+  "proof": "a=bq+r，|r|<|b|；r/b的符号确定真实商在q哪一侧，最多需要改1。",
+  "pitfalls": [
+    "(a+b-1)/b只在特定非负范围成立且a+b-1可能溢出。",
+    "负数a%b可能为负。",
+    "不能用浮点ceil处理完整ll精确边界。"
+  ],
+  "example": "floor_div(-7,3)=-3，ceil_div(-7,3)=-2；floor_div(7,-3)=-3。",
+  "usage": "ll l=floor_div(-7,3);\nll r=ceil_div(-7,3);",
+  "origins": [
+    {
+      "path": "cf/ICPC/JAKARTA_2018/H.cpp",
+      "idea": "局部need=(c+len+1)/2是向上取整型门槛。",
+      "issue": "源文件求解尚未完成；该非负局部式不能扩展到负数通用除法。",
+      "change": "只提取取整需求，新增完整符号分支。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

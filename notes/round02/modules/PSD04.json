@@ -1,0 +1,49 @@
+{
+  "id": "PSD04",
+  "title": "单点树：区间最大值与阈值搜索",
+  "category": "数据结构",
+  "priority": "P1",
+  "source": "competition/data_structure/segment_point_max.hpp",
+  "when": "点改区间最大值，或找[L,R]里第一个至少为x的位置。",
+  "contract": "沿用PSD02边界；first_ge允许L>R并返回-1；值可为任意ll。",
+  "complexity": "建树O(n)，修改/区间查询/first_ge均O(log n)，空间O(n)。",
+  "pitfalls": [
+    "max不能用0代表空段，全负区间会错误。",
+    "first_ge只查给定[L,R]；必须先左后右才是第一个。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/first_ge.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/first_ge.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "mx<x的整段绝不含答案；其余段先查左儿子。",
+  "proof": "剪去不相交段与不达标段，按下标递增搜索，第一个叶就是最左合法位置。",
+  "origins": [
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "update按用户命名改为modify；保留递归骨架，查询只进入相交儿子。Node改为mx并取max；新增基于mx剪枝、先左后右的first_ge搜索。",
+      "interface_change": "query返回Node取.mx；新增first_ge(...,L,R,val)返回最左达标下标或-1。 查询需合法非空闭区间；modify为点赋值。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；来源0下标半开输入不搬入新例程，新例程使用1下标闭区间。query返回Node取.mx；新增first_ge(...,L,R,val)返回最左达标下标或-1。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [],
+  "dependencies": [],
+  "patch": false,
+  "source_parts": [
+    "competition/data_structure/nodes/max.inc",
+    "competition/data_structure/segment_point_base.inc"
+  ],
+  "assembly": "工程直接include source；打印时递归展开本地#include，不重复维护整棵树。具体Node+make_node+merge必须位于公共骨架前。同一提交只选一个个人版本。",
+  "example_source": "competition/data_structure/examples/first_ge.cpp",
+  "sample_input": "4 4\n8 1 8 2\n2 2 4 8\n2 2 2 8\n1 2 9\n2 2 4 8\n",
+  "sample_output": "3\n-1\n2\n"
+}

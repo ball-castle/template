@@ -1,0 +1,33 @@
+{
+  "id": "X02",
+  "title": "按位贡献：数对与所有子数组",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P0",
+  "source": "competition/xor/bit_contribution.hpp",
+  "when": "暴力中有所有数对，或求所有子数组XOR的和/再次XOR。",
+  "contract": "a至少{0}、1-indexed、n<=1e9、元素uint64。返回GNU __uint128_t；pair_bit_sums依次为i<j的XOR/OR/AND普通和。subarray_xor_sum为普通加法和，all_subarray_xor才是再次异或。",
+  "complexity": "数对/子数组普通和O(64n)；再次XOR O(n)；额外空间O(64)。",
+  "idea": "每位one/zero决定多少数对使该位为1；子数组变成n+1个前缀的数对。",
+  "proof": "XOR贡献one*zero；AND贡献C(one,2)；OR贡献one*zero+C(one,2)。每对前缀唯一对应一个非空子数组。元素a[i]参与i(n-i+1)个子数组，再次XOR时仅奇数次保留。",
+  "pitfalls": [
+    "先提升到u128再乘。n<=1e9保证总和小于2^128，不能无限泛化。",
+    "i<j与有序对不同；OR/AND不得照搬one*zero。",
+    "把所有子数组XOR值相加，与把它们再次XOR是不同目标。"
+  ],
+  "example": "cf/4/1090/E_xor_find_pattern.cpp的双循环提供数对识别信号；原题求max而非sum，本模块是明确分开的扩展练习。",
+  "usage": "vector<ull> a={0,1,2,3}; auto ans=pair_bit_sums(a); cout<<to_string_u128(ans[0]); auto sum=subarray_xor_sum(a); ull x=all_subarray_xor(a);",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/4/1090/E_xor_find_pattern.cpp",
+      "idea": "对原数对枚举结构按位拆分。",
+      "issue": "原文件没有数对求和；不能把此扩展说成原题解。",
+      "change": "新增贡献模型，原最大数对代码保留在X08。",
+      "interface_change": "独立函数；无类、无cp命名空间。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

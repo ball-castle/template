@@ -1,0 +1,95 @@
+[
+  {
+    "id": "RT_IO",
+    "title": "先判断输入格式，再选原read或cin",
+    "signal": "大量已知数量的普通整数；或题面含单词、字符、整行、EOF。",
+    "observe": "整数按题目n/T次数读取；文字输入先区分单词、字符和整行。",
+    "brute": "常规整数直接用熟悉的原read逐项读入，其他格式使用cin。",
+    "redundancy": "算法若O(n²)，换快读不能消除主要计算；输入输出混用还会引入缓冲顺序问题。",
+    "derive": "原read用于数量和整数范围已知的合法输入；混合/EOF/特殊边界使用cin。关闭同步写在main开头，整行前明确处理残留换行。",
+    "conditions": "普通整数按n/T调用原read；其他格式cin；关闭同步后同一输入/输出流不能混用。",
+    "proof": "逐位累积保持已读前缀数值；整行读取以换行为边界，与空白分词语义不同。",
+    "code_refs": [
+      "IO01",
+      "IO02",
+      "CO02"
+    ],
+    "complexity": "按输入字符数线性。",
+    "pitfalls": "读取次数与题面一致；cin>>ws会丢失有意义的前导空格。",
+    "exercise": "template/tests/round02/test_runtime.cpp::test_cin_recipe/test_original_read_valid_integers：7、-9000000000、hello、Z与保留前导空格。",
+    "origins": [
+      "template/read.cpp",
+      "template/core/main.cpp",
+      "template/core/basics.hpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "RT_ANGLE",
+    "title": "从向量求距离、夹角与方向",
+    "signal": "两点距离、两个非零向量夹角、点绕原点的方位。",
+    "observe": "要的是夹角[0,π]还是带象限方向[0,2π)？零向量是否可能？输入单位是弧度还是角度？",
+    "brute": "手写sqrt(dx*dx+dy*dy)，再用atan(y/x)猜象限。",
+    "redundancy": "平方和可能更易溢出；atan(y/x)丢掉象限并在x=0时无定义。",
+    "derive": "距离用hypot；方向用atan2(y,x)后归一化；夹角用单位向量点积再acos。",
+    "conditions": "向量非零且有限；acos数学参数应位于[-1,1]，夹紧只修微小舍入误差。",
+    "proof": "点积=|a||b|cosθ；atan2结合x/y符号保留象限。",
+    "code_refs": [
+      "FP01"
+    ],
+    "usage": "distance_2d(0,0,3,4)==5；degrees(angle_between(1,0,0,1))≈90；direction_angle(0,-1)≈3π/2。",
+    "complexity": "O(1)。",
+    "pitfalls": "把atan2参数反过来；对零向量强行定义角；把EPS加入排序比较器破坏严格弱序。",
+    "exercise": "tests/round02/test_runtime.cpp：三四五距离、四象限、微小越界、2000随机单位向量。",
+    "origins": [
+      "template/Ternary_Search.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "RT_SEARCH",
+    "title": "实数答案的分界，或函数的唯一谷底",
+    "signal": "求最小可行实数；或一个连续函数先下降后上升求最小值。",
+    "observe": "先证明check单调或f单谷；边界是否覆盖答案？函数求值是否稳定？",
+    "brute": "均匀枚举很多小数点，精度越高枚举越多且可能漏答案。",
+    "redundancy": "单调性或单峰性允许一批区间整体排除。",
+    "derive": "二分比较可行性留下转折点；三分比较m1/m2函数值留下最小区间。",
+    "conditions": "二分false->true且右端可行；三分连续、最小区间外严格单调、无非最优平台；不能由画几个点证明全区间性质。",
+    "proof": "m1<m2且f(m1)<=f(m2)时，单谷性质说明m2右侧没有更优最小点。",
+    "code_refs": [
+      "TRS01"
+    ],
+    "complexity": "固定200次迭代乘单次check/f复杂度。",
+    "pitfalls": "f有两个谷时会删掉全局最优；整数答案不应用浮点二分再直接强转；无限精度迭代并不存在。",
+    "exercise": "template/Ternary_Search.cpp只借用200轮循环，题目几何性质未在本卡确认；测试对x²>=v与已知顶点二次函数。",
+    "origins": [
+      "template/Ternary_Search.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "RT_DISPLAY",
+    "title": "显示几位小数，与数值精度和取整分开考虑",
+    "signal": "要求保留k位小数，或需要对负数取整；题目涉及距离、比例或角度。",
+    "observe": "输出格式是小数位还是有效数字？计算需要多少精度？数学上向下/向上/就近取整分别是什么？",
+    "brute": "依赖默认输出格式，或把double直接强转int当作所有取整。",
+    "redundancy": "显示格式只决定打印文本，不能修复前面计算丢失的精度；四种取整方向不同。",
+    "derive": "fixed+setprecision(k)固定小数位；单独setprecision(k)默认有效数字。double通常约15位有效数字，long double精度由实现决定。floor向负无穷取整，ceil向正无穷，trunc向0，round的半数远离0。",
+    "conditions": "printf的%f接double，%Lf接long double；需要精确整数计数/取模时保留整数。本例保留默认同步用于展示cout/printf；关闭同步后不混同一输出流。",
+    "proof": "格式化在已有二进制浮点值上产生十进制文本，不改变该值；例如-1.5在四种取整下分别得到-2/-1/-2/-1。",
+    "code_refs": [
+      "IO02",
+      "FP01"
+    ],
+    "usage": "#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    // 本例保留默认同步；因此cout/printf输出顺序可一起演示。\n    double x = 12.3456;\n    cout << setprecision(3) << x << '\\n';\n    cout << fixed << setprecision(3) << x << '\\n';\n    printf(\"%.10f\\n\", 0.125);\n    printf(\"%.3Lf\\n\", 1.0L / 8);\n    long double y = -1.5L;\n    cout << setprecision(0) << floor(y) << ' ' << ceil(y) << ' '\n         << round(y) << ' ' << trunc(y) << '\\n';\n}\n",
+    "expected_output": "12.3\n12.346\n0.1250000000\n0.125\n-2 -1 -2 -1\n",
+    "complexity": "每个数值操作O(1)，打印复杂度随输出字符数。",
+    "pitfalls": "显示k位不是十进制精确舍入的通用解法；float精度较少；超出整数范围时强转不安全；负数不能把/或强转误当floor。",
+    "exercise": "tests/round02/test_runtime.cpp实际执行格式、snprintf与四种取整断言；本卡main另独立编译并核对完整输出。",
+    "origins": [
+      "template/core/main.cpp",
+      "template/Ternary_Search.cpp"
+    ],
+    "patch": true
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "id": "PG10",
+  "title": "Floyd全源最短路",
+  "category": "图与树 Graph and Tree",
+  "priority": "P1",
+  "source": "competition/graph/floyd.hpp",
+  "when": "点少、多次两点最短路查询；可有负边但无负环。",
+  "contract": "0<=n<510，|边权|<=1e12；先init，再add_edge取重边最小值，无向边加两次。floyd有任何负环返回false，此时全部结果不使用；不可达INF。",
+  "complexity": "O(n^3)时间、O(n^2)空间。",
+  "idea": "逐步放开可经过的中间点k，dist[i][j]取不经过k或经k两部分之和。",
+  "proof": "最短路按是否经过k分成两类；无负环可选简单最短路。k必须是最外层才能维护中间点集合不变式。",
+  "pitfalls": [
+    "不可达INF不参与加法。",
+    "负环可能使递推数值迅速变负；用i128并截到-INF后返回false。",
+    "不能把同一k放最内层当标准Floyd。"
+  ],
+  "example": "1->2权4，2->3权-2，1->3权9：dist[1][3]=2；另加3->2权1形成负环，返回false。",
+  "usage": "init(3);\nadd_edge(1,2,4);\nadd_edge(2,3,-2);\nadd_edge(1,3,9);\nbool ok=floyd();",
+  "origins": [
+    {
+      "path": "template/graph/dijkstra.hpp",
+      "idea": "沿用INF与最短距离语义作为比较背景。",
+      "issue": "Dijkstra不支持负边与一次性全源小图。",
+      "change": "新增Floyd；没有伪称来自用户已有完整Floyd源。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

@@ -8,6 +8,7 @@ dp/** text eol=lf
 math/** text eol=lf
 string/** text eol=lf
 advanced/** text eol=lf
+competition/** text eol=lf
 tests/** text eol=lf
 scripts/** text eol=lf
 notes/** text eol=lf

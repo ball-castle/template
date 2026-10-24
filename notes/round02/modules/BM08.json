@@ -1,0 +1,42 @@
+{
+  "id": "BM08",
+  "title": "整数状态BFS与非负子集回溯剪枝",
+  "category": "枚举与搜索",
+  "priority": "P0",
+  "source": "competition/models/state_search.hpp",
+  "when": "状态可以编码为有限整数，求最少操作并恢复路径；小n非负子集达到给定目标，练习选/不选回溯与安全剪枝。",
+  "contract": "整数状态x直接编码为x，0<=start,target<=limit<=1e6；操作仅+1、-1、乘2，结果须留在[0,limit]，每步费用1。子集a[1..n]、0号占位，0<=n<=40、每项非负ll、target>=0；按下标区分重复值，target=0允许空集。",
+  "idea": "BFS把重复操作序列合并到同一完整局面；回溯仍枚举选/不选，但用非负性和后缀总量排除不可能分支。",
+  "proof": "BFS按步数分层，首次访问状态给出最短距离，fa与from逐边恢复合法路径。非负子集的sum超目标后不会下降，sum+剩余总和不足时任何选择都达不到目标，故两条剪枝不删可行解。",
+  "complexity": "整数BFS O(limit)时间空间；子集最坏O(2^n)时间、O(n)额外空间，剪枝无多项式保证。",
+  "usage": "auto p=integer_state_bfs(3,10,20)，p.states首尾为起终点，p.operations中的+/-/*分别表示+1/-1/乘2；subset_target_nonnegative({0,3,3},6)返回含下标1,2的可行子集。",
+  "example": "3→6→5→10为3步最短操作；起终点相同返回一个状态及空操作。{3,3}达到6必须用两个不同下标；{2,4}到3无解；空数组到0为空子集。",
+  "pitfalls": [
+    "有限边界是题面模型的一部分，不能把无界整数问题随便截到某个limit后宣称全局最短。",
+    "未来还依赖钥匙/次数时，不能只编码一个整数位置；必须加状态维度。",
+    "含负数时sum>target后可能再下降，sum+后缀总和也不再是最大可达上界，不能用本剪枝。",
+    "n<=40不是复杂度保证；最坏指数，普通40元素子集和优先BM04折半。"
+  ],
+  "origins": [
+    {
+      "path": "template/competition/stl/recipes.hpp",
+      "idea": "使用用户熟悉的self递归lambda选/不选结构，栈式维护所选下标。",
+      "issue": "原STL短例无目标判定、路径返回或剩余和剪枝。",
+      "change": "新增明确非负契约下的目标回溯函数，不改原短例。",
+      "interface_change": "新增optional<vector<int>>函数。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/competition/graph/bfs.hpp",
+      "idea": "保留队列、入队即标记、fa前驱的基础BFS结构。",
+      "issue": "原模块是显式图，没有具体整数局面转移和操作恢复接口。",
+      "change": "新增有边界的+1/-1/乘2状态例，不声称是任意状态题通用求解器。",
+      "interface_change": "新增IntegerPath结果。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false,
+  "test": "tests/round02/test_search.cpp",
+  "verify": "2026-10-25先缺失实现RED，再Windows GNU++20 -O2 -Wall -Wextra -Wshadow零警告PASS、WSL GNU++20 ASan+UBSan PASS。limit=0..30全部起终点对Floyd并逐步重放；limit=1e6；n<=6三值非负数组所有目标与300组随机数组对全子集枚举，覆盖空/全0/重复下标/LLONG_MAX。"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "PG11",
+  "title": "二分图染色与冲突检测",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/bipartite.hpp",
+  "when": "每条约束要求两端不同组；判断能否只用两种颜色。",
+  "contract": "0<=n<200010，无向边双向添加；col=1/2。成功时所有点着色；失败时剩余col可能为0。支持断图、重边；自环立即失败。",
+  "complexity": "O(n+m)时间/空间。",
+  "idea": "沿用col[v]=3-col[u]，遍历每个组件；给已着色邻点补相异检查。",
+  "proof": "边要求两端相异，沿路径颜色由长度奇偶唯一决定；出现同色边恰好构成奇环矛盾。",
+  "pitfalls": [
+    "只给未着色点染色但不检查已着色边，会把三角形误判可二分。",
+    "原6.16题可能自带可行结构，其专用代码不能直接充当通用判定。",
+    "断图必须枚举所有起点。"
+  ],
+  "example": "链1-2-3可染1,2,1；再加3-1失败；两个平行1-2边仍可行。",
+  "usage": "init(3);\ng[1]={2};\ng[2]={1,3};\ng[3]={2};\nbool ok=bipartite();",
+  "origins": [
+    {
+      "path": "template/graph_paint.cpp",
+      "idea": "col=1/2、3-col[u]翻色。",
+      "issue": "未检测已着色邻点冲突且只从1开始。",
+      "change": "最小补充冲突else与组件外层循环。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/6/6.16/2_bi_paint_.cpp",
+      "idea": "已具有枚举组件的BFS染色。",
+      "issue": "局部模型要求相异，但源码未做通用冲突判定；不据此否定原题可行性保证。",
+      "change": "保留循环结构，补同色边返回false。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "BM04",
+  "title": "逆序对与折半枚举",
+  "source": "competition/models/enumeration.hpp",
+  "when": "数对顺序违背大小关系；n约40而直接枚举2^n不可行。",
+  "contract": "逆序对a[1..n],n<200010并原地排序；折半v[1..n],n<=40，所有子集和及target-x在ll内，按位置区分子集并含空集。",
+  "idea": "归并时一批统计左侧剩余逆序；指数枚举拆成两个半边后做有序匹配。",
+  "proof": "归并遇右元素小于左最小剩余，左剩余全与它构成逆序且只统计一次；每个完整子集唯一分解为左右两个子集。",
+  "complexity": "逆序对O(nlogn)/O(n)；MITM O(n*2^(n/2))时间、O(2^(n/2))空间。",
+  "usage": "a[1]=3;a[2]=1;a[3]=2;merge_count(1,3); //2；subset_sum_count({0,1,1},1); //2",
+  "example": "重复值不算逆序；两个值均为1的不同位置构成两个和为1的子集。",
+  "pitfalls": [
+    "归并必须用<=使相等值不计逆序。",
+    "MITM求方案数不能unique掉重复和。",
+    "本模块逆序对会修改数组顺序，需要原序时先备份。"
+  ],
+  "patch": false,
+  "origins": [
+    {
+      "path": "template/core/basics.hpp",
+      "idea": "已有排序/离散化，补充与暴力数对/子集枚举对应的优化。",
+      "issue": "原规范模块未有逆序对/MITM。",
+      "change": "新增直观归并与两半和值枚举。",
+      "interface_change": "新增",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "dependencies": [],
+  "test": "tests/round02/test_model_tools.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

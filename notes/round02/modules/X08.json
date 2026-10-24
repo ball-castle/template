@@ -1,0 +1,33 @@
+{
+  "id": "X08",
+  "title": "我的最大数对双循环（2218E）",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P0",
+  "source": "competition/xor/max_pair_quadratic.hpp",
+  "when": "选当前元素x、所有元素^=x、删除x，做至剩一项；原题sum n<=3105。",
+  "contract": "a至少{0}、1-indexed、非负值；原2218E为2<=n<=3105、a[i]<=1e9。模板不足两项返回0约定。",
+  "complexity": "O(n²)时间，O(1)额外空间；原题最多约482万对。",
+  "idea": "公共XOR标签在下一次操作时被抵消，最后只与最后删除者和幸存者两个原值有关。",
+  "proof": "当前值为原值^t，选原值a[i]后其他值变成a[j]^a[i]；最后为两个不同原下标的XOR。任何一对都可保留至最后，故枚举数对既是上界也能达到。",
+  "pitfalls": [
+    "二重循环不能凭文件名判TLE；必须核对真实3105规模。",
+    "max元素和min元素不一定给最大XOR：{1,2,3}极值异或2，最优1^2=3。",
+    "不把本地验证说成已核验在线AC。"
+  ],
+  "example": "cf/4/1090/E_xor_find_pattern.cpp，真实题The 67th XOR Problem，CF2218E。",
+  "usage": "ull ans=max_xor_pair_quadratic({0,1,2,3});",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/4/1090/E_xor_find_pattern.cpp",
+      "idea": "原注释已观察每次只与最后一次XOR有关。",
+      "issue": "原双循环正确且在原题约束合格。",
+      "change": "原双循环直接抽取；改ull只是供完整非负64位复用。",
+      "interface_change": "原solve改为返回答案的独立函数。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

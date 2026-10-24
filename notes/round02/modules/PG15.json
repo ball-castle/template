@@ -1,0 +1,41 @@
+{
+  "id": "PG15",
+  "title": "DAG路径计数与最长路",
+  "category": "图与树 Graph and Tree",
+  "priority": "P1",
+  "source": "competition/graph/dag_dp.hpp",
+  "when": "转移关系有向无环；求从固定起点的路径数和最长边数。",
+  "contract": "1<=s<=n<200010，1<=mod<=LLONG_MAX；不可达dist=-1/ways=0，起点含空路径。重边按不同边选择计数。有环返回false，结果作废。",
+  "complexity": "O(n+m)时间/空间。",
+  "idea": "Kahn处理完全部前驱后，把ways加向后继、把dist最大化。",
+  "proof": "每条到v的非空路径有唯一最后一条边u->v；拓扑序保证所有前驱已完成，路径计数可加且最长路可取max。",
+  "pitfalls": [
+    "有向有环时最长简单路不能照搬此DP。",
+    "mod=1时ways[s]=0但s仍可达，不能用ways==0判断可达。",
+    "两项模数接近LLONG_MAX时加法先转i128。"
+  ],
+  "example": "菱形1->2/3->4：dist[4]=2，ways[4]=2；连续63层每层两条重边有2^63条路径。",
+  "usage": "init(4);\ng[1]={2,3};\ng[2]={4};\ng[3]={4};\nbool ok=dag_dp(1,1000000007);",
+  "origins": [
+    {
+      "path": "cf/1704E.cpp",
+      "idea": "Kahn得到tp，沿拓扑/逆拓扑累加dp。",
+      "issue": "原题带前置模拟和特定汇点，不等同通用DAG路径题。",
+      "change": "抽出可证明的拓扑路径递推，计数方向由固定起点确定。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/graph/topological_sort.hpp",
+      "idea": "可靠Kahn实现直接作为同输入兼容检查。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

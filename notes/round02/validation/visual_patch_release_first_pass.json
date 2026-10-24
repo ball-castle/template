@@ -1,0 +1,306 @@
+{
+  "status": "FAIL",
+  "pdf_sha256": "b0779c53e0d31d78e952e328334e9e8ce92b15fbe1b0b45231763cb2bed52d2b",
+  "pdf_path": "板子打印版/成都站_赛前小技巧与题型补丁_2026.pdf",
+  "page_count": 25,
+  "render_dpi": 130,
+  "checked_at_utc": "2026-10-24T17:10:48.792826+00:00",
+  "reviewer": "r2_stl_runtime",
+  "method": "25页全部重新使用tools.view_image(detail=\"original\")逐页实际查看；检查裁切、重叠、中文、页脚、索引、原read与跨页孤页。",
+  "summary": "无裁切、重叠、乱码或页脚碰撞；两处6行短函数残尾页尚待调整。",
+  "issues": [
+    {
+      "pages": [
+        16,
+        17
+      ],
+      "description": "stl_string_recipes最后6行独占17页",
+      "suggestion": "整个函数从17页开始，不改变总页数"
+    },
+    {
+      "pages": [
+        20,
+        21
+      ],
+      "description": "adjacent_moves最后6行独占21页",
+      "suggestion": "整个函数从21页开始，不改变总页数"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "status": "PASS",
+      "notes": "封面、容器选择表与原read/cin提示清楚，表格及页脚完整。",
+      "image": "_qa/round02_patch_release/page-01.png",
+      "image_sha256": "e77d7aae3dbe0aca68c7e2b5e64e99e6cef90b43dcaf4ebddc8dd7a9f5168220",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 2,
+      "status": "PASS",
+      "notes": "六步思考、DP与debug检查提示清楚，无遮挡。",
+      "image": "_qa/round02_patch_release/page-02.png",
+      "image_sha256": "53ed4e0e292693c73d9e26e7b222a8a5a920380441656605cc79d9f6a829bf6d",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 3,
+      "status": "PASS",
+      "notes": "个人代码习惯及DP状态识别表列对齐，中文完整。",
+      "image": "_qa/round02_patch_release/page-03.png",
+      "image_sha256": "155de5ee030252c76f526cc0b96fdf2d7687f60380c6428f4ea4654c13b16294",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 4,
+      "status": "PASS",
+      "notes": "25页版目录名称和页码可读，未碰撞。",
+      "image": "_qa/round02_patch_release/page-04.png",
+      "image_sha256": "d8f8e9cc54b3081a273ea567aae42e1ec5a5284fa35f5513e3bfb8249192d20a",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 5,
+      "status": "PASS",
+      "notes": "MEX及两张博弈卡完整，行距正常。",
+      "image": "_qa/round02_patch_release/page-05.png",
+      "image_sha256": "2beb62f20eb267ded13ed12d0b4f447d971642c60b77877a8308a9cc393a7691",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 6,
+      "status": "PASS",
+      "notes": "三张区间整数操作卡完整，公式和长路径正常换行。",
+      "image": "_qa/round02_patch_release/page-06.png",
+      "image_sha256": "6f0b82fc18c49bf7cff912b4bb6d9b3ee36a79cbdbfb9c8bb5a370a76f5a8335",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 7,
+      "status": "PASS",
+      "notes": "构造、可行性二分及角度卡清楚，页面边界安全。",
+      "image": "_qa/round02_patch_release/page-07.png",
+      "image_sha256": "ed6a4a34d9620f7c1d5a182b36f208e018ece4c60ae190be2c895708df77f8be",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 8,
+      "status": "PASS",
+      "notes": "RT_SEARCH与RT_DISPLAY完整，独立main无裁切。",
+      "image": "_qa/round02_patch_release/page-08.png",
+      "image_sha256": "b39968a9bc141cf5eb0c98bc7bb8a3b5a33c307943f5605b47dd8c38ff062afa",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 9,
+      "status": "PASS",
+      "notes": "SEG-00、容器选择与XOR03卡片完整，密集段落仍可读。",
+      "image": "_qa/round02_patch_release/page-09.png",
+      "image_sha256": "60e87658055fb2163196f33b66e11003bda27a51547bc6ef06956f5a4363d42c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 10,
+      "status": "PASS",
+      "notes": "XOR05卡片完整，章节留白正常。",
+      "image": "_qa/round02_patch_release/page-10.png",
+      "image_sha256": "8968cbd8ddffc8f43b9a9a089910a10246381cb2e92d06540478aed886f715cf",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 11,
+      "status": "PASS",
+      "notes": "原inline ll read()完整，说明简洁，while长行未越界。",
+      "image": "_qa/round02_patch_release/page-11.png",
+      "image_sha256": "edd322e931bea7a66ca09b37eb5370141cc223bd8e518bd37fd04db98de501aa",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 12,
+      "status": "PASS",
+      "notes": "FP01精简说明与全部函数同页，最后右括号完整，底部安全。",
+      "image": "_qa/round02_patch_release/page-12.png",
+      "image_sha256": "95f8a5b7e0a71c07903af5591bb4798ccdd4631b8118204c1b039226e6131474",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 13,
+      "status": "PASS",
+      "notes": "TRS01单调/单峰契约及两段代码完整，无裁切。",
+      "image": "_qa/round02_patch_release/page-13.png",
+      "image_sha256": "f997d7af090b76b0208d1ea6312266008d4b1486af6ad2a8a8e7f365a90b04d9",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 14,
+      "status": "PASS",
+      "notes": "STL array/vector/deque/pair/tuple/stack/queue完整；三堆代码在明确续页继续。",
+      "image": "_qa/round02_patch_release/page-14.png",
+      "image_sha256": "e93fbc7507b43b8f7052ef37b5373d90cc6957d628279191fddb48558d2b235e",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 15,
+      "status": "PASS",
+      "notes": "三种ll堆、set/multiset、map等及排序示例清楚；算法代码正常续接。",
+      "image": "_qa/round02_patch_release/page-15.png",
+      "image_sha256": "3efead22ccf8fdb3289313b338504de0119b82975c4c6a541d294e033e2a0f83",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 16,
+      "status": "PASS",
+      "notes": "STL算法及string前半段完整，底部没有触及页脚；string尾部被分到17页。",
+      "image": "_qa/round02_patch_release/page-16.png",
+      "image_sha256": "393e94a6a040e82304c9ea0d7751d8da2e4aade589002ed0bf1f51d379276dde",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 17,
+      "status": "FAIL",
+      "notes": "仅stl_string_recipes最后6行，独立残尾页；应将整个短函数移到本页。",
+      "image": "_qa/round02_patch_release/page-17.png",
+      "image_sha256": "572b6774637ca07defa35081c07144952797d3c96b76b290cad890280bf6408b",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 18,
+      "status": "PASS",
+      "notes": "静态、前缀与动态MEX代码完整，mex_query在本页结束。",
+      "image": "_qa/round02_patch_release/page-18.png",
+      "image_sha256": "e20eb6cbed08adf656f1929a9c0de48dc5b492038a09ea2f02daee5c6af7b25b",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 19,
+      "status": "PASS",
+      "notes": "正常Nim、SG和反常Nim全部在同页，旧四行孤页已消除。",
+      "image": "_qa/round02_patch_release/page-19.png",
+      "image_sha256": "425f9c6439c0599fb00ed1a26988c8315b5a7ab2205aa2a038f1554943240c3c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 20,
+      "status": "PASS",
+      "notes": "BM01代码清楚；adjacent_moves开头位于页末，尾部被分到21页。",
+      "image": "_qa/round02_patch_release/page-20.png",
+      "image_sha256": "670fe5106b6f276a26472e9c551adf91e7a6950c45315ee6c1e8bd7727cf6eef",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 21,
+      "status": "FAIL",
+      "notes": "仅adjacent_moves最后6行，独立残尾页；应将整个短函数移到本页。",
+      "image": "_qa/round02_patch_release/page-21.png",
+      "image_sha256": "d4ca083a24b6ff777d0796747f456f0954cc49a25a82b6e1bdc5d4f518ef4bfd",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 22,
+      "status": "PASS",
+      "notes": "PG01树存储、初始化和根化开头完整，页脚安全。",
+      "image": "_qa/round02_patch_release/page-22.png",
+      "image_sha256": "35f24db2c3e30da3f43d400274821b82c2939009d57d193df1d813c1b4811a97",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 23,
+      "status": "PASS",
+      "notes": "PG01根化余部完整，嵌套循环与函数结束可读，无孤立符号页。",
+      "image": "_qa/round02_patch_release/page-23.png",
+      "image_sha256": "5041a67b13a0c49a215387e30f8461927dddd417c5647bc257ec61bf49afdb52",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 24,
+      "status": "PASS",
+      "notes": "Fenwick定义、完整main及输入输出均同页，旧样例输出孤页消除。",
+      "image": "_qa/round02_patch_release/page-24.png",
+      "image_sha256": "67b9d8af3789b30f99bf5a21ff06ec600cbbf91b92dd1b82341cf18b006de8c2",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    },
+    {
+      "page": 25,
+      "status": "PASS",
+      "notes": "X01全部源代码完整，最后return和右括号在同页，底部留白安全。",
+      "image": "_qa/round02_patch_release/page-25.png",
+      "image_sha256": "9d4380e217c831ba0cf0eba5309976c6ecb683b390844466b0ce02aa1c672683",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ]
+    }
+  ]
+}

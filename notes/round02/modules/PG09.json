@@ -1,0 +1,33 @@
+{
+  "id": "PG09",
+  "title": "0-1 BFS",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/zero_one_bfs.hpp",
+  "when": "边权仅0/1，如免费移动与一次付费翻转。",
+  "contract": "1<=start<=n<200010；每条边w必须是0或1，函数不校验。不可达dist=1e9。",
+  "complexity": "O(n+m)时间和空间。",
+  "idea": "0权松弛入队头，1权松弛入队尾；用距离改善而非visited一次性锁死。",
+  "proof": "deque保留当前最小层及下一层；有效弹出按距离非降序，等价于只含0/1边的Dijkstra。",
+  "pitfalls": [
+    "1->2权1、1->3权0、3->2权0时，2初次发现不是最短。",
+    "有2权时不能继续保证队列序。",
+    "必须跳过过期距离快照。"
+  ],
+  "example": "上述三边中dist[2]=0；普通BFS按边数会给1。",
+  "usage": "init(3);\ng[1]={{2,1},{3,0}};\ng[3]={{2,0}};\nbfs01(1);",
+  "origins": [
+    {
+      "path": "template/graph/dijkstra.hpp",
+      "idea": "按dist松弛与丢弃过期项。",
+      "issue": "二值权可去掉堆log。",
+      "change": "堆替换为deque并按边权分前后。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

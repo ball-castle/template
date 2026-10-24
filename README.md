@@ -1,5 +1,34 @@
 # ACM ICPC 铜牌导向模板
 
+## ROUND02：个人比赛手册
+
+本轮在原 PR 增量整理。**原版 `inline ll read()` 直接用；普通整数按题目数量读取，其他格式用 `cin`。** 原来验证使用过的算法优先直接收录，只有明确问题才作小修复，树的存储也作为正式基础内容。
+
+- [赛前补充 DOCX](板子打印版/成都站_赛前小技巧与题型补丁_2026.docx) · [PDF](板子打印版/成都站_赛前小技巧与题型补丁_2026.pdf)
+- [完整 V2 DOCX](板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.docx) · [PDF](板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf)
+- [先看题意怎么想](HOW_TO_THINK.md) · [问题模型](PROBLEM_MODEL_ATLAS.md)
+- [STL 用法](STL_TRICKS.md) · [STL/数据结构逐项验收](STL_AND_DATA_STRUCTURE_COVERAGE.md) · [铜牌覆盖矩阵](BRONZE_COVERAGE_MATRIX.md)
+- [DP 状态推导](DP_MODEL_ATLAS.md) · [线段树维护与调用](SEGMENT_TREE_COOKBOOK.md)
+- [XOR/AND/OR 模型](XOR_AND_BITWISE_ATLAS.md) · [我的六份异或代码复盘](MY_XOR_REVIEW.md)
+- [图与树](GRAPH_TREE_COOKBOOK.md) · [数学与几何](MATH_GEOMETRY_NOTES.md)
+- [个人习惯](PERSONAL_CODE_STYLE.md) · [逐模块来源](SOURCE_PROVENANCE.md) · [接口差异](STYLE_INTERFACE_DIFF.md)
+- [本轮验证报告](VALIDATION_REPORT_V2.md) · [原覆盖审计](CURRENT_COVERAGE_AUDIT.md)
+
+`competition/` 是本轮个人比赛代码；`notes/round02/modules/` 与 `cards/` 是统一教学来源。旧正确模块按编号复用；新旧并存的核心实现用同一输入和独立 oracle 对照。每份代码单独使用，避免把不同模块的同名全局数组直接拼在一起。原两册和32份历史源文件保留。
+
+统一验证（同时包含原32模块与原测试）：
+
+```sh
+python3 scripts/run_round02_tests.py
+python3 scripts/run_round02_tests.py --sanitize
+python3 scripts/build_round02_books.py --book patch
+python3 scripts/build_round02_books.py --book full
+```
+
+生成器要求两套当前源码/测试哈希都通过；递归展开本地 include 后逐份独立编译。用下文 Word 导出脚本导出同名 PDF，再运行 `python3 scripts/check_round02_print.py`、`python3 scripts/test_round02_print_gate.py`，并用 `scripts/render_pdf.py` 渲染全页目视检查。页码来自 Word 的 PAGEREF，经实际 PDF 核对；覆盖矩阵使用这些真实页码。源文件变化后必须重测并重新导出。
+
+以下为 ROUND01 保留说明；比赛主入口以上述个人版为准。
+
 面向 CF 1500 左右、正在练习稳定建模与编码的选手。先掌握“读题 → 性质 → 证明 → 编码 → 边界测试”，再使用代码。增加模板不保证获奖。
 
 ## 先打印与复习

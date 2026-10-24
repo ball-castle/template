@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "artifact": "ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "pdf_sha256_verified_before_and_after_review": true,
+  "pdf_page_count": 276,
+  "reviewed_at": "2026-10-25T01:01:19.2459098+08:00",
+  "reviewer": "qa_v2_211_245",
+  "page_range": {
+    "start": 211,
+    "end": 245
+  },
+  "reviewed_page_count": 35,
+  "method": {
+    "skill": "C:/Users/TSOU/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md",
+    "source_png_directory": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final",
+    "source_png_pattern": "page-NNN.png",
+    "render_dpi": 130,
+    "image_dimensions_px": {
+      "width": 1075,
+      "height": 1521
+    },
+    "inspection": "逐页调用 tools.view_image，detail=original，并以原尺寸 image 输出实际查看；每批最多 4 页。全部 35 页均已视觉检查，未使用 contact sheet 或文本提取代替页面视觉检查。",
+    "checks": [
+      "中文及代码裁切",
+      "文字重叠与行距",
+      "页眉与页脚完整性",
+      "页码与正文分离",
+      "代码跨页与孤立函数尾部",
+      "表格完整性（本分段无表格）"
+    ],
+    "pagination_criterion": "独立模型起新页允许留白；按委派规则，仅孤立 1–3 行函数末尾占整页记为分页瑕疵。",
+    "excluded": "结构、PAGEREF 和 source exact 已由主任务验证；本次不重新验证算法或修改生成器。",
+    "source_files_modified": false
+  },
+  "pages": [
+    {
+      "page": 211,
+      "status": "PASS",
+      "notes": "PG06 起始页；中文说明与代码均在页边距内，代码正常续至下一页，页眉页脚完整。"
+    },
+    {
+      "page": 212,
+      "status": "PASS",
+      "notes": "PG06 续页；LCA 代码完整清晰，底部无孤立函数尾行，页脚正常。"
+    },
+    {
+      "page": 213,
+      "status": "PASS",
+      "notes": "PG07 独立模型页；中文与代码无裁切、重叠，模型结束后的留白合理。"
+    },
+    {
+      "page": 214,
+      "status": "PASS",
+      "notes": "PG08 起始页；中文与代码清晰，代码正常跨页，页脚与正文分离。"
+    },
+    {
+      "page": 215,
+      "status": "PASS",
+      "notes": "PG08 续页含完整多行函数主体（非孤立 1–3 行函数尾部）；留白可接受，无裁切重叠。"
+    },
+    {
+      "page": 216,
+      "status": "PASS",
+      "notes": "PG09 独立模型页；中文说明换行正常，0-1 BFS 代码与页脚完整。"
+    },
+    {
+      "page": 217,
+      "status": "PASS",
+      "notes": "PG10 独立模型页；长中文说明与 Floyd 代码均在版心内，底部留白正常。"
+    },
+    {
+      "page": 218,
+      "status": "PASS",
+      "notes": "PG11 独立模型页；染色代码及中文说明清晰，行距、边距和页码正常。"
+    },
+    {
+      "page": 219,
+      "status": "PASS",
+      "notes": "PG12 起始页；本页中文与代码无裁切、重叠，续页 220 有孤立函数尾部分页瑕疵。"
+    },
+    {
+      "page": 220,
+      "status": "FAIL",
+      "notes": "分页瑕疵：PG12 续页正文仅 3 行函数收尾（}、return false;、}），整页其余留白；标题和页脚正常，无裁切。"
+    },
+    {
+      "page": 221,
+      "status": "PASS",
+      "notes": "PG13 起始页；长中文段落换行正常，代码正常跨页，无溢出或重叠。"
+    },
+    {
+      "page": 222,
+      "status": "PASS",
+      "notes": "PG13 续页；多行代码与函数结尾完整，页眉页脚正常，未见分页孤尾。"
+    },
+    {
+      "page": 223,
+      "status": "PASS",
+      "notes": "PG15 独立模型页；DAG 代码完整，中文、长代码行与页脚均未裁切或重叠。"
+    },
+    {
+      "page": 224,
+      "status": "PASS",
+      "notes": "PM01 独立模型页；公式、中文和扩欧代码清晰，模型结束留白正常。"
+    },
+    {
+      "page": 225,
+      "status": "PASS",
+      "notes": "PM02 起始页；长中文段落正常换行，代码续至下一页，未见视觉溢出。"
+    },
+    {
+      "page": 226,
+      "status": "PASS",
+      "notes": "PM02 续页含 7 行代码，非孤立 1–3 行函数尾部；无裁切重叠，留白按独立模型分页规则可接受。"
+    },
+    {
+      "page": 227,
+      "status": "PASS",
+      "notes": "PM03 独立模型页；数学符号、中文与代码均清晰完整，底部留白正常。"
+    },
+    {
+      "page": 228,
+      "status": "PASS",
+      "notes": "PM04 独立模型页；长函数签名及公式未越界，无重叠，页脚完整。"
+    },
+    {
+      "page": 229,
+      "status": "PASS",
+      "notes": "PM05 独立模型页；说明段落与代码排版一致，无裁切或错位。"
+    },
+    {
+      "page": 230,
+      "status": "PASS",
+      "notes": "PM06 独立模型页；整数几何代码含续行但对齐清晰，中文和页脚均完整。"
+    },
+    {
+      "page": 231,
+      "status": "PASS",
+      "notes": "PSD01 起始页；Fenwick 与完整 main 均清晰，样例输入在本页末端；样例输出另见 232。"
+    },
+    {
+      "page": 232,
+      "status": "PASS",
+      "notes": "观察：本页仅一行样例输出，形成较大留白；不是孤立函数尾部，按本次仅标记 1–3 行函数尾页的规则不列为 FAIL。中文与页码完整。"
+    },
+    {
+      "page": 233,
+      "status": "PASS",
+      "notes": "PSD02 起始页；公共骨架和区间和代码完整可读，长行未越界，页脚清晰。"
+    },
+    {
+      "page": 234,
+      "status": "PASS",
+      "notes": "PSD02 续页；完整 main 及样例输入输出在同页，无裁切或重叠，结束留白合理。"
+    },
+    {
+      "page": 235,
+      "status": "PASS",
+      "notes": "PSD03 起始页；中文、骨架代码及 query 结尾完整，版心和页脚间距正常。"
+    },
+    {
+      "page": 236,
+      "status": "PASS",
+      "notes": "PSD03 续页；完整 main 与样例同页，文本清晰，独立模型末尾留白合理。"
+    },
+    {
+      "page": 237,
+      "status": "PASS",
+      "notes": "PSD04 起始页；标题、说明和代码均未裁切，续页衔接正常。"
+    },
+    {
+      "page": 238,
+      "status": "PASS",
+      "notes": "PSD04 续页；first_ge、完整 main 与样例清晰完整，无重叠和孤立函数尾页。"
+    },
+    {
+      "page": 239,
+      "status": "PASS",
+      "notes": "PSD05 起始页；中文及 GCD 代码无裁切、重叠，query 正常跨页。"
+    },
+    {
+      "page": 240,
+      "status": "PASS",
+      "notes": "PSD05 续页；query 末段后紧接完整 main 和样例，无孤立函数尾页，页脚完整。"
+    },
+    {
+      "page": 241,
+      "status": "PASS",
+      "notes": "PSD06 起始页；最大值次数的说明与代码清晰，代码正常续页，无边缘裁切。"
+    },
+    {
+      "page": 242,
+      "status": "PASS",
+      "notes": "PSD06 续页；query 末段、main 及样例连续清晰，标题和页脚完整。"
+    },
+    {
+      "page": 243,
+      "status": "PASS",
+      "notes": "PSD07 起始页；最大非空子段和说明与代码清晰，长行在版心内，页码完整。"
+    },
+    {
+      "page": 244,
+      "status": "PASS",
+      "notes": "PSD07 续页；完整 query、main 和样例同页显示，无裁切重叠，留白合理。"
+    },
+    {
+      "page": 245,
+      "status": "PASS",
+      "notes": "PSD08 起始页；频率树说明及代码完整清晰，本页正常跨页，页脚正常；246 以后由相邻分段检查。"
+    }
+  ],
+  "findings": [
+    {
+      "page": 220,
+      "type": "pagination",
+      "severity": "minor",
+      "status": "FAIL",
+      "description": "PG12 有向/无向环恢复续页仅有 3 行函数收尾：}、return false;、}，其余整页留白。"
+    }
+  ],
+  "observations": [
+    {
+      "page": 232,
+      "status": "NON_BLOCKING_OBSERVATION",
+      "description": "PSD01 续页仅一行样例输出；非函数尾部，按本次限定的分页规则不记为 FAIL，已向主任务报告。"
+    }
+  ],
+  "conclusion": {
+    "status": "FAIL",
+    "pass_pages": 34,
+    "fail_pages": [
+      220
+    ],
+    "clipping_or_overlap_found": false,
+    "missing_or_clipped_footer_found": false,
+    "summary": "第 211–245 页全部完成原尺寸视觉检查。未发现中文、代码或页脚裁切与重叠；第 220 页存在 3 行函数尾部独占续页的分页瑕疵。第 232 页的单行样例输出孤页另记为观察。"
+  }
+}

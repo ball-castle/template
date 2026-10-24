@@ -1,0 +1,43 @@
+{
+  "id": "PG13",
+  "title": "无权树直径与路径",
+  "category": "图与树 Graph and Tree",
+  "priority": "P1",
+  "source": "competition/graph/tree_diameter.hpp",
+  "when": "求树上最长简单路径的边数及端点。",
+  "contract": "依赖PG01。只接受无权无向树；tree_diameter非树返回-1。单点长度0、路径[1]；成功后diameter_a/b和diameter_path有效。只读g/n，不修改PG01的父亲/深度。",
+  "complexity": "O(n)时间和空间。",
+  "idea": "从任一点找最远端a，再从a找最远端b；第二次父亲回溯得到直径路径。",
+  "proof": "以初始点s为根，最远a的深度不小于任意直径端点x/y。取t=LCA(x,y)：若a在t子树内，选与a不同分支的端点；否则a到端点的分叉不深于t。所得a到该端点距离至少为原直径，故a是某条直径端点；第二遍最大距离即直径。",
+  "pitfalls": [
+    "本模块是无权版，不把BFS步数当带权距离。",
+    "非负权树可把遍历距离改为权和后用两遍法，但需另核验溢出；负边树不能直接套。",
+    "多个最远点可能并列，返回任意一条直径，不保证字典序。"
+  ],
+  "example": "星形1-2、1-3、1-4，直径长度2，可返回任意两片叶子的路径；20万链长度199999。",
+  "usage": "init(4);\ng[1]={2,3,4};\ng[2]={1};\ng[3]={1};\ng[4]={1};\nint len=tree_diameter();",
+  "origins": [
+    {
+      "path": "template/tree_storage.cpp",
+      "idea": "复用双向树存储。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/bfs.cpp",
+      "idea": "最远点通过BFS距离获得。",
+      "issue": "原模板没有直径两遍法。",
+      "change": "新增两次BFS与第二遍父亲回溯。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "PG01"
+  ],
+  "patch": false,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

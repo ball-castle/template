@@ -1,0 +1,33 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [],
+  "patch": true,
+  "id": "PDP04",
+  "title": "个人数位 DP 与基础有限状态计数",
+  "source": "competition/dp/digit_count.hpp",
+  "when": "区间数字统计非零位不超过3；或统计无相邻1的定长二进制串。",
+  "contract": "digit_range要求0<=l<=r<=LLONG_MAX，0计入。全局s/dp每次calc清空；非重入。binary_no_adjacent要求n>=0、mod∈[1,INT_MAX]，空串计1。",
+  "complexity": "数位O(19*4*10)时间，O(19*4)缓存；二进制计数O(n)时间O(1)空间。",
+  "idea": "数字只有19位，非limit相同后缀可复用；计数按互斥的末位类别相加。",
+  "proof": "补齐前导零后每个整数有唯一路径；不贴上界的同pos/cnt拥有相同可行后缀。",
+  "pitfalls": [
+    "count>3先返回，避免访问dp[][4]。",
+    "换上界清缓存；数0是否应扣掉由题意决定。",
+    "binary计数新层不能读已更新的当前层；mod=1答案0。"
+  ],
+  "example": "DPC11：[1000,1111]有111个符合数；DPC14：长度3无相邻1有5种。",
+  "usage": "#include \"competition/dp/digit_count.hpp\"\nint main() {\n    cout << digit_range(1000, 1111) << '\\n'; // 111\n}\n",
+  "origins": [
+    {
+      "path": "cf/date/8/1/2_digit_dp.cpp",
+      "idea": "保留原全局string s、ll dp[20][4]、limit与非零位计数、递归lambda",
+      "issue": "原合法范围未发现算法问题；递归lambda形参同名dfs产生-Wshadow但不影响结果",
+      "change": "最小提取calc/range，形参self消除同名告警；索引改int而数值仍ll；计数基础另加函数",
+      "interface_change": "原输入输出solve改为digit_calc/digit_range，不引入类或cp::",
+      "online_status": "UNKNOWN"
+    }
+  ]
+}

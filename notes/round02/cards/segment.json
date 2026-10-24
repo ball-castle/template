@@ -1,0 +1,717 @@
+[
+  {
+    "id": "SEG-00",
+    "title": "一页速查：先选容器，再选维护信息",
+    "signal": "看到区间修改或区间询问时，先判断是否在线、操作能否合并。",
+    "observe": "静态还是动态？只问前缀、固定窗口、还是任意[L,R]？更新是单点还是整段？",
+    "brute": "逐元素改或逐元素查；先算n*q是否能接受。",
+    "redundancy": "很多查询重复用到相同区间；静态、前缀可减、固定窗口各有更简单的专用结构。",
+    "derive": [
+      "静态区间和→前缀和；只在最后要结果的区间加→差分。",
+      "单点加＋前缀/区间和→Fenwick：前缀可相减；sum以外的操作先检查逆运算。",
+      "静态min/max/gcd→ST表：可合并且重复覆盖不改变结果；静态sum不能用重叠两块相加。",
+      "固定长度窗口min/max→单调队列：每个下标至多进出一次；不是任意区间结构。",
+      "动态任意区间、复杂Node→线段树；整段更新还需能O(1)作用于Node的lazy。",
+      "点改sum/min/max/gcd→一个字段；max+次数→mx,cnt；最大子段→sum,pref,suff,best。",
+      "区间加→sum加len*x、min/max各加x；区间赋值→has_set，不能用0代表无标记。",
+      "set后add和add后set不同：下传先set再add；kth必须非负频率；阈值搜索明确[L,R]。"
+    ],
+    "conditions": "Fenwick差两个前缀需可消去；ST重叠查询需幂等；lazy需对整段摘要直接计算；每一条都是要检查的条件。",
+    "proof": "先利用操作的额外限制减少维护量；没有这些限制时用可合并区间摘要，且以结合律保证划分无关。",
+    "code_refs": [
+      "PSD01",
+      "PSD02",
+      "PSD10",
+      "PSD11",
+      "DS04",
+      "DS05"
+    ],
+    "complexity": "Fenwick/线段树单次O(log n)；ST预处理O(n log n)、min/max查询O(1)；单调队列全程O(n)。",
+    "pitfalls": [
+      "前缀min相减无意义：前缀min相同也不能推出中间最小值。",
+      "ST两块若求和会重复计数重叠部分。",
+      "普通gcd/最大子段Node不能直接接上区间加lazy。"
+    ],
+    "exercise": "对同一数组分别加入：无修改、点加、区间加、固定窗口四种约束，先写出能淘汰哪些结构。",
+    "origins": [
+      "template/Fenwick_tree.cpp",
+      "template/segmen tree1.cpp",
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "print_one_page": true
+  },
+  {
+    "id": "SEG-01",
+    "title": "单点改值、区间求和",
+    "signal": "每次只改一个位置，却反复问一段总量。",
+    "observe": "一次改值影响哪些区间；输入下标是闭区间还是[l,r)。",
+    "brute": "每次查询逐个相加，O(n)。",
+    "redundancy": "同一段会被反复求和，且sum(左+右)=sum(左)+sum(右)。",
+    "derive": [
+      "把数组二分成固定区间，修改只重算包含该点的O(log n)层；若只需加法可先选Fenwick。",
+      "Node：sum：区间元素和。",
+      "pushup：sum=x.sum+y.sum。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：只作单点赋值，所问答案确为元素和。充分：父段sum可由左右sum相加得到。 边界契约：1<=n<N；1下标闭区间；modify是赋值；a仅是建树输入；所有中间和须在ll内。",
+    "proof": "每次修改重算该叶到根路径；查询按从左到右的互不相交段合并。",
+    "code_refs": [
+      "PSD02"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "modify为赋值；加delta需用当前值+delta。",
+      "n=0不能build；查询不接受L>R。",
+      "a仅供建树，修改后请读tree或另行同步a。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/point_sum.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": true,
+    "node": "sum：区间元素和。",
+    "pushup": "sum=x.sum+y.sum。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<query(1,1,n,L,R).sum;",
+    "example_source": "competition/data_structure/examples/point_sum.cpp",
+    "input_format": "2 1 3表示查询；1 pos val表示赋值。",
+    "sample_input": "3 3\n3 -2 4\n2 1 3\n1 2 5\n2 1 3\n",
+    "sample_output": "5\n12\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-02",
+    "title": "单点改值、区间最小值",
+    "signal": "在线改变点值，并问任意区间的最低值。",
+    "observe": "有修改就不能直接沿用静态ST表；min没有前缀相减法。",
+    "brute": "遍历[L,R]取min。",
+    "redundancy": "左右最小值足够确定父区间最小值，原始元素不必反复扫描。",
+    "derive": [
+      "把Node从sum换成mn，叶子就是当前点值，其余单点骨架完全复用。",
+      "Node：mn：区间最小值。",
+      "pushup：mn=min(x.mn,y.mn)。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：只有单点改值；静态时可用ST替代。充分：左右mn的min决定父段mn。 边界契约：沿用PSD02边界；允许负数及LLONG_MIN；无空区间查询。",
+    "proof": "每个元素恰属一个查询子段，min满足结合律。",
+    "code_refs": [
+      "PSD03"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "最小值不能把不相交区间返回0。",
+      "旧4e18有限哨兵不足以覆盖所有ll；本版用分支查询避免哨兵。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/2.cpp 的点改/最小值模型。本轮可运行模型：competition/data_structure/examples/point_min.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp",
+      "cf/segment_tree_cf_edu/2.cpp"
+    ],
+    "patch": false,
+    "node": "mn：区间最小值。",
+    "pushup": "mn=min(x.mn,y.mn)。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<query(1,1,n,L,R).mn;",
+    "example_source": "competition/data_structure/examples/point_min.cpp",
+    "input_format": "2 l r查询；1 pos val赋值。",
+    "sample_input": "3 3\n5 2 7\n2 1 3\n1 2 8\n2 1 3\n",
+    "sample_output": "2\n5\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-03",
+    "title": "单点改值、区间最大值",
+    "signal": "每次改一个点，并问一段当前的最大高度/价值。",
+    "observe": "最大值可能全为负数；不能用0冒充空段。",
+    "brute": "逐个枚举区间元素取max。",
+    "redundancy": "父区间最大值只依赖两个儿子的最大值。",
+    "derive": [
+      "Node换成mx；查询骨架只进入相交儿子，因此无需人为负无穷哨兵。",
+      "Node：mx：区间最大值。",
+      "pushup：mx=max(x.mx,y.mx)。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：只有单点改值；负数不能当无贡献。充分：左右mx的max决定父段mx。 边界契约：沿用PSD02边界；first_ge允许L>R并返回-1；值可为任意ll。",
+    "proof": "每个区间元素位于且只位于一个儿子；两侧最大值的较大者就是整个区间最大值。",
+    "code_refs": [
+      "PSD04"
+    ],
+    "complexity": "建树O(n)，修改/区间查询/first_ge均O(log n)，空间O(n)。",
+    "pitfalls": [
+      "max不能用0代表空段，全负区间会错误。",
+      "first_ge只查给定[L,R]；必须先左后右才是第一个。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/point_max.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": false,
+    "node": "mx：区间最大值。",
+    "pushup": "mx=max(x.mx,y.mx)。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<query(1,1,n,L,R).mx;",
+    "example_source": "competition/data_structure/examples/point_max.cpp",
+    "input_format": "2 l r查询；1 pos val赋值。",
+    "sample_input": "3 3\n5 2 7\n2 1 3\n1 2 8\n2 1 3\n",
+    "sample_output": "7\n8\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-04",
+    "title": "单点改值、区间gcd",
+    "signal": "一段数反复求最大公约数，中间会改一个数。",
+    "observe": "先看是否允许负数；gcd结果统一非负，0与其他数的gcd等于后者绝对值。",
+    "brute": "逐个用Euclid累计gcd。",
+    "redundancy": "gcd有结合律，左右各自gcd足够；但区间加不能只由旧gcd算出新gcd。",
+    "derive": [
+      "叶子先取绝对值；merge取gcd，继续复用单点骨架。",
+      "Node：g：区间所有元素绝对值的gcd。",
+      "pushup：g=gcd(x.g,y.g)。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：点改；所有绝对值能用ll表示。充分：gcd满足结合律，叶子统一非负。 边界契约：沿用PSD02边界；负数先取绝对值，gcd(0,0)=0；LLONG_MIN不在契约内。",
+    "proof": "gcd结合律使分段方式无关；取绝对值不改变共同正因数。",
+    "code_refs": [
+      "PSD05"
+    ],
+    "complexity": "建树O(n log V)，修改/查询O(log n log V)，空间O(n)。",
+    "pitfalls": [
+      "std::gcd返回非负；LLONG_MIN的绝对值不能用ll表示，不支持。",
+      "区间加无法只用旧gcd推出新gcd；[2,4]与[2,6]原gcd同为2，加2后分别为2和4。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/point_gcd.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": false,
+    "node": "g：区间所有元素绝对值的gcd。",
+    "pushup": "g=gcd(x.g,y.g)。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<query(1,1,n,L,R).g;",
+    "example_source": "competition/data_structure/examples/point_gcd.cpp",
+    "input_format": "2 l r查询；1 pos val赋值。",
+    "sample_input": "3 3\n-6 10 0\n2 1 3\n1 2 -9\n2 1 2\n",
+    "sample_output": "2\n3\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-05",
+    "title": "区间加、区间和",
+    "signal": "每次对整段加同一个数，而且修改间还要在线查询任意子段和。",
+    "observe": "若只在最后看数组用差分；若更新后立刻查询，需可延后下传的信息。",
+    "brute": "每次区间修改逐元素加，每次查询逐元素加总。",
+    "redundancy": "整段长度已知，整体加x使和恰好增加len*x，无须访问每个叶子。",
+    "derive": [
+      "完全覆盖时改当前sum并记lazy；部分覆盖前pushdown，返回后pushup。",
+      "Node：sum,mn,mx；本题读取sum。",
+      "pushup：sum=x.sum+y.sum。",
+      "lazy：是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+      "apply：sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+      "pushdown：先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+      "查询：完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。"
+    ],
+    "conditions": "必要：每次覆盖段内所有元素增加同一val。充分：len已知，sum可直接增加len*val，标记可相加。 边界契约：1<=n<N；修改和查询是合法非空闭区间；a为初始输入；和、标记、长度*x及中间量在ll内。",
+    "proof": "整段平移保持大小顺序，标记相加表示时间上的连续平移；下传后子树与父树状态一致。",
+    "code_refs": [
+      "PSD10"
+    ],
+    "complexity": "建树O(n)，区间修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "查询部分覆盖也必须pushdown。",
+      "sum加len*x，mn/mx只加x。",
+      "build清lazy后才可多测复用；不要直接调用旧update跳过标记。"
+    ],
+    "exercise": "本地练习：cf/date/6/6.9/1_special_segment_tree.cpp 的区间加/最小值局部模型。本轮可运行模型：competition/data_structure/examples/range_add.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "node": "sum,mn,mx；本题读取sum。",
+    "pushup": "sum=x.sum+y.sum。",
+    "has_lazy": "是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+    "apply": "sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+    "pushdown": "先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+    "query": "完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,L,R,val); cout<<query(1,1,n,L,R).sum;",
+    "example_source": "competition/data_structure/examples/range_add.cpp",
+    "input_format": "1 l r delta区间加；2 l r同时输出sum min max。",
+    "sample_input": "3 4\n3 -2 4\n2 1 3\n1 1 2 5\n2 1 3\n2 2 2\n",
+    "sample_output": "5 -2 4\n15 3 8\n3 3 3\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-06",
+    "title": "区间加、区间最小值",
+    "signal": "给一段整体平移，同时问最低值或某个前缀约束是否被破坏。",
+    "observe": "整段统一加法是否保持元素相对顺序；原6.9练习维护d[x]=x-count(<=x)。",
+    "brute": "逐个加、逐个扫描最小值。",
+    "redundancy": "共同加x不改变谁最小，min只增加x。",
+    "derive": [
+      "复用区间加骨架中的mn字段；需要最小位置时可在Node额外记录并处理相等取左。",
+      "Node：mn（本实现同时保留sum,mx）。",
+      "pushup：mn=min(x.mn,y.mn)。",
+      "lazy：是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+      "apply：sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+      "pushdown：先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+      "查询：完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。"
+    ],
+    "conditions": "必要：每次整段加同一val而非按位置加不同量。充分：共同平移保持相对大小，mn直接增加val。 边界契约：1<=n<N；修改和查询是合法非空闭区间；a为初始输入；和、标记、长度*x及中间量在ll内。",
+    "proof": "整段平移保持大小顺序，标记相加表示时间上的连续平移；下传后子树与父树状态一致。",
+    "code_refs": [
+      "PSD10"
+    ],
+    "complexity": "建树O(n)，区间修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "查询部分覆盖也必须pushdown。",
+      "sum加len*x，mn/mx只加x。",
+      "build清lazy后才可多测复用；不要直接调用旧update跳过标记。"
+    ],
+    "exercise": "本地练习：cf/date/6/6.9/1_special_segment_tree.cpp 的区间加/最小值局部模型。本轮可运行模型：competition/data_structure/examples/range_add.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "node": "mn（本实现同时保留sum,mx）。",
+    "pushup": "mn=min(x.mn,y.mn)。",
+    "has_lazy": "是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+    "apply": "sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+    "pushdown": "先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+    "query": "完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,L,R,val); cout<<query(1,1,n,L,R).mn;",
+    "example_source": "competition/data_structure/examples/range_add.cpp",
+    "input_format": "同一完整示例同时输出sum min max，第二列是本模型答案。",
+    "sample_input": "3 4\n3 -2 4\n2 1 3\n1 1 2 5\n2 1 3\n2 2 2\n",
+    "sample_output": "5 -2 4\n15 3 8\n3 3 3\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-07",
+    "title": "区间加、区间最大值",
+    "signal": "整段增减后反复询问最大负载/最大高度。",
+    "observe": "整体平移不改变大小关系；单独的最大值足以快速apply。",
+    "brute": "逐个改、再扫描max。",
+    "redundancy": "max(a_i+x)=max(a_i)+x。",
+    "derive": [
+      "复用区间加的mx；与sum不同，mx只加x，不能乘区间长度。",
+      "Node：mx（本实现同时保留sum,mn）。",
+      "pushup：mx=max(x.mx,y.mx)。",
+      "lazy：是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+      "apply：sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+      "pushdown：先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+      "查询：完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。"
+    ],
+    "conditions": "必要：每次整段加同一val。充分：max(a_i+val)=max(a_i)+val。 边界契约：1<=n<N；修改和查询是合法非空闭区间；a为初始输入；和、标记、长度*x及中间量在ll内。",
+    "proof": "整段平移保持大小顺序，标记相加表示时间上的连续平移；下传后子树与父树状态一致。",
+    "code_refs": [
+      "PSD10"
+    ],
+    "complexity": "建树O(n)，区间修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "查询部分覆盖也必须pushdown。",
+      "sum加len*x，mn/mx只加x。",
+      "build清lazy后才可多测复用；不要直接调用旧update跳过标记。"
+    ],
+    "exercise": "本地练习：cf/date/6/6.9/1_special_segment_tree.cpp 的区间加/最小值局部模型。本轮可运行模型：competition/data_structure/examples/range_add.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "node": "mx（本实现同时保留sum,mn）。",
+    "pushup": "mx=max(x.mx,y.mx)。",
+    "has_lazy": "是；lazy[node]为本节点已处理、尚未传子的累计增量。",
+    "apply": "sum+=(r-l+1)*val；mn+=val；mx+=val；lazy+=val。",
+    "pushdown": "先apply左右儿子，再lazy[node]=0；部分修改和部分查询都先下传。",
+    "query": "完整覆盖返回Node；部分覆盖先pushdown，再按左右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,L,R,val); cout<<query(1,1,n,L,R).mx;",
+    "example_source": "competition/data_structure/examples/range_add.cpp",
+    "input_format": "同一完整示例同时输出sum min max，第三列是本模型答案。",
+    "sample_input": "3 4\n3 -2 4\n2 1 3\n1 1 2 5\n2 1 3\n2 2 2\n",
+    "sample_output": "5 -2 4\n15 3 8\n3 3 3\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-08",
+    "title": "区间赋值、区间和",
+    "signal": "把一整段全部覆盖成同一个值，再查询和。",
+    "observe": "覆盖会抹去之前所有修改；0也是一个有效赋值。",
+    "brute": "遍历区间每个元素赋新值。",
+    "redundancy": "覆盖后的和只取决于长度和值，为len*x。",
+    "derive": [
+      "用has_set表示有没有赋值，不能拿set==0当无标记；复用混合骨架时始终传is_set=true。",
+      "Node：tree为ll区间和；lazy含has_set/set/add，本变体add保持0。",
+      "pushup：tree[node]=tree[left]+tree[right]。",
+      "lazy：是；has_set独立于数值0，set/add分别记录赋值和后续增量。",
+      "apply：is_set=true：tree=len*val，lazy={true,val,0}；否则tree+=len*val，lazy.add+=val。",
+      "pushdown：若has_set先给左右孩子赋set，再给左右孩子加add，最后lazy={}。",
+      "查询：完整覆盖返回tree[node]；部分覆盖先pushdown再累加相交儿子的和。"
+    ],
+    "conditions": "必要：一次操作将段内全部元素覆盖成同一val。充分：len*val确定新和，has_set记录赋值0。 边界契约：1<=n<N；合法非空闭区间；true表示赋值、false表示加；所有中间量在ll内；允许赋值0。",
+    "proof": "覆盖后每个元素均为val，所以整段和为len*val；下传覆盖会正确抹除儿子的旧信息。",
+    "code_refs": [
+      "PSD11"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "不能用set!=0判断有无赋值，set=0也是有效操作。",
+      "set(v)后add(d)得到v+d；add(d)后set(v)只剩v。",
+      "下传先set再add，新的set必须清掉旧add。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/range_set.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "node": "tree为ll区间和；lazy含has_set/set/add，本变体add保持0。",
+    "pushup": "tree[node]=tree[left]+tree[right]。",
+    "has_lazy": "是；has_set独立于数值0，set/add分别记录赋值和后续增量。",
+    "apply": "is_set=true：tree=len*val，lazy={true,val,0}；否则tree+=len*val，lazy.add+=val。",
+    "pushdown": "若has_set先给左右孩子赋set，再给左右孩子加add，最后lazy={}。",
+    "query": "完整覆盖返回tree[node]；部分覆盖先pushdown再累加相交儿子的和。",
+    "usage": "build(1,1,n); modify(1,1,n,L,R,0,true); cout<<query(1,1,n,L,R);",
+    "example_source": "competition/data_structure/examples/range_set.cpp",
+    "input_format": "1 l r val赋值；2 l r查询。",
+    "sample_input": "3 4\n1 2 3\n2 1 3\n1 1 3 0\n1 2 2 5\n2 1 3\n",
+    "sample_output": "6\n5\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-09",
+    "title": "区间赋值与区间加混合",
+    "signal": "题目同时有整段覆盖、整段增加和区间求和。",
+    "observe": "操作顺序是否可交换：set(5)再add(2)=7，add(2)再set(5)=5。",
+    "brute": "逐元素按时间顺序执行每次操作。",
+    "redundancy": "一串操作可压成：可选最后一次赋值，再加其后的累计增量。",
+    "derive": [
+      "标签T=(has_set,set,add)表示先set后add；compose(old,new)即先old后new。新set直接覆盖旧T；新add只累加到old.add。",
+      "Node：tree区间和；Tag{has_set,set,add}。",
+      "pushup：tree[node]=tree[left]+tree[right]。",
+      "lazy：是；has_set独立于数值0，set/add分别记录赋值和后续增量。",
+      "apply：is_set=true：tree=len*val，lazy={true,val,0}；否则tree+=len*val，lazy.add+=val。",
+      "pushdown：若has_set先给左右孩子赋set，再给左右孩子加add，最后lazy={}。",
+      "查询：完整覆盖返回tree[node]；部分覆盖先pushdown再累加相交儿子的和。"
+    ],
+    "conditions": "必要：操作只有赋值与加法，按输入时间顺序执行。充分：任意操作序列能压成可选set后累计add。 边界契约：1<=n<N；合法非空闭区间；true表示赋值、false表示加；所有中间量在ll内；允许赋值0。",
+    "proof": "新set覆盖全部旧操作，新add接在旧操作后；下传先set后add，等价于原时间顺序。",
+    "code_refs": [
+      "PSD11"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "不能用set!=0判断有无赋值，set=0也是有效操作。",
+      "set(v)后add(d)得到v+d；add(d)后set(v)只剩v。",
+      "下传先set再add，新的set必须清掉旧add。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/set_add.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/Segment tree2.cpp",
+      "cf/date/6/6.9/1_special_segment_tree.cpp"
+    ],
+    "patch": true,
+    "node": "tree区间和；Tag{has_set,set,add}。",
+    "pushup": "tree[node]=tree[left]+tree[right]。",
+    "has_lazy": "是；has_set独立于数值0，set/add分别记录赋值和后续增量。",
+    "apply": "is_set=true：tree=len*val，lazy={true,val,0}；否则tree+=len*val，lazy.add+=val。",
+    "pushdown": "若has_set先给左右孩子赋set，再给左右孩子加add，最后lazy={}。",
+    "query": "完整覆盖返回tree[node]；部分覆盖先pushdown再累加相交儿子的和。",
+    "usage": "build(1,1,n); modify(1,1,n,L,R,0,true); modify(1,1,n,L,R,5,false); cout<<query(1,1,n,L,R);",
+    "example_source": "competition/data_structure/examples/set_add.cpp",
+    "input_format": "1 l r val赋值；2 l r delta增加；3 l r查询。",
+    "sample_input": "4 6\n1 2 3 4\n1 1 4 0\n2 2 3 5\n3 1 4\n2 1 4 2\n1 2 3 0\n3 1 4\n",
+    "sample_output": "10\n4\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-10",
+    "title": "区间最大值及次数",
+    "signal": "问最大值是多少，以及恰好等于这个最大值的元素有多少。",
+    "observe": "次数依赖最大值本身，不能独立相加所有儿子次数。",
+    "brute": "扫描区间求max，再统计相等个数。",
+    "redundancy": "较小最大值一侧不贡献；两侧最大值相等才合并次数。",
+    "derive": [
+      "Node保存mx,cnt；三种比较分支构成准确的merge。",
+      "Node：mx：最大值；cnt：该最大值出现次数。",
+      "pushup：x.mx>y.mx返回x；小于返回y；相等返回{mx,x.cnt+y.cnt}。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：cnt只统计等于区间mx的元素。充分：比较两侧mx后仅保留达父最大值一侧的cnt，相等才相加。 边界契约：沿用PSD02边界；单个叶cnt=1；cnt不超过n；值可为任意ll。",
+    "proof": "所有最大值只可能来自最大值等于父最大值的子段。",
+    "code_refs": [
+      "PSD06"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "子段最大值不等时不能把两边次数相加。",
+      "点改叶子必须把cnt重置为1。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/max_count.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": false,
+    "node": "mx：最大值；cnt：该最大值出现次数。",
+    "pushup": "x.mx>y.mx返回x；小于返回y；相等返回{mx,x.cnt+y.cnt}。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); auto ans=query(1,1,n,L,R); cout<<ans.mx<<' '<<ans.cnt;",
+    "example_source": "competition/data_structure/examples/max_count.cpp",
+    "input_format": "2 l r输出最大值和次数；1 pos val赋值。",
+    "sample_input": "4 3\n5 5 1 5\n2 1 4\n1 2 0\n2 1 4\n",
+    "sample_output": "5 3\n5 2\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-11",
+    "title": "最大连续子段和",
+    "signal": "点改后，问某区间内部收益最大的连续一段。",
+    "observe": "答案可能跨左右分界；题意是否允许选空段决定全负时的输出。",
+    "brute": "枚举子段左右端点并求和，O(n²)到O(n³)。",
+    "redundancy": "跨中点的段必为左侧某后缀加右侧某前缀；只记best不够。",
+    "derive": [
+      "保存sum/pref/suff/best；按三类：全左、全右、跨中点合并。查询仍保持左右顺序。",
+      "Node：sum总和；pref最大非空前缀和；suff最大非空后缀和；best最大非空子段和。",
+      "pushup：sum=x.sum+y.sum；pref=max(x.pref,x.sum+y.pref)；suff=max(y.suff,y.sum+x.suff)；best=max(x.best,y.best,x.suff+y.pref)。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：单点改值、连续且默认非空子段。充分：sum/pref/suff/best覆盖全左、全右、跨界三类候选。 边界契约：非空子段；全负返回最大负数。sum/pref/suff/best及相加中间量均在ll内；无任意区间加。",
+    "proof": "任一最优子段恰好属于全在左、全在右、跨中点三类之一。",
+    "code_refs": [
+      "PSD07"
+    ],
+    "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+    "pitfalls": [
+      "只存sum与best无法计算跨中点最优值。",
+      "全负结果是最大负数；允许空段时应在输出取max(0LL,best)。",
+      "任意区间加不能只修改这四个字段。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/max_subarray.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": true,
+    "node": "sum总和；pref最大非空前缀和；suff最大非空后缀和；best最大非空子段和。",
+    "pushup": "sum=x.sum+y.sum；pref=max(x.pref,x.sum+y.pref)；suff=max(y.suff,y.sum+x.suff)；best=max(x.best,y.best,x.suff+y.pref)。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<query(1,1,n,L,R).best;",
+    "example_source": "competition/data_structure/examples/max_subarray.cpp",
+    "input_format": "2 l r输出非空答案；如允许空段仅将输出改为max(0LL,ans.best)。",
+    "sample_input": "4 3\n-5 -2 -7 -1\n2 1 4\n1 2 6\n2 1 4\n",
+    "sample_output": "-1\n6\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-12",
+    "title": "非负频率第k个",
+    "signal": "维护每个值的出现次数，要找排序后的第k个元素/第k个可用位置。",
+    "observe": "位置是自然顺序还是离散化值序；所有频率必须非负。",
+    "brute": "从左往右累计频率，直到累计值达到k。",
+    "redundancy": "整棵左子树的总频率告诉我们前多少个元素可以一次跳过。",
+    "derive": [
+      "k<=left.sum就向左，否则k-=left.sum向右；合法k需1<=k<=总频率。",
+      "Node：sum：区间总频率。",
+      "pushup：sum=x.sum+y.sum。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：query返回总频率；kth按左子树总量下降，非法k返回-1。"
+    ],
+    "conditions": "必要：每个频率非负，k以1为起点，合法时不超过总频率。充分：前缀频率单调且左右子树总量准确。 边界契约：所有频率非负，总频率在ll内；k从1开始；k<=0或k>总量返回-1；modify为频率赋值。",
+    "proof": "非负性保证前缀和单调，左段包含的正是最前面的left.sum个元素。",
+    "code_refs": [
+      "PSD08"
+    ],
+    "complexity": "建树O(n)，修改/query/kth均O(log n)，空间O(n)。",
+    "pitfalls": [
+      "负频率破坏前缀单调；如[2,-1,2]不能据左段总和可靠排位。",
+      "这是第k个元素所在下标；若下标来自离散化，还需反查原值。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/frequency.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": true,
+    "node": "sum：区间总频率。",
+    "pushup": "sum=x.sum+y.sum。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "query返回总频率；kth按左子树总量下降，非法k返回-1。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,new_count); cout<<kth(1,1,n,k);",
+    "example_source": "competition/data_structure/examples/frequency.cpp",
+    "input_format": "1 pos count把频率改为非负count；2 k查第k个，下标从1开始。",
+    "sample_input": "4 4\n0 2 0 3\n2 1\n2 5\n1 2 0\n2 1\n",
+    "sample_output": "2\n4\n4\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-13",
+    "title": "范围内第一个达到阈值的位置",
+    "signal": "从某下标开始，找第一个a[i]>=x；或要求答案只落在[L,R]。",
+    "observe": "需最左位置而非任意位置；寻找范围可能不是全数组。",
+    "brute": "从L扫到R，遇到第一个达标元素即返回。",
+    "redundancy": "某整段max<x时整段都能排除，max>=x仅说明该段存在候选。",
+    "derive": [
+      "先剪去不相交段与mx<x的段，再先左后右下探；找到就立即返回。",
+      "Node：mx：判断本段有没有候选。",
+      "pushup：mx=max(x.mx,y.mx)。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：first_ge剪去不相交或mx<x的段，先左后右，首次找到返回；无解或空搜索范围返回-1。"
+    ],
+    "conditions": "必要：寻找条件是a[i]>=x，限定[L,R]且要求最左。充分：mx<x可排除整段，先左后右下降。 边界契约：沿用PSD02边界；first_ge允许L>R并返回-1；值可为任意ll。",
+    "proof": "剪去不相交段与不达标段，按下标递增搜索，第一个叶就是最左合法位置。",
+    "code_refs": [
+      "PSD04"
+    ],
+    "complexity": "建树O(n)，修改/区间查询/first_ge均O(log n)，空间O(n)。",
+    "pitfalls": [
+      "max不能用0代表空段，全负区间会错误。",
+      "first_ge只查给定[L,R]；必须先左后右才是第一个。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/first_ge.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": true,
+    "node": "mx：判断本段有没有候选。",
+    "pushup": "mx=max(x.mx,y.mx)。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "first_ge剪去不相交或mx<x的段，先左后右，首次找到返回；无解或空搜索范围返回-1。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); cout<<first_ge(1,1,n,L,R,x);",
+    "example_source": "competition/data_structure/examples/first_ge.cpp",
+    "input_format": "1 pos val点赋值；2 l r x返回[l,r]内首个>=x的位置，不存在-1。",
+    "sample_input": "4 4\n8 1 8 2\n2 2 4 8\n2 2 2 8\n1 2 9\n2 2 4 8\n",
+    "sample_output": "3\n-1\n2\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-14",
+    "title": "多个可合并统计量",
+    "signal": "同一个区间要同时问sum/min/max/gcd，或合并需要补充信息。",
+    "observe": "每个字段能否只由左右同类字段确定；merge是否有顺序。",
+    "brute": "每次为每项统计都扫描区间。",
+    "redundancy": "四个字段各自满足结合律，可共享同一棵区间树与查询划分。",
+    "derive": [
+      "Node存四项并逐项merge；这个事实只证明点改可用，不证明所有字段都支持同一种lazy。",
+      "Node：sum,mn,mx,g；如矩阵题还需保存mat和翻转后的rev。",
+      "pushup：分别+、min、max、gcd；非交换字段必须保留左右顺序。",
+      "lazy：否：只有单点赋值，不需要pushdown。",
+      "apply：apply(node,val)把该叶改为make_node(val)。",
+      "pushdown：无；modify沿一条根到叶路径递归。",
+      "查询：合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。"
+    ],
+    "conditions": "必要：每个统计量都能仅用左右摘要合并。充分：各字段merge满足结合律，查询顺序正确。 边界契约：沿用PSD02边界；受gcd约束禁止LLONG_MIN；所有和和中间量在ll内；不支持区间加。",
+    "proof": "每个字段独立正确且查询划分相同，整组答案同时正确。",
+    "code_refs": [
+      "PSD09"
+    ],
+    "complexity": "建树O(n log V)，修改/查询O(log n log V)，空间O(n)。",
+    "pitfalls": [
+      "可合并不等于可做lazy；gcd不支持从gcd本身处理区间加。",
+      "矩阵等非交换merge必须保留左右顺序。"
+    ],
+    "exercise": "本地练习：cf/segment_tree_cf_edu/1.cpp 的递归骨架变体。本轮可运行模型：competition/data_structure/examples/point_stats.cpp；仅承诺此处模型，不猜测缺失的原题题面。",
+    "origins": [
+      "template/segmen tree1.cpp",
+      "cf/segment_tree_cf_edu/1.cpp"
+    ],
+    "patch": false,
+    "node": "sum,mn,mx,g；如矩阵题还需保存mat和翻转后的rev。",
+    "pushup": "分别+、min、max、gcd；非交换字段必须保留左右顺序。",
+    "has_lazy": "否：只有单点赋值，不需要pushdown。",
+    "apply": "apply(node,val)把该叶改为make_node(val)。",
+    "pushdown": "无；modify沿一条根到叶路径递归。",
+    "query": "合法非空闭区间；只进相交儿子，跨mid时按左、右顺序merge。",
+    "usage": "build(1,1,n); modify(1,1,n,pos,val); auto ans=query(1,1,n,L,R); cout<<ans.sum<<' '<<ans.mn<<' '<<ans.mx<<' '<<ans.g;",
+    "example_source": "competition/data_structure/examples/point_stats.cpp",
+    "input_format": "2 l r输出sum min max gcd；1 pos val赋值。",
+    "sample_input": "4 3\n6 -12 9 3\n2 1 4\n1 2 15\n2 1 3\n",
+    "sample_output": "6 -12 9 3\n30 6 15 3\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  },
+  {
+    "id": "SEG-15",
+    "title": "Fenwick调用：前缀与区间不要混淆",
+    "signal": "单点加、动态前缀和或区间和。",
+    "observe": "改的是增量还是新值？下标是否从1开始？",
+    "brute": "每次查询累加区间元素。",
+    "redundancy": "前缀可拆为O(log n)个lowbit块；闭区间和是两个前缀之差。",
+    "derive": [
+      "沿用原Fenwick结构及tr数组。",
+      "add(x,delta)增加点值；query(x)查询[1,x]；rangeSum(l,r)=query(r)-query(l-1)。",
+      "若题目是赋新值，调用add(pos,new-old)并同步自己存的old。"
+    ],
+    "conditions": "0<=n<2^30且内存足够；1下标，add只能1..n；query(0)=0；空rangeSum返回0；所有中间量在ll内。",
+    "proof": "query访问的lowbit块恰好划分[1,x]，两个前缀相减得到闭区间和。",
+    "code_refs": [
+      "PSD01"
+    ],
+    "complexity": "更新/查询O(log n)，逐点初始化O(n log n)，空间O(n)。",
+    "pitfalls": [
+      "add(0,x)非法；add是增量，赋新值需new-old。",
+      "query(x)是前缀，不是原来的query(l,r)；区间用rangeSum。",
+      "不可用两个前缀min相减得到区间min。"
+    ],
+    "exercise": "旧template/Fenwick_tree.cpp的主程序模型；本轮examples/fenwick.cpp已统一接口。",
+    "origins": [
+      "template/Fenwick_tree.cpp"
+    ],
+    "patch": true,
+    "usage": "Fenwick fen(n); for(int i=1;i<=n;++i)fen.add(i,a[i]); fen.add(pos,delta); cout<<fen.query(r); cout<<fen.rangeSum(l,r);",
+    "example_source": "competition/data_structure/examples/fenwick.cpp",
+    "sample_input": "3 4\n3 -2 4\n2 1 3\n1 2 5\n3 2\n2 2 3\n",
+    "sample_output": "5\n6\n7\n",
+    "verification": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。"
+  }
+]

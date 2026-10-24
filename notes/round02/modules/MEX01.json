@@ -1,0 +1,41 @@
+{
+  "id": "MEX01",
+  "title": "静态与前缀 MEX",
+  "category": "MEX与博弈",
+  "priority": "P0",
+  "source": "competition/game/mex.hpp",
+  "when": "问最小未出现的非负整数；只有插入的前缀序列。",
+  "contract": "vector<int>可含负数和很大值；静态n个数仅需看[0,n]。前缀不删除。",
+  "complexity": "静态O(n)时间空间；所有前缀合计O(n)，因为now只向右移动。",
+  "pitfalls": [
+    "mex从0开始；{1,2}的mex是0。",
+    "重复值不增加覆盖长度；mex<=不同非负值数量<=元素数。",
+    "允许删除时now不能只增，需要MEX02。"
+  ],
+  "example": "{-1,0,0,2,INT_MAX}的mex=1；{1,0,3,2}的前缀mex为0,2,2,4。",
+  "usage": "int x=static_mex(a); auto pm=prefix_mex(a);",
+  "test": "tests/round02/test_game_string.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan，tests/round02/test_game_string.cpp通过：动态MEX120000操作对朴素扫描；3堆0..5的Nim与反常Nim穷举；取{1,3,4}的SG及31x31独立和对P/N递推。",
+  "idea": "n个元素不可能覆盖[0,n]全部n+1个候选，值域可截断；前缀mex只增。",
+  "proof": "鸽巢原理给mex<=n；vis精确记录相关值，最小未标记位置即定义。",
+  "origins": [
+    {
+      "path": "template/mex.cpp",
+      "idea": "原注释已经给出静态vis与动态ct/set路线。",
+      "issue": "旧源只有注释且uisng拼写，缺少可调用函数。",
+      "change": "保留旧源，按原思路补全独立函数。",
+      "interface_change": "新增static_mex/prefix_mex",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1096/D_mex_set.cpp",
+      "idea": "cal中心扩展时将已见值从候选set删除。",
+      "issue": "只借用局部MEX模型；未核验完整题意，不宣称AC。",
+      "change": "用于MEX与回文组合说明，不照搬题目控制流。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

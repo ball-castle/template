@@ -1,0 +1,35 @@
+{
+  "id": "STL01",
+  "title": "可执行 STL 容器与算法短例",
+  "category": "STL",
+  "priority": "P0",
+  "source": "competition/stl/recipes.hpp",
+  "when": "选择容器、排序/二分/去重/计数、读写字符串，现场查小段调用。",
+  "contract": "GNU++20；每个花括号是独立短例，断言给出预期。算法区间半开；查询前满足排序/非空/下标等条件。示例不是统一封装类。",
+  "complexity": "array/vector访问O(1)；有序集合O(log n)；哈希平均O(1)最坏O(n)；sort O(n log n)；算法扫描O(n)，nth_element平均O(n)。",
+  "pitfalls": [
+    "reserve不改变vector.size，扩容使旧指针/引用/迭代器失效。",
+    "cmp不能写<=；降序排序后查找也必须greater。",
+    "multiset.erase(value)删除全部等值项；只删一次要find+erase(iterator)。",
+    "accumulate用0LL；partial_sum输入元素类型也要足够宽。",
+    "unordered容器没有有序前驱，reserve也不能保证防止恶意碰撞。"
+  ],
+  "example": "全部短例由test_stl.cpp调用：容器、升降序重复段、稳定排序、第k小、去重、删除奇数、循环移位、aab的3种排列、64位前后缀、递归lambda、字符串npos。",
+  "usage": "stl_container_recipes(); stl_algorithm_recipes(); stl_string_recipes(); // 学习/验证；比赛抄所需局部花括号。",
+  "test": "tests/round02/test_stl.cpp",
+  "verify": "2026-10-25 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow无警告，WSL g++13.3 ASan+UBSan通过tests/round02/test_stl.cpp；所有示例实际执行，Huffman 100组<=5项全合并穷举、TopK/在线中位数30000步、版本堆20000步、窗口2000组排序oracle。种子20261024。",
+  "idea": "先按需要的操作选容器，再让每个API落在一个可运行的具体任务中。",
+  "proof": "比较器保持严格弱序才能排序；排序后相同元素相邻，unique+erase才能得到去重序列；lower/upper界定整个等值段。",
+  "origins": [
+    {
+      "path": "template/data_sturcture.cpp",
+      "idea": "用户原STL示例涵盖vector/string/stack/queue/pq/set/map/deque/pair/tuple及常用算法。",
+      "issue": "尚缺array/multimap/稳定排序/降序边界/nth等；哈希O(1)须补平均与最坏条件；emplace_back不保证一定更快。",
+      "change": "保留旧源，按原局部示例风格补全并加入实际可执行结果，不封成陌生类。",
+      "interface_change": "增加可独立调用示例函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

@@ -1,0 +1,33 @@
+{
+  "id": "X10",
+  "title": "我的 AND 排列：补码块与同最高位环",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P2",
+  "source": "competition/xor/and_permutations.hpp",
+  "when": "构造1..n排列，要求p[i]!=i，分别要求i&p[i]=0或!=0。",
+  "contract": "1<=n<=1e5；返回false表示对应构造不存在且输出向量清空；true给1-indexed排列。",
+  "complexity": "O(n)时间/空间。",
+  "idea": "零AND：从右端找全1掩码，块内互补配对。非零AND：保留原6/7元素基础环，高位区间内循环移位。",
+  "proof": "零AND时奇数下标必须映射偶数，n奇数不可能；n偶数每个补码块边界为奇/偶，递归剩余仍为偶数。非零AND时2的幂只能映射自身，不允许；n=3,5有候选冲突；其余原构造的每条环边都有共同1位。",
+  "pitfalls": [
+    "不能把i&p[i]!=0误解为相邻排列元素AND!=0。",
+    "p[i]!=i必须独立检验；最后高位块只有一个元素时恰为2的幂障碍。",
+    "真实909F为进阶构造，原代码可以直接收录，无需换成陌生算法。"
+  ],
+  "example": "cf/date/7/7.9/2_and.cpp = CF909F AND-permutations；n=6两种都可构造，n=8非零AND排列不存在。",
+  "usage": "vector<ll> p,q; bool ok0=and_zero_perm(6,p); bool ok1=and_nonzero_perm(6,q);",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/date/7/7.9/2_and.cpp",
+      "idea": "分块处理和按位处理；补码、基础环、最高位块。",
+      "issue": "原算法在真实题域正确。",
+      "change": "保留构造循环；只抽出两个返回bool的函数，n=6/7基础环合并写法等价。",
+      "interface_change": "仅拆分输入输出，不改p/q含义。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "MEX02",
+  "title": "频率与缺失 set 动态 MEX",
+  "category": "MEX与博弈",
+  "priority": "P0",
+  "source": "competition/game/mex.hpp",
+  "when": "插入、删除、单点修改后查询整个多重集合的mex。",
+  "contract": "mex_init(N)，全过程元素总数<=N；跟踪[0,N]。删除的值必须存在；区间外值虽忽略但仍计入用户的容量上界。",
+  "complexity": "初始化O(N log N)，单次插删O(log N)，查询O(1)，空间O(N)。",
+  "pitfalls": [
+    "只有cnt从0到1才从缺失set移除，从1到0才放回。",
+    "单点修改要先erase旧值再add新值；不能当成只插入。",
+    "全局区间MEX不是任意子区间MEX；子区间查询不能直接查同一个set。"
+  ],
+  "example": "init(2);插0两次，mex=1；删一次仍1；再删一次变0。",
+  "usage": "mex_init(n); for(int x:a) mex_add(x); mex_erase(old); mex_add(value); int ans=mex_query();",
+  "test": "tests/round02/test_game_string.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan，tests/round02/test_game_string.cpp通过：动态MEX120000操作对朴素扫描；3堆0..5的Nim与反常Nim穷举；取{1,3,4}的SG及31x31独立和对P/N递推。",
+  "idea": "set只保存当前频率为0的候选，begin直接定位第一个缺失数。",
+  "proof": "每次仅修改目标值的出现状态，cnt与missing互补不变量保持；N个活跃元素保证[0,N]至少一项缺失。",
+  "origins": [
+    {
+      "path": "template/mex.cpp",
+      "idea": "ct[x]==0存到set的用户原思路。",
+      "issue": "缺少初始化、重复值、删除实现。",
+      "change": "按原思路用全局cnt/missing与独立函数补全。",
+      "interface_change": "新增mex_init/add/erase/query",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

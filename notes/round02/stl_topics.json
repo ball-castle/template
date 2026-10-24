@@ -1,0 +1,200 @@
+[
+  {
+    "id": "array_vector",
+    "title": "定长/动态顺序表",
+    "signal": "按下标访问、尾部加入。",
+    "notes": "访问O(1)，中间erase O(n)。reserve不改变size。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 8,
+    "end": 18,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "deque",
+    "title": "双端队列",
+    "signal": "两头插删且还要按下标取值。",
+    "notes": "两端插删O(1)，中间插删线性。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 19,
+    "end": 24,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "pair_tuple",
+    "title": "组合键",
+    "signal": "将多个排序关键字绑定，字典序与结构化绑定。",
+    "notes": "pair/tuple按字段依次比较；引用绑定改值时写auto&。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 25,
+    "end": 33,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "stack",
+    "title": "栈",
+    "signal": "最近未匹配的左括号先匹配。",
+    "notes": "这是固定合法例的API示范；通用括号验证另见正式模型模块。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 34,
+    "end": 44,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "queue",
+    "title": "队列",
+    "signal": "按被发现/到达顺序处理。",
+    "notes": "front前检查empty，pop不返回弹出值。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 45,
+    "end": 51,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "priority_queue",
+    "title": "三种优先队列",
+    "signal": "反复拿最大/最小/自定义优先级。",
+    "notes": "push/pop O(log n)，top O(1)；cmp返回true表示a比b优先级低。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 52,
+    "end": 68,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "set_multiset",
+    "title": "有序唯一/多重集合",
+    "signal": "前后继、阈值、保留重复值。",
+    "notes": "用成员lower_bound；multiset按值erase删除全部，按迭代器只删一份。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 69,
+    "end": 82,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "map_multimap",
+    "title": "有序键值与重复键",
+    "signal": "计频或同一时间多个事件。",
+    "notes": "map[]在键不存在时插入默认值；只查用find/contains/at。multimap用equal_range。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 83,
+    "end": 93,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "unordered",
+    "title": "哈希集合与映射",
+    "signal": "只需要等值查询/计频。",
+    "notes": "平均O(1)最坏O(n)，没有顺序；reserve与load_factor只控制桶容量，不保证防碰撞。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 94,
+    "end": 101,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "sort_stable",
+    "title": "自定义排序与稳定排序",
+    "signal": "按分数降序，或同分保留原相对次序。",
+    "notes": "cmp必须严格弱序，不能<=，不能混EPS；emplace_back不保证总比push_back快。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 105,
+    "end": 117,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "bounds",
+    "title": "升降序的二分边界",
+    "signal": "统计某值出现次数或第一个满足阈值的位置。",
+    "notes": "同一序关系排序与查询；升序lower是>=，upper是>；降序lower是<=，upper是<。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 118,
+    "end": 128,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "nth",
+    "title": "第k小",
+    "signal": "只想知道某个秩，不需完整排序。",
+    "notes": "平均线性；k为0-based且0<=k<n；其他位置并未整体有序。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 129,
+    "end": 136,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "unique_remove",
+    "title": "去重与批量删除",
+    "signal": "排序后去重，或按谓词删除所有命中元素。",
+    "notes": "unique仅压相邻重复，remove只搬移，最后必须erase尾部。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 137,
+    "end": 145,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "reverse_rotate_permutation",
+    "title": "反转、循环移位、排列",
+    "signal": "对称构造、旋转、枚举不同排列。",
+    "notes": "rotate区间半开；next_permutation先排序并do-while；最多n!，重复字符不重复枚举。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 146,
+    "end": 156,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "sum_prefix_suffix",
+    "title": "累计、前后缀和、极值",
+    "signal": "多次查前缀/后缀信息，枚举中间点两边合并。",
+    "notes": "accumulate初值0LL；partial_sum输入元素也用ll；空区间min/max返回end，不可解引用。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 157,
+    "end": 167,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "recursive_lambda",
+    "title": "递归lambda",
+    "signal": "局部回溯带上下文，不另开全局函数。",
+    "notes": "显式返回类型和self参数；可读性优先，深递归仍会爆栈。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 168,
+    "end": 177,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "string",
+    "title": "字符串查找、截取与大小写",
+    "signal": "查某个模式第一次出现的位置，截取固定长度并转换ASCII字符。",
+    "notes": "find失败等于string::npos；substr第二参数是长度；tolower/toupper先转unsigned char，按字节而非UTF-8汉字。",
+    "module": "STL01",
+    "source": "competition/stl/recipes.hpp",
+    "start": 180,
+    "end": 192,
+    "test": "tests/round02/test_stl.cpp"
+  },
+  {
+    "id": "integer_bits",
+    "title": "整数、位运算与子集枚举",
+    "signal": "最低位、位数、前导/后缀零、mask子集/补集与负数除模。",
+    "notes": "引用M01；GNU ctz/clz对0未定义，C++20对应count函数对0返回位宽。补集限制在full中，位移量<64。floor/ceil除法另引PM03，余数归一化引PM05。",
+    "module": "M01",
+    "source": "tests/round02/test_stl.cpp",
+    "start": 107,
+    "end": 131,
+    "test": "tests/round02/test_stl.cpp"
+  }
+]

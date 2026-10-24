@@ -1,0 +1,52 @@
+{
+  "id": "PAL01",
+  "title": "回文判定、中心扩展与构造",
+  "category": "字符串",
+  "priority": "P1",
+  "source": "competition/string/palindrome.hpp",
+  "when": "连续回文子串的数量/最长长度，字符重排成回文，或0/1/?给定数量填回文。",
+  "contract": "字符串按字节；区间0-based半开；回文数按非负标准十进制表示，禁止多位前导零。中心扩展O(n²)，不当成大规模线性算法。01?填法仅接收规定字符且a+b等于长度。",
+  "complexity": "双指针O(n)；中心扩展O(n²)、额外O(1)；排列/01?构造O(n+256)。",
+  "pitfalls": [
+    "子串连续；子序列可跳过字符。中心扩展不能求最长回文子序列。",
+    "按位置计数不等于不同回文内容数，例如aaa有6个位置子串但3种内容。",
+    "字符串010是回文串，但不是本接口接受的标准十进制回文数。",
+    "哈希相等有碰撞风险；大量区间判定可引用S02，严格无碰撞需其他方法。"
+  ],
+  "example": "aaa有6个回文子串，最长3；aabb可排abba；aabc不行；0?1?0按计数与镜像约束填充；任意猜出的构造仍须逐位验证。",
+  "usage": "bool ok=is_palindrome(s,0,int(s.size())); auto info=palindrome_centers(s); string longest=s.substr(info.l,info.r-info.l); auto p=palindrome_permutation(s); auto b=binary_palindrome_fill(s,zeros,ones);",
+  "test": "tests/round02/test_game_string.cpp",
+  "verify": "2026-10-25 Windows GNU++20 -O2 -Wall -Wextra -Wshadow无警告与WSL ASan+UBSan通过tests/round02/test_game_string.cpp；Trie 20000次插入对字符串直接扫描、500004节点边界及清空；4000随机字符串所有子串对反转判断、中心计数/最长、重排计数；n<=7所有01?模式和0/1计数对全部填法穷举。",
+  "idea": "回文由中心或成对镜像位置决定；每对消耗偶数次，最多一个中心消耗奇数次。",
+  "proof": "每个非空回文子串有唯一奇/偶中心，扩展恰计一次；频次至多一个奇数是重排可行的充要条件。01?先传播被迫镜像，再用唯一中心处理奇数，余量成对放置。",
+  "origins": [
+    {
+      "path": "template/string/basic_string.hpp",
+      "idea": "S03已有可靠双指针回文判定。",
+      "issue": "无。",
+      "change": "直接include复用，不复制实现。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/construction/1.cpp",
+      "idea": "两次镜像传播、扣已用计数、填中心、再成对放字符。",
+      "issue": "原是完整题解的cin/cout流程，缺少可复用返回值。",
+      "change": "保留原分支和传播顺序，改为optional<string>并补输入计数范围检查。",
+      "interface_change": "solve改binary_palindrome_fill(s,a,b)",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1096/D_mex_set.cpp",
+      "idea": "cal从奇/偶中心向外同时扩展。",
+      "issue": "本轮只借用已知局部模型，不猜测原题约束。",
+      "change": "以同样中心扩展结构求普通回文计数和最长子串。",
+      "interface_change": "新增独立函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "S03"
+  ],
+  "patch": false
+}

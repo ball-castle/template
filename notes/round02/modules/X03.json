@@ -1,0 +1,34 @@
+{
+  "id": "X03",
+  "title": "XOR 构造、未知元素与最高不同位",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P0",
+  "source": "competition/xor/xor_construct.hpp",
+  "when": "给总XOR补最后一项；互异非负数构造；排列整体XOR；连续值域的OR。",
+  "contract": "known至少{0}、1-indexed。xor_distinct只承诺1<=n<=1e6、target<2^60、互异非负、每项<2^62；失败返回false且a清空。interval_or要求0<=l<=r<=ULLONG_MAX。",
+  "complexity": "未知元素/构造O(n)；xor_1_to_n O(1)；interval_or O(64)。",
+  "idea": "末项等于目标异或已知总量；互异构造给最后三项留两个自由高位；区间OR保留公共高位、填满最高不同位及以下。",
+  "proof": "前三部分低于2^60，最后三数的高两位分别01、10、11，因此互异且不与先前数冲突；其总XOR为缺口。区间跨越最高不同位的边界，必能覆盖其下每个1位。",
+  "pitfalls": [
+    "互异的两数XOR=0不可能；允许重复时两数相等即可。",
+    "上界小、正数、排列等限制不能直接套自由高位。",
+    "xor_1_to_n(ULLONG_MAX)走n%4=3分支，不发生n+1溢出。",
+    "mx|低位mask最大化的是特定OR目标，不是任意最大XOR。"
+  ],
+  "example": "cf/2/1129/B.cpp真实2261B：相邻较小值递增，答案为[min,max]整数区间OR；原掩码循环保留。",
+  "usage": "vector<ull> a; bool ok=xor_distinct(5,7,a); ull missing=xor_missing({0,3,5},6); ull x=xor_1_to_n(8); ull y=interval_or(4,6);",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/2/1129/B.cpp",
+      "idea": "mx^mn找最高不同位、mask填低位。",
+      "issue": "在2261B合法域无已证实错误。",
+      "change": "循环原样保留，仅抽成interval_or并用ull扩展64位。",
+      "interface_change": "原solve仍保留；模板接口变为interval_or(l,r)。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

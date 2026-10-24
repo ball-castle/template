@@ -1,0 +1,34 @@
+{
+  "id": "BM06",
+  "title": "原解直接收录 选最小可行值 CF2065C2",
+  "source": "competition/models/ordered_choice.cpp",
+  "when": "每个位置可保持a_i或改成某个b_j-a_i，问能否得到非降序列。",
+  "contract": "原题a_i,b_j在1..1e9，sum n和sum m各<=2e5；原完整solve+多测main。",
+  "idea": "原思路保留：当前选不小于pre的最小候选；b排序后二分pre+x。",
+  "proof": "任意合法方案当前值不会小于贪心值，换成更小贪心值只会放松后面下界；归纳可保留所有可行后缀。",
+  "complexity": "O(mlogm+nlogm)时间，O(n+m)空间。",
+  "usage": "独立程序输入T，再每组n,m,a,b；输出YES或NO。原solve不需要额外初始化。",
+  "example": "a=[3,1],b=[4]：第一个变成1，第二个保持1，得到非降序列。",
+  "pitfalls": [
+    "b_j可复用，不能当一次性资源删除。",
+    "必须同时比较保留x和转换候选。",
+    "原4e18哨兵和pre+x只在已写明输入范围下使用，不泛化成任意ll无溢出接口。"
+  ],
+  "patch": false,
+  "origins": [
+    {
+      "path": "cf/date/7/7.25/1.cpp",
+      "idea": "原sort/lower_bound/pre/k/f/solve全部保留。",
+      "issue": "官方范围内未发现功能错误，补全最小可行值的交换/支配证明。",
+      "change": "仅复制并统一LF；250组小规模穷举核对。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "exercise_url": "https://codeforces.com/problemset/problem/2065/C2",
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "dependencies": [],
+  "test": "tests/round02/test_model_tools.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

@@ -1,0 +1,221 @@
+{
+  "document": "ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "reviewed_date": "2026-10-25",
+  "review_scope": {
+    "first_page": 1,
+    "last_page": 35,
+    "total_document_pages": 276
+  },
+  "method": {
+    "skill": "C:/Users/TSOU/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md",
+    "type": "逐页原尺寸视觉核验",
+    "image_source": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final/page-001.png...page-035.png",
+    "dpi": 130,
+    "tool": "tools.view_image",
+    "detail": "original",
+    "inspected_every_page": true,
+    "batch_max_pages": 4,
+    "text_extraction_used_as_visual_substitute": false,
+    "checks": [
+      "中文与代码裁切",
+      "元素重叠",
+      "页眉、页脚与页码",
+      "表格或双列索引",
+      "段落和代码分页",
+      "孤立 1–3 行函数末尾整页"
+    ],
+    "design_allowance": "独立模型起新页所产生的较多留白按设计接受。",
+    "pdf_hash_verified_before_and_after": true,
+    "files_modified": "仅本 QA JSON；未修改 PDF、生成器或算法。"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "status": "PASS",
+      "notes": "封面、双列容器选择表、中文与页脚完整；留白符合独立导读页设计。"
+    },
+    {
+      "page": 2,
+      "status": "PASS",
+      "notes": "六步流程与粗体检查项换行清晰，页边距与页脚正常。"
+    },
+    {
+      "page": 3,
+      "status": "PASS",
+      "notes": "代码习惯说明和 DP 信号映射双列表完整，无重叠或裁切。"
+    },
+    {
+      "page": 4,
+      "status": "PASS",
+      "notes": "位运算思维导图段落、公式和引用编号清晰，页脚正常。"
+    },
+    {
+      "page": 5,
+      "status": "PASS",
+      "notes": "索引首段条目与页码列对齐，最长条目未碰页码列，页脚清晰。"
+    },
+    {
+      "page": 6,
+      "status": "PASS",
+      "notes": "索引续页标题、条目与页码列清晰，无裁切、重叠或异常断行。"
+    },
+    {
+      "page": 7,
+      "status": "PASS",
+      "notes": "索引续页所有行与右侧页码对应清楚，页眉页脚正常。"
+    },
+    {
+      "page": 8,
+      "status": "PASS",
+      "notes": "索引续页结构一致，长条目完整，右列页码留有足够间隔。"
+    },
+    {
+      "page": 9,
+      "status": "PASS",
+      "notes": "中英混排索引条目完整，页码列对齐，未发现重叠或裁切。"
+    },
+    {
+      "page": 10,
+      "status": "PASS",
+      "notes": "索引续页行距稳定，长条目清晰，页脚正常。"
+    },
+    {
+      "page": 11,
+      "status": "PASS",
+      "notes": "索引续页各行与页码列完整，页边距及页脚正常。"
+    },
+    {
+      "page": 12,
+      "status": "PASS",
+      "notes": "索引末页内容完整、列对齐，余白属于索引结束后的正常留白。"
+    },
+    {
+      "page": 13,
+      "status": "PASS",
+      "notes": "DPC01 说明、公式、调用代码与来源均完整；代码未裁切，独立模型页留白正常。"
+    },
+    {
+      "page": 14,
+      "status": "PASS",
+      "notes": "DPC02 长段落自然换行，代码末尾及来源完整，无页内重叠。"
+    },
+    {
+      "page": 15,
+      "status": "PASS",
+      "notes": "DPC03 公式和代码清晰，边界说明、来源及页脚完整。"
+    },
+    {
+      "page": 16,
+      "status": "PASS",
+      "notes": "DPC04 模型和代码块完整，同页结束，无异常分页或裁切。"
+    },
+    {
+      "page": 17,
+      "status": "PASS",
+      "notes": "DPC05 中文说明、求和复杂度符号与代码块清晰完整，页脚正常。"
+    },
+    {
+      "page": 18,
+      "status": "PASS",
+      "notes": "DPC06 长条件说明换行正常，代码和来源未溢出。"
+    },
+    {
+      "page": 19,
+      "status": "PASS",
+      "notes": "DPC07 标题、公式及代码同页完整，左右留白正常，无异常分页。"
+    },
+    {
+      "page": 20,
+      "status": "PASS",
+      "notes": "DPC08 段落、较长包含路径和调用代码均完整，页脚清晰。"
+    },
+    {
+      "page": 21,
+      "status": "PASS",
+      "notes": "DPC09 说明及路径较长的来源行完整，代码块无裁切，页脚正常。"
+    },
+    {
+      "page": 22,
+      "status": "PASS",
+      "notes": "DPC10 位掩码公式、复杂度和代码清晰，未发生重叠或异常断页。"
+    },
+    {
+      "page": 23,
+      "status": "PASS",
+      "notes": "DPC11 数位状态说明与代码均清晰完整，中文和拉丁字符混排正常。"
+    },
+    {
+      "page": 24,
+      "status": "PASS",
+      "notes": "DPC12 较长说明与多行输出代码完整，行距清晰，内容和页脚间隔充足。"
+    },
+    {
+      "page": 25,
+      "status": "PASS",
+      "notes": "DPC13 状态转移文字和调用代码清晰，来源与页脚完整。"
+    },
+    {
+      "page": 26,
+      "status": "PASS",
+      "notes": "DPC14 计数状态说明、公式与代码完整，未见异常断行或裁切。"
+    },
+    {
+      "page": 27,
+      "status": "PASS",
+      "notes": "DPC15 较长条件与代码仍完整可读，页脚正常。非阻断展示备注：末尾“原代码:”标签为空；前文明确其为 ROUND02 基础补缺且未发现已确认原题，非裁切或来源核验失败。"
+    },
+    {
+      "page": 28,
+      "status": "PASS",
+      "notes": "MEX_GLOBAL 说明、调用提醒和来源行完整，独立模型页留白正常。"
+    },
+    {
+      "page": 29,
+      "status": "PASS",
+      "notes": "MEX_CONSTRUCT 长标题及正文完整，代码入口和来源行清晰，页脚正常。"
+    },
+    {
+      "page": 30,
+      "status": "PASS",
+      "notes": "GAME_PN 说明段落清楚，入口与来源同页完整，留白符合独立模型页设计。"
+    },
+    {
+      "page": 31,
+      "status": "PASS",
+      "notes": "GAME_NIM 中英混排标题和较长段落完整，无裁切或重叠。"
+    },
+    {
+      "page": 32,
+      "status": "PASS",
+      "notes": "MEX_STRUCTURE 长标题及多行条件说明清晰，来源和页脚完整。"
+    },
+    {
+      "page": 33,
+      "status": "PASS",
+      "notes": "GAME_SYMMETRY 长标题及多行说明完整，来源和页脚正常。"
+    },
+    {
+      "page": 34,
+      "status": "PASS",
+      "notes": "PAL_CENTER 公式、调用提醒及来源行完整，无裁切、重叠或分页瑕疵。"
+    },
+    {
+      "page": 35,
+      "status": "PASS",
+      "notes": "PAL_CONSTRUCT 较长调用提醒完整，段落与页脚清晰；独立模型页留白正常。"
+    }
+  ],
+  "findings": [],
+  "non_blocking_observations": [
+    {
+      "page": 27,
+      "type": "empty_optional_source_label",
+      "note": "末尾“原代码:”标签为空；前文明确此 DPC15 模块为 ROUND02 基础补缺且未发现已确认原题。不是渲染裁切或来源核验失败。",
+      "optional_polish": "可省略空标签或使用明确的无原题说明；不影响本次视觉通过结论。"
+    }
+  ],
+  "overall_status": "PASS",
+  "conclusion": "第 1–35 页全部完成原尺寸逐页视觉检查。未发现中文或代码裁切、重叠、页脚异常、表格异常或孤立 1–3 行函数末尾整页。第 27 页仅有非阻断空字段标签展示备注。"
+}

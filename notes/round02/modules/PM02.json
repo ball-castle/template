@@ -1,0 +1,33 @@
+{
+  "id": "PM02",
+  "title": "线性筛、判素、分解与约数",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/primes.hpp",
+  "when": "批量小范围判素/最小质因数，或少量<=1e12整数试除分解、列约数。",
+  "contract": "sieve:1<=n<1000010，primes[1..cnt]和lp[1..n]；lp[1]=0。is_prime负数/0/1为false。factorize/divisors要求1<=n<=1e12；筛与试除函数互不依赖。",
+  "complexity": "筛O(n)时空；试除O(sqrt n)时间；约数生成O(tau(n)log tau(n))额外排序。",
+  "idea": "线性筛每个合数由其最小质因数唯一生成；试除持续除尽某个质因数，剩余>1即为质数。",
+  "proof": "筛循环遇整除就break，避免重复最小质因数分解；试除结束时若剩数合成则必有不超过其平方根的因子，与循环停止矛盾。",
+  "pitfalls": [
+    "1不是质数；factorize(1)为空，divisors(1)=[1]。",
+    "试除单个1e12约1e6步，大量查询应改筛预处理或更强算法。",
+    "多测sieve必须重置cnt与当前1..n的lp。"
+  ],
+  "example": "60=2^2*3*5，共(2+1)(1+1)(1+1)=12个约数；sieve(5)质数为2,3,5。",
+  "usage": "sieve(1000);\nbool p=is_prime(97);\nauto f=factorize(60);\nauto d=divisors(60);",
+  "origins": [
+    {
+      "path": "template/Mobius_inversion.cpp",
+      "idea": "init_mu中线性筛的primes/cnt与遇整除break。",
+      "issue": "原get_mu每轮mu[x]=-1会覆盖合数值，例如mu[4]从0又改成-1；本次不修改旧源且不复用该赋值。",
+      "change": "复用可靠init_mu的筛骨架，输出最小质因数lp。",
+      "interface_change": "新增sieve/is_prime/factorize/divisors独立函数。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

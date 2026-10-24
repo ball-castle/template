@@ -1,0 +1,34 @@
+{
+  "id": "TRS02",
+  "title": "个人数组字符串 Trie：前缀频次与整词频次",
+  "category": "字符串",
+  "priority": "P1",
+  "source": "competition/string/trie.hpp",
+  "when": "大量单词共享前缀，查询以p开头有多少串或完整字符串出现次数。",
+  "contract": "小写a..z，根0；tr[u][c]=0表示边不存在。TRIE_N=500005，非根节点<=500004；每次清空后总插入长度<TRIE_N是充分容量条件。重复串计重，空串记根；计数不超过int。",
+  "complexity": "插入/查询O(串长)，清空O(26*已用节点)，固定空间约55.4 MiB。",
+  "pitfalls": [
+    "cnt[u]是前缀出现数，word_end[u]才是完整词数。",
+    "只设tot=0而不清tr会沿旧边走，污染下一组。",
+    "总字符数决定容量，不是单词个数；根也占一格。",
+    "字符Trie不是处理整数按位异或的二进制Trie。"
+  ],
+  "example": "插ab、abc、ab；prefix(a)=3、count(ab)=2、count(a)=0；init后查询a为0。",
+  "usage": "trie_init(); trie_insert(\"ab\"); trie_insert(\"abc\"); int p=trie_prefix(\"a\"); int exact=trie_count(\"ab\");",
+  "test": "tests/round02/test_game_string.cpp",
+  "verify": "2026-10-25 Windows GNU++20 -O2 -Wall -Wextra -Wshadow无警告与WSL ASan+UBSan通过tests/round02/test_game_string.cpp；Trie 20000次插入对字符串直接扫描、500004节点边界及清空；4000随机字符串所有子串对反转判断、中心计数/最长、重排计数；n<=7所有01?模式和0/1计数对全部填法穷举。",
+  "idea": "一个结点对应从根到它的前缀；沿用户原tr/cnt/dep/tot插入路径累加前缀频次，终点额外记整词。",
+  "proof": "每个插入串恰好经过它的每个前缀结点一次，因此cnt是前缀拥有数；只在终点加word_end可区分前缀和整词。",
+  "origins": [
+    {
+      "path": "cf/ICPC/2026ICPCWeb1/L.cpp",
+      "idea": "直接沿用tr[500005][26]、cnt/dep/tot及创建边和++cnt的核心循环。",
+      "issue": "原实现服务单题且只单测，未提供完整词查询/清空接口。",
+      "change": "仅补word_end、独立查询和已用结点清空；保留节点编号与用户命名风格。",
+      "interface_change": "新增独立函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

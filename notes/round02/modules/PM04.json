@@ -1,0 +1,33 @@
+{
+  "id": "PM04",
+  "title": "基础求和与成对差贡献",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/sums.hpp",
+  "when": "连续整数/平方和/等差数列，或所有无序对绝对差的和。",
+  "contract": "全部返回__int128。sum1:0<=n<=1e18；sum2:0<=n<=1e12；arithmetic_sum的first/step为ll、0<=count<=1e9；pair_abs_sum长度<=2e5、|值|<=1e18。",
+  "complexity": "前三项O(1)；成对差排序O(n log n)、空间O(n)拷贝。",
+  "idea": "闭式计算总和；排序后a[i]在前i项差中为正、在后n-1-i项差中为负，系数2i-n+1。",
+  "proof": "每对i<j贡献a[j]-a[i]，按元素收集可得线性系数；平方和可用(n+1)^3-n^3差分求和验证。",
+  "pitfalls": [
+    "必须先转i128再乘；最后才转换不能修复已溢出中间值。",
+    "pair_abs_sum排序了拷贝；公式使用0下标i。",
+    "不同函数的n上界不同，不把sum1的上界套给sum2。"
+  ],
+  "example": "a={1,3,6}：差2+5+3=10；系数-2,0,2，得到-2+12=10。",
+  "usage": "auto s=sum1(100);\nauto q=sum2(100);\nauto a=arithmetic_sum(3,2,5);\nauto d=pair_abs_sum({1,3,6});",
+  "origins": [
+    {
+      "path": "cf/date/7/7.28/1.cpp",
+      "idea": "排序后sum2+=a[i]*(2*i-n+1)，再约分。",
+      "issue": "通用大范围输入乘积可能超过ll；原题的确切范围未重新核验。",
+      "change": "原系数公式直接保留；增加i128中间值和结果契约。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "GAME01",
+  "title": "正常规则、Nim 胜着与有限 DAG SG",
+  "category": "MEX与博弈",
+  "priority": "P0",
+  "source": "competition/game/normal_play.hpp",
+  "when": "两人轮流、完全信息、可枚举合法后继；独立取石堆或可拆成独立公平子游戏。",
+  "contract": "正常规则无棋可走者输；SG图有限无环，状态编号保证后继u<v。异或定理要求每步仅改变一个独立子游戏，双方可走集合相同，无随机。反常Nim函数仅用于取任意正石的Nim规则。",
+  "complexity": "Nim O(堆数)；SG O(状态数+边数)，额外O(状态数+最大出度)。",
+  "pitfalls": [
+    "SG=0不是'没有可走'，而是所有可走后继都非0。",
+    "奇偶不是通用判据：取1或3为奇偶；取1或2由模3决定。",
+    "有环可能平局，SG递推不能直接调用；双方操作不同也不能套公平游戏SG。",
+    "反常规则不能照搬正常SG；反常Nim全空返回赢是明确的终局约定。"
+  ],
+  "example": "Nim {1,2,3}异或0必败；{1,2,4}可把4改3。取{1,3,4}枚举SG，用独立两堆直推P/N验证异或定理的使用。",
+  "usage": "auto [i,left]=nim_winning_move(a); if(i!=-1) a[i]=left; auto sg=sg_ordered_dag(moves); bool win=(sg[s1]^sg[s2])!=0;",
+  "test": "tests/round02/test_game_string.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan，tests/round02/test_game_string.cpp通过：动态MEX120000操作对朴素扫描；3堆0..5的Nim与反常Nim穷举；取{1,3,4}的SG及31x31独立和对P/N递推。",
+  "idea": "败态没有败态后继，胜态至少能走到一个败态；mex为每个状态赋予可合并的SG值。",
+  "proof": "Nim异或非零时取最高为1的位所在堆，将ai改ai xor sum会严格变小并使总异或为0；任何一步都会破坏原来的零异或。",
+  "origins": [
+    {
+      "path": "template/mex.cpp",
+      "idea": "mex是SG定义的基础。",
+      "issue": "原源不含博弈求解代码。",
+      "change": "补有限有序DAG SG与Nim胜着；不泛化反常规则。",
+      "interface_change": "新增独立函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "MEX01"
+  ],
+  "patch": true
+}

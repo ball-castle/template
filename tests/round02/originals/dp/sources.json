@@ -1,0 +1,26 @@
+[
+  {
+    "origin": "cf/date/8/1/2_digit_dp.cpp",
+    "snapshot": "tests/round02/originals/dp/digit.cpp",
+    "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+    "sha256": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+    "lf_sha256": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+    "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+  },
+  {
+    "origin": "cf/date/7/7.9/1_interesting_dp.cpp",
+    "snapshot": "tests/round02/originals/dp/direction.cpp",
+    "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+    "sha256": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+    "lf_sha256": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+    "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+  },
+  {
+    "origin": "cf/ICPC/JAKARTA_2018/J.cpp",
+    "snapshot": "tests/round02/originals/dp/jakarta.cpp",
+    "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+    "sha256": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+    "lf_sha256": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+    "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+  }
+]

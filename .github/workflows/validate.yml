@@ -11,12 +11,12 @@ jobs:
       - name: Run independent drivers and differential tests
         run: |
           if [ "${{ matrix.mode }}" = "sanitizers" ]; then
-            python3 scripts/run_tests.py --sanitize
+            python3 scripts/run_round02_tests.py --sanitize
           else
-            python3 scripts/run_tests.py
+            python3 scripts/run_round02_tests.py
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: validation-${{ matrix.mode }}
-          path: build/${{ matrix.mode }}/
+          path: build/round02_${{ matrix.mode }}/

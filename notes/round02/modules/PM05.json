@@ -1,0 +1,49 @@
+{
+  "id": "PM05",
+  "title": "奇偶、模不变量与环上可达",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/invariants.hpp",
+  "when": "操作使某个量只增加固定步长；判断同余类是否保持、模环上能否到目标。",
+  "contract": "norm_mod/congruent要求1<=mod<=LLONG_MAX；a/b可完整ll。reachable_mod要求|step|<=1e18、1<=mod<=1e18，start/target可完整ll；允许模环反复绕回，次数为非负整数。",
+  "complexity": "归一化O(1)，环可达O(log max(|step|,mod))。",
+  "idea": "模mod增加step能生成的剩余类由gcd(step,mod)刻画；奇偶就是mod=2。",
+  "proof": "若t可达则差为k*step+q*mod，必被gcd整除；反过来Bezout给出整数k，把k加上模环周期可变成非负次数，因此充分。",
+  "pitfalls": [
+    "不变量一般只给必要条件，不能自动证明可达。",
+    "有限区间内只许+x/+y时gcd整除未必充分；例如步长4/6从0不能到2。",
+    "模环中step=0只可达原剩余类。"
+  ],
+  "example": "模10每次+4，从1可达{1,5,9,3,7}，可到7但不可到2；负数-3归一模5为2。",
+  "usage": "ll r=norm_mod(-3,5);\nbool ok=reachable_mod(1,7,4,10);\nbool same=congruent(-3,2,5);",
+  "origins": [
+    {
+      "path": "cf/2/873/B.cpp",
+      "idea": "累计gcd(abs(a[i]-i))，关注位移共同整除结构。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/2/750/A.cpp",
+      "idea": "把总量对2取模。",
+      "issue": "原题局部奇偶判定需结合可构造性，不能从代码猜完整题意。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1109/3.cpp",
+      "idea": "有限区间偏移边的真实连通性用DSU验证。",
+      "issue": "边界可使gcd剩余类直觉失效，不能直接改成模环公式。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

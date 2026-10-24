@@ -1,0 +1,44 @@
+{
+  "id": "PG03",
+  "title": "原队列BFS与最短路径恢复",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/bfs.hpp",
+  "when": "每走一步代价相同，求最少步数或一条最短路径。",
+  "contract": "1<=start<=n<200010；点1..n，有向/无向均可；init只清图，bfs重置访问/距离/父亲。不可达dist=-1；path返回点序列。",
+  "complexity": "O(n+m)时间、O(n+m)空间。",
+  "idea": "保留bfs.cpp的queue、入队即visited；首次入队时写dist和fa。",
+  "proof": "FIFO按层扩展；首次发现v时所有更短层都已扫描，因此dist[u]+1就是最短距离。",
+  "pitfalls": [
+    "出队才标记会重复入队。",
+    "带0权或不同边权不能继续用普通BFS。",
+    "有向边不要自动反向push。"
+  ],
+  "example": "1->2->3、孤立4：从1出发dist[3]=2，path(3)=[1,2,3]，dist[4]=-1。",
+  "usage": "init(4);\ng[1]={2};\ng[2]={3};\nbfs(1);\nauto p=path(3);",
+  "origins": [
+    {
+      "path": "template/bfs.cpp",
+      "idea": "队列首出、入队标记。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "保持原循环，仅增加dist/fa与回溯。",
+      "interface_change": "原bfs(start)保留；新增init/path。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/graph/bfs_path.hpp",
+      "idea": "ROUND01距离/父亲结果作为兼容受测版本。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。",
+  "replaces": [
+    "G02"
+  ]
+}

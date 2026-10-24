@@ -1,0 +1,44 @@
+{
+  "id": "IO02",
+  "title": "cin、字符串字符与定点输出",
+  "category": "运行基础",
+  "priority": "P0",
+  "source": "core/main.cpp",
+  "when": "混合整数/字符/字符串、需要EOF检测、或通常规模输入。",
+  "contract": "复用CO01骨架；main首行关闭同步并解绑cin。operator>>按空白分词；getline保留整行。__int128输出复用CO02的to_string_i128。",
+  "complexity": "按总输入输出字符数线性；无须另造fread封装。",
+  "pitfalls": [
+    "cin>>后接getline先ignore到换行；cin>>ws会吞有意义的前导空白。",
+    "关闭同步后同一输入流不混cin与getchar/scanf；同一输出流不混cout与printf。",
+    "fixed+setprecision(k)是显示小数k位；单独setprecision(k)默认是有效数字k位。二进制浮点显示不等于十进制精确舍入。"
+  ],
+  "example": "输入7 -9000000000 hello Z，下一行含两个前导空格；保留前导空格，输出0.125和-63000000000。",
+  "usage": "ios::sync_with_stdio(false); cin.tie(nullptr); int n; ll x; string s; char c; cin>>n>>x>>s>>c; cout<<fixed<<setprecision(3)<<0.125; cout<<to_string_i128((__int128)x*n);",
+  "test": "tests/round02/test_runtime.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 -O1 ASan+UBSan -fno-pie -no-pie，tests/round02/test_runtime.cpp 通过：原read合法整数50007个、IO显示与i128边界、浮点几何/二分/三分固定种子20261024的2000组。",
+  "idea": "普通输入统一cin，特殊格式明确分词还是整行；输出格式与数值计算分开处理。",
+  "proof": "类型提取负责解析，getline读取到换行；扩大到i128发生在乘法之前才防止ll乘法先溢出。",
+  "origins": [
+    {
+      "path": "template/core/main.cpp",
+      "idea": "ROUND01可靠程序骨架。",
+      "issue": "无。",
+      "change": "直接引用，不重写。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/core/basics.hpp",
+      "idea": "ROUND01 i128最小值可用的输出函数。",
+      "issue": "无。",
+      "change": "直接引用，增加实际输出边界测试。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "CO01",
+    "CO02"
+  ],
+  "patch": true
+}

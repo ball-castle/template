@@ -1,0 +1,33 @@
+{
+  "id": "X06",
+  "title": "XOR 线性基：插入与最大子集 XOR",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P2",
+  "source": "competition/xor/linear_basis.hpp",
+  "when": "从任意若干个数选子集，求可达XOR/最大子集XOR；长期进阶。",
+  "contract": "先basis_init；uint64全64位；空子集允许，故空基最大值0。basis_insert返回是否增加秩；rk为独立向量数。basis_max(seed)求seed XOR 任意子集的最大值。",
+  "complexity": "每次插入/查询O(64)，空间O(64)。",
+  "idea": "把数当GF(2)上的向量，以最高位为主元消元。",
+  "proof": "每次异或已有向量不改变可表示空间；消成0说明相关，否则新增未有的最高主元。查询从高到低选择能增大结果的主元，低主元无法影响已确定高位。",
+  "pitfalls": [
+    "Trie选一个已存元素，线性基选任意子集，答案不同。",
+    "普通基不直接支持删除、k小、区间查询；这些需要额外结构。",
+    "P2，不挤占赛前P0复习时间；FWT仍OPTIONAL。"
+  ],
+  "example": "例{1,2,4}：最大数对6，最大子集7；不能用线性基替换2218E数对目标。",
+  "usage": "basis_init(); basis_insert(1); basis_insert(2); basis_insert(4); ull ans=basis_max();",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/4/1090/E_xor_find_pattern.cpp",
+      "idea": "以原最大数对为对照区分单元素选择与子集选择。",
+      "issue": "原文件没有线性基。",
+      "change": "新增P2模型，明确不替换原题。",
+      "interface_change": "独立函数；无类、无cp命名空间。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

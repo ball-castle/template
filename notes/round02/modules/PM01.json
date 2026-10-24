@@ -1,0 +1,41 @@
+{
+  "id": "PM01",
+  "title": "扩展欧几里得与一般模逆元",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/exgcd.hpp",
+  "when": "求ax+by=gcd(a,b)，或模数不一定质数的逆元。",
+  "contract": "|a|,|b|<=1e18；exgcd返回非负gcd和ll系数，(0,0)取x=1,y=0。inverse_mod要求2<=mod<=1e18，逆元归一到[0,mod)，不存在返回-1。",
+  "complexity": "O(log max(|a|,|b|))时间、递归栈同阶。",
+  "idea": "从b*x1+(a%b)*y1=g倒推x=y1,y=x1-(a/b)*y1。",
+  "proof": "把a%b=a-(a/b)b代回即可得到Bezout等式；ax≡1(mod m)有解当且仅当gcd(a,m)=1。",
+  "pitfalls": [
+    "费马a^(p-2)必须模数为质数且a非零；复合模数用本函数。",
+    "不支持LLONG_MIN输入，契约上限1e18。",
+    "整数解存在不代表存在满足非负/区间约束的解，还需解参数范围。"
+  ],
+  "example": "30*(-1)+18*2=6；3在模8下逆元为3，2在模8下无逆元。",
+  "usage": "ll x,y;\nll d=exgcd(30,18,x,y);\nll inv=inverse_mod(3,8);",
+  "origins": [
+    {
+      "path": "template/gcd.cpp",
+      "idea": "欧几里得递归结构。",
+      "issue": "原gcd只求g，不返回系数；这不是原函数缺陷。",
+      "change": "补回代系数，不修改原gcd。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/ksm.cpp",
+      "idea": "源码注释提到a^(p-2)求逆元。",
+      "issue": "该公式不能覆盖复合模数。",
+      "change": "新增一般逆元，原模快速幂继续引用M02。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

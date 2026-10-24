@@ -1,0 +1,512 @@
+[
+  {
+    "id": "CG01",
+    "title": "树的存储、多测与根化",
+    "signal": "输入n-1条无向边；题目说子树、父亲、深度。",
+    "observe": "树是存储+选根后的方向关系；点编号仍然1..n。",
+    "brute": "对每个点重新遍历所有后代，O(n^2)。",
+    "redundancy": "同一子树会被每个祖先重复统计。",
+    "derive": "先定根保存fa/dep；父先子后的order反过来累加sz，边只处理常数次。",
+    "conditions": "1<=n<200010；g[1..n]是双向对称邻接表，端点合法。read_tree读n及n-1条边并先init。root_tree(root)非树返回false；成功时根fa=0、dep=0，sz包括自己，order父亲先于儿子。",
+    "proof": "连通无向图有n-1条边当且仅当是树。入栈时标记保证每点唯一父亲；父先子后的顺序逆转后，所有孩子先于父亲完成累加。",
+    "code_refs": [
+      "PG01"
+    ],
+    "complexity": "建图/根化O(n)，空间O(n)。",
+    "pitfalls": [
+      "每测先清1..n，不能只清数组不清g。",
+      "度为1是无根树叶子；有根树的根不能直接套此判断。",
+      "order是父先子后的次序，不能直接当Euler闭区间；子树区间用G10。"
+    ],
+    "exercise": "cf/3/1096/H_!!dp_tree.cpp：只练习读边、clear、父亲与子树汇总，不把局部ct/mx当通用答案。",
+    "origins": [
+      "template/tree_storage.cpp",
+      "cf/3/1096/H_!!dp_tree.cpp"
+    ],
+    "patch": true,
+    "usage": "istringstream in(\"4 1 2 2 3 2 4\");\nread_tree(in);\nbool ok=root_tree(1);\n// ok && sz[2]==3"
+  },
+  {
+    "id": "CG02",
+    "title": "个人原版并查集 fa/rk",
+    "signal": "操作只把两组接起来，询问是否同组。",
+    "observe": "合并关系具有传递性且不会撤销。",
+    "brute": "每次查询都沿已知边BFS，O(n+m)。",
+    "redundancy": "相同组件被查询反复遍历。",
+    "derive": "让整块共享代表；路径压缩缩短查询，按秩避免高树。",
+    "conditions": "0<=n<200010，调用点为1..n；init/find/unite/same沿用原接口。unite是void，rk是秩不是集合大小。",
+    "proof": "每次只合并两个连通块，find路径压缩不改变根所属集合；按秩合并避免构造线性高度。",
+    "code_refs": [
+      "PG02"
+    ],
+    "complexity": "init O(n)，合并和查询均摊O(alpha(n))，空间O(n)。",
+    "pitfalls": [
+      "原注释“挂到秩小的那里”写反，算法本身正确。",
+      "不能按rk推集合大小；需要大小时另设sz。",
+      "普通DSU不支持删边；不能直接套带撤销题。"
+    ],
+    "exercise": "cf/xian/B.cpp：辨认第一次出现位置与第二次位置的等价合并，再理解栈顶same查询。",
+    "origins": [
+      "template/DSU.cpp",
+      "cf/xian/B.cpp",
+      "cf/3/1109/3.cpp"
+    ],
+    "patch": true,
+    "usage": "init(4);\nunite(1,2);\nunite(2,1);\nbool ok=same(1,2);"
+  },
+  {
+    "id": "CG03",
+    "title": "原队列BFS与最短路径恢复",
+    "signal": "最少走几步，所有动作代价1。",
+    "observe": "距离d的点处理完才会处理d+1层。",
+    "brute": "枚举所有路径，指数级且会绕环。",
+    "redundancy": "同一点更晚到达不会产生更短前缀。",
+    "derive": "首次入队即锁定最短距离，保留fa恢复一条见证。",
+    "conditions": "1<=start<=n<200010；点1..n，有向/无向均可；init只清图，bfs重置访问/距离/父亲。不可达dist=-1；path返回点序列。",
+    "proof": "FIFO按层扩展；首次发现v时所有更短层都已扫描，因此dist[u]+1就是最短距离。",
+    "code_refs": [
+      "PG03"
+    ],
+    "complexity": "O(n+m)时间、O(n+m)空间。",
+    "pitfalls": [
+      "出队才标记会重复入队。",
+      "带0权或不同边权不能继续用普通BFS。",
+      "有向边不要自动反向push。"
+    ],
+    "exercise": "template/bfs.cpp：给一条有向链加孤立点，检查dist=-1与path空。",
+    "origins": [
+      "template/bfs.cpp",
+      "template/graph/bfs_path.hpp"
+    ],
+    "patch": true,
+    "usage": "init(4);\ng[1]={2};\ng[2]={3};\nbfs(1);\nauto p=path(3);"
+  },
+  {
+    "id": "CG04",
+    "title": "显式栈DFS与连通块",
+    "signal": "需要分连通块或按图结构逐点处理。",
+    "observe": "普通图会有环，需要visited；树父边判断只是特例。",
+    "brute": "对每点单独搜索其组件。",
+    "redundancy": "同一组件被n次重复计算。",
+    "derive": "一次DFS标整个组件；外层只对未访问点启动。",
+    "conditions": "0<=n<200010，点1..n；dfs_forest重置状态并遍历所有组件。comp从1开始，根fa=0。有向输入只表示遍历森林，不能当强连通分量。",
+    "proof": "每个栈帧与递归调用一一对应；visited保证点只首次进入一次，扫完整个组件后再选新根。",
+    "code_refs": [
+      "PG04"
+    ],
+    "complexity": "O(n+m)时间和空间。",
+    "pitfalls": [
+      "只dfs(1)会漏断图。",
+      "仅跳过父亲只适用于树，普通图要visited。",
+      "树深度20万不依赖系统递归栈。"
+    ],
+    "exercise": "template/dfs.cpp：链改为20万点，比较递归栈与显式栈帧。",
+    "origins": [
+      "template/dfs.cpp",
+      "template/graph/dfs_forest.hpp"
+    ],
+    "patch": true,
+    "usage": "init(4);\ng[1]={2};\ng[2]={1};\ng[3]={4};\ng[4]={3};\ndfs_forest();"
+  },
+  {
+    "id": "CG05",
+    "title": "全局数组Dijkstra",
+    "signal": "费用不同但都非负，问从源点最小总费用。",
+    "observe": "首次发现不一定最短，必须允许松弛。",
+    "brute": "枚举所有路径或每轮找未确定最小点O(n^2)。",
+    "redundancy": "每轮线性扫描最小候选开销高。",
+    "derive": "用小根堆按候选距离出队；非负性保证有效最小候选安全确定。",
+    "conditions": "0<=n<200010，点1..n；0<=w<INF=LLONG_MAX/4；距离>=INF视为不可达。dijkstra返回false表示非法端点/源点/边权，false后结果作废；合法空源集合全INF。",
+    "proof": "最小距离候选出堆时，非负边不能通过尚未出堆点改出更短路径；过期距离快照跳过。",
+    "code_refs": [
+      "PG05"
+    ],
+    "complexity": "堆优化O((n+m)log(n+m))时间，O(n+m)空间。",
+    "pitfalls": [
+      "负边即使不在源点可达区也拒绝。",
+      "INF不是任意大的真实距离；总路径长度须小于INF。",
+      "等长不改父亲，避免零环导致回溯成环。"
+    ],
+    "exercise": "用1->2权3、1->3权1、3->2权1手算一次过期堆项。",
+    "origins": [
+      "template/graph/dijkstra.hpp"
+    ],
+    "patch": false,
+    "usage": "init(3);\ng[1]={{2,3},{3,1}};\ng[3]={{2,1}};\nbool ok=dijkstra(1);\nauto p=path(2);"
+  },
+  {
+    "id": "CG06",
+    "title": "个人树上倍增LCA",
+    "signal": "同一树有大量祖先或路径距离查询。",
+    "observe": "一次向父亲走一步最坏走完整条链。",
+    "brute": "每次同步爬父亲，单次O(n)。",
+    "redundancy": "查询中反复经过同一长祖先段。",
+    "derive": "预存2^k级祖先，将爬升分解为二进制，再找LCA两侧最后分叉。",
+    "conditions": "依赖PG01；1<=n<200010，树双向存储。build_lca(root)必须在建图或换根后调用；非树false。jump越根/非法点返回0，distance非法返回-1。LOG=20，扩大N时同步调整。",
+    "proof": "up转移将两段2^(k-1)跳跃拼接；先等深后从高位同时上跳，最后两点的父亲就是第一个共同祖先。",
+    "code_refs": [
+      "PG06"
+    ],
+    "complexity": "预处理O(n log n)，查询O(log n)，空间O(n log n)。",
+    "pitfalls": [
+      "根祖先为0，不是根自身。",
+      "不能拿任意图的DFS树距离当原图最短路。",
+      "换根或重新init后必须重新build_lca。"
+    ],
+    "exercise": "cf/3/1096/H_!!dp_tree.cpp的树存储上练LCA，不声称原题需要LCA。",
+    "origins": [
+      "template/graph/lca.hpp",
+      "template/tree_storage.cpp"
+    ],
+    "patch": false,
+    "usage": "init(4);\ng[1]={2};\ng[2]={1,3,4};\ng[3]={2};\ng[4]={2};\nbool ok=build_lca(1);\nint a=lca(3,4);"
+  },
+  {
+    "id": "CG07",
+    "title": "四邻接网格BFS",
+    "signal": "矩形地图、障碍、最少上下左右移动。",
+    "observe": "格子坐标是顶点，四邻关系可即时计算。",
+    "brute": "枚举全部走法。",
+    "redundancy": "循环路线与重复状态造成指数重复。",
+    "derive": "每格第一次到达时入队；先判边界、障碍，再查访问状态。",
+    "conditions": "1<=n,m<1010；g行、列均1-indexed，每行前补空格；#障碍，其余可走。源点出界或障碍时全-1。",
+    "proof": "四邻扩展与单位边权图BFS等价；先边界检查再读取g避免越界。",
+    "code_refs": [
+      "PG07"
+    ],
+    "complexity": "O(nm)时间/空间。",
+    "pitfalls": [
+      "string默认0下标，忘补空格会整体错位。",
+      "先判边界再访问g[nx][ny]。",
+      "斜走、传送门、钥匙状态改变建边或状态，不能原样套。"
+    ],
+    "exercise": "2x3含障碍网格手算3步路径，并补起点是障碍的反例。",
+    "origins": [
+      "template/bfs.cpp"
+    ],
+    "patch": true,
+    "usage": "n=2;\nm=3;\ng[1]=\" ...\";\ng[2]=\" .#.\";\nbfs(1,1);"
+  },
+  {
+    "id": "CG08",
+    "title": "多源BFS",
+    "signal": "每个位置距最近出口/设施/初始火源。",
+    "observe": "目标是min_s dist(s,v)，不是各源距离之和。",
+    "brute": "每个源跑一次BFS，O(k(n+m))。",
+    "redundancy": "不同源搜索重复扫描全图。",
+    "derive": "全部源同时放第0层；谁先到某点就实现最近源的最小距离。",
+    "conditions": "依赖PG03；sources每个点在1..n，可重复或为空；所有源距离0，共用dist/fa/path。",
+    "proof": "第0层就是全部源；分层不变式给出min_s dist(s,v)，不需要每个源单独BFS。",
+    "code_refs": [
+      "PG08"
+    ],
+    "complexity": "O(n+m+源数)时间，O(n+m)空间。",
+    "pitfalls": [
+      "每个源依次调用单源bfs会覆盖之前结果。",
+      "源点时间不同不能都设0，需要最短路或分层事件。",
+      "空源集合应全部不可达。"
+    ],
+    "exercise": "5点链两端同时为源；再把源列表重复插入一个端点。",
+    "origins": [
+      "template/bfs.cpp"
+    ],
+    "patch": true,
+    "usage": "init(5);\nfor(int i=1;i<5;++i){g[i].push_back(i+1);g[i+1].push_back(i);}\nbfs(vector<int>{1,5,1});"
+  },
+  {
+    "id": "CG09",
+    "title": "0-1 BFS",
+    "signal": "只有免费/代价1两种边。",
+    "observe": "普通BFS的首次发现最优性质已不成立，但距离层仍只差0/1。",
+    "brute": "用Dijkstra正确但有堆log。",
+    "redundancy": "堆只维护相邻两层，排序能力过强。",
+    "derive": "0边新候选插队头，1边插队尾，按改善而非visited锁点。",
+    "conditions": "1<=start<=n<200010；每条边w必须是0或1，函数不校验。不可达dist=1e9。",
+    "proof": "deque保留当前最小层及下一层；有效弹出按距离非降序，等价于只含0/1边的Dijkstra。",
+    "code_refs": [
+      "PG09"
+    ],
+    "complexity": "O(n+m)时间和空间。",
+    "pitfalls": [
+      "1->2权1、1->3权0、3->2权0时，2初次发现不是最短。",
+      "有2权时不能继续保证队列序。",
+      "必须跳过过期距离快照。"
+    ],
+    "exercise": "三边反例：1->2(1),1->3(0),3->2(0)，答案0。",
+    "origins": [
+      "template/graph/dijkstra.hpp"
+    ],
+    "patch": true,
+    "usage": "init(3);\ng[1]={{2,1},{3,0}};\ng[3]={{2,0}};\nbfs01(1);"
+  },
+  {
+    "id": "CG10",
+    "title": "Floyd全源最短路",
+    "signal": "n约几百、全源多询问，可能有负边。",
+    "observe": "状态可按允许经过的中间点集合递推。",
+    "brute": "每对端点枚举路径。",
+    "redundancy": "同一中间路径被端点组合反复使用。",
+    "derive": "dist^(k)[i][j]=min(旧值,dist^(k-1)[i][k]+dist^(k-1)[k][j])。",
+    "conditions": "0<=n<510，|边权|<=1e12；先init，再add_edge取重边最小值，无向边加两次。floyd有任何负环返回false，此时全部结果不使用；不可达INF。",
+    "proof": "最短路按是否经过k分成两类；无负环可选简单最短路。k必须是最外层才能维护中间点集合不变式。",
+    "code_refs": [
+      "PG10"
+    ],
+    "complexity": "O(n^3)时间、O(n^2)空间。",
+    "pitfalls": [
+      "不可达INF不参与加法。",
+      "负环可能使递推数值迅速变负；用i128并截到-INF后返回false。",
+      "不能把同一k放最内层当标准Floyd。"
+    ],
+    "exercise": "手算1->2(4),2->3(-2),1->3(9)，再添加负环观察返回false。",
+    "origins": [
+      "template/graph/dijkstra.hpp"
+    ],
+    "patch": false,
+    "usage": "init(3);\nadd_edge(1,2,4);\nadd_edge(2,3,-2);\nadd_edge(1,3,9);\nbool ok=floyd();"
+  },
+  {
+    "id": "CG11",
+    "title": "二分图染色与冲突检测",
+    "signal": "每对约束必须分到相反两组。",
+    "observe": "沿边翻色；一条奇环回到起点会要求颜色相反。",
+    "brute": "枚举2^n种分组。",
+    "redundancy": "一个组件一旦选根颜色，其余点颜色被路径奇偶约束。",
+    "derive": "任取根色1，BFS传播；同色边是不可行证据。",
+    "conditions": "0<=n<200010，无向边双向添加；col=1/2。成功时所有点着色；失败时剩余col可能为0。支持断图、重边；自环立即失败。",
+    "proof": "边要求两端相异，沿路径颜色由长度奇偶唯一决定；出现同色边恰好构成奇环矛盾。",
+    "code_refs": [
+      "PG11"
+    ],
+    "complexity": "O(n+m)时间/空间。",
+    "pitfalls": [
+      "只给未着色点染色但不检查已着色边，会把三角形误判可二分。",
+      "原6.16题可能自带可行结构，其专用代码不能直接充当通用判定。",
+      "断图必须枚举所有起点。"
+    ],
+    "exercise": "cf/date/6/6.16/2_bi_paint_.cpp：保留题内构边，另加入三角形看通用冲突检测。",
+    "origins": [
+      "template/graph_paint.cpp",
+      "cf/date/6/6.16/2_bi_paint_.cpp"
+    ],
+    "patch": true,
+    "usage": "init(3);\ng[1]={2};\ng[2]={1,3};\ng[3]={2};\nbool ok=bipartite();"
+  },
+  {
+    "id": "CG12",
+    "title": "有向/无向环恢复",
+    "signal": "要求输出环上的点或边；可能有重边。",
+    "observe": "无向父边需要按id区分，有向需要区分栈内与已完成。",
+    "brute": "枚举简单路径直到回到旧点。",
+    "redundancy": "搜索路径前缀高度重叠。",
+    "derive": "DFS只保留当前祖先链，遇回边用fa/pe一次回溯恢复。",
+    "conditions": "0<=n<200010，输入m条边的唯一id为0..m-1；无向双向记录共用同一个id。find_cycle(directed)返回是否找到；cycle首尾相同，cycle_edges对应每一步，边号不重复。",
+    "proof": "回边连接当前点与栈内祖先，树父链加回边形成环；无向只跳过父边id，第二条平行边仍能闭合长度2的环。",
+    "code_refs": [
+      "PG12"
+    ],
+    "complexity": "O(n+m)时间/空间。",
+    "pitfalls": [
+      "无向图跳过所有v==fa[u]会漏两条平行边构成的环。",
+      "有向图不能把指向已结束点的边判成环。",
+      "简单基环图专用剥叶算法仍见G05，不必强行替换。"
+    ],
+    "exercise": "无向平行边长度2、自环长度1；有向菱形不是环。",
+    "origins": [
+      "template/graph/dfs_forest.hpp",
+      "template/advanced/bridges.hpp"
+    ],
+    "patch": false,
+    "usage": "init(2);\ng[1]={{2,0},{2,1}};\ng[2]={{1,0},{1,1}};\nbool ok=find_cycle(false);"
+  },
+  {
+    "id": "CG13",
+    "title": "无权树直径与路径",
+    "signal": "无权树上最长简单路径。",
+    "observe": "树无环，因此任意两点路径唯一。",
+    "brute": "从每点BFS取最大距离，O(n^2)。",
+    "redundancy": "直径端点能由一次最远搜索锁定，没必要枚举所有起点。",
+    "derive": "任取s找最远a，再从a找最远b并回溯路径。",
+    "conditions": "依赖PG01。只接受无权无向树；tree_diameter非树返回-1。单点长度0、路径[1]；成功后diameter_a/b和diameter_path有效。只读g/n，不修改PG01的父亲/深度。",
+    "proof": "以初始点s为根，最远a的深度不小于任意直径端点x/y。取t=LCA(x,y)：若a在t子树内，选与a不同分支的端点；否则a到端点的分叉不深于t。所得a到该端点距离至少为原直径，故a是某条直径端点；第二遍最大距离即直径。",
+    "code_refs": [
+      "PG13"
+    ],
+    "complexity": "O(n)时间和空间。",
+    "pitfalls": [
+      "本模块是无权版，不把BFS步数当带权距离。",
+      "非负权树可把遍历距离改为权和后用两遍法，但需另核验溢出；负边树不能直接套。",
+      "多个最远点可能并列，返回任意一条直径，不保证字典序。"
+    ],
+    "exercise": "cf/4/1090/F_tree_constrcution.cpp的链+星形构造是直径练习输入，不猜原题完整要求。",
+    "origins": [
+      "template/tree_storage.cpp",
+      "template/bfs.cpp"
+    ],
+    "patch": false,
+    "usage": "init(4);\ng[1]={2,3,4};\ng[2]={1};\ng[3]={1};\ng[4]={1};\nint len=tree_diameter();"
+  },
+  {
+    "id": "CG15",
+    "title": "DAG路径计数与最长路",
+    "signal": "所有依赖形成DAG，统计路径或最长转移链。",
+    "observe": "每条非空路径有唯一最后一条边。",
+    "brute": "枚举所有路径，数量可能指数级。",
+    "redundancy": "相同终点的前缀只需计数/最长长度，不需保留每条路径。",
+    "derive": "拓扑顺序累加ways、最大化dist；mod=1时用dist判可达。",
+    "conditions": "1<=s<=n<200010，1<=mod<=LLONG_MAX；不可达dist=-1/ways=0，起点含空路径。重边按不同边选择计数。有环返回false，结果作废。",
+    "proof": "每条到v的非空路径有唯一最后一条边u->v；拓扑序保证所有前驱已完成，路径计数可加且最长路可取max。",
+    "code_refs": [
+      "PG15"
+    ],
+    "complexity": "O(n+m)时间/空间。",
+    "pitfalls": [
+      "有向有环时最长简单路不能照搬此DP。",
+      "mod=1时ways[s]=0但s仍可达，不能用ways==0判断可达。",
+      "两项模数接近LLONG_MAX时加法先转i128。"
+    ],
+    "exercise": "cf/1704E.cpp只提取tp与dp累加局部；本卡通用模型是固定源的DAG路径。",
+    "origins": [
+      "cf/1704E.cpp",
+      "template/graph/topological_sort.hpp"
+    ],
+    "patch": false,
+    "usage": "init(4);\ng[1]={2,3};\ng[2]={4};\ng[3]={4};\nbool ok=dag_dp(1,1000000007);"
+  },
+  {
+    "id": "CG16",
+    "title": "拓扑排序：先决条件到有序执行",
+    "signal": "有向依赖，要求所有前置完成后执行；判断是否有环。",
+    "observe": "入度等于尚未处理的前驱条数。",
+    "brute": "枚举n!个排列再验证每条边。",
+    "redundancy": "排列中大量顺序明显违反前驱约束。",
+    "derive": "只选择入度0的点；删除它的出边，继续剥离，输出数<n即有环。",
+    "conditions": "有向图，n>=1；重边每条各计入入度。不是所有图都存在拓扑序。",
+    "proof": "DAG至少有一个入度0点；无入度0仍有点时，反向追溯前驱必进入环。",
+    "code_refs": [
+      "G04",
+      "PG15"
+    ],
+    "complexity": "O(n+m)。",
+    "pitfalls": [
+      "入度在过程中会被修改，多测重新计算。",
+      "多个合法拓扑序无需固定字典序；需要时用最小堆。"
+    ],
+    "exercise": "cf/1704E.cpp：识别in/e/tp的Kahn段；其后逆序DP对应从汇点回推。",
+    "origins": [
+      "cf/1704E.cpp",
+      "template/graph/topological_sort.hpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "CG17",
+    "title": "最小生成树：全连通的最小总边权",
+    "signal": "把所有点连接起来，成本为选边权之和。",
+    "observe": "连通无环需要n-1条边；最短路树通常不最小化总边权。",
+    "brute": "枚举所有边子集判连通，2^m。",
+    "redundancy": "每次切分两组，只需最便宜跨割边作为安全候选。",
+    "derive": "Kruskal按边排序并查集合并；Prim从当前树取最便宜跨界边。可靠G07/G08直接引用。",
+    "conditions": "无向图；允许负边、重边、自环。断图返回最小生成森林，必须检查connected/components。",
+    "proof": "割性质：最便宜跨割边可以替换某最优树中的另一条跨割边而不增加权值。",
+    "code_refs": [
+      "G07",
+      "G08",
+      "PG02"
+    ],
+    "complexity": "Kruskal O(m log m)，堆Prim O((n+m)log n)。",
+    "pitfalls": [
+      "最小生成树不是每对点最短路。",
+      "自环不会改善连通性；并查集拒绝块内边。",
+      "总权值范围由题目保证，负权不能用“初始0最小”误处理。"
+    ],
+    "exercise": "三点边(1,2,2),(2,3,2),(1,3,3)：MST总和4；根1最短路树边权和5。",
+    "origins": [
+      "template/kruskal MST.cpp",
+      "template/prim MST.cpp",
+      "template/graph/kruskal.hpp",
+      "template/graph/prim.hpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "CG18",
+    "title": "强连通缩点：把互相可达的一团压成点",
+    "signal": "有向图存在环，还要做依赖关系或DAG分析。",
+    "observe": "单向可达不是同一SCC；必须双向可达。",
+    "brute": "对每对点各跑可达性，O(n(n+m))。",
+    "redundancy": "许多点的双向可达关系可一次分类。",
+    "derive": "直接用已测G11迭代Kosaraju；按comp把跨组件边连成缩点DAG，再按目标做DP。",
+    "conditions": "有向图，端点合法；自环与重边可存在。缩点边需要计数时按题意去重或保留。",
+    "proof": "若不同SCC组成有向环，则这些组件之间互相可达，应合并，矛盾；因此缩点无环。",
+    "code_refs": [
+      "G11",
+      "G04",
+      "PG15"
+    ],
+    "complexity": "O(n+m)。",
+    "pitfalls": [
+      "不能用无向DSU替代SCC。",
+      "缩点后点权如何聚合必须从原目标推导。"
+    ],
+    "exercise": "1->2->1、2->3：{1,2}同SCC，3另一个；缩点只有一条方向边。",
+    "origins": [
+      "template/advanced/scc.hpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "CG19",
+    "title": "桥：删除一条边会破坏多少连通性",
+    "signal": "要求关键道路、删边后连通变化。",
+    "observe": "无向重边的两个端点间仍有替代边，所以单条不是桥。",
+    "brute": "逐条删边重跑连通性，O(m(n+m))。",
+    "redundancy": "每条树边下方能否绕回祖先，可用一个low概括。",
+    "derive": "直接引用已测G12；DFS树边(u,v)满足low[v]>tin[u]才是桥。",
+    "conditions": "无向图，输入每条边有唯一id；自环不是桥，平行边不得按端点一起跳过。",
+    "proof": "low[v]记录子树通过至多一条回边能触及的最早祖先；无法回到u或更高祖先时，唯一跨割边就是u-v。",
+    "code_refs": [
+      "G12",
+      "PG12"
+    ],
+    "complexity": "O(n+m)。",
+    "pitfalls": [
+      "桥判断是严格>，不是>=。",
+      "父边按id排除，不能排除所有父节点邻边。"
+    ],
+    "exercise": "两条平行1-2边都不是桥；再接2-3，只有2-3是桥。",
+    "origins": [
+      "template/advanced/bridges.hpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "CG20",
+    "title": "Euler子树区间与树DP接口",
+    "signal": "子树查询/修改，或者孩子完成后汇总父亲。",
+    "observe": "DFS进入与退出形成连续子树区间；只有父先子的普通order不自动拥有这个性质。",
+    "brute": "每次子树查询都遍历后代，O(nq)。",
+    "redundancy": "同一子树多次查询重复扫描。",
+    "derive": "区间问题直接用G10的tin/tout，再接树状数组/线段树；树选点等状态问题用PDP05的dp[u][0/1]。",
+    "conditions": "无向树，固定根。G10是闭区间[tin[u],tout[u]]，点权/边权映射先分清。PDP05允许空集。",
+    "proof": "DFS在退出u前不会离开u子树，因此访问时间连续；树DP在每个子树只通过父子边与外界交互。",
+    "code_refs": [
+      "PG01",
+      "G10",
+      "PDP05"
+    ],
+    "complexity": "根化O(n)；区间结构依所接数据结构；独立集树DP O(n)。",
+    "pitfalls": [
+      "PG01的order不作为Euler闭区间使用。",
+      "不能在孩子dp未完成时累计父亲。",
+      "全负点权允许空集时答案0。"
+    ],
+    "exercise": "cf/3/1096/H_!!dp_tree.cpp：只读“孩子完成再累加”和父边视角；独立集是另一个明确局部模型。",
+    "origins": [
+      "cf/3/1096/H_!!dp_tree.cpp",
+      "template/graph/euler_subtree.hpp",
+      "template/tree_dp.cpp"
+    ],
+    "patch": false
+  }
+]

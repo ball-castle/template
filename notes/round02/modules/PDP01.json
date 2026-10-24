@@ -1,0 +1,41 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [],
+  "patch": true,
+  "id": "PDP01",
+  "title": "线性与网格：最大子段、路径计数、最小代价",
+  "source": "competition/dp/linear_grid.hpp",
+  "when": "选择连续子段，或只能右下移动的网格；未来只依赖前一段末尾或上方/左方。",
+  "contract": "max_subarray输入a[1..n]且n>=1，必须非空；grid输入行列均1-indexed且n,m>=1，'#'障碍。mod在[1,INT_MAX]；任意子段/路径和绝对值<2^60。GRID_INF表示无路，格点费用含起终点。",
+  "complexity": "最大子段O(n)/O(1)；网格O(nm)/O(m)。",
+  "idea": "先固定当前末尾或当前格，合并未来相同的历史；最优值取max/min，路径数相加。",
+  "proof": "最后一步分类互斥完备，且同一末尾的最优前缀替换不影响未来。",
+  "pitfalls": [
+    "非空全负子段不能让0参与答案。",
+    "网格障碍必须清空滚动状态；允许回走时失去该依赖顺序。",
+    "无法到达的INF先判断，再加费用。"
+  ],
+  "example": "DPC01：[-8,-2,-5]返回-2。DPC02：2x2无障碍两条路径；点权1,2/3,4的最小含点费用为7。",
+  "usage": "#include \"competition/dp/linear_grid.hpp\"\nint main() {\n    vector<string> g = {\"\", \" ..\", \" ..\"};\n    vector<vector<ll>> a = {{}, {0, 1, 2}, {0, 3, 4}};\n    cout << grid_paths(g) << ' ' << grid_min_path(a, g) << '\\n'; // 2 7\n}\n",
+  "origins": [
+    {
+      "path": "cf/date/6/6.9/3_leaner_dp.cpp",
+      "idea": "开新段或接上一段，并在原题局部状态保存长度模m",
+      "issue": "原代码有额外按段长度收费，不是普通最大子段",
+      "change": "仅提取最简单无收费模型作教学补缺；原正确代码不改",
+      "interface_change": "新增max_subarray；不是原题solve的替换",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/5/5.22/2.cpp",
+      "idea": "1-indexed网格由上方与左方计数",
+      "issue": "原文件含组合计数外层，题意未核实，只提取单路径模型",
+      "change": "保持右下递推，动态滚动数组及任意给定模数；补最小费用同构模型",
+      "interface_change": "新增grid_paths/grid_min_path独立函数",
+      "online_status": "UNKNOWN"
+    }
+  ]
+}

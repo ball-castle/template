@@ -1,0 +1,33 @@
+{
+  "id": "X09",
+  "title": "我的 XOR-gun：最高位分类与前缀枚举",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P1",
+  "source": "competition/xor/xor_gun.hpp",
+  "when": "非降序正整数数组，相邻两项可合并为XOR；最少几次使序列出现下降。",
+  "contract": "a[1..n]，2<=n<=1e5，1<=a[i]<=1e9且非降序；无解返回-1。",
+  "complexity": "读入O(n)；n>60直接1，否则O(n³)枚举、O(n)空间。",
+  "idea": "最终相邻两项对应原来的相邻两段；段内合并成本等于长度减1。30种最高位，超过60项必有连续三项最高位相同。",
+  "proof": "三项最高位相同时，右两项XOR消去该位，必小于左项，所以1次足够；初始非降序排除0次。小规模枚举所有相邻两段，成本r-l-1覆盖全部可能首次逆序。",
+  "pitfalls": [
+    "正数、非降序、上界1e9都是60阈值的前提；61个0不适用。",
+    "原ca逐段扫描实际为O(n⁴)，但60封顶仍是可用旧解；没有伪造TLE。",
+    "只比较两个连续区间，不可随意跳选下标。"
+  ],
+  "example": "cf/date/5.15/3.cpp = CF1457D；[1,2,4,6,20]答案2，[1,2,3]无解。",
+  "usage": "int ans=xor_gun({0,1,2,4,6,20});",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/date/5.15/3.cpp",
+      "idea": "原注释已有相邻两段和最高位三项结论。",
+      "issue": "未发现合法输入下的正确性错误；注释称O(n³)而ca让实际O(n⁴)。",
+      "change": "唯一算法改动是用p数组代替ca循环；阈值和三重枚举原样保留。",
+      "interface_change": "原main输入输出抽成xor_gun(a)。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

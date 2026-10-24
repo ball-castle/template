@@ -1,0 +1,33 @@
+{
+  "id": "BM02",
+  "title": "最少区间操作的压缩构造与变体",
+  "source": "competition/models/interval_construct.hpp",
+  "when": "不仅问最少次数，还要构造区间；或每次区间可加任意整数。",
+  "contract": "a[0]=0；单位版mode=-1/0/1同BM01，输出(l,r,sign,cnt)压缩组；任意整数版精确求解仅限非零边界差分m<=20。",
+  "idea": "正负差分边界配对；任意整数费用1改成最大零和分组，不能复用单位次数。",
+  "proof": "单位配对每步同时消去相同质量的正负差分。任意整数操作是一条边，k个边界连通至少k-1条；每个连通分量差分和0，星形实现恰k-1条，所以答案m减最多零和组数。",
+  "complexity": "单位构造O(n)时间空间、至多n个压缩组；小规模任意整数版O(m*2^m)时间、O(2^m)空间。",
+  "usage": "auto ops=construct_unit_intervals({0,2,1,3},1); // 各op重复cnt次；arbitrary_intervals_small({0,2,2})=1",
+  "example": "[1,3,2]可[1,2]加1、[2,3]加2，两次任意整数操作；若按单位费用则要3次。",
+  "pitfalls": [
+    "cnt可很大，不能逐次展开输出导致超时；题面若要求逐操作输出还受输出量限制。",
+    "小规模指数DP不可用于大m；m限制是非零差分数而非数组长度。",
+    "任意整数费用与单位费用两个问题不可混用。"
+  ],
+  "patch": false,
+  "origins": [
+    {
+      "path": "template/competition/models/interval_count.hpp",
+      "idea": "将下界证明变成可检查的具体区间。",
+      "issue": "新补缺模型，不是原题源复制。",
+      "change": "增加压缩构造及明确受限的精确变体。",
+      "interface_change": "新增函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "category": "操作与通用模型",
+  "priority": "P1",
+  "dependencies": [],
+  "test": "tests/round02/test_models.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

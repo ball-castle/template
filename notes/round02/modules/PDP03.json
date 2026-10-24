@@ -1,0 +1,41 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [],
+  "patch": false,
+  "id": "PDP03",
+  "title": "序列前缀与个人状态机、候选分层 DP",
+  "source": "competition/dp/sequence_state.hpp",
+  "when": "LCS、单位代价编辑距离、先右后左匹配、多个字符串各选严格递增子序列候选。",
+  "contract": "LCS/编辑距离字符串可空；编辑操作单位代价。方向匹配最多一次右转左，空目标true。候选链a[1..n]，每串长度<=15，选非空子序列，字典序严格递增；空链返回0，无法完成返回-1。",
+  "complexity": "LCS/编辑距离O(nm)时间空间；方向匹配O(nm)时间O(n)空间；候选链每层枚举O(L2^L)、排序O(L2^L log2^L)，再对相邻层线性扫描。",
+  "idea": "两个前缀存双下标；方向存dp0/dp1；候选已排序时用双指针累积上一层可用前缀最大值。",
+  "proof": "状态保存了影响未来的末尾/阶段；每个目标候选可用的前驱集合随字典序递增而单调扩大。",
+  "pitfalls": [
+    "LCS是子序列，不是连续子串。",
+    "方向更新必须新层，不能二次转向。",
+    "字典序条件严格<；候选去重且不可达状态不加长度。"
+  ],
+  "example": "DPC12输出LIS=2、LCS(abc,ac)=2、编辑距离kitten/sitting=3、候选链ab/bc=4；DPC13 abc可右后左读abcba。",
+  "usage": "#include \"dp/lis.hpp\"\n#include \"competition/dp/sequence_state.hpp\"\nint main() {\n    cout << lis_length({0, 3, 1, 2, 2}) << ' '\n         << lcs_length(\"abc\", \"ac\") << ' '\n         << edit_distance(\"kitten\", \"sitting\") << ' '\n         << lex_subsequence_chain({\"\", \"ab\", \"bc\"}) << '\\n'; // 2 2 3 4\n}\n",
+  "origins": [
+    {
+      "path": "cf/date/7/7.9/1_interesting_dp.cpp",
+      "idea": "原dp0/1与ndp0/1分别记录尚未左转/已经左转",
+      "issue": "原合法非空输入无已知算法问题",
+      "change": "保留递推，提取函数；补空目标/空源语义",
+      "interface_change": "solve打印YES/NO改为bool独立函数",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/ICPC/JAKARTA_2018/J.cpp",
+      "idea": "原非空子序列排序去重、双指针前缀max转移",
+      "issue": "未查原题与在线记录，仅确认代码局部模型",
+      "change": "保留算法与命名，NEG改为准确整数，输入对象从1开始；空链明确返回0",
+      "interface_change": "原solve改为返回最大长度的lex_subsequence_chain",
+      "online_status": "UNKNOWN"
+    }
+  ]
+}
