@@ -1,0 +1,19 @@
+{
+  "id": "M01",
+  "title": "整数与位运算 Integer and Bits",
+  "category": "数学 Math",
+  "priority": "P0",
+  "source": "math/integer_bits.hpp",
+  "when": "最大公约数、最小公倍数、二进制计数、取最低位、枚举mask的所有子集。",
+  "contract": "gcd_abs 接受完整ll范围并返回unsigned long long；gcd(0,0)=0。lcm_checked只接受能放进非负ll的结果，否则nullopt。位操作用ull，位号0..63；最低位不存在返回-1。",
+  "complexity": "gcd/lcm 为 O(log max(|a|,|b|))；64位基础位操作 O(1)；子集枚举 O(2^popcount(mask))。",
+  "pitfalls": [
+    "LLONG_MIN不能直接取负或abs；其绝对值2^63不能装进ll。",
+    "使用1ULL<<k且k<64，不要用有符号1处理高位。",
+    "子集枚举必须在sub==0时结束，否则会回到mask。"
+  ],
+  "example": "原仓库 gcd.cpp：https://github.com/ball-castle/template/blob/main/gcd.cpp 。旧递归在(-6,-4)返回-2；新版返回非负gcd并覆盖完整64位输入。",
+  "usage": "ull g=gcd_abs(a,b); auto l=lcm_checked(a,b); if(l) cout<<*l; int cnt=bit_count(mask); int k=lowest_bit_index(mask);",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；覆盖负数、0、LLONG_MIN、lcm溢出、第63位与全部mask<128的子集枚举。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

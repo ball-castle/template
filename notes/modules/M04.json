@@ -1,0 +1,15 @@
+{
+  "id": "M04",
+  "title": "乘积递推修正版 Product Recurrence",
+  "category": "数学 Math",
+  "priority": "P1",
+  "source": "math/product_recurrence.hpp",
+  "when": "原1182E乘积递推的指数转移示例；用矩阵求各底数指数，再做模幂。理解M02、M03后再读。",
+  "contract": "f[n]=f[n-1]*f[n-2]*f[n-3]*c^(2n-6)，固定模P=10^9+7；n>=1，四个底数可为任意ll；n<=3直接返回初值。依赖M02、M03。",
+  "complexity": "矩阵阶数最多5，时间 O(5^3 log n)，额外空间 O(5^2)。",
+  "pitfalls": ["累乘答案从1开始；原文件从0开始会使所有答案为0。", "n>=4时四个底数的真实指数均为正，先判底数modP是否为0，再把指数模P-1；不能只凭取模后指数0判断0^0。", "原题n>=4；新版的n=1/2/3是明确添加的边界支持，不把原题未要求的输入当作原提交失败证据。"],
+  "example": "Codeforces 1182E Product Oriented Recurrence：https://codeforces.com/problemset/problem/1182/E 。已核对原递推与两条官方样例；不宣称在线AC。",
+  "usage": "ll ans=product_recurrence(n,f1,f2,f3,c); 固定题型示例，不是所有乘积递推通用公式；更换递推时重新推导两个转移矩阵。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；200组初值的n=1..24朴素递推对照、两条官方样例、n=10^18和底数modP为0。"
+}

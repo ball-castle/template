@@ -1,0 +1,10 @@
+{
+  "book": "ACM_ICPC_铜牌算法板子_完整版",
+  "pages": 41,
+  "source_lines": 1271,
+  "docx_sha256": "e45d0617d36839f34344bb037957bedc2404d3ae8dd02d5ba1e3d2b2dcf272f4",
+  "pdf_sha256": "87279374a44f95aa1deb8a2ea99b1e045565fc5061db1bc9e94f995c257af4cb",
+  "errors": [],
+  "structural_check": "PASS",
+  "visual_check": "Required separately on all rendered pages"
+}

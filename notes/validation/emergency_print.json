@@ -1,0 +1,10 @@
+{
+  "book": "成都站_铜牌冲刺板子_2026",
+  "pages": 24,
+  "source_lines": 658,
+  "docx_sha256": "18b7cef0dc23841f13c243a3ecfd2473a452979bd51d7cd490499dd0b810108c",
+  "pdf_sha256": "78132eec669e1830bd18f67930ec68a80d0101788037bd16158348112e72ffce",
+  "errors": [],
+  "structural_check": "PASS",
+  "visual_check": "Required separately on all rendered pages"
+}

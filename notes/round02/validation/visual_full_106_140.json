@@ -1,0 +1,216 @@
+{
+  "artifact": "ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "checked_at": "2026-10-25T00:59:57.2402855+08:00",
+  "reviewer": "qa_v2_106_140",
+  "page_range": {
+    "from": 106,
+    "to": 140,
+    "count": 35,
+    "total_pdf_pages": 276
+  },
+  "method": {
+    "type": "逐页原尺寸视觉 QA",
+    "skill": "C:/Users/TSOU/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md",
+    "images": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final/page-{page}.png",
+    "render_dpi": 130,
+    "viewer": "tools.view_image(detail=\"original\")",
+    "coverage": "第 106–140 页每页均实际查看完整原尺寸 PNG；每批最多 4 页，未使用 contact sheet 或文本提取替代视觉检查。",
+    "checks": [
+      "中文和内联代码可读性与裁切",
+      "标题、正文、来源之间的重叠",
+      "页眉、页脚与页码",
+      "边距和换行",
+      "表格与代码分页（本范围无实际表格或多行函数代码块）"
+    ],
+    "pagination_rule": "独立模型起新页允许下半页留白；仅孤立 1–3 行函数末尾占整页才记为分页瑕疵。",
+    "scope": "只读视觉 QA；结构、PAGEREF 和 source exact 已由主任务单独检验，不以其 PASS 替代本次视觉检查。",
+    "source_mutation": false
+  },
+  "pages": [
+    {
+      "page": 106,
+      "status": "PASS",
+      "notes": "SEG-03 独立模型页；标题、中文、内联代码与来源完整，页眉页脚清楚，下半页留白符合独立模型起新页规则。"
+    },
+    {
+      "page": 107,
+      "status": "PASS",
+      "notes": "SEG-04 独立模型页；gcd、LLONG_MIN 等内联代码换行完整，无裁切重叠，页脚正确。"
+    },
+    {
+      "page": 108,
+      "status": "PASS",
+      "notes": "SEG-05 独立模型页；长模型说明和源码路径完整换行，中文与代码清晰，边距及页脚正常。"
+    },
+    {
+      "page": 109,
+      "status": "PASS",
+      "notes": "SEG-06 独立模型页；段落、代码入口和调用提醒完整，无裁切重叠，留白属于独立模型布局。"
+    },
+    {
+      "page": 110,
+      "status": "PASS",
+      "notes": "SEG-07 独立模型页；长表达式自然换行，中文与调用代码完整，无越界、重叠或页脚异常。"
+    },
+    {
+      "page": 111,
+      "status": "PASS",
+      "notes": "SEG-08 独立模型页；密集模型说明行距正常，中文、标记表达式及源文件行可读，页眉页脚正常。"
+    },
+    {
+      "page": 112,
+      "status": "PASS",
+      "notes": "SEG-09 独立模型页；多操作调用提醒完整，段落和长内联代码无裁切重叠，留白符合模型页布局。"
+    },
+    {
+      "page": 113,
+      "status": "PASS",
+      "notes": "SEG-10 独立模型页；标题、正文和查询结果调用行完整，右侧边距及页脚正常。"
+    },
+    {
+      "page": 114,
+      "status": "PASS",
+      "notes": "SEG-11 独立模型页；长 sum/pref/suff/best 公式完整换行，正文、调用行和页脚可读，无裁切或重叠。"
+    },
+    {
+      "page": 115,
+      "status": "PASS",
+      "notes": "SEG-12 独立模型页；kth 条件及内联表达式均完整，标题、来源和页码位置正常。"
+    },
+    {
+      "page": 116,
+      "status": "PASS",
+      "notes": "SEG-13 独立模型页；长标题未越界，first_ge 说明与调用完整，中文行距及页脚正常。"
+    },
+    {
+      "page": 117,
+      "status": "PASS",
+      "notes": "SEG-14 独立模型页；长调用提醒跨两行但内容连续完整，来源行与正文分隔清楚，无裁切重叠。"
+    },
+    {
+      "page": 118,
+      "status": "PASS",
+      "notes": "SEG-15 独立模型页；Fenwick 长标题及两行调用提醒完整，正文自然换行，页脚清晰。"
+    },
+    {
+      "page": 119,
+      "status": "PASS",
+      "notes": "STL_HUFFMAN 独立模型页；标题及全部说明可读，未出现裁切重叠；留白合理，页码正确。"
+    },
+    {
+      "page": 120,
+      "status": "PASS",
+      "notes": "STL_TOPK 独立模型页；多行正文和示例调用完整，边距与行距一致，页眉页脚正常。"
+    },
+    {
+      "page": 121,
+      "status": "PASS",
+      "notes": "STL_MEDIAN 独立模型页；中文、ceil 表达式与调用提醒清晰，无裁切重叠或异常分页。"
+    },
+    {
+      "page": 122,
+      "status": "PASS",
+      "notes": "STL_LAZY 独立模型页；标题、复杂度说明与 lazy 调用行均完整，末段自然换行，页脚正常。"
+    },
+    {
+      "page": 123,
+      "status": "PASS",
+      "notes": "STL_NEIGHBOR 独立模型页；lower_bound/upper_bound 长语句完整换行，标题及调用提醒无越界，页脚清晰。"
+    },
+    {
+      "page": 124,
+      "status": "PASS",
+      "notes": "STL_RESOURCE 独立模型页；短正文及分配示例排版整齐，中文、内联代码与来源清楚，无裁切重叠。"
+    },
+    {
+      "page": 125,
+      "status": "PASS",
+      "notes": "STL_WINDOW 独立模型页；长标题在页宽内，中文、示例和页脚完整，独立模型留白符合规则。"
+    },
+    {
+      "page": 126,
+      "status": "PASS",
+      "notes": "STL_SELECT 独立模型页；容器列表、代码入口与调用说明完整，长标题未越界，页脚正常。"
+    },
+    {
+      "page": 127,
+      "status": "PASS",
+      "notes": "XOR01 独立模型页；异或符号、popcount 说明和中文正文清晰，来源与页码完整，无异常分页。"
+    },
+    {
+      "page": 128,
+      "status": "PASS",
+      "notes": "XOR02 独立模型页；前缀式与示例数组清晰，正文和来源完整，独立模型留白正常。"
+    },
+    {
+      "page": 129,
+      "status": "PASS",
+      "notes": "XOR03 独立模型页；计数式、复杂度上标及示例无裁切重叠，标题与页脚正常。"
+    },
+    {
+      "page": 130,
+      "status": "PASS",
+      "notes": "XOR04 独立模型页；差分及未知量公式换行完整，正文无重叠，页眉页脚清楚。"
+    },
+    {
+      "page": 131,
+      "status": "PASS",
+      "notes": "XOR05 独立模型页；XOR/OR/AND 贡献公式及长说明完整可读，未见裁切或异常行距，页脚正常。"
+    },
+    {
+      "page": 132,
+      "status": "PASS",
+      "notes": "XOR06 独立模型页；长构造条件自然换行，中文与内联变量清晰，标题和页码完整。"
+    },
+    {
+      "page": 133,
+      "status": "PASS",
+      "notes": "XOR07 独立模型页；长标题未越界，OR 公式及示例段落完整，留白与页脚正常。"
+    },
+    {
+      "page": 134,
+      "status": "PASS",
+      "notes": "XOR08 独立模型页；长反例说明自然换行，数学式、中文和来源完整，无裁切重叠。"
+    },
+    {
+      "page": 135,
+      "status": "PASS",
+      "notes": "XOR09 独立模型页；Trie 长标题和说明可读，边距、页眉页脚及来源行正常。"
+    },
+    {
+      "page": 136,
+      "status": "PASS",
+      "notes": "XOR10 独立模型页；图约束式及反例行完整换行，中文未裁切，页码清楚。"
+    },
+    {
+      "page": 137,
+      "status": "PASS",
+      "notes": "XOR11 独立模型页；GF(2) 和子集表达式清晰，反例段落完整，留白属于独立模型页正常布局。"
+    },
+    {
+      "page": 138,
+      "status": "PASS",
+      "notes": "XOR12 独立模型页；popcount 长标题、目标集合公式及反例说明完整，中文与页脚无异常。"
+    },
+    {
+      "page": 139,
+      "status": "PASS",
+      "notes": "XOR13 独立模型页；AND 排列长标题和多行条件说明完整，边距、行距与页码正常。"
+    },
+    {
+      "page": 140,
+      "status": "PASS",
+      "notes": "XOR14 独立模型页；XOR-gun 标题、复杂度上标与正文清晰，未见裁切重叠，来源及页脚完整。"
+    }
+  ],
+  "conclusion": {
+    "status": "PASS",
+    "reviewed_pages": 35,
+    "passed_pages": 35,
+    "issue_count": 0,
+    "issue_pages": [],
+    "notes": "第 106–140 页逐页视觉检查通过。均为独立模型说明页，中文、内联代码、标题、来源和页脚完整；未发现裁切、重叠、异常分页或孤立函数尾行。独立模型留白符合本轮验收规则。PDF 检查前后 SHA256 一致。"
+  }
+}

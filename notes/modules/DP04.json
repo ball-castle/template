@@ -1,0 +1,19 @@
+{
+  "id": "DP04",
+  "title": "石子合并区间 DP Interval Merge",
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "source": "dp/interval_merge.hpp",
+  "when": "只能合并相邻部分，最后一次操作把区间分成左右两段，总代价可以由子区间转移。",
+  "contract": "a 从1开始且非负；直线石子合并，单次代价为两堆之和；n=0/1返回0。要求n*sum(a)<2^60；本函数不处理环形合并。",
+  "complexity": "时间 O(n^3)，空间 O(n^2)。",
+  "pitfalls": [
+    "先枚举长度，再枚举左端点和分割点。",
+    "前缀和、状态和候选代价均须64位；无穷大必须大于合法答案。",
+    "环形题通常先复制数组，再取所有长度n区间的最优值，不能直接调用直线版。"
+  ],
+  "example": "原仓库区间dp.cpp：https://github.com/ball-castle/template/blob/main/%E5%8C%BA%E9%97%B4dp.cpp 。两堆各10^9的正确答案2*10^9，旧版返回1061109567；保留转移并修复整数范围。",
+  "usage": "vector<ll> a(n+1); 读入a[1..n]；cout<<interval_merge(a); 该函数求最小代价。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow通过；180组小数组对照全部相邻合并顺序，覆盖n=0/1、零权与超过32位总代价。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

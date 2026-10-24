@@ -1,0 +1,36 @@
+{
+  "id": "STL02",
+  "title": "堆与有序集合的典型题型",
+  "category": "STL",
+  "priority": "P1",
+  "source": "competition/stl/heaps_sets.hpp",
+  "when": "反复取最优、流式TopK、在线/滑窗中位数、取消任务、查前后继或分配最小够用资源。",
+  "contract": "Huffman权重非负且总成本ll不溢出；TopK的k>=0；中位数查询非空。延迟堆id为1..n，每次init清空。窗口k=0或k>n返回空，极差不溢出。",
+  "complexity": "Huffman O(n log n)；TopK O(n log(k+1))、空间O(k)；双堆插入O(log n)；延迟堆Q次总O(Q log Q)、空间O(Q)。前后继/资源O(log n)，窗口O(n log k)。",
+  "pitfalls": [
+    "堆只能看顶，不能用它直接查任意前驱或删除中间元素。",
+    "中位数定义为第(n+1)/2小，即偶数长度取下中位数；平均两个中值需防溢出。",
+    "过期项可能大量堆积，延迟删除的空间按操作数而非当前活跃数估计。",
+    "只需窗口最值时单调队列可O(n)，需要中位数才要更丰富的维护。"
+  ],
+  "example": "Huffman{1,2,3,4}成本19；{3,1,9,9,-2}取前3大得到9,9,3，取前3小得到-2,1,3；{1,4,7}中4的严格邻居为1/7；资源{2,2,5}依次要2/3后剩2。",
+  "usage": "ll cost=huffman_cost(a); auto big=top_k_largest(a,k); auto small=top_k_smallest(a,k); median_init(); for(ll x:a) median_add(x); ll med=median_lower(); auto windows=window_lower_medians(a,k);",
+  "test": "tests/round02/test_stl.cpp",
+  "verify": "2026-10-25 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow无警告，WSL g++13.3 ASan+UBSan通过tests/round02/test_stl.cpp；所有示例实际执行，Huffman 100组<=5项全合并穷举、前k大/前k小及在线中位数各30000步、版本堆20000步、窗口2000组排序oracle。种子20261024。",
+  "idea": "堆只维护下一次最优；有序集合多维护全局顺序换来前后继/删除；两半结构把中位数变成边界元素。",
+  "proof": "TopK淘汰候选中最小者不会丢失前k大；双堆/双集合保持小半<=大半且大小差<=1，边界就是下中位数。",
+  "origins": [
+    {
+      "path": "template/data_sturcture.cpp",
+      "idea": "原大根堆、多重集合、查找和删除调用。",
+      "issue": "原例只有API，还没有任务模型与动态状态不变量。",
+      "change": "在原STL写法上补独立函数和全局堆，添加模型证明与随机oracle。",
+      "interface_change": "新增独立函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [
+    "STL01"
+  ],
+  "patch": false
+}

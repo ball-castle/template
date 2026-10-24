@@ -1,0 +1,22 @@
+name: GNU20 template validation
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mode: [release, sanitizers]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run independent drivers and differential tests
+        run: |
+          if [ "${{ matrix.mode }}" = "sanitizers" ]; then
+            python3 scripts/run_round02_tests.py --sanitize
+          else
+            python3 scripts/run_round02_tests.py
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-${{ matrix.mode }}
+          path: build/round02_${{ matrix.mode }}/

@@ -1,0 +1,33 @@
+{
+  "id": "IO01",
+  "title": "原版 ll/getchar 快读",
+  "category": "运行基础",
+  "priority": "P0",
+  "source": "read.cpp",
+  "when": "读入格式已知、整数个数已知、需要快速读普通合法整数。",
+  "contract": "完全原样使用用户read.cpp的inline ll read()。只对预期数量的合法十进制整数调用；中间绝对值可用ll表示。不承诺EOF检测、超域输入或LLONG_MIN。输入端不与关闭同步的cin混用。",
+  "complexity": "每个字符O(1)，额外空间O(1)。",
+  "pitfalls": [
+    "读取次数由题面n/T控制；无数据仍调用会一直找数字。",
+    "需要EOF判断、LLONG_MIN或混合文本时改用cin，不改原read接口。",
+    "这份.cpp是可粘贴函数片段，独立编译测试需要另写main。"
+  ],
+  "example": "依次读取0 -1 1 42 -20261024 1000000000000000000 -1000000000000000000，结果逐项相同。",
+  "usage": "ll n=read(); for(int i=1;i<=n;++i) a[i]=read();",
+  "test": "tests/round02/test_runtime.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 -O1 ASan+UBSan -fno-pie -no-pie，tests/round02/test_runtime.cpp 通过：原read合法整数50007个、IO显示与i128边界、浮点几何/二分/三分固定种子20261024的2000组。",
+  "idea": "沿用用户熟悉的getchar逐字符累积，遇到负号记录符号。",
+  "proof": "每读入一位d后x=10*x+d，循环结束时x等于数字绝对值；最后乘符号。",
+  "origins": [
+    {
+      "path": "template/read.cpp",
+      "idea": "用户已验证使用的ll/getchar快读。",
+      "issue": "本轮不将超出原用途的输入升级为重构理由。",
+      "change": "原源完全不改，测试直接include。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

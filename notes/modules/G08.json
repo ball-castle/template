@@ -1,0 +1,15 @@
+{
+  "id": "G08",
+  "title": "堆优化 Prim 最小生成森林 Prim MST",
+  "category": "图论",
+  "priority": "P1",
+  "source": "graph/prim.hpp",
+  "when": "已有带权无向邻接表，需要最小生成树或所有分量的最小生成森林。",
+  "contract": "g 长度 n+1，合法点 [1,n]，无向边双向加入，允许负权、自环、重边。返回 weight、components、connected、parent；每个分量根 parent=0；不连通时仍返回森林权重；n=0 时 connected=false。累加需在 ll 范围内。",
+  "complexity": "O((n+m)log(n+m)) 时间，O(n+m) 额外空间；使用边堆，重复候选出堆后忽略。",
+  "pitfalls": ["选点依据跨越已选/未选集合的最小边，不是到起点的累计路程。", "负权可以用 Prim；这一点与 Dijkstra 不同。", "无向边必须双向加入；只从 1 遍历不能统计所有分量。", "parent 只记录父点，若需具体重边编号可将边 ID 加入堆。"],
+  "example": "旧来源：https://github.com/ball-castle/template/blob/main/prim%20MST.cpp 。新实现清除多测全局状态依赖，并将总权改为 ll。",
+  "usage": "vector<vector<pair<int,ll>>> g(n+1); g[u].push_back({v,w}); g[v].push_back({u,w}); auto r=cp::prim(g);",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 零警告；300 轮小图对穷举最小生成森林，包含零/负权、平行边、自环、单点和不连通图。"
+}

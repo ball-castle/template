@@ -1,0 +1,34 @@
+{
+  "id": "X11",
+  "title": "我的 Energy Intervals 补全（2268C / 2269E）",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P2",
+  "source": "competition/xor/energy_intervals.hpp",
+  "when": "最大化长度至少2区间的 (区间XOR & 区间最大值)，n大且值<2^18。",
+  "contract": "a[1..n]、2<=n<=2e5、0<=a[i]<2^width、1<=width<=18；energy_max重建全局状态；energy_check仅供内部调用。n<2按0约定。",
+  "complexity": "O(width*n*log n + width*2^width)时间，O(n+2^width)空间；显式栈。",
+  "idea": "沿原前缀异或观察，先把AND提出；按位贪心答案，将问题变成受区间最大值限制的互补前缀存在性。",
+  "proof": "最大笛卡尔树结点v统一负责跨v且以a[v]为最大值的区间。候选mask须被a[v]包含，且两前缀在mask投影后的XOR等于mask。小并大枚举较小侧，完整保留另一侧频次，明确扣除(v-1,v)单元素对。每个下标进入较小侧时所在规模至少倍增。",
+  "pitfalls": [
+    "普通最大XOR Trie忽略动态AND掩码会错：对0查询{4,3}最大XOR是4，mask=3后为0，另一个候选可得3。",
+    "(v-1,v)永远会通过自身a[v]包含mask的检查，但它是禁止的单元素区间。",
+    "重复前缀必须维护频次，不能简单删除一个值的全部存在性。",
+    "单调数组的笛卡尔树深度n；使用显式栈防递归爆栈。"
+  ],
+  "example": "cf/1/1124/C.cpp真实题意已经核验，原solve为空。官方样例[1,7,3,7,2]答案6；此完整解为P2，不当成普通最大子数组XOR。",
+  "usage": "int ans=energy_max({0,1,7,3,7,2});",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/1/1124/C.cpp",
+      "idea": "原注释已经写出先化简、前缀XOR、维护最大值。",
+      "issue": "solve为空；缺少处理最大值与端点相互依赖的算法。",
+      "change": "补全按位判定、最大笛卡尔树和小并大频次数组；保留a/p/cnt独立函数风格。",
+      "interface_change": "原无可调用实现；新增energy_max(a)。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

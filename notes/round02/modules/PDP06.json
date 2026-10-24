@@ -1,0 +1,24 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [],
+  "patch": false,
+  "id": "PDP06",
+  "title": "独立试验概率与阶段等待期望",
+  "source": "competition/dp/probability_expectation.hpp",
+  "when": "独立伯努利成功次数分布；按顺序阶段重复尝试，失败留原阶段、成功前进。",
+  "contract": "p[1..n]均有限。分布要求独立且p∈[0,1]；等待要求每次独立、同阶段p固定且p∈(0,1]，Σ1/p有限且落在long double范围。空试验分布{1}，空阶段期望0。",
+  "complexity": "概率O(n²)时间、O(n)空间；期望O(n)时间、O(n)空间。",
+  "idea": "概率按最后一次成败加权求和；期望先列包含自环的全方程，再移项。",
+  "proof": "全概率公式分类互斥完备；条件期望失败后回到相同阶段，解线性式得E[i]=1/p[i]+E[i+1]。",
+  "pitfalls": [
+    "不是所有随机过程都独立，条件概率变化时必须加状态。",
+    "p=0等待期望无限，禁止传入有限期望函数。",
+    "概率相加需权重，不能平均后继，也不能取最小值替代期望。"
+  ],
+  "example": "两枚公平硬币恰一正面概率0.5；阶段成功率0.5与1，平均尝试次数3。",
+  "usage": "#include \"competition/dp/probability_expectation.hpp\"\nint main() {\n    auto dp = coin_heads_probability({0, 0.5L, 0.5L});\n    cout << fixed << setprecision(6) << dp[1] << ' '\n         << expected_stage_attempts({0, 0.5L, 1.0L}) << '\\n'; // 0.500000 3.000000\n}\n",
+  "origins": []
+}

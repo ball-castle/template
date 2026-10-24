@@ -1,0 +1,34 @@
+{
+  "id": "BM07",
+  "title": "区间选择、首尾配对与括号判定",
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "source": "competition/models/greedy_construct.hpp",
+  "when": "互不重叠的区间取最多；偶数元素配对使最大配对和最小；检查单类括号串合法性。",
+  "contract": "区间和数列均1下标、0号占位。区间是非空半开[l,r)，l<r，端点相接允许同时选。配对要求偶数个ll，所有元素恰用一次，返回i128并输出数值对；空数组约定0。括号只接受()，空串合法。",
+  "idea": "最早结束给后续留下最多空间；大数配小数可用交换论证；括号用前缀余额表达可匹配性。",
+  "proof": "把最优区间集第一段替成最早结束者不减后续容量；把最小与最大元素配对，两次原配对交换后最大和不增；括号每个右括号必须有尚未匹配的左括号。",
+  "complexity": "区间选择与配对O(n log n)时间、O(n)空间；括号O(n)时间、O(1)空间。",
+  "usage": "interval_schedule(seg)返回原下标；minmax_pair_sum(a,pairs)返回最优最大和并清空重写pairs；regular_brackets(s)返回bool。具体有效调用均在tests/round02/test_greedy.cpp。",
+  "example": "区间[1,10),[2,3),[3,4),[4,5)最多选后3段；[-5,-2,3,8]配(-5,8)、(-2,3)，最优最大和3；)(不合法，(()())合法。",
+  "pitfalls": [
+    "闭区间端点相接仍重叠时，不能直接用本函数的>=判定。",
+    "按区间长度或起点贪心不保证数量最多；加权区间选择需另建DP。",
+    "配对只对这个目标证明成立，不能据此解决任意成本函数；全负数组最大和不能初始化后一直取max(0,sum)。",
+    "()总数相等不是充分条件，)(在第一步就违法；多种括号要用类型栈。"
+  ],
+  "origins": [
+    {
+      "path": "template/competition/models/greedy_construct.hpp",
+      "idea": "为ACM02要求的常见模型补充最小可复用函数；未发现已经登记的等价正式模块。",
+      "issue": "此前只有构造/贪心框架与固定括号示例，缺少任意合法输入的正式接口。",
+      "change": "新增3个独立函数；不修改用户已有实现。",
+      "interface_change": "新增函数。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false,
+  "test": "tests/round02/test_greedy.cpp",
+  "verify": "2026-10-25：先运行缺失实现测试得到RED；Windows g++ GNU++20 -O2 -Wall -Wextra -Wshadow零警告；WSL GNU++20 ASan+UBSan通过。700组区间全子集oracle、偶数n<=8且值域{-1,0,1}全部数组对全配对枚举、长度<=16全部括号串对栈、LLONG_MIN/MAX与n=200000。"
+}

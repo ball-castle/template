@@ -1,0 +1,44 @@
+{
+  "id": "PG04",
+  "title": "显式栈DFS与连通块",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/dfs.hpp",
+  "when": "无向图分组件、记录DFS父亲和遍历序；n可达20万时避免深递归。",
+  "contract": "0<=n<200010，点1..n；dfs_forest重置状态并遍历所有组件。comp从1开始，根fa=0。有向输入只表示遍历森林，不能当强连通分量。",
+  "complexity": "O(n+m)时间和空间。",
+  "idea": "dfs.cpp每次沿下一条邻边递归，改为存(u,下一条邻边下标)的显式栈帧。",
+  "proof": "每个栈帧与递归调用一一对应；visited保证点只首次进入一次，扫完整个组件后再选新根。",
+  "pitfalls": [
+    "只dfs(1)会漏断图。",
+    "仅跳过父亲只适用于树，普通图要visited。",
+    "树深度20万不依赖系统递归栈。"
+  ],
+  "example": "边1-2、3-4：dfs_forest后cnt=2，comp[1]=comp[2]，comp[1]!=comp[3]。",
+  "usage": "init(4);\ng[1]={2};\ng[2]={1};\ng[3]={4};\ng[4]={3};\ndfs_forest();",
+  "origins": [
+    {
+      "path": "template/dfs.cpp",
+      "idea": "visited后沿g[u]逐个递归。",
+      "issue": "合法20万链会形成同深度系统调用栈。",
+      "change": "只把递归调用栈显式化；访问邻边顺序不变。",
+      "interface_change": "新增dfs_forest/init/comp/order。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/graph/dfs_forest.hpp",
+      "idea": "同栈帧算法的ROUND01兼容版。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。",
+  "replaces": [
+    "G03"
+  ]
+}

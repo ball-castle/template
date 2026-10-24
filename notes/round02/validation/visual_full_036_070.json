@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "review": "round02_full_final_visual",
+  "reviewer": "qa_v2_036_070",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "reviewed_page_range": {
+    "first": 36,
+    "last": 70,
+    "count": 35
+  },
+  "method": {
+    "skill": "C:/Users/TSOU/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md",
+    "render_directory": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final",
+    "render_dpi": 130,
+    "inspection": "逐页调用 tools.view_image(detail='original') 实际查看 page-036.png 至 page-070.png，每批最多4页，全部35页均以原尺寸显示。",
+    "checks": [
+      "中文、公式及行内代码完整性",
+      "裁切、重叠、溢出版心",
+      "页眉、页脚与页码",
+      "分页及孤立尾行",
+      "表格（本范围无表格）"
+    ],
+    "exclusions": "未以文本提取或 contact sheet 代替视觉检查；未重复检查已由上游通过的结构/PAGEREF/source exact；未修改生成器、算法或PDF。",
+    "pagination_rule": "独立模型起新页允许下部留白；仅孤立1–3行函数末尾占据整页才标记相应分页瑕疵。本范围均为独立模型页，未出现该问题。",
+    "hash_verification": "视觉检查前后读取当前PDF SHA256，两次一致。"
+  },
+  "pages": [
+    {
+      "page": 36,
+      "status": "PASS",
+      "notes": "TRIE_PREFIX 独立模型页；中文、行内代码与来源路径完整，页眉页脚清晰；下部留白符合独立模型起页规则。"
+    },
+    {
+      "page": 37,
+      "status": "PASS",
+      "notes": "GEN_NAV 独立模型页；长段落自然换行，无裁切或重叠，页码完整；下部留白允许。"
+    },
+    {
+      "page": 38,
+      "status": "PASS",
+      "notes": "INT_PLUS 独立模型页；公式、行内代码、来源路径均完整，无裁切或重叠，页脚正常。"
+    },
+    {
+      "page": 39,
+      "status": "PASS",
+      "notes": "INT_SIGNED 独立模型页；长公式与多行来源路径换行正常，字形和页脚完整。"
+    },
+    {
+      "page": 40,
+      "status": "PASS",
+      "notes": "INT_LIMITS 独立模型页；前后缀公式和长中文段落换行完整，标题及页脚无裁切。"
+    },
+    {
+      "page": 41,
+      "status": "PASS",
+      "notes": "INT_FLIP 独立模型页；中英文混排与行内表达式清晰，间距一致，页脚完整。"
+    },
+    {
+      "page": 42,
+      "status": "PASS",
+      "notes": "INT_TRANSPORT 独立模型页；标题、公式、适用条件和来源路径完整，无重叠或溢出。"
+    },
+    {
+      "page": 43,
+      "status": "PASS",
+      "notes": "INT_ARBITRARY 独立模型页；较长标题及三行公式说明均在版心内，换行和页脚正常。"
+    },
+    {
+      "page": 44,
+      "status": "PASS",
+      "notes": "INT_INVARIANT 独立模型页；中文、符号和代码入口清晰完整，无重叠，页脚正常。"
+    },
+    {
+      "page": 45,
+      "status": "PASS",
+      "notes": "CONSTRUCT_FRAME 独立模型页；长标题、多个代码入口及长来源行均完整，段落换行正常。"
+    },
+    {
+      "page": 46,
+      "status": "PASS",
+      "notes": "CONSTRUCT_BLOCK 独立模型页；组合公式、比较符号及说明自然换行，未见裁切或重叠。"
+    },
+    {
+      "page": 47,
+      "status": "PASS",
+      "notes": "GREEDY_DOMINANCE 独立模型页；标题、行内代码和较长说明均在版心内，页脚完整。"
+    },
+    {
+      "page": 48,
+      "status": "PASS",
+      "notes": "GREEDY_INTERVAL 独立模型页；区间符号、长行和来源路径完整，页眉页脚清晰。"
+    },
+    {
+      "page": 49,
+      "status": "PASS",
+      "notes": "GREEDY_COST 独立模型页；混排代码名自然换行，正文与页脚无裁切或重叠。"
+    },
+    {
+      "page": 50,
+      "status": "PASS",
+      "notes": "GREEDY_PAIR 独立模型页；配对公式及多行段落间距正常，页脚完整。"
+    },
+    {
+      "page": 51,
+      "status": "PASS",
+      "notes": "SEARCH_CHECK 独立模型页；标题、逻辑箭头、行内代码均清晰，段落换行正常。"
+    },
+    {
+      "page": 52,
+      "status": "PASS",
+      "notes": "SEARCH_REAL 独立模型页；公式上标、函数名、长行完整可读，页眉页脚正常。"
+    },
+    {
+      "page": 53,
+      "status": "PASS",
+      "notes": "SEARCH_STATE 独立模型页；较密集正文、多个代码入口及多行来源路径均完整，未见裁切或重叠。"
+    },
+    {
+      "page": 54,
+      "status": "PASS",
+      "notes": "ARRAY_PREFIX 独立模型页；差分/前缀公式与行内代码完整，换行及页脚正常。"
+    },
+    {
+      "page": 55,
+      "status": "PASS",
+      "notes": "ARRAY_2D 独立模型页；二维公式、四角坐标和调用链完整，正文未溢出版心。"
+    },
+    {
+      "page": 56,
+      "status": "PASS",
+      "notes": "ARRAY_WINDOW 独立模型页；中英文混排及长函数签名完整，页码和边距正常。"
+    },
+    {
+      "page": 57,
+      "status": "PASS",
+      "notes": "ARRAY_COMPRESS 独立模型页；长标题、箭头操作链及比较符号完整，换行自然。"
+    },
+    {
+      "page": 58,
+      "status": "PASS",
+      "notes": "ARRAY_INVERSION 独立模型页；公式、上标和代码入口清晰，未见重叠或裁切。"
+    },
+    {
+      "page": 59,
+      "status": "PASS",
+      "notes": "ARRAY_MONOTONIC 独立模型页；正文、长函数名和页脚完整，版心内排版正常。"
+    },
+    {
+      "page": 60,
+      "status": "PASS",
+      "notes": "COUNT_CONTRIBUTION 独立模型页；较长标题与贡献公式均完整，上标和页脚正常。"
+    },
+    {
+      "page": 61,
+      "status": "PASS",
+      "notes": "COUNT_ENDPOINT 独立模型页；中英文混排、长调用提醒和来源路径未裁切，间距正常。"
+    },
+    {
+      "page": 62,
+      "status": "PASS",
+      "notes": "COUNT_CASES 独立模型页；组合表达式、比较符号和多行说明清晰，页脚完整。"
+    },
+    {
+      "page": 63,
+      "status": "PASS",
+      "notes": "SEARCH_MITM 独立模型页；指数式、代码名及中文段落换行完整，无重叠或边界溢出。"
+    },
+    {
+      "page": 64,
+      "status": "PASS",
+      "notes": "STRING_BRACKETS 独立模型页；括号字符与中文完整，标题、行内代码、来源路径和页脚正常。"
+    },
+    {
+      "page": 65,
+      "status": "PASS",
+      "notes": "STRING_PERIOD 独立模型页；模运算公式、箭头示例和长说明完整，未见重叠或裁切。"
+    },
+    {
+      "page": 66,
+      "status": "PASS_WITH_NOTE",
+      "notes": "COUNT_COMBINATIONS 独立模型页；标题换为两行，末字“要”单独位于第二行，属非阻塞的轻微标题断行观察；字符均完整，无重叠/裁切，正文和页脚正常。"
+    },
+    {
+      "page": 67,
+      "status": "PASS",
+      "notes": "GRID_GRAPH 独立模型页；标题、复杂度符号和两条来源路径完整，行距与页脚正常。"
+    },
+    {
+      "page": 68,
+      "status": "PASS",
+      "notes": "GRAPH_PATH 独立模型页；长标题、复杂度公式及来源路径完整，正文与页脚无裁切或重叠。"
+    },
+    {
+      "page": 69,
+      "status": "PASS",
+      "notes": "TREE_COUNT 独立模型页；树路径公式、行内代码及两行调用提醒完整，页脚正常。"
+    },
+    {
+      "page": 70,
+      "status": "PASS",
+      "notes": "GRAPH_CYCLE 独立模型页；长正文与三条来源路径均在版心内，标题、页眉页脚完整。"
+    }
+  ],
+  "conclusion": {
+    "status": "PASS_WITH_NOTE",
+    "inspected": 35,
+    "pass": 34,
+    "pass_with_note": 1,
+    "blocking_issue_count": 0,
+    "non_blocking_observation_count": 1,
+    "observation_pages": [
+      66
+    ],
+    "summary": "第36–70页均无中文/代码裁切、重叠、页脚或分页缺陷；第66页标题末字“要”独占第二行，为非阻塞的轻微标题断行观察。独立模型页下部留白符合本轮规则。"
+  }
+}

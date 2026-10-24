@@ -1,0 +1,3992 @@
+{
+  "status": "PASS",
+  "scope": "complete",
+  "mode": "release",
+  "flags": [
+    "-std=gnu++20",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "-O2"
+  ],
+  "platform": "Windows-11-10.0.22631-SP0",
+  "source_hash_mode": "LF-normalized",
+  "compiler": "g++ (x86_64-posix-seh-rev0, Built by MinGW-Builds project) 15.2.0",
+  "modules": {
+    "BM01": {
+      "source": "competition/models/interval_count.hpp",
+      "expanded_code_sha256": "37fa12721697a9a6231793ca79d983520f8f29ca657d4e7ce9fa74f6ea31dccc",
+      "tests": [
+        "tests/round02/test_models.cpp"
+      ]
+    },
+    "BM02": {
+      "source": "competition/models/interval_construct.hpp",
+      "expanded_code_sha256": "08e0f198594ded27f663bf9f6ef3d1d0172d32da72256f3a9ae46dd6650cfc96",
+      "tests": [
+        "tests/round02/test_models.cpp"
+      ]
+    },
+    "BM03": {
+      "source": "competition/models/prefix_grid.hpp",
+      "expanded_code_sha256": "186ef7630b60bef9a5807c962258755f2c91e0483430fb66f6ede93ce9cb363d",
+      "tests": [
+        "tests/round02/test_model_tools.cpp"
+      ]
+    },
+    "BM04": {
+      "source": "competition/models/enumeration.hpp",
+      "expanded_code_sha256": "239f5d9a227b1130214f266318eeda516de583d300304a8aa6d0577e4698ab9d",
+      "tests": [
+        "tests/round02/test_model_tools.cpp"
+      ]
+    },
+    "BM05": {
+      "source": "competition/models/choose_tasks.cpp",
+      "expanded_code_sha256": "5492142ccf34e89f99e495126569286d25d93f69615caa8a5e248502fc13b7f4",
+      "tests": [
+        "tests/round02/test_model_tools.cpp"
+      ]
+    },
+    "BM06": {
+      "source": "competition/models/ordered_choice.cpp",
+      "expanded_code_sha256": "cbeed6c0d03a28fcad5c2a1d82bababf44c94ca2d7602953897ecf5f04a12b4f",
+      "tests": [
+        "tests/round02/test_model_tools.cpp"
+      ]
+    },
+    "BM07": {
+      "source": "competition/models/greedy_construct.hpp",
+      "expanded_code_sha256": "438c235ab6a8b75af1f2b76cdcabc16638116d1c9e1c15f3a206368d06da6e26",
+      "tests": [
+        "tests/round02/test_greedy.cpp"
+      ]
+    },
+    "CO01": {
+      "source": "core/main.cpp",
+      "expanded_code_sha256": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "CO02": {
+      "source": "core/basics.hpp",
+      "expanded_code_sha256": "3fe821dedad8debcb4c6a1d1a3417ebfed3b5c8705eef09e5c3864d40dd6e52f",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "CO03": {
+      "source": "core/search_window.hpp",
+      "expanded_code_sha256": "156c69b7b7c47a42ff3a7ebf54691bc8c5f86ca990ed467df08cf9b8d958e004",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "DP01": {
+      "source": "dp/knapsack.hpp",
+      "expanded_code_sha256": "4a31d7ac78b38de804bc721ca372b7e87aed2fabbe9ebe445c13f8e0e151cd0e",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "DP02": {
+      "source": "dp/lis.hpp",
+      "expanded_code_sha256": "f26e999fd142f01402503939f8b1ce6f38f2f7227883c05cc74f287cafba3e7f",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "DP03": {
+      "source": "dp/hamilton_path.hpp",
+      "expanded_code_sha256": "58ea0c53729a3001cc2bc06eb83db52726e5a9819f9fc12c37b6afdbef8f0abc",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "DP04": {
+      "source": "dp/interval_merge.hpp",
+      "expanded_code_sha256": "669ed8eaa2ac7bff4f7f0acf772e7b5144a77411fb00d543e8a725a4aa1c960f",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "DS01": {
+      "source": "data_structure/fenwick.hpp",
+      "expanded_code_sha256": "ebd4656768930e5aaaebfe353959bc8efbc0af21a8d9225532e7d99d0a5bde3c",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "DS02": {
+      "source": "data_structure/segment_tree.hpp",
+      "expanded_code_sha256": "172d24f3b8d6bed57b34d7a9d1ad67ce14182e7488042309aa43a5e1b4972766",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "DS03": {
+      "source": "data_structure/lazy_segment_tree.hpp",
+      "expanded_code_sha256": "f16e500cdd9287f1bf64f6c4278b9b80eaf513f0aa44b91c0d10f593b01c7e2d",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "DS04": {
+      "source": "data_structure/monotonic.hpp",
+      "expanded_code_sha256": "da5a6615b09a562600949e5c101079905a0852cb88fe1aa0528d6040820e6d1c",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "DS05": {
+      "source": "data_structure/sparse_table.hpp",
+      "expanded_code_sha256": "c91cd4fc39de98326d14f403d1c728fd38f9ccbcbf90edef44ad2dc74e029933",
+      "tests": [
+        "tests/test_core_data.cpp"
+      ]
+    },
+    "FP01": {
+      "source": "competition/runtime/floating.hpp",
+      "expanded_code_sha256": "42d2b6363f204f2f514af462a971fd748dcc04594164e09319ffc833c4628307",
+      "tests": [
+        "tests/round02/test_runtime.cpp"
+      ]
+    },
+    "G01": {
+      "source": "graph/dsu.hpp",
+      "expanded_code_sha256": "23f3dcceb3125dc656053eff5c5b0b084aac81412d2f482c4a36fc9f76ef2efd",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G02": {
+      "source": "graph/bfs_path.hpp",
+      "expanded_code_sha256": "32fb8388c2d591f92ecd97bfb8d6f8a30751797ce0e23c7f7807e569d455d3d6",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G03": {
+      "source": "graph/dfs_forest.hpp",
+      "expanded_code_sha256": "d4970f035a0dd2c76bebfaf31586094f906af03c2dbffd05a1c7533526510e46",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G04": {
+      "source": "graph/topological_sort.hpp",
+      "expanded_code_sha256": "5c550bb5802b0abe52335235b0d9150ec9c96919d22de802698a260cc8d1aecd",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G05": {
+      "source": "graph/unicyclic_graph.hpp",
+      "expanded_code_sha256": "20a0c2977fa4f787e9b00a33a4bda917854fd6b10ece3327afacbd64bfbe32d8",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G06": {
+      "source": "graph/dijkstra.hpp",
+      "expanded_code_sha256": "20d7fa4ce9bc3b261255597b3e01471e0b05fe16b64e7dc502f1bdc549b4142d",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G07": {
+      "source": "graph/kruskal.hpp",
+      "expanded_code_sha256": "af7d1ff78440ea6ce49d51692ea22e08e103546f22f04e0b9674b4392d35e1e5",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G08": {
+      "source": "graph/prim.hpp",
+      "expanded_code_sha256": "decff87a99c3cad42a928b56fdd449038cb20f9ef76f7254973db0228d8c3c5c",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G09": {
+      "source": "graph/lca.hpp",
+      "expanded_code_sha256": "f7243a8d7135f0a76d390ef04c8a3804176e4c97eec8ce2b460c084d4f17e360",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G10": {
+      "source": "graph/euler_subtree.hpp",
+      "expanded_code_sha256": "425528064b4129cdf6c16b14fc1a9db85558fc731c9848f5e4e87da68472d7a9",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G11": {
+      "source": "advanced/scc.hpp",
+      "expanded_code_sha256": "377af53c6f2026df6f540bb506872fad4de7f216d9e814888c6937b5e093c0a9",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "G12": {
+      "source": "advanced/bridges.hpp",
+      "expanded_code_sha256": "d79b9f9c2a0992f1f7ebe1f0c98f16074002fa2516be9c2e302045708c869197",
+      "tests": [
+        "tests/test_graph.cpp"
+      ]
+    },
+    "GAME01": {
+      "source": "competition/game/normal_play.hpp",
+      "expanded_code_sha256": "f42934a2d5f8093058ab4c9939f0c36fa120b463dabf268377d5f6d5cf7e5369",
+      "tests": [
+        "tests/round02/test_game_string.cpp"
+      ]
+    },
+    "IO01": {
+      "source": "read.cpp",
+      "expanded_code_sha256": "00379411b3f40093dd81292aef4650015bd7af4814bac7e302d733fd63556ebc",
+      "tests": [
+        "tests/round02/test_runtime.cpp"
+      ]
+    },
+    "IO02": {
+      "source": "core/main.cpp",
+      "expanded_code_sha256": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "tests": [
+        "tests/round02/test_runtime.cpp"
+      ]
+    },
+    "M01": {
+      "source": "math/integer_bits.hpp",
+      "expanded_code_sha256": "28e229f7d7acc9ae934dfdf5865e6f5293cffa90ad36cba723a8f43e030d122d",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "M02": {
+      "source": "math/modular.hpp",
+      "expanded_code_sha256": "94794d9708de5cf83a908b5911533b62718b5384a58a7c57272f457d5af2d12f",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "M03": {
+      "source": "math/matrix_power.hpp",
+      "expanded_code_sha256": "34ba3eacacc2a131d8e24be5f282563960ae57b77d0209b44daf647950b25cc3",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "M04": {
+      "source": "math/product_recurrence.hpp",
+      "expanded_code_sha256": "f1c53535eb87be533cc12c92c31405af09328014af727aaf22f7ec4df10c452d",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "M05": {
+      "source": "math/combinations.hpp",
+      "expanded_code_sha256": "3a524589e085568a64af2f2d2e4b0a94b946a1911023202be805d89262ae4be7",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "MEX01": {
+      "source": "competition/game/mex.hpp",
+      "expanded_code_sha256": "e0c65dbd5bf39c1c6eab371a7fb6c572caf564f765aca5f955df4b8f95862598",
+      "tests": [
+        "tests/round02/test_game_string.cpp"
+      ]
+    },
+    "MEX02": {
+      "source": "competition/game/mex.hpp",
+      "expanded_code_sha256": "e0c65dbd5bf39c1c6eab371a7fb6c572caf564f765aca5f955df4b8f95862598",
+      "tests": [
+        "tests/round02/test_game_string.cpp"
+      ]
+    },
+    "PAL01": {
+      "source": "competition/string/palindrome.hpp",
+      "expanded_code_sha256": "bba36cbefb8080e93e8e4bb8fe1621842e043ee7f350c235280f7590b6e58eba",
+      "tests": [
+        "tests/round02/test_game_string.cpp"
+      ]
+    },
+    "PDP01": {
+      "source": "competition/dp/linear_grid.hpp",
+      "expanded_code_sha256": "507463595c6193038498c85bd967b66aad0aa08b1342d032f0bb0d3a6dca8565",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PDP02": {
+      "source": "competition/dp/knapsack_variants.hpp",
+      "expanded_code_sha256": "64a8c95c8ce78c7515fe8ec8a9b9e608a63477efc15a6dd2e7270db7a5dd74cb",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PDP03": {
+      "source": "competition/dp/sequence_state.hpp",
+      "expanded_code_sha256": "e795a6f9d0a2e1cbb64ee2c4c9d0495907b55db9e7a0618c7c8a45e86643d41f",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PDP04": {
+      "source": "competition/dp/digit_count.hpp",
+      "expanded_code_sha256": "120791e3158445769bfbfe35a6f79f6ccbb75231caef2fe65ebf67781a6a3e0d",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PDP05": {
+      "source": "competition/dp/tree_independent_set.hpp",
+      "expanded_code_sha256": "5999bb0c7733f26e61b1fbe050e4d9cc3c39e7533149a479990527597619296e",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PDP06": {
+      "source": "competition/dp/probability_expectation.hpp",
+      "expanded_code_sha256": "1b4414c08e3df0d14d4c2449e5f43e6e8b35b5b601fea079e9a380b0a610a8e9",
+      "tests": [
+        "tests/round02/test_dp.cpp"
+      ]
+    },
+    "PG01": {
+      "source": "competition/graph/tree_storage.hpp",
+      "expanded_code_sha256": "a81e1f5b7ffe68701b6898d581fe4c454342a5260f0c0cddb67484e5b9241e6f",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG02": {
+      "source": "competition/graph/dsu.hpp",
+      "expanded_code_sha256": "e60af386c6ce66ac6ff54be60da42676f6c2d4bc446a703c2a7664cfb264f812",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG03": {
+      "source": "competition/graph/bfs.hpp",
+      "expanded_code_sha256": "34197f604d5409ff80f02b63d3771c606caa08e36773c8901d41145d722135e8",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG04": {
+      "source": "competition/graph/dfs.hpp",
+      "expanded_code_sha256": "b0b65f67fdc51d71d8d6dfe55f12d4b5bf0488d5890c4ed597eb187f7f7558b2",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG05": {
+      "source": "competition/graph/dijkstra.hpp",
+      "expanded_code_sha256": "8007b75e3bd0ace51818642979af7930591a855fc8916ad10db5e9b1d4e1e0e3",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG06": {
+      "source": "competition/graph/lca.hpp",
+      "expanded_code_sha256": "c97214c0da12542f25347e9f74563dff09ad9351d7fffb05a34790da718786cf",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG07": {
+      "source": "competition/graph/grid_bfs.hpp",
+      "expanded_code_sha256": "c351f5ff326a16ef0b36cebadab57ef2de5c9b0ba4d18c884228e715fef170a6",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG08": {
+      "source": "competition/graph/multisource_bfs.hpp",
+      "expanded_code_sha256": "1be1f0b87e2555a1a5d457666099f6a1333caeb349e5f58e9193f70247682ae0",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG09": {
+      "source": "competition/graph/zero_one_bfs.hpp",
+      "expanded_code_sha256": "1c69e5d0fe61aa6c6ace2765f6901c8b5e6c6c33b8dc5ed0f541d9f8583f5672",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG10": {
+      "source": "competition/graph/floyd.hpp",
+      "expanded_code_sha256": "a887bb39dd8652855a3367e9ccd8e5490ec40dca4b6c591f0b50be6c0a8c89ed",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG11": {
+      "source": "competition/graph/bipartite.hpp",
+      "expanded_code_sha256": "88d4b2c822d2431ac61caf4bab568d9f1cc9e6295306e824d89443febfdf83fd",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG12": {
+      "source": "competition/graph/cycle.hpp",
+      "expanded_code_sha256": "e0303f5493b91da2216a3565e94806ce46af54ecd373dbb9189ad379361723c8",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG13": {
+      "source": "competition/graph/tree_diameter.hpp",
+      "expanded_code_sha256": "a54a2812b6fc0d9f1e43968c2130f749141a968d6e9623cd52f1e837b72c0076",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PG15": {
+      "source": "competition/graph/dag_dp.hpp",
+      "expanded_code_sha256": "721b295d30e353325e6c212fcbb9862ddee07bc24cf4ed5df9a9a314f9596518",
+      "tests": [
+        "tests/round02/test_graph_personal.cpp"
+      ]
+    },
+    "PM01": {
+      "source": "competition/math/exgcd.hpp",
+      "expanded_code_sha256": "4ab52bee7933c4a3d6a62fc7094f6f6b76be15401dc1e9635a25366978c32e68",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PM02": {
+      "source": "competition/math/primes.hpp",
+      "expanded_code_sha256": "9279412ac2d5b52c9bfdad08fc2612a658c7bd2b6e0760186a0829562abf1287",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PM03": {
+      "source": "competition/math/integer_division.hpp",
+      "expanded_code_sha256": "21312ab3d6be3c13f1ae3f88aad323772e63e117f8a559845cf030d75dd030c0",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PM04": {
+      "source": "competition/math/sums.hpp",
+      "expanded_code_sha256": "d143340b1938cbfce0dae74abddf106dbf5cc272a51319d8d7063d7cee941843",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PM05": {
+      "source": "competition/math/invariants.hpp",
+      "expanded_code_sha256": "76880e7e61767fb0ebbc835ff7f704cdff8164e862e7f9d00c0e9218255ab386",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PM06": {
+      "source": "competition/math/integer_geometry.hpp",
+      "expanded_code_sha256": "30d8c6ec46d2c937033afe2f0b3e7f0fe90e50bf88499b90b3f348f9c9876b1c",
+      "tests": [
+        "tests/round02/test_math_geometry.cpp"
+      ]
+    },
+    "PSD01": {
+      "source": "competition/data_structure/fenwick.hpp",
+      "expanded_code_sha256": "04080461ed2b0b91291d77ecf6ed80e0154390ebcda806fadb4aa253d149a8d6",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD02": {
+      "source": "competition/data_structure/segment_point_sum.hpp",
+      "expanded_code_sha256": "2267b6c52919ada2e7b6d9a503ac4ed16cd783a19a6cc0acf1bb5955372526ea",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD03": {
+      "source": "competition/data_structure/segment_point_min.hpp",
+      "expanded_code_sha256": "b6596f081b0e9321c9218f2a153719d34458570f330f1a6ad749b30a38c3706b",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD04": {
+      "source": "competition/data_structure/segment_point_max.hpp",
+      "expanded_code_sha256": "44f27b2d06057c1870b4edd4f70b02da45aa868cadd1999d7dbda700137d23d8",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD05": {
+      "source": "competition/data_structure/segment_point_gcd.hpp",
+      "expanded_code_sha256": "22c189173613dc3770a5d7074d16915e7be3ea2656eb3ab5eec49ebebae8f140",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD06": {
+      "source": "competition/data_structure/segment_max_count.hpp",
+      "expanded_code_sha256": "5a49b278258ffbbafc1a6a8f406e9150ea5035705d0ad4479b39b68f8ade9ed2",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD07": {
+      "source": "competition/data_structure/segment_max_subarray.hpp",
+      "expanded_code_sha256": "39e074851288f4a3a2ef2f33ad128b7391c37fed1c62713de24c35947f98f57f",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD08": {
+      "source": "competition/data_structure/segment_frequency.hpp",
+      "expanded_code_sha256": "37251089ec54528c421b6972f7469036041b5c031c88e8a718866e903057f39a",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD09": {
+      "source": "competition/data_structure/segment_point_stats.hpp",
+      "expanded_code_sha256": "dc7b44f3a772721d72c86a74c6320eedaff00eb2ea25cd304cfcacdc91f26c1d",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD10": {
+      "source": "competition/data_structure/segment_range_add.hpp",
+      "expanded_code_sha256": "634d56396b80554673584670066dbff0f00e7ea1fc43c431ba7dd416bcc1ba6b",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "PSD11": {
+      "source": "competition/data_structure/segment_set_add.hpp",
+      "expanded_code_sha256": "ea498e5fbfc27a6be7611022df206fb93ef0c0db5ffcf2876f7092c37f34afd5",
+      "tests": [
+        "tests/round02/test_segment.cpp"
+      ]
+    },
+    "S01": {
+      "source": "string/kmp_z.hpp",
+      "expanded_code_sha256": "a46b12f79cc620696eac6da7eb5a8f6a01205027b6936eda99f6bd8df963614b",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "S02": {
+      "source": "string/double_hash.hpp",
+      "expanded_code_sha256": "cd2d541d526bdfd51adba07fa34aacc0663e3a7d51da8fb132d67ebacc3de456",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "S03": {
+      "source": "string/basic_string.hpp",
+      "expanded_code_sha256": "5c906a48c60bc2b69c470257f2db4a1ab329aeca957e7073e664677501bf59ba",
+      "tests": [
+        "tests/test_dp_math_string.cpp"
+      ]
+    },
+    "STL01": {
+      "source": "competition/stl/recipes.hpp",
+      "expanded_code_sha256": "c14a6d7b5d2c004579baf11c34f1a1552e689bb19b1452b029c715fc342d802f",
+      "tests": [
+        "tests/round02/test_stl.cpp"
+      ]
+    },
+    "STL02": {
+      "source": "competition/stl/heaps_sets.hpp",
+      "expanded_code_sha256": "7adb0a74eb20af49d1e6a0f3a7cf47e1d8c8f1439dec873dec113122d6ec079f",
+      "tests": [
+        "tests/round02/test_stl.cpp"
+      ]
+    },
+    "TRS01": {
+      "source": "competition/runtime/real_search.hpp",
+      "expanded_code_sha256": "73c452848ae46ff2909942a2cd77d7b4e4ceef7e946aec2eae8acc5ac7864c75",
+      "tests": [
+        "tests/round02/test_runtime.cpp"
+      ]
+    },
+    "TRS02": {
+      "source": "competition/string/trie.hpp",
+      "expanded_code_sha256": "232066e9fe6f562e26cfebc11d30aa07c7b86b7023885612e15f23a5c0da3b7b",
+      "tests": [
+        "tests/round02/test_game_string.cpp"
+      ]
+    },
+    "X01": {
+      "source": "competition/xor/prefix_xor.hpp",
+      "expanded_code_sha256": "1cb53ce02b8ef4e40b4e8a24f74448f93eec6306db07510c390be0974651e0b9",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X02": {
+      "source": "competition/xor/bit_contribution.hpp",
+      "expanded_code_sha256": "452f024c6600cf3c56cc18fa063f7fd1e5dd60571d5aa346685f846d5e4a8564",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X03": {
+      "source": "competition/xor/xor_construct.hpp",
+      "expanded_code_sha256": "6e794b34a702011d6b1cd346f46a5670c9a731bdcca4a80426e45ce254d86bf2",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X04": {
+      "source": "competition/xor/binary_trie.hpp",
+      "expanded_code_sha256": "354300718c2aaf3a324aab2243e4ebcf07f47ea066ed6ba323bcc1f6c0469f22",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X05": {
+      "source": "competition/xor/graph_xor.hpp",
+      "expanded_code_sha256": "8d88672c2130a7dc9d4f4476a218115cf23ed68c63f5e488b8023c52f84a7ea8",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X06": {
+      "source": "competition/xor/linear_basis.hpp",
+      "expanded_code_sha256": "4dea0218c2eb5b76ee9a0d2659bf51bd1200952669e685aa9db109d7b050507c",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X07": {
+      "source": "competition/xor/popcount_inventory.hpp",
+      "expanded_code_sha256": "085f7e1a067a9f1226c4296659c9993eacc1cec46c492bcf8e156aad15addd6f",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X08": {
+      "source": "competition/xor/max_pair_quadratic.hpp",
+      "expanded_code_sha256": "2783957860e042fabd0e94cd3076054467cd4c240aab0ee12897365e7545874e",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X09": {
+      "source": "competition/xor/xor_gun.hpp",
+      "expanded_code_sha256": "4685b3b8390d555f646e81d1c76f4a9fba783d2cdc9c212eb1fd6701128117eb",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X10": {
+      "source": "competition/xor/and_permutations.hpp",
+      "expanded_code_sha256": "4b3726586c58c749ceae85234c15aee60a2e60efc63ac89f7a55ad2d1b940dce",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "X11": {
+      "source": "competition/xor/energy_intervals.hpp",
+      "expanded_code_sha256": "f38fa97403203e7a78e470fc1f6d079a443f4af87e14689f6df6653b73ee6875",
+      "tests": [
+        "tests/round02/test_xor.cpp"
+      ]
+    },
+    "BM08": {
+      "source": "competition/models/state_search.hpp",
+      "expanded_code_sha256": "2aa76c7c3d57ef437f30ca26d86a5e5769cc3d3b85f6e551d71a6e6c5a465e49",
+      "tests": [
+        "tests/round02/test_search.cpp"
+      ]
+    },
+    "IO03": {
+      "source": "competition/runtime/int128_input.hpp",
+      "expanded_code_sha256": "151ebc79e173d43f264e40fc83b96f51ee91cd30ce607a1bd91262ba91b82cb4",
+      "tests": [
+        "tests/round02/test_int128_input.cpp"
+      ]
+    }
+  },
+  "sources": {
+    "competition/models/interval_count.hpp": "451684651c3b060623f2f38603bfc8e3d47b4ffc45c429e29d84476359f2bc8c",
+    "competition/models/interval_construct.hpp": "ff71201bab60b2a8bf594d326f69b03f5567a3f5f2f28263dc4b59335959bca0",
+    "competition/models/prefix_grid.hpp": "2a87216e7770bc3c633ca96fb337dc3e137a327c51a4db71194f4b04dcd20c78",
+    "competition/models/enumeration.hpp": "085a6bc0b39e61e28a4389659e91f0b2a0fbc7880a506605ec755f86004b80f6",
+    "competition/models/choose_tasks.cpp": "7dcc5458a2e9e599314a5d996b10acfb8c2dc58c880db7586a99c36c7fd3e53a",
+    "competition/models/ordered_choice.cpp": "4c2bbe0638e2ef1b3361b56bf0f29941e046149884be94b19cf89cbff86625ab",
+    "competition/models/greedy_construct.hpp": "bb237cfbb28840e781c307a40681f035bcd07df4399154b7192e9830511b3f18",
+    "core/main.cpp": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+    "core/basics.hpp": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+    "core/search_window.hpp": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+    "dp/knapsack.hpp": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+    "dp/lis.hpp": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+    "dp/hamilton_path.hpp": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+    "dp/interval_merge.hpp": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+    "data_structure/fenwick.hpp": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+    "data_structure/segment_tree.hpp": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+    "data_structure/lazy_segment_tree.hpp": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+    "data_structure/monotonic.hpp": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+    "data_structure/sparse_table.hpp": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+    "competition/runtime/floating.hpp": "becee0baa4dc442899cfdb7f06dae52492b17f7f7e71f1f0a6f2fd7af2981cab",
+    "graph/dsu.hpp": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+    "graph/bfs_path.hpp": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+    "graph/dfs_forest.hpp": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+    "graph/topological_sort.hpp": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+    "graph/unicyclic_graph.hpp": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+    "graph/dijkstra.hpp": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+    "graph/kruskal.hpp": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+    "graph/prim.hpp": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+    "graph/lca.hpp": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+    "graph/euler_subtree.hpp": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+    "advanced/scc.hpp": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+    "advanced/bridges.hpp": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+    "competition/game/normal_play.hpp": "98ab67e0293c634c39e3a058882b5a8509bb0c3b5ef0bc8376222f3f657c4f05",
+    "read.cpp": "a3aced46d7ce2356b9ec352e87ea37dd9b1544df36c65a7c6476b38ed536528e",
+    "math/integer_bits.hpp": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+    "math/modular.hpp": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+    "math/matrix_power.hpp": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+    "math/product_recurrence.hpp": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+    "math/combinations.hpp": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+    "competition/game/mex.hpp": "76c390a8aac73cacf1774af170d51b141884b7f9e958933dc307e0bba525cb8a",
+    "competition/string/palindrome.hpp": "6200e285b4a8aa82f447cd69d904f15ba02242c8d2c0fa14212df27b1ba54203",
+    "string/basic_string.hpp": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786",
+    "competition/dp/linear_grid.hpp": "46a53d1257332e66dee224220ade628939a48c470531953beabd1cf44a745404",
+    "competition/dp/knapsack_variants.hpp": "8165ae1faf1bc90b6f1c3c91b89f375e1dbed19cf2ced00d4d74a5c6bd6e0c29",
+    "competition/dp/sequence_state.hpp": "677201aeeb3d47ab682b64def78b79eacd479774b66ae0d615c4ca3dc6574e97",
+    "competition/dp/digit_count.hpp": "1e0b69cea85612694cece8a349c6554f4b143dcb8a126f99b48b19f92beb46eb",
+    "competition/dp/tree_independent_set.hpp": "8bfd4385d3b23ac2b757c14f20701d9b0d8e99f9f4aa34236647205c8a77300b",
+    "competition/dp/probability_expectation.hpp": "275781bda07cab548b59d8d4c207edd325bfe52c81ba49460ce79f14a55ab7a2",
+    "competition/graph/tree_storage.hpp": "c6eafee60b87bdfbf0a60d753989c6fecf536a08e44dded76a9fd7d0a4a17629",
+    "competition/graph/dsu.hpp": "ddfd246508c452d8d636b79bfd1a289c7a8a21a62cdcc83df08426d6ec88687d",
+    "competition/graph/bfs.hpp": "af14bbb3d51d67f911a108b7c82adcae04128fbf20140d9631aeeca0878489e4",
+    "competition/graph/dfs.hpp": "cb6773cd76463f8605e3676a863d9ad41f42f253760669d1cfd3a8764f63a033",
+    "competition/graph/dijkstra.hpp": "a5a9c1d6d55ca9936ef15b505d6d5db5c66b8a644258ec34ccbf496c504330a4",
+    "competition/graph/lca.hpp": "f83fa117c1b1ec60dd673959be4f8e798f4ebdda63784a8473608dc1144429de",
+    "competition/graph/grid_bfs.hpp": "1f168c0edbacf6109b2eea77565e78821f5e549ca6be8a66038fa3368ee38efb",
+    "competition/graph/multisource_bfs.hpp": "03ff9589ef38d9f90470aefba4ed54ccc96b6362bac667f93ce3e3200ffbec4b",
+    "competition/graph/zero_one_bfs.hpp": "26cf6f6aee62df7f98473f90562184dfd3cd095dc0e213c55199e744ba49346c",
+    "competition/graph/floyd.hpp": "e1f0930870ee57f377c0afc2016e9d28494a38061a58f38b9ef494b3b76c4512",
+    "competition/graph/bipartite.hpp": "a72ffe68f2254a5ce463da1e0d7e8c09c6cbccba1baf15cc57aa999c44bd5cf1",
+    "competition/graph/cycle.hpp": "acce94a98548e1b15a58635ad6f668df66088e81c1f9a51127aa75a60b94ab53",
+    "competition/graph/tree_diameter.hpp": "64459a8cd60d70dcd7c31432a05af99ea0570e3694957879a39bf630b59b5f69",
+    "competition/graph/dag_dp.hpp": "64ca49255750e894d1615c5b4db481729823d405b77cb4e06b848eb0d274d4a2",
+    "competition/math/exgcd.hpp": "665dc562ca7edc6db2a6c23892c4c022b364fbec75bc67f39934c2fa898dba06",
+    "competition/math/primes.hpp": "2f7e18247f43ba20665fda81c30611e949a1fd1b2057b49d8acdf8d1534bd6c4",
+    "competition/math/integer_division.hpp": "f272e99cadd12f5b2e1de35a2dcefa5d24f6b507dee3f7dd9d14259cd2401405",
+    "competition/math/sums.hpp": "136ff64aa4cfc0c1567decbdd2d6342b38fd410486b9562ead7d98d005501434",
+    "competition/math/invariants.hpp": "24fae4fac0a4f2c7e53d1ea2eeee9fa3f401b21a64992691014e220e9f9859c7",
+    "competition/math/integer_geometry.hpp": "bb21614decb2310245db212dbe547ba00c302b4fe9d4c748ea9cc2ebc041a273",
+    "competition/data_structure/fenwick.hpp": "710175442ca10032abbf949b80d46a11d0c10105bf78bd7d70c015e5959258a4",
+    "competition/data_structure/examples/fenwick.cpp": "11a0585a5815b422bbeec82029dd7fc0ebcf95eba756ebd5d972522e87790715",
+    "competition/data_structure/segment_point_sum.hpp": "ef1cf2a93e808d6c1004cfc7dd4255b9e81137db5be222052e26b77572bb4864",
+    "competition/data_structure/nodes/sum.inc": "53ee95812b71a6793f052db69628180bc3ae30530da4e8905606f05879ada143",
+    "competition/data_structure/segment_point_base.inc": "b6486920e4c1d662919315e5f27f634339364d725aec1521c6b5ff64ba9b34b8",
+    "competition/data_structure/examples/point_sum.cpp": "05f46a76cd343c52c257f43a994c9120bceb9e1cd881ecdb20222eaf77cb3757",
+    "competition/data_structure/segment_point_min.hpp": "854b829296392b5177c1e1636ed049c48dec63407e952affe22ef57b7e99f708",
+    "competition/data_structure/nodes/min.inc": "8d784be557bacec335d1354cbf53a094ef06baba71ea8b3125bee164d0f40474",
+    "competition/data_structure/examples/point_min.cpp": "8ec0701df5b1404f83546bddb22943998ae47bcb776a129b3c9146da5c0178f5",
+    "competition/data_structure/segment_point_max.hpp": "ffc8eb7e1eceeb92f4cc35970b5bb479dadfb585a9aa142293a310a2a46ed0bd",
+    "competition/data_structure/nodes/max.inc": "45209fb06f2aec7b0040ccea6517f0d5e37305fe5cc7e97d692e874c1a55f5db",
+    "competition/data_structure/examples/first_ge.cpp": "5b50097da19b5ceb68168c3c3c3af9acf41aa84c60f67b53a16622080bf4e5b3",
+    "competition/data_structure/segment_point_gcd.hpp": "8db9a0eb531e0af1f1554648d0af6e6b7b9130d8e2dfee79badf75fef609c170",
+    "competition/data_structure/nodes/gcd.inc": "8b1944d0b8dc114d9364551fee7ca97c5b36aa8fb5f5691bcf2b1e42b298c935",
+    "competition/data_structure/examples/point_gcd.cpp": "a42745d8285ed20b647c6013c8303621a75457ea98b99b865f968ebf53f8ac26",
+    "competition/data_structure/segment_max_count.hpp": "0894d9bc145c2f0dfcc34ff568f015410c11b7f4124a42b5ad7a0b062b891d29",
+    "competition/data_structure/nodes/max_count.inc": "6c6d7ce0331b0c10de583c187195e5f0e6cbce29393fb6622aa63b72bfbbad72",
+    "competition/data_structure/examples/max_count.cpp": "088559a28bf5c135d55e3eedb5e7bbfcef293c8cf2af597b952f7a2d242b981a",
+    "competition/data_structure/segment_max_subarray.hpp": "02817eed884ebef8533ba931a1cf463cb9b1adaba8b8902e567e55b18cc3855d",
+    "competition/data_structure/nodes/max_subarray.inc": "2e6d4a5eb198e0743b98d92a656de99413230a366a1a495a3b8595391bdb09aa",
+    "competition/data_structure/examples/max_subarray.cpp": "488efdeac372e9acad4be50c4cec60cd180dd64a5f426ca082ea9e8041214c24",
+    "competition/data_structure/segment_frequency.hpp": "292e39bb03896fe9cba515cf1d3de3bae6ab1a39c83195ceacca10f5844cb985",
+    "competition/data_structure/nodes/frequency.inc": "fbe1ad173f57d79efe58a4d08053be347da5425ab2fcb40bc2152e3acd4a4770",
+    "competition/data_structure/examples/frequency.cpp": "a1001115918c7bc53e8a267bfc9086c0823c44b1fd2abb957638ab0953032abf",
+    "competition/data_structure/segment_point_stats.hpp": "320c1d3824d2c98379b3c1bee0400211db8f428fb1a74ecd688900cfcf91b79f",
+    "competition/data_structure/nodes/stats.inc": "53ad4151b216463003503937a2915f076f577b5b241fc0f3a327a3b5ef426dc4",
+    "competition/data_structure/examples/point_stats.cpp": "f61a2878b6129ccb872923f75eaa2b62e1b831bb4acca30c2d23868b070b5365",
+    "competition/data_structure/segment_range_add.hpp": "fe2d89dcfd3e19a34f8216ebc429fa91b27ac3e156643aab00d3aa1016450c1e",
+    "competition/data_structure/examples/range_add.cpp": "c63fee3a43d946c6c429a492a005143fa666fad3da241cb8fc84febdae6dc14c",
+    "competition/data_structure/segment_set_add.hpp": "1d12c4ba5a780c233f498b95fc1956b6fba33c6ec40c2a60501ca7379153b3a7",
+    "competition/data_structure/examples/set_add.cpp": "f059d4ec6964409a4441c67e59e46a5c0365fe3b8656aa84323c14089603d5e4",
+    "string/kmp_z.hpp": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+    "string/double_hash.hpp": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+    "competition/stl/recipes.hpp": "3ce1d4e5bff3597f110cfd9f937b00e13e258e53dd1b5860e62d7597f26946c7",
+    "competition/stl/heaps_sets.hpp": "8a25cc0653199be2529aa82684a65b930b4b3de330d3f3c38c7bf85bed897973",
+    "competition/runtime/real_search.hpp": "614b2f386f63094a3a210471ba1e68c74427f7b29dbb66dc8b2253ece637cdf6",
+    "competition/string/trie.hpp": "5d6df8923e0602c20001015808875ceb4e26c198839bb6eb37a4d7072df34378",
+    "competition/xor/prefix_xor.hpp": "6223b43841b22fc8f4290e373700123543a1e5568414bb67fdd9d21638a86933",
+    "competition/xor/bit_contribution.hpp": "168303c33b64e3424c0a93a08473661327b8c1bf2f98a935ce5c24547b43632b",
+    "competition/xor/xor_construct.hpp": "85dabb9909c6f4bd439578c60018afb0d3990ac7843f0bed7976d0e294dcf043",
+    "competition/xor/binary_trie.hpp": "880292457cbf1898e28b5308c4089ac9d7c4757b78886222d26c591db00589db",
+    "competition/xor/graph_xor.hpp": "c03390a870f139ce3b421e93ce559acf09f270a90c1d87c17dc2bcf79777d527",
+    "competition/xor/linear_basis.hpp": "345ce9c71dee2c576dbe9e6bd9e86892627991152d75f4bc38cfb60bbf958284",
+    "competition/xor/popcount_inventory.hpp": "df45293d7833a73de2c507f9bb144e759b196099385db302ff4e1617fa0a3ef8",
+    "competition/xor/max_pair_quadratic.hpp": "e7e0c153e987101837ae35f6743dc3191db5b7f09fc6c45d8b38c9f73fb20810",
+    "competition/xor/xor_gun.hpp": "62c6bc41629b4536c9b70cf995dd6e96ad76fec61c58b7249851c384fdc5a52f",
+    "competition/xor/and_permutations.hpp": "9b7c0131de1d685fdb83cceeaa2497f252c5d09a1d0123e274d64cf2b70e4e89",
+    "competition/xor/energy_intervals.hpp": "aab5fa3ba903813c042f574af8b5bd306cef28aff629c96dd584417ec09b83db",
+    "competition/models/state_search.hpp": "900b8d5e49ea3b505126c1a8fd236117a94165bd049545f02f45e7a5e76591d2",
+    "competition/runtime/int128_input.hpp": "b18ffcdf427cf259f13aab641bc10df021c36960b93c90b6537394c827a39eed",
+    "competition/runtime/examples/int128.cpp": "2cce5342dd0603cdf7f6d28e885e1d1b6ecdacbf1e7f2834d7fe30e501c89b4e"
+  },
+  "test_sources": {
+    "tests/round02/test_dp.cpp": "1bf0991645f2aacb72d3da127a2caa4e9aef30442172ebd2f40dbdef8af6bc7a",
+    "tests/round02/test_game_string.cpp": "bbeef733a875a9acf2fb0a1366cd30d3aa7076c9cba2fd9ad1c6df2cddc41e45",
+    "tests/round02/test_graph_personal.cpp": "c117784ecf2f4ccd17bacf3350debc6b7ffe29f660dde5fb4fe5362b457c27f9",
+    "tests/round02/test_greedy.cpp": "78b1e65f895f5c7380e69105eb3ad505324b0d20b40ae7cdad4213ddba919385",
+    "tests/round02/test_math_geometry.cpp": "5eeab147aafc639f50528074be68f1f74e32f37cd3bfa6a299ac8770aa4389e9",
+    "tests/round02/test_model_tools.cpp": "519cfb573f2edd7bfa015052a33a2c94464f66399139f36d438b2259229fe22e",
+    "tests/round02/test_models.cpp": "49c122ee8b7b539fb2587090f8d04515ac7ae114dd7ec621216657fc25ab7905",
+    "tests/round02/test_runtime.cpp": "d2b69b7508654991a6a04eaaee25c8219b09e5a0aae11d870ae87887324cab48",
+    "tests/round02/test_segment.cpp": "e2a70cd848562d615a1aaf3437bf687b62667bfc793cdb9efdc27f9c0b7b4c2e",
+    "tests/round02/test_stl.cpp": "b9f415f724a54a8298cdfb9d798b385a753026fe64955a14ff98b6e44d881960",
+    "tests/round02/test_xor.cpp": "d570728b39958335ea2902381323df0d306fd977e4998689058cc086ff4f8e48",
+    "tests/test_core_data.cpp": "8dc54ff607c45c21d12b55b339f74e8b3b4eb822caac0e524a5b5df61cbcaa92",
+    "tests/test_dp_math_string.cpp": "40a93f647661525d9c6bdd8e00a2f66889e6ba1dcfac4195c4be283e9a3eb41f",
+    "tests/test_graph.cpp": "cebe09d0566e3b9fbe1fa1ed9651d3c02382dd5ac685afb9e935773619a4627e",
+    "tests/round02/test_search.cpp": "f8f9283d8181b2c192248fee848ba5b06f169072824ad6046232138f00fca7bc",
+    "tests/round02/test_int128_input.cpp": "5f1b6d2f289ef734655cc9610695072c8bde7acc98bbff5de13e5ddfcb5bba98"
+  },
+  "test_dependencies": {
+    "tests/round02/test_dp.cpp": "1bf0991645f2aacb72d3da127a2caa4e9aef30442172ebd2f40dbdef8af6bc7a",
+    "dp/knapsack.hpp": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+    "dp/lis.hpp": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+    "dp/interval_merge.hpp": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+    "dp/hamilton_path.hpp": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+    "competition/dp/linear_grid.hpp": "46a53d1257332e66dee224220ade628939a48c470531953beabd1cf44a745404",
+    "competition/dp/knapsack_variants.hpp": "8165ae1faf1bc90b6f1c3c91b89f375e1dbed19cf2ced00d4d74a5c6bd6e0c29",
+    "competition/dp/sequence_state.hpp": "677201aeeb3d47ab682b64def78b79eacd479774b66ae0d615c4ca3dc6574e97",
+    "competition/dp/digit_count.hpp": "1e0b69cea85612694cece8a349c6554f4b143dcb8a126f99b48b19f92beb46eb",
+    "competition/dp/tree_independent_set.hpp": "8bfd4385d3b23ac2b757c14f20701d9b0d8e99f9f4aa34236647205c8a77300b",
+    "competition/dp/probability_expectation.hpp": "275781bda07cab548b59d8d4c207edd325bfe52c81ba49460ce79f14a55ab7a2",
+    "tests/round02/originals/dp/digit.cpp": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+    "tests/round02/originals/dp/direction.cpp": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+    "tests/round02/originals/dp/jakarta.cpp": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+    "tests/round02/test_game_string.cpp": "bbeef733a875a9acf2fb0a1366cd30d3aa7076c9cba2fd9ad1c6df2cddc41e45",
+    "competition/game/mex.hpp": "76c390a8aac73cacf1774af170d51b141884b7f9e958933dc307e0bba525cb8a",
+    "competition/game/normal_play.hpp": "98ab67e0293c634c39e3a058882b5a8509bb0c3b5ef0bc8376222f3f657c4f05",
+    "competition/string/trie.hpp": "5d6df8923e0602c20001015808875ceb4e26c198839bb6eb37a4d7072df34378",
+    "competition/string/palindrome.hpp": "6200e285b4a8aa82f447cd69d904f15ba02242c8d2c0fa14212df27b1ba54203",
+    "string/basic_string.hpp": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786",
+    "tests/round02/test_graph_personal.cpp": "c117784ecf2f4ccd17bacf3350debc6b7ffe29f660dde5fb4fe5362b457c27f9",
+    "graph/dsu.hpp": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+    "graph/bfs_path.hpp": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+    "graph/dfs_forest.hpp": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+    "graph/dijkstra.hpp": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+    "graph/lca.hpp": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+    "graph/euler_subtree.hpp": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+    "graph/topological_sort.hpp": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+    "competition/graph/dsu.hpp": "ddfd246508c452d8d636b79bfd1a289c7a8a21a62cdcc83df08426d6ec88687d",
+    "competition/graph/multisource_bfs.hpp": "03ff9589ef38d9f90470aefba4ed54ccc96b6362bac667f93ce3e3200ffbec4b",
+    "competition/graph/bfs.hpp": "af14bbb3d51d67f911a108b7c82adcae04128fbf20140d9631aeeca0878489e4",
+    "competition/graph/dfs.hpp": "cb6773cd76463f8605e3676a863d9ad41f42f253760669d1cfd3a8764f63a033",
+    "competition/graph/lca.hpp": "f83fa117c1b1ec60dd673959be4f8e798f4ebdda63784a8473608dc1144429de",
+    "competition/graph/tree_storage.hpp": "c6eafee60b87bdfbf0a60d753989c6fecf536a08e44dded76a9fd7d0a4a17629",
+    "competition/graph/tree_diameter.hpp": "64459a8cd60d70dcd7c31432a05af99ea0570e3694957879a39bf630b59b5f69",
+    "competition/graph/dijkstra.hpp": "a5a9c1d6d55ca9936ef15b505d6d5db5c66b8a644258ec34ccbf496c504330a4",
+    "competition/graph/grid_bfs.hpp": "1f168c0edbacf6109b2eea77565e78821f5e549ca6be8a66038fa3368ee38efb",
+    "competition/graph/zero_one_bfs.hpp": "26cf6f6aee62df7f98473f90562184dfd3cd095dc0e213c55199e744ba49346c",
+    "competition/graph/floyd.hpp": "e1f0930870ee57f377c0afc2016e9d28494a38061a58f38b9ef494b3b76c4512",
+    "competition/graph/bipartite.hpp": "a72ffe68f2254a5ce463da1e0d7e8c09c6cbccba1baf15cc57aa999c44bd5cf1",
+    "competition/graph/cycle.hpp": "acce94a98548e1b15a58635ad6f668df66088e81c1f9a51127aa75a60b94ab53",
+    "competition/graph/dag_dp.hpp": "64ca49255750e894d1615c5b4db481729823d405b77cb4e06b848eb0d274d4a2",
+    "tests/round02/test_greedy.cpp": "78b1e65f895f5c7380e69105eb3ad505324b0d20b40ae7cdad4213ddba919385",
+    "competition/models/greedy_construct.hpp": "bb237cfbb28840e781c307a40681f035bcd07df4399154b7192e9830511b3f18",
+    "tests/round02/test_math_geometry.cpp": "5eeab147aafc639f50528074be68f1f74e32f37cd3bfa6a299ac8770aa4389e9",
+    "math/modular.hpp": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+    "competition/math/exgcd.hpp": "665dc562ca7edc6db2a6c23892c4c022b364fbec75bc67f39934c2fa898dba06",
+    "competition/math/primes.hpp": "2f7e18247f43ba20665fda81c30611e949a1fd1b2057b49d8acdf8d1534bd6c4",
+    "competition/math/integer_division.hpp": "f272e99cadd12f5b2e1de35a2dcefa5d24f6b507dee3f7dd9d14259cd2401405",
+    "competition/math/sums.hpp": "136ff64aa4cfc0c1567decbdd2d6342b38fd410486b9562ead7d98d005501434",
+    "competition/math/invariants.hpp": "24fae4fac0a4f2c7e53d1ea2eeee9fa3f401b21a64992691014e220e9f9859c7",
+    "competition/math/integer_geometry.hpp": "bb21614decb2310245db212dbe547ba00c302b4fe9d4c748ea9cc2ebc041a273",
+    "tests/round02/test_model_tools.cpp": "519cfb573f2edd7bfa015052a33a2c94464f66399139f36d438b2259229fe22e",
+    "competition/models/prefix_grid.hpp": "2a87216e7770bc3c633ca96fb337dc3e137a327c51a4db71194f4b04dcd20c78",
+    "competition/models/enumeration.hpp": "085a6bc0b39e61e28a4389659e91f0b2a0fbc7880a506605ec755f86004b80f6",
+    "competition/models/choose_tasks.cpp": "7dcc5458a2e9e599314a5d996b10acfb8c2dc58c880db7586a99c36c7fd3e53a",
+    "competition/models/ordered_choice.cpp": "4c2bbe0638e2ef1b3361b56bf0f29941e046149884be94b19cf89cbff86625ab",
+    "tests/round02/test_models.cpp": "49c122ee8b7b539fb2587090f8d04515ac7ae114dd7ec621216657fc25ab7905",
+    "competition/models/interval_count.hpp": "451684651c3b060623f2f38603bfc8e3d47b4ffc45c429e29d84476359f2bc8c",
+    "competition/models/interval_construct.hpp": "ff71201bab60b2a8bf594d326f69b03f5567a3f5f2f28263dc4b59335959bca0",
+    "tests/round02/test_runtime.cpp": "d2b69b7508654991a6a04eaaee25c8219b09e5a0aae11d870ae87887324cab48",
+    "read.cpp": "a3aced46d7ce2356b9ec352e87ea37dd9b1544df36c65a7c6476b38ed536528e",
+    "core/basics.hpp": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+    "competition/runtime/floating.hpp": "becee0baa4dc442899cfdb7f06dae52492b17f7f7e71f1f0a6f2fd7af2981cab",
+    "competition/runtime/real_search.hpp": "614b2f386f63094a3a210471ba1e68c74427f7b29dbb66dc8b2253ece637cdf6",
+    "tests/round02/test_segment.cpp": "e2a70cd848562d615a1aaf3437bf687b62667bfc793cdb9efdc27f9c0b7b4c2e",
+    "data_structure/fenwick.hpp": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+    "data_structure/segment_tree.hpp": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+    "data_structure/lazy_segment_tree.hpp": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+    "competition/data_structure/fenwick.hpp": "710175442ca10032abbf949b80d46a11d0c10105bf78bd7d70c015e5959258a4",
+    "competition/data_structure/segment_point_sum.hpp": "ef1cf2a93e808d6c1004cfc7dd4255b9e81137db5be222052e26b77572bb4864",
+    "competition/data_structure/nodes/sum.inc": "53ee95812b71a6793f052db69628180bc3ae30530da4e8905606f05879ada143",
+    "competition/data_structure/segment_point_base.inc": "b6486920e4c1d662919315e5f27f634339364d725aec1521c6b5ff64ba9b34b8",
+    "competition/data_structure/segment_point_min.hpp": "854b829296392b5177c1e1636ed049c48dec63407e952affe22ef57b7e99f708",
+    "competition/data_structure/nodes/min.inc": "8d784be557bacec335d1354cbf53a094ef06baba71ea8b3125bee164d0f40474",
+    "competition/data_structure/segment_point_max.hpp": "ffc8eb7e1eceeb92f4cc35970b5bb479dadfb585a9aa142293a310a2a46ed0bd",
+    "competition/data_structure/nodes/max.inc": "45209fb06f2aec7b0040ccea6517f0d5e37305fe5cc7e97d692e874c1a55f5db",
+    "competition/data_structure/segment_point_gcd.hpp": "8db9a0eb531e0af1f1554648d0af6e6b7b9130d8e2dfee79badf75fef609c170",
+    "competition/data_structure/nodes/gcd.inc": "8b1944d0b8dc114d9364551fee7ca97c5b36aa8fb5f5691bcf2b1e42b298c935",
+    "competition/data_structure/segment_max_count.hpp": "0894d9bc145c2f0dfcc34ff568f015410c11b7f4124a42b5ad7a0b062b891d29",
+    "competition/data_structure/nodes/max_count.inc": "6c6d7ce0331b0c10de583c187195e5f0e6cbce29393fb6622aa63b72bfbbad72",
+    "competition/data_structure/segment_max_subarray.hpp": "02817eed884ebef8533ba931a1cf463cb9b1adaba8b8902e567e55b18cc3855d",
+    "competition/data_structure/nodes/max_subarray.inc": "2e6d4a5eb198e0743b98d92a656de99413230a366a1a495a3b8595391bdb09aa",
+    "competition/data_structure/segment_frequency.hpp": "292e39bb03896fe9cba515cf1d3de3bae6ab1a39c83195ceacca10f5844cb985",
+    "competition/data_structure/nodes/frequency.inc": "fbe1ad173f57d79efe58a4d08053be347da5425ab2fcb40bc2152e3acd4a4770",
+    "competition/data_structure/segment_point_stats.hpp": "320c1d3824d2c98379b3c1bee0400211db8f428fb1a74ecd688900cfcf91b79f",
+    "competition/data_structure/nodes/stats.inc": "53ad4151b216463003503937a2915f076f577b5b241fc0f3a327a3b5ef426dc4",
+    "competition/data_structure/segment_range_add.hpp": "fe2d89dcfd3e19a34f8216ebc429fa91b27ac3e156643aab00d3aa1016450c1e",
+    "competition/data_structure/segment_set_add.hpp": "1d12c4ba5a780c233f498b95fc1956b6fba33c6ec40c2a60501ca7379153b3a7",
+    "tests/round02/test_stl.cpp": "b9f415f724a54a8298cdfb9d798b385a753026fe64955a14ff98b6e44d881960",
+    "math/integer_bits.hpp": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+    "competition/stl/recipes.hpp": "3ce1d4e5bff3597f110cfd9f937b00e13e258e53dd1b5860e62d7597f26946c7",
+    "competition/stl/heaps_sets.hpp": "8a25cc0653199be2529aa82684a65b930b4b3de330d3f3c38c7bf85bed897973",
+    "tests/round02/test_xor.cpp": "d570728b39958335ea2902381323df0d306fd977e4998689058cc086ff4f8e48",
+    "tests/round02/originals/xor/1/1124/C.cpp": "0b3c4e3bb64e63a3a181bd17efe71b0d7ee0ddcdc473dae1a816d83ff33b96b2",
+    "competition/xor/prefix_xor.hpp": "6223b43841b22fc8f4290e373700123543a1e5568414bb67fdd9d21638a86933",
+    "competition/xor/bit_contribution.hpp": "168303c33b64e3424c0a93a08473661327b8c1bf2f98a935ce5c24547b43632b",
+    "competition/xor/xor_construct.hpp": "85dabb9909c6f4bd439578c60018afb0d3990ac7843f0bed7976d0e294dcf043",
+    "competition/xor/binary_trie.hpp": "880292457cbf1898e28b5308c4089ac9d7c4757b78886222d26c591db00589db",
+    "competition/xor/graph_xor.hpp": "c03390a870f139ce3b421e93ce559acf09f270a90c1d87c17dc2bcf79777d527",
+    "competition/xor/linear_basis.hpp": "345ce9c71dee2c576dbe9e6bd9e86892627991152d75f4bc38cfb60bbf958284",
+    "competition/xor/personal_models.hpp": "c0adfef18f9d19c4054c40ca12a0c7d816b34f99d01548697cf9829ab2f353d4",
+    "competition/xor/popcount_inventory.hpp": "df45293d7833a73de2c507f9bb144e759b196099385db302ff4e1617fa0a3ef8",
+    "competition/xor/max_pair_quadratic.hpp": "e7e0c153e987101837ae35f6743dc3191db5b7f09fc6c45d8b38c9f73fb20810",
+    "competition/xor/xor_gun.hpp": "62c6bc41629b4536c9b70cf995dd6e96ad76fec61c58b7249851c384fdc5a52f",
+    "competition/xor/and_permutations.hpp": "9b7c0131de1d685fdb83cceeaa2497f252c5d09a1d0123e274d64cf2b70e4e89",
+    "competition/xor/energy_intervals.hpp": "aab5fa3ba903813c042f574af8b5bd306cef28aff629c96dd584417ec09b83db",
+    "tests/round02/originals/xor/1/1124/B.cpp": "bc170b07f085f1c4c3cbc2a17e66138610e583d6079d22fb65a279124ffc73aa",
+    "tests/round02/originals/xor/4/1090/E_xor_find_pattern.cpp": "05072493eb4f768b9074510bd2ca3b4c0f8fc638c4b16bd03dacb94deba3783a",
+    "tests/round02/originals/xor/date/5.15/3.cpp": "373d13a98c8e0e197fad48005f8649055fc3075ee984ddc7a5bbde7a4841599d",
+    "tests/round02/originals/xor/date/7/7.9/2_and.cpp": "4555d7217a5b83ec7172d0b52526e108436e72f41014661634766803d0aafa17",
+    "tests/round02/originals/xor/2/1129/B.cpp": "8fa9dfa5ffa203f784fb8a0851de904e59aab140bd0c8cfa3b4a4500187a7097",
+    "tests/test_core_data.cpp": "8dc54ff607c45c21d12b55b339f74e8b3b4eb822caac0e524a5b5df61cbcaa92",
+    "core/search_window.hpp": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+    "data_structure/monotonic.hpp": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+    "data_structure/sparse_table.hpp": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+    "tests/test_dp_math_string.cpp": "40a93f647661525d9c6bdd8e00a2f66889e6ba1dcfac4195c4be283e9a3eb41f",
+    "math/matrix_power.hpp": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+    "math/product_recurrence.hpp": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+    "math/combinations.hpp": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+    "string/kmp_z.hpp": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+    "string/double_hash.hpp": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+    "tests/test_graph.cpp": "cebe09d0566e3b9fbe1fa1ed9651d3c02382dd5ac685afb9e935773619a4627e",
+    "graph/unicyclic_graph.hpp": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+    "graph/kruskal.hpp": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+    "graph/prim.hpp": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+    "advanced/scc.hpp": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+    "advanced/bridges.hpp": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+    "tests/round02/test_search.cpp": "f8f9283d8181b2c192248fee848ba5b06f169072824ad6046232138f00fca7bc",
+    "competition/models/state_search.hpp": "900b8d5e49ea3b505126c1a8fd236117a94165bd049545f02f45e7a5e76591d2",
+    "tests/round02/test_int128_input.cpp": "5f1b6d2f289ef734655cc9610695072c8bde7acc98bbff5de13e5ddfcb5bba98",
+    "competition/runtime/int128_input.hpp": "b18ffcdf427cf259f13aab641bc10df021c36960b93c90b6537394c827a39eed"
+  },
+  "card_examples": {
+    "DPC01": "a2711295bc4f641678d7a119bd912f527b8b6bc7d4e71aee213bae4675f90a3b",
+    "DPC02": "b5ab811e721c473ef825d200dc209cb4253765bebe90ddcb04de524618e1f04e",
+    "DPC03": "b3172735ba185c951d1e0a28d5a1d93ae48f630b11db68a6a4f7d4a21510a0e3",
+    "DPC04": "e0b2e5c0057732aaff5ef523780f251a910d4a82824a35fe3db926955465d1ab",
+    "DPC05": "1cd7a2baca6c3e0721e6a81e81477fd5a0ed00b51a7d839f9cdb72d49f363692",
+    "DPC06": "8879fb9acdd264a565a2b0a2d98833d2c6c19f5c9ed0c9c4de4d85ac78b3e7d2",
+    "DPC07": "5cfbdaf7c76f4ad9857c83c6ddd12462f039a60c6dcde92d55127e1fba764e62",
+    "DPC08": "eb4c1048454cf27e1f5e92c3890369fb12661603a4db9c1c4be6598adc53498a",
+    "DPC09": "7303f1cdb3883f991fc3bde6f5835a0f8d5dd0bdb3f2e375292aac98c37085fa",
+    "DPC10": "f22560954b1164a32be27613f76c8aa5286124f8a6493c48939ad842298cf77e",
+    "DPC11": "6b1626f366307b1d8fcdd204c1cf425bfe4ab57d0c4d4057fee1fb57353d5e24",
+    "DPC12": "ca0f079c86adac3c1058ae4b4b54e030eaed3b0276ba3083cee03e00b36be94e",
+    "DPC13": "22c9d7e3b811156cb50d78df7ffbf619ec69df7a5e7d7310874a57e6ef2045d3",
+    "DPC14": "2bd0aa622d24778d8f62e64f82ae2c35a861034928cfdf529ed98b756426829a",
+    "DPC15": "d626336d873f231bc41d80ffa53b1514c11662b07f535a732e59333de5ac761f",
+    "RT_DISPLAY": "d273a50868ce6f1ff3fd699877864869c82b1a1f5069c22cab72ee59916d0732"
+  },
+  "module_examples": {
+    "PSD01": {
+      "source": "competition/data_structure/examples/fenwick.cpp",
+      "sha256": "11a0585a5815b422bbeec82029dd7fc0ebcf95eba756ebd5d972522e87790715"
+    },
+    "PSD02": {
+      "source": "competition/data_structure/examples/point_sum.cpp",
+      "sha256": "05f46a76cd343c52c257f43a994c9120bceb9e1cd881ecdb20222eaf77cb3757"
+    },
+    "PSD03": {
+      "source": "competition/data_structure/examples/point_min.cpp",
+      "sha256": "8ec0701df5b1404f83546bddb22943998ae47bcb776a129b3c9146da5c0178f5"
+    },
+    "PSD04": {
+      "source": "competition/data_structure/examples/first_ge.cpp",
+      "sha256": "5b50097da19b5ceb68168c3c3c3af9acf41aa84c60f67b53a16622080bf4e5b3"
+    },
+    "PSD05": {
+      "source": "competition/data_structure/examples/point_gcd.cpp",
+      "sha256": "a42745d8285ed20b647c6013c8303621a75457ea98b99b865f968ebf53f8ac26"
+    },
+    "PSD06": {
+      "source": "competition/data_structure/examples/max_count.cpp",
+      "sha256": "088559a28bf5c135d55e3eedb5e7bbfcef293c8cf2af597b952f7a2d242b981a"
+    },
+    "PSD07": {
+      "source": "competition/data_structure/examples/max_subarray.cpp",
+      "sha256": "488efdeac372e9acad4be50c4cec60cd180dd64a5f426ca082ea9e8041214c24"
+    },
+    "PSD08": {
+      "source": "competition/data_structure/examples/frequency.cpp",
+      "sha256": "a1001115918c7bc53e8a267bfc9086c0823c44b1fd2abb957638ab0953032abf"
+    },
+    "PSD09": {
+      "source": "competition/data_structure/examples/point_stats.cpp",
+      "sha256": "f61a2878b6129ccb872923f75eaa2b62e1b831bb4acca30c2d23868b070b5365"
+    },
+    "PSD10": {
+      "source": "competition/data_structure/examples/range_add.cpp",
+      "sha256": "c63fee3a43d946c6c429a492a005143fa666fad3da241cb8fc84febdae6dc14c"
+    },
+    "PSD11": {
+      "source": "competition/data_structure/examples/set_add.cpp",
+      "sha256": "f059d4ec6964409a4441c67e59e46a5c0365fe3b8656aa84323c14089603d5e4"
+    },
+    "IO03": {
+      "source": "competition/runtime/examples/int128.cpp",
+      "sha256": "2cce5342dd0603cdf7f6d28e885e1d1b6ecdacbf1e7f2834d7fe30e501c89b4e"
+    }
+  },
+  "checks": [
+    {
+      "name": "compile_BM01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.641,
+      "output": ""
+    },
+    {
+      "name": "compile_BM02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.641,
+      "output": ""
+    },
+    {
+      "name": "compile_BM03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.546,
+      "output": ""
+    },
+    {
+      "name": "compile_BM04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": ""
+    },
+    {
+      "name": "compile_BM05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.656,
+      "output": ""
+    },
+    {
+      "name": "compile_BM06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.672,
+      "output": ""
+    },
+    {
+      "name": "compile_BM07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM07_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.187,
+      "output": ""
+    },
+    {
+      "name": "compile_CO01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "compile_CO03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.812,
+      "output": ""
+    },
+    {
+      "name": "compile_DP01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.813,
+      "output": ""
+    },
+    {
+      "name": "compile_DP02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "compile_DP03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": ""
+    },
+    {
+      "name": "compile_DP04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DP04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.812,
+      "output": ""
+    },
+    {
+      "name": "compile_DS01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.782,
+      "output": ""
+    },
+    {
+      "name": "compile_DS02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.031,
+      "output": ""
+    },
+    {
+      "name": "compile_DS03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.843,
+      "output": ""
+    },
+    {
+      "name": "compile_DS04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.969,
+      "output": ""
+    },
+    {
+      "name": "compile_DS05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\DS05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.172,
+      "output": ""
+    },
+    {
+      "name": "compile_FP01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\FP01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\FP01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.922,
+      "output": ""
+    },
+    {
+      "name": "compile_G01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_G02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.984,
+      "output": ""
+    },
+    {
+      "name": "compile_G03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_G04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "compile_G05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.782,
+      "output": ""
+    },
+    {
+      "name": "compile_G06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": ""
+    },
+    {
+      "name": "compile_G07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G07_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.781,
+      "output": ""
+    },
+    {
+      "name": "compile_G08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G08_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": ""
+    },
+    {
+      "name": "compile_G09",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G09_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": ""
+    },
+    {
+      "name": "compile_G10",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G10_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.687,
+      "output": ""
+    },
+    {
+      "name": "compile_G11",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G11_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_G12",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G12_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\G12.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": ""
+    },
+    {
+      "name": "compile_GAME01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\GAME01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\GAME01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.656,
+      "output": ""
+    },
+    {
+      "name": "compile_IO01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_IO02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.813,
+      "output": ""
+    },
+    {
+      "name": "compile_M01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_M02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_M03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_M04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": ""
+    },
+    {
+      "name": "compile_M05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\M05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.11,
+      "output": ""
+    },
+    {
+      "name": "compile_MEX01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\MEX01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\MEX01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.859,
+      "output": ""
+    },
+    {
+      "name": "compile_MEX02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\MEX02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\MEX02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_PAL01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PAL01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PAL01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_PDP01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.657,
+      "output": ""
+    },
+    {
+      "name": "compile_PDP02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.687,
+      "output": ""
+    },
+    {
+      "name": "compile_PDP03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "compile_PDP05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_PDP06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.625,
+      "output": ""
+    },
+    {
+      "name": "compile_PG01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.062,
+      "output": ""
+    },
+    {
+      "name": "compile_PG02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.031,
+      "output": ""
+    },
+    {
+      "name": "compile_PG03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.985,
+      "output": ""
+    },
+    {
+      "name": "compile_PG04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.937,
+      "output": ""
+    },
+    {
+      "name": "compile_PG05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.141,
+      "output": ""
+    },
+    {
+      "name": "compile_PG06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.125,
+      "output": ""
+    },
+    {
+      "name": "compile_PG07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG07_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.953,
+      "output": ""
+    },
+    {
+      "name": "compile_PG08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG08_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.968,
+      "output": ""
+    },
+    {
+      "name": "compile_PG09",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG09_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.016,
+      "output": ""
+    },
+    {
+      "name": "compile_PG10",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG10_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.859,
+      "output": ""
+    },
+    {
+      "name": "compile_PG11",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG11_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.906,
+      "output": ""
+    },
+    {
+      "name": "compile_PG12",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG12_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG12.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.047,
+      "output": ""
+    },
+    {
+      "name": "compile_PG13",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG13_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG13.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.344,
+      "output": ""
+    },
+    {
+      "name": "compile_PG15",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG15_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PG15.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": ""
+    },
+    {
+      "name": "compile_PM01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.828,
+      "output": ""
+    },
+    {
+      "name": "compile_PM02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "compile_PM03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_PM04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": ""
+    },
+    {
+      "name": "compile_PM05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "compile_PM06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PM06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": ""
+    },
+    {
+      "name": "compile_PSD01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "example_PSD01_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD01_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD01_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.156,
+      "output": ""
+    },
+    {
+      "name": "example_PSD01",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD01_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.672,
+      "output": "5\n6\n7\n",
+      "expected_output": "5\n6\n7\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": ""
+    },
+    {
+      "name": "example_PSD02_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD02_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD02_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": ""
+    },
+    {
+      "name": "example_PSD02",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD02_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.609,
+      "output": "5\n12\n",
+      "expected_output": "5\n12\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "example_PSD03_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD03_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD03_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "example_PSD03",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD03_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.765,
+      "output": "2\n5\n",
+      "expected_output": "2\n5\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "example_PSD04_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD04_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD04_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.812,
+      "output": ""
+    },
+    {
+      "name": "example_PSD04",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD04_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.672,
+      "output": "3\n-1\n2\n",
+      "expected_output": "3\n-1\n2\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "example_PSD05_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD05_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD05_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.64,
+      "output": ""
+    },
+    {
+      "name": "example_PSD05",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD05_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.719,
+      "output": "2\n3\n",
+      "expected_output": "2\n3\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "example_PSD06_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD06_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD06_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "example_PSD06",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD06_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.625,
+      "output": "5 3\n5 2\n",
+      "expected_output": "5 3\n5 2\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD07_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "example_PSD07_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD07_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD07_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "example_PSD07",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD07_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.609,
+      "output": "-1\n6\n",
+      "expected_output": "-1\n6\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD08_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "example_PSD08_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD08_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD08_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.922,
+      "output": ""
+    },
+    {
+      "name": "example_PSD08",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD08_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.797,
+      "output": "2\n4\n4\n",
+      "expected_output": "2\n4\n4\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD09",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD09_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "example_PSD09_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD09_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD09_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "example_PSD09",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD09_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.657,
+      "output": "6 -12 9 3\n30 6 15 3\n",
+      "expected_output": "6 -12 9 3\n30 6 15 3\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD10",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD10_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "example_PSD10_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD10_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD10_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.766,
+      "output": ""
+    },
+    {
+      "name": "example_PSD10",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD10_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.578,
+      "output": "5 -2 4\n15 3 8\n3 3 3\n",
+      "expected_output": "5 -2 4\n15 3 8\n3 3 3\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PSD11",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD11_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": ""
+    },
+    {
+      "name": "example_PSD11_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD11_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD11_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.032,
+      "output": ""
+    },
+    {
+      "name": "example_PSD11",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PSD11_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.687,
+      "output": "10\n4\n",
+      "expected_output": "10\n4\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_S01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.0,
+      "output": ""
+    },
+    {
+      "name": "compile_S02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": ""
+    },
+    {
+      "name": "compile_S03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\S03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734,
+      "output": ""
+    },
+    {
+      "name": "compile_STL02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\STL02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\STL02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.968,
+      "output": ""
+    },
+    {
+      "name": "compile_TRS01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\TRS01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\TRS01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.687,
+      "output": ""
+    },
+    {
+      "name": "compile_TRS02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\TRS02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\TRS02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.094,
+      "output": ""
+    },
+    {
+      "name": "compile_X01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.219,
+      "output": ""
+    },
+    {
+      "name": "compile_X02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.719,
+      "output": ""
+    },
+    {
+      "name": "compile_X03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.031,
+      "output": ""
+    },
+    {
+      "name": "compile_X04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.016,
+      "output": ""
+    },
+    {
+      "name": "compile_X05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X05_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.203,
+      "output": ""
+    },
+    {
+      "name": "compile_X06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X06_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.781,
+      "output": ""
+    },
+    {
+      "name": "compile_X07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X07_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.922,
+      "output": ""
+    },
+    {
+      "name": "compile_X08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X08_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "compile_X09",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X09_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.062,
+      "output": ""
+    },
+    {
+      "name": "compile_X10",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X10_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.766,
+      "output": ""
+    },
+    {
+      "name": "compile_X11",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X11_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\X11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.218,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_game_string_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_game_string.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_game_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 3.5,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_game_string",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_game_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 6.703,
+      "output": "game_string: MEX 120000 + Nim/SG + Trie + palindrome exhaustive PASS\n"
+    },
+    {
+      "name": "tests_round02_test_graph_personal_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_graph_personal.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_graph_personal.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.812,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_graph_personal",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_graph_personal.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.906,
+      "output": "PASS graph personal + round01 + independent oracles; seed=20261024; deep=200000\n"
+    },
+    {
+      "name": "tests_round02_test_greedy_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_greedy.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_greedy.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.718,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_greedy",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_greedy.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.954,
+      "output": "PASS greedy: subsets, all matchings, bracket stacks, boundaries\n"
+    },
+    {
+      "name": "tests_round02_test_math_geometry_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_math_geometry.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_math_geometry.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.734,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_math_geometry",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_math_geometry.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.781,
+      "output": "PASS math/geometry: seed=20261024; signed/full-ll division; sieve; 1e18 geometry\n"
+    },
+    {
+      "name": "tests_round02_test_model_tools_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_model_tools.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_model_tools.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.766,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_model_tools",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_model_tools.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "PASS model tools: 2D rectangles, inversion, MITM, two original solutions\n"
+    },
+    {
+      "name": "tests_round02_test_models_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_models.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_models.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.532,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_models",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_models.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.593,
+      "output": "PASS interval models: exhaustive BFS + independent partitions + constructions\n"
+    },
+    {
+      "name": "tests_round02_test_runtime_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_runtime.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_runtime.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.406,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_runtime",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_runtime.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.188,
+      "output": "runtime: legal read 50007 + IO + FP/search 2000 PASS\n"
+    },
+    {
+      "name": "tests_round02_test_segment_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_segment.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_segment.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 3.172,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_segment",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_segment.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.203,
+      "output": "PASS round02 segment: 14 models; seed=20261024; DS01/DS02/DS03 consistency; lazy composition; n=200000\n"
+    },
+    {
+      "name": "tests_round02_test_xor_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_xor.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_xor.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 5.437,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_xor",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_xor.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.735,
+      "output": "PASS xor seed=20261024 checks=320024\n"
+    },
+    {
+      "name": "tests_test_dp_math_string_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_dp_math_string.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_dp_math_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.625,
+      "output": ""
+    },
+    {
+      "name": "tests_test_dp_math_string",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_dp_math_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.703,
+      "output": "PASS dp/math/string fixed-seed differential tests\n"
+    },
+    {
+      "name": "tests_test_graph_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_graph.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_graph.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 5.375,
+      "output": ""
+    },
+    {
+      "name": "tests_test_graph",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_graph.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.188,
+      "output": "PASS graph P0: seed=20261024; deep_chain=200000\nPASS graph P1: Dijkstra/MST/LCA/Euler; deep_chain=200000\nPASS graph P2: SCC/bridges; deep_chain=200000\n"
+    },
+    {
+      "name": "example_DPC01_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.953,
+      "output": ""
+    },
+    {
+      "name": "example_DPC01",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.797,
+      "output": "-2\n",
+      "expected_output": "-2\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC02_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.094,
+      "output": ""
+    },
+    {
+      "name": "example_DPC02",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 3.016,
+      "output": "2 7\n",
+      "expected_output": "2 7\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC03_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.968,
+      "output": ""
+    },
+    {
+      "name": "example_DPC03",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.578,
+      "output": "8\n",
+      "expected_output": "8\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC04_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC04.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.656,
+      "output": ""
+    },
+    {
+      "name": "example_DPC04",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.094,
+      "output": "6\n",
+      "expected_output": "6\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC05_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC05.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.781,
+      "output": ""
+    },
+    {
+      "name": "example_DPC05",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.578,
+      "output": "9\n",
+      "expected_output": "9\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC06_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC06.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.766,
+      "output": ""
+    },
+    {
+      "name": "example_DPC06",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.609,
+      "output": "9\n",
+      "expected_output": "9\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC07_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC07.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.782,
+      "output": ""
+    },
+    {
+      "name": "example_DPC07",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.687,
+      "output": "9\n",
+      "expected_output": "9\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC08_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC08.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.797,
+      "output": ""
+    },
+    {
+      "name": "example_DPC08",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.594,
+      "output": "7\n",
+      "expected_output": "7\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC09_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC09.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.828,
+      "output": ""
+    },
+    {
+      "name": "example_DPC09",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.531,
+      "output": "2 2\n",
+      "expected_output": "2 2\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC10_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC10.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.703,
+      "output": ""
+    },
+    {
+      "name": "example_DPC10",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.203,
+      "output": "3\n",
+      "expected_output": "3\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC12_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC12.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC12.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.39,
+      "output": ""
+    },
+    {
+      "name": "example_DPC12",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC12.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.594,
+      "output": "2 2 3 4\n",
+      "expected_output": "2 2 3 4\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC13_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC13.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC13.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "example_DPC13",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC13.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.547,
+      "output": "1\n",
+      "expected_output": "1\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC15_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC15.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC15.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.625,
+      "output": ""
+    },
+    {
+      "name": "example_DPC15",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC15.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.656,
+      "output": "0.500000 3.000000\n",
+      "expected_output": "0.500000 3.000000\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_RT_DISPLAY_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_RT_DISPLAY.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_RT_DISPLAY.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.547,
+      "output": ""
+    },
+    {
+      "name": "example_RT_DISPLAY",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_RT_DISPLAY.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.531,
+      "output": "12.3\n12.346\n0.1250000000\n0.125\n-2 -1 -2 -1\n",
+      "expected_output": "12.3\n12.346\n0.1250000000\n0.125\n-2 -1 -2 -1\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_PDP04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP04_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\PDP04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.547,
+      "output": ""
+    },
+    {
+      "name": "compile_STL01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\STL01_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\STL01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.781,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_dp_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_dp.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_dp.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.188,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_dp",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_dp.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.312,
+      "output": "PASS round02 DP: 12483 checks, seed 20261024\nPASS original digit/direction/Jakarta: 120 shared-oracle cases each\n"
+    },
+    {
+      "name": "tests_round02_test_stl_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_stl.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_stl.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.562,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_stl",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_stl.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 3.578,
+      "output": "STL: all recipes + Huffman exhaustive + heap/set differential PASS\n"
+    },
+    {
+      "name": "example_DPC11_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC11.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.562,
+      "output": ""
+    },
+    {
+      "name": "example_DPC11",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.625,
+      "output": "111\n",
+      "expected_output": "111\n",
+      "output_matches": true
+    },
+    {
+      "name": "example_DPC14_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "-I",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC14.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC14.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.469,
+      "output": ""
+    },
+    {
+      "name": "example_DPC14",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\example_DPC14.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.844,
+      "output": "5\n",
+      "expected_output": "5\n",
+      "output_matches": true
+    },
+    {
+      "name": "compile_BM08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM08_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\BM08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.672,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_search_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_search.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_search.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.844,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_search",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_search.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.203,
+      "output": "PASS search: all-pairs Floyd, path replay, exhaustive subsets\n"
+    },
+    {
+      "name": "compile_CO02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO02_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\CO02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.469,
+      "output": ""
+    },
+    {
+      "name": "compile_IO03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO03_driver.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.469,
+      "output": ""
+    },
+    {
+      "name": "example_IO03_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO03_example.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO03_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.515,
+      "output": ""
+    },
+    {
+      "name": "example_IO03",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\IO03_example.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.563,
+      "output": "17\n-42\n170141183460469231731687303715884105727\n-170141183460469231731687303715884105728\n",
+      "expected_output": "17\n-42\n170141183460469231731687303715884105727\n-170141183460469231731687303715884105728\n",
+      "output_matches": true
+    },
+    {
+      "name": "tests_round02_test_int128_input_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\round02\\test_int128_input.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_int128_input.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.625,
+      "output": ""
+    },
+    {
+      "name": "tests_round02_test_int128_input",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_round02_test_int128_input.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.922,
+      "output": "PASS i128 cin-string parsing: 5009 checks\n"
+    },
+    {
+      "name": "tests_test_core_data_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_core_data.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_core_data.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.156,
+      "output": ""
+    },
+    {
+      "name": "tests_test_core_data",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02_release\\tests_test_core_data.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.75,
+      "output": "PASS core/data: deterministic + random(seed=20261024) + n=200000\n"
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "status": "PASS",
+  "pdf_sha256": "7c89d3888bd52d1c19fdec6664ce677fdde39835c11b8bef2b6bdf90192a2555",
+  "pdf_path": "板子打印版/成都站_赛前小技巧与题型补丁_2026.pdf",
+  "page_count": 25,
+  "render_dpi": 130,
+  "checked_at_utc": "2026-10-24T17:17:08.934550+00:00",
+  "reviewer": "r2_stl_runtime",
+  "method": "此前25页release版均由view_image original逐页实看；本次对16/17/20/21四张变化页再次实看，其余21页经PNG全文件字节比较完全一致后复用先前检查。",
+  "summary": "25页全部通过：无代码裁切、重叠、中文缺字或页脚碰撞；stl_string_recipes与adjacent_moves完整独立同页，所有已报告孤立残尾和样例输出孤页均已消除。",
+  "issues": [],
+  "pages": [
+    {
+      "page": 1,
+      "status": "PASS",
+      "notes": "封面、容器选择表与原read/cin提示清楚，表格及页脚完整。",
+      "image": "_qa/round02_patch_publish2/page-01.png",
+      "image_sha256": "e77d7aae3dbe0aca68c7e2b5e64e99e6cef90b43dcaf4ebddc8dd7a9f5168220",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 2,
+      "status": "PASS",
+      "notes": "六步思考、DP与debug检查提示清楚，无遮挡。",
+      "image": "_qa/round02_patch_publish2/page-02.png",
+      "image_sha256": "53ed4e0e292693c73d9e26e7b222a8a5a920380441656605cc79d9f6a829bf6d",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 3,
+      "status": "PASS",
+      "notes": "个人代码习惯及DP状态识别表列对齐，中文完整。",
+      "image": "_qa/round02_patch_publish2/page-03.png",
+      "image_sha256": "155de5ee030252c76f526cc0b96fdf2d7687f60380c6428f4ea4654c13b16294",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 4,
+      "status": "PASS",
+      "notes": "25页版目录名称和页码可读，未碰撞。",
+      "image": "_qa/round02_patch_publish2/page-04.png",
+      "image_sha256": "d8f8e9cc54b3081a273ea567aae42e1ec5a5284fa35f5513e3bfb8249192d20a",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 5,
+      "status": "PASS",
+      "notes": "MEX及两张博弈卡完整，行距正常。",
+      "image": "_qa/round02_patch_publish2/page-05.png",
+      "image_sha256": "2beb62f20eb267ded13ed12d0b4f447d971642c60b77877a8308a9cc393a7691",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 6,
+      "status": "PASS",
+      "notes": "三张区间整数操作卡完整，公式和长路径正常换行。",
+      "image": "_qa/round02_patch_publish2/page-06.png",
+      "image_sha256": "6f0b82fc18c49bf7cff912b4bb6d9b3ee36a79cbdbfb9c8bb5a370a76f5a8335",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 7,
+      "status": "PASS",
+      "notes": "构造、可行性二分及角度卡清楚，页面边界安全。",
+      "image": "_qa/round02_patch_publish2/page-07.png",
+      "image_sha256": "ed6a4a34d9620f7c1d5a182b36f208e018ece4c60ae190be2c895708df77f8be",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 8,
+      "status": "PASS",
+      "notes": "RT_SEARCH与RT_DISPLAY完整，独立main无裁切。",
+      "image": "_qa/round02_patch_publish2/page-08.png",
+      "image_sha256": "b39968a9bc141cf5eb0c98bc7bb8a3b5a33c307943f5605b47dd8c38ff062afa",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 9,
+      "status": "PASS",
+      "notes": "SEG-00、容器选择与XOR03卡片完整，密集段落仍可读。",
+      "image": "_qa/round02_patch_publish2/page-09.png",
+      "image_sha256": "60e87658055fb2163196f33b66e11003bda27a51547bc6ef06956f5a4363d42c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 10,
+      "status": "PASS",
+      "notes": "XOR05卡片完整，章节留白正常。",
+      "image": "_qa/round02_patch_publish2/page-10.png",
+      "image_sha256": "8968cbd8ddffc8f43b9a9a089910a10246381cb2e92d06540478aed886f715cf",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 11,
+      "status": "PASS",
+      "notes": "原inline ll read()完整，说明简洁，while长行未越界。",
+      "image": "_qa/round02_patch_publish2/page-11.png",
+      "image_sha256": "edd322e931bea7a66ca09b37eb5370141cc223bd8e518bd37fd04db98de501aa",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 12,
+      "status": "PASS",
+      "notes": "FP01精简说明与全部函数同页，最后右括号完整，底部安全。",
+      "image": "_qa/round02_patch_publish2/page-12.png",
+      "image_sha256": "95f8a5b7e0a71c07903af5591bb4798ccdd4631b8118204c1b039226e6131474",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 13,
+      "status": "PASS",
+      "notes": "TRS01单调/单峰契约及两段代码完整，无裁切。",
+      "image": "_qa/round02_patch_publish2/page-13.png",
+      "image_sha256": "f997d7af090b76b0208d1ea6312266008d4b1486af6ad2a8a8e7f365a90b04d9",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 14,
+      "status": "PASS",
+      "notes": "STL array/vector/deque/pair/tuple/stack/queue完整；三堆代码在明确续页继续。",
+      "image": "_qa/round02_patch_publish2/page-14.png",
+      "image_sha256": "e93fbc7507b43b8f7052ef37b5373d90cc6957d628279191fddb48558d2b235e",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 15,
+      "status": "PASS",
+      "notes": "三种ll堆、set/multiset、map等及排序示例清楚；算法代码正常续接。",
+      "image": "_qa/round02_patch_publish2/page-15.png",
+      "image_sha256": "3efead22ccf8fdb3289313b338504de0119b82975c4c6a541d294e033e2a0f83",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 16,
+      "status": "PASS",
+      "notes": "STL算法短例在本页完整结束；stl_string_recipes已整体移到后页，页末无裁切或孤立代码。",
+      "image": "_qa/round02_patch_publish2/page-16.png",
+      "image_sha256": "6b662513ec0d35a34f2568bbca2a7158b6db499b42010122c715f4ebe6edef5c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "publish2版重新使用tools.view_image(detail=\"original\")实际检查完整页面。"
+    },
+    {
+      "page": 17,
+      "status": "PASS",
+      "notes": "stl_string_recipes完整函数独立同页，从声明到结束括号全部可读；原6行残尾已消除，页脚正常。",
+      "image": "_qa/round02_patch_publish2/page-17.png",
+      "image_sha256": "bd4c48f09828001b181b9b2f638fdf6aeded689d171162d705999c04a3f97f1e",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "publish2版重新使用tools.view_image(detail=\"original\")实际检查完整页面。"
+    },
+    {
+      "page": 18,
+      "status": "PASS",
+      "notes": "静态、前缀与动态MEX代码完整，mex_query在本页结束。",
+      "image": "_qa/round02_patch_publish2/page-18.png",
+      "image_sha256": "e20eb6cbed08adf656f1929a9c0de48dc5b492038a09ea2f02daee5c6af7b25b",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 19,
+      "status": "PASS",
+      "notes": "正常Nim、SG和反常Nim全部在同页，旧四行孤页已消除。",
+      "image": "_qa/round02_patch_publish2/page-19.png",
+      "image_sha256": "425f9c6439c0599fb00ed1a26988c8315b5a7ab2205aa2a038f1554943240c3c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 20,
+      "status": "PASS",
+      "notes": "BM01前几段函数完整；adjacent_moves函数体已整体移至后页，页末与页脚保持安全距离。",
+      "image": "_qa/round02_patch_publish2/page-20.png",
+      "image_sha256": "49929b9b253c5310dfffb8ea2695e5367fb92e18523a203180e03bc1f485c27a",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "publish2版重新使用tools.view_image(detail=\"original\")实际检查完整页面。"
+    },
+    {
+      "page": 21,
+      "status": "PASS",
+      "notes": "adjacent_moves完整函数独立同页，从声明、循环到返回与结束括号全部可读；原6行残尾已消除。",
+      "image": "_qa/round02_patch_publish2/page-21.png",
+      "image_sha256": "8a6fcde81da2a593fbe503869d24112607b3752ecab43ef722768aa4dade4124",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "publish2版重新使用tools.view_image(detail=\"original\")实际检查完整页面。"
+    },
+    {
+      "page": 22,
+      "status": "PASS",
+      "notes": "PG01树存储、初始化和根化开头完整，页脚安全。",
+      "image": "_qa/round02_patch_publish2/page-22.png",
+      "image_sha256": "35f24db2c3e30da3f43d400274821b82c2939009d57d193df1d813c1b4811a97",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 23,
+      "status": "PASS",
+      "notes": "PG01根化余部完整，嵌套循环与函数结束可读，无孤立符号页。",
+      "image": "_qa/round02_patch_publish2/page-23.png",
+      "image_sha256": "5041a67b13a0c49a215387e30f8461927dddd417c5647bc257ec61bf49afdb52",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 24,
+      "status": "PASS",
+      "notes": "Fenwick定义、完整main及输入输出均同页，旧样例输出孤页消除。",
+      "image": "_qa/round02_patch_publish2/page-24.png",
+      "image_sha256": "67b9d8af3789b30f99bf5a21ff06ec600cbbf91b92dd1b82341cf18b006de8c2",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    },
+    {
+      "page": 25,
+      "status": "PASS",
+      "notes": "X01全部源代码完整，最后return和右括号在同页，底部留白安全。",
+      "image": "_qa/round02_patch_publish2/page-25.png",
+      "image_sha256": "9d4380e217c831ba0cf0eba5309976c6ecb683b390844466b0ce02aa1c672683",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "该页在release版已通过view_image original实际逐页检查；publish2与该已检PNG字节完全相同（含页脚），复用先前视觉结果。"
+    }
+  ],
+  "changed_pages_rechecked": [
+    16,
+    17,
+    20,
+    21
+  ],
+  "byte_identical_pages_reusing_prior_inspection": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    18,
+    19,
+    22,
+    23,
+    24,
+    25
+  ],
+  "previous_pdf_sha256": "b0779c53e0d31d78e952e328334e9e8ce92b15fbe1b0b45231763cb2bed52d2b",
+  "previous_25page_report": "notes/round02/validation/visual_patch_release_first_pass.json",
+  "resolved_issues": [
+    "第17页stl_string_recipes原6行残尾，现完整函数同页。",
+    "第21页adjacent_moves原6行残尾，现完整函数同页。"
+  ]
+}

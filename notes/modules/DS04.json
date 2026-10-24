@@ -1,0 +1,15 @@
+{
+  "id": "DS04",
+  "title": "单调栈与单调队列 Monotonic",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "data_structure/monotonic.hpp",
+  "when": "找每个位置左侧最近更小元素；固定窗口查询最小值。",
+  "contract": "输入和输出均1下标；{}或{0}为空。previous_less无解下标为0；window_min返回ans[l]=min(a[l..l+k-1])，k<=0或k>n返回{0}。",
+  "complexity": "均O(n)时间，每个下标至多进出一次；额外空间O(n)。",
+  "pitfalls": ["严格更小必须弹出>=当前值，重复值不能留下。", "队列保存下标，才能删除离开窗口的元素。", "窗口最小值改最大值时将队尾比较>=改为<=。"],
+  "example": "a={0,2,2,1,3}的左侧严格更小下标为{0,0,0,0,3}；a={0,4,2,2,5},k=2的最小值为{0,2,2,2}。实题：洛谷P1886滑动窗口，求固定窗口最小/最大值：https://www.luogu.com.cn/problem/P1886 。",
+  "usage": "auto left=previous_less(a); auto mn=window_min(a,k); // mn[l]对应窗口左端l",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：重复值/空窗口边界、随机对拍、n=200000全部通过。"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "X04",
+  "title": "数组节点二进制 Trie：插入、删除、最大/最小 XOR",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P1",
+  "source": "competition/xor/binary_trie.hpp",
+  "when": "从集合里选一个数与x异或最优；维护重复数；最大XOR数对/子数组。",
+  "contract": "先trie_init(width,max_nodes)，width=1..64、max_nodes包含根且<=INT_MAX；值非负并装入width位；同时存储数<=LLONG_MAX。init失败不改旧树；insert容量失败不改树。删除一个副本，不回收节点。便捷max函数输入a至少{0}、n<=1e6，并重置全局Trie。",
+  "complexity": "每次操作O(width)；容量按累计新路径计，最多1+width*插入次数。tree的2个int+cnt的ll约16字节/节点，vector扩容还有余量。最大数对/子数组O(64n)。",
+  "idea": "从最高位到最低位决定答案；最大优先异位，最小优先同位，仅走cnt>0的路径。",
+  "proof": "高位1的权重大于所有低位之和；若有活跃候选能获得当前更优位，丢弃另一分支不会损失最优解。查询前缀XOR则将最大子数组变为历史前缀中最大数对。",
+  "pitfalls": [
+    "查询返回XOR值，不是被选的数。",
+    "空树查询/删除返回false；删除到0的旧节点不可再视为候选。",
+    "删除不回收节点；长期滑窗按历史不同路径估容量或分批init。",
+    "用1ULL<<63；不得右移/左移64位；如题域<2^30可用30位显著节省内存。",
+    "普通Trie不能直接求(x^y)&动态mask最优；mask为0的位不能随意只选一支，2268C见X11。"
+  ],
+  "example": "cf/4/1090/E_xor_find_pattern.cpp的O(n²)在2218E约束足够；此模块服务更大n，不替换正确原解。",
+  "usage": "trie_init(64,10000); trie_insert(7); trie_insert(7); ull ans; bool ok=trie_query(3,ans); trie_query(3,ans,false); trie_erase(7); ull pair=max_xor_pair({0,1,2,3}); ull sub=max_xor_subarray({0,1,2,3});",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/4/1090/E_xor_find_pattern.cpp",
+      "idea": "原最大数对双循环的规模扩展。",
+      "issue": "原题n总和<=3105，无复杂度缺陷。",
+      "change": "另增数组节点Trie供大输入使用；保留原解和同一独立oracle。",
+      "interface_change": "独立函数；无类、无cp命名空间。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

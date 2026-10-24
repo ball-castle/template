@@ -1,0 +1,15 @@
+{
+  "id": "DS05",
+  "title": "稀疏表 Sparse Table",
+  "category": "数据结构",
+  "priority": "P1",
+  "source": "data_structure/sparse_table.hpp",
+  "when": "数组不修改，需要大量区间min/max/gcd查询。",
+  "contract": "a[1..n]，{}或{0}为空；非空query需1<=l<=r<=n，空区间返回传入identity。op必须结合且幂等；GcdOp只接收非负ll。",
+  "complexity": "预处理O(n log n)时间和空间；每次查询O(1)。",
+  "pitfalls": ["查询的两块区间可能重叠，不能用于求和。", "ST表只适合静态数组；修改一个元素后不能继续查旧表。", "差分gcd题查原数组[l,r]时要转为差分[l+1,r]，单点答案为0。"],
+  "example": "仓库实例cf/template/ST表.cpp对应CF2050F：https://codeforces.com/contest/2050/problem/F；相邻差上建gcd表，原区间[l,r]转查差分[l+1,r]，单点输出0。",
+  "usage": "SparseTable<MinOp> st(a,LLONG_MAX); st.query(l,r); SparseTable<GcdOp> sg(diff,0); sg.query(l+1,r);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：空表/单点/重复值、全部随机子区间对拍、n=200000通过。"
+}

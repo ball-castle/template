@@ -1,0 +1,15 @@
+{
+  "id": "M05",
+  "title": "质数模数组合数 Prime Combinations",
+  "category": "数学 Math",
+  "priority": "P1",
+  "source": "math/combinations.hpp",
+  "when": "大量询问C(n,k)，所有n有可承受的预处理上限，模数已知为质数且大于该上限。",
+  "contract": "prime必须为质数且0<=max_n<prime；模板不检测质数。有效查询须0<=n<=max_n；k<0或k>n返回0。依赖M02。",
+  "complexity": "预处理 O(max_n+log prime) 时间、O(max_n) 空间；每次查询 O(1)。",
+  "pitfalls": ["阶乘含模数因子时没有逆元：n>=prime不能继续套此模板。", "复合模数不能使用费马逆元；多测可按全体最大n预处理一次。", "C(0,0)=1，查询上限不能大于构造时的max_n。"],
+  "example": "Codeforces 1475E Advertising Agency：https://codeforces.com/problemset/problem/1475/E 。对选取边界的相同值计算组合数；未在线提交。",
+  "usage": "PrimeComb comb(max_n,1000000007); cout<<comb.choose(n,k); 纸面抄写同时带上M02。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；n<=30逐项对照Pascal三角，覆盖C(0,0)、无效k、小质数和2^61-1质数模。"
+}

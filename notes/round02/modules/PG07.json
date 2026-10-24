@@ -1,0 +1,33 @@
+{
+  "id": "PG07",
+  "title": "四邻接网格BFS",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/grid_bfs.hpp",
+  "when": "迷宫、棋盘上每步一格且代价都是1。",
+  "contract": "1<=n,m<1010；g行、列均1-indexed，每行前补空格；#障碍，其余可走。源点出界或障碍时全-1。",
+  "complexity": "O(nm)时间/空间。",
+  "idea": "网格坐标就是点，合法四邻格就是隐式边，不必显式存邻接表。",
+  "proof": "四邻扩展与单位边权图BFS等价；先边界检查再读取g避免越界。",
+  "pitfalls": [
+    "string默认0下标，忘补空格会整体错位。",
+    "先判边界再访问g[nx][ny]。",
+    "斜走、传送门、钥匙状态改变建边或状态，不能原样套。"
+  ],
+  "example": "2x3网格“...”“.#.”，从(1,1)到(2,3)最短3步；障碍格距离-1。",
+  "usage": "n=2;\nm=3;\ng[1]=\" ...\";\ng[2]=\" .#.\";\nbfs(1,1);",
+  "origins": [
+    {
+      "path": "template/bfs.cpp",
+      "idea": "queue与首次访问按层扩展。",
+      "issue": "原片段未提供网格边界/坐标表示。",
+      "change": "补四方向枚举和1-indexed网格。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}

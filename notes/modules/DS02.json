@@ -1,0 +1,20 @@
+{
+  "id": "DS02",
+  "title": "单点线段树 Segment Tree",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "data_structure/segment_tree.hpp",
+  "when": "单点赋值、区间求和；需要以后扩展节点信息时使用。",
+  "contract": "a[1..n]；{}或{0}为空树；set位置须1..n，非空sum须1<=l<=r<=n，空区间返回0。n<=INT_MAX/4；区间和及中间值须在ll范围。",
+  "complexity": "建树O(n)；赋值/查询O(log n)；空间O(n)。",
+  "pitfalls": [
+    "set(p,x)是赋值，不是加x。",
+    "修改返回时必须pull；答案与节点都用ll。",
+    "空树只允许空查询，不允许set。"
+  ],
+  "example": "保留旧segmen tree1.cpp的递归建树/合并方法。仓库实例：cf/segment_tree_cf_edu/1.cpp，单点赋值、区间和；输入0下标[l,r)转成内部1下标[l+1,r]。",
+  "usage": "SegmentTree seg(a); seg.set(p,x); ll ans=seg.sum(l,r);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：超过int的区间和、随机赋值对拍、n=200000全部通过。",
+  "exercise_url": "https://github.com/ball-castle/cf/blob/main/segment_tree_cf_edu/1.cpp"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "G11",
+  "title": "强连通分量 Iterative Kosaraju SCC",
+  "category": "进阶图论",
+  "priority": "P2",
+  "source": "advanced/scc.hpp",
+  "when": "有向图中两两互相可达的分量；缩点成 DAG 的第一步。",
+  "contract": "g 长度 n+1，合法点 [1,n]；允许重边自环。返回 count、comp[1..n]、groups[1..count]；0 为保留位置。",
+  "complexity": "O(n+m) 时间和空间；两次显式栈遍历，额外存反图。",
+  "pitfalls": [
+    "第一遍要记录退出顺序，不能使用刚发现结点的顺序。",
+    "第二遍使用反图并按第一遍退出顺序的逆序搜索。",
+    "缩点时需另外遍历原边，过滤同分量边；是否去重依题意。"
+  ],
+  "example": "手算例：1->2,2->1,2->3,3->3；分量为 {1,2} 和 {3}，缩点后只有一条跨分量边。",
+  "usage": "auto r=cp::scc(g); bool mutual=r.comp[u]==r.comp[v]; for(int u:r.groups[c]) { /* 分量内结点 */ }",
+  "test": "tests/test_graph.cpp",
+  "verify": "g++13.3 GNU++20 零警告；350 轮随机有向图对逐对双向可达性，重边自环；200000 点链及大环；ASan+UBSan 完整测试通过。",
+  "exercise_url": "https://www.luogu.com.cn/problem/P3387 （SCC缩点后还需DAG上DP，未在线提交）"
+}

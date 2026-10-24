@@ -1,0 +1,35 @@
+{
+  "id": "FP01",
+  "title": "浮点误差、距离与反三角",
+  "category": "运行基础",
+  "priority": "P0",
+  "source": "competition/runtime/floating.hpp",
+  "when": "二维距离、向量夹角、方向角和数值比较。",
+  "contract": "long double，输入与中间结果有限；几何向量非零且hypot结果有限；acos/asin数学参数本来应在[-1,1]。EPS默认1e-12，需按误差预算调整。",
+  "complexity": "各函数O(1)。",
+  "pitfalls": [
+    "atan2(y,x)不是atan2(x,y)，零向量没有方向。",
+    "EPS比较不满足严格弱序，不能作sort/set比较器。",
+    "float常仅约6~7位有效数字；double通常约15位；long double精度依平台。",
+    "整数判等/奇偶/模运算应保留整数；大整数转浮点可能丢失末位。",
+    "sqrt要求非负；仅对已证明应非负而出现微小误差的值夹0。"
+  ],
+  "example": "(0,0)到(3,4)距离5；(1,0)与(0,1)夹角π/2；(0,-1)方向3π/2。floor(-1.2)=-2，ceil(-1.2)=-1，trunc(-1.8)=-1，round(-1.5)=-2。",
+  "usage": "auto d=distance_2d(0,0,3,4); auto rad=angle_between(1,0,0,1); auto deg=degrees(rad); auto dir=direction_angle(0,-1);",
+  "test": "tests/round02/test_runtime.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 -O1 ASan+UBSan -fno-pie -no-pie，tests/round02/test_runtime.cpp 通过：原read合法整数50007个、IO显示与i128边界、浮点几何/二分/三分固定种子20261024的2000组。",
+  "idea": "先写清数学定义域和量纲，再用hypot、atan2与夹紧消除常见数值边界错误。",
+  "proof": "点积除以模长积是夹角余弦；atan2同时利用x/y的符号确定象限。",
+  "origins": [
+    {
+      "path": "template/Ternary_Search.cpp",
+      "idea": "保留用户sqrt与固定小数输出使用场景。",
+      "issue": "几何夹角和atan2在原源未覆盖。",
+      "change": "新增独立基础函数与示例，不改旧题解。",
+      "interface_change": "新增函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

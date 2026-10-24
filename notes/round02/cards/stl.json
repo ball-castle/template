@@ -1,0 +1,179 @@
+[
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": false,
+    "id": "STL_HUFFMAN",
+    "title": "合并代价为两份之和，每次拿最小两份",
+    "signal": "将所有对象合成一个，合并两份花费两份权重之和，问最小总代价。",
+    "observe": "是否可任意选两份？权重非负？是否要求相邻合并？",
+    "brute": "枚举每一步选哪两份，合并顺序数目爆炸。",
+    "redundancy": "总成本等于每个叶权重乘合并树深度；小权重应安排得更深。",
+    "derive": "交换论证让两个最小权重处于最深的一对兄弟；先合并它们，缩成一个权重和，递归求剩余问题。",
+    "conditions": "任意两份可合并、代价严格为和、非负权重。相邻合并限制不满足此模型。",
+    "proof": "最深兄弟的两个叶可与两个最小权重交换，成本不增；收缩这对叶后仍是同类子问题。",
+    "usage": "huffman_cost({1,2,3,4})==19。",
+    "complexity": "小根堆O(n log n)，空间O(n)。",
+    "pitfalls": "相邻合并如1,100,1不能先合并两端1；那是区间DP模型。按最大两份先合并会让大权重反复付费。",
+    "exercise": "tests/round02/test_stl.cpp::brute_merge穷举所有合并选择，与100组小数据比较。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": true,
+    "id": "STL_TOPK",
+    "title": "只保留最大或最小k项，无须完整排序",
+    "signal": "数据流到来，始终问最大/最小的k个，或第k大/小。",
+    "observe": "k是否固定？是否还要删除历史项？重复值是否算不同项？",
+    "brute": "每加入一个数重排全部历史数据。",
+    "redundancy": "前k名以外元素不可能影响当前答案，只需记住已保留候选中最小者。",
+    "derive": "前k大用小根堆淘汰最小；前k小用大根堆淘汰最大。新元素入堆后若超k个弹出当前最差候选；最终按需要反转堆弹出序列。",
+    "conditions": "只插入、k>=0；重复值作为多个元素；需要第k大时先确认当前数目>=k。",
+    "proof": "若候选有k+1项，最小项前面已有k个不小于它的值，删去它不会失去前k大。",
+    "usage": "top_k_largest({3,1,9,9,-2},3)返回9,9,3；top_k_smallest同输入返回-2,1,3。",
+    "complexity": "O(n log(k+1))，空间O(k)。",
+    "pitfalls": "保留前k大才用小根堆淘汰；保留前k小方向相反。k=0应返回空。若只一次静态第k小，nth_element更直接。",
+    "exercise": "tests/round02/test_stl.cpp：前k大/小各30000次前缀与完整降/升序排序截断对照。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": false,
+    "id": "STL_MEDIAN",
+    "title": "中位数就是小半集合的最大值",
+    "signal": "在线插入后问中位数，或求到某点绝对距离和最小的点。",
+    "observe": "偶数长度要下中位数、上中位数还是平均？是否有删除？",
+    "brute": "每次排序后取中间下标。",
+    "redundancy": "只有小半与大半的分界影响中位数，不需要两半内部完整排序。",
+    "derive": "大根堆存小半、小根堆存大半，保证小半数量等于大半或多1；堆顶为下中位数。有删除改用双multiset。",
+    "conditions": "在线堆版本只插入，非空查询；绝对距离最小模型要求一维L1代价。",
+    "proof": "分界两侧元素有序且小半有ceil(n/2)项，所以小半最大正是第ceil(n/2)小；移动点越过中位数后两边数量差使总代价不再下降。",
+    "usage": "median_init(); for(ll x:a) median_add(x); ll lower=median_lower();",
+    "complexity": "每次O(log n)，查O(1)；滑窗双multiset O(n log k)。",
+    "pitfalls": "偶数长度的中位数不一定唯一；平方距离最小在均值而非中位数。两个中间数相加求平均可能溢出。",
+    "exercise": "tests/round02/test_stl.cpp：30000次在线插入与排序对照，下中位数含负数/重复。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": false,
+    "id": "STL_LAZY",
+    "title": "堆不能删中间元素：先记失效，露出顶再清理",
+    "signal": "任务优先级变化/取消，仍要反复取当前最大优先级。",
+    "observe": "任务是否有稳定id？旧记录会不会与新记录同优先级？总操作数多少？",
+    "brute": "每次修改遍历堆找旧任务并重建。",
+    "redundancy": "只有堆顶参与当前决策，深处旧记录可以暂时不处理。",
+    "derive": "每次更新增版本号并压新记录；取顶时，若已取消或版本不等于当前版本，就弹弃继续看。",
+    "conditions": "id在1..n；版本不溢出；空间允许按总更新次数增长。",
+    "proof": "返回前排除全部顶部过期项，剩余堆顶是所有有效候选中最大者；每条过期记录最多弹出一次。",
+    "usage": "lazy_init(2); lazy_set(1,7); lazy_set(1,3); lazy_top()->first==3; lazy_erase(1);",
+    "complexity": "Q次操作总O(Q log Q)，空间O(Q)；单次清理可能很多项。",
+    "pitfalls": "只按value判过期可能把重新出现的相同value误判；用id+版本。查询不是最坏O(log n)，只能按总操作摊还。",
+    "exercise": "tests/round02/test_stl.cpp：20000次更新/取消与map全扫描比较。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": true,
+    "id": "STL_NEIGHBOR",
+    "title": "插删后找严格前驱、后继或最近值",
+    "signal": "需要小于x的最大值、大于x的最小值，或动态集合最近值。",
+    "observe": "严格还是允许相等？重复值是否要保留？两端是否可能不存在？",
+    "brute": "每次扫描所有值取最大的小值和最小的大值。",
+    "redundancy": "有序集合把候选分隔成连续两段，答案就是分界的邻居。",
+    "derive": "严格前驱取lower_bound(x)前一个；严格后继取upper_bound(x)。允许相等的前驱改upper_bound后退。最近值比较左右候选距离。",
+    "conditions": "前驱前检查it!=begin；后继检查it!=end；距离计算扩大类型避免端点溢出。",
+    "proof": "lower_bound前一项是所有<x项中最大的，upper_bound第一项是所有>x项中最小的。",
+    "usage": "strict_neighbors(set<ll>{1,4,7},4)返回1和7。",
+    "complexity": "O(log n)，有序迭代器后退O(1)。",
+    "pitfalls": "直接--begin或解引用end是错误；std::lower_bound(set.begin,set.end)有线性步进，应用set.lower_bound。",
+    "exercise": "tests/round02/test_stl.cpp：相等命中和左右端不存在。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": false,
+    "id": "STL_RESOURCE",
+    "title": "给需求分配最小够用资源",
+    "signal": "每份资源只用一次，容量至少需求，想尽量满足请求。",
+    "observe": "是否只有下界限制？一个需求是否只取一个资源？有额外收益/区间上界吗？",
+    "brute": "每个请求扫描所有剩余容量，选一个可用项。",
+    "redundancy": "超过需求的富余容量没有即时价值，小的够用资源应优先使用。",
+    "derive": "multiset.lower_bound(need)找到最小够用容量并仅删除这一份，保留更大容量给未来。",
+    "conditions": "一对一资源、仅容量>=需求、每项使用一次；无额外收益/组合限制。",
+    "proof": "若最优方案此处用更大资源，可与以后使用较小够用资源的请求交换；较大资源仍能满足后者，不减少满足数。",
+    "usage": "slots={2,2,5}; assign_at_least(slots,2)取2；再要3取5；剩2。",
+    "complexity": "每个请求O(log n)。",
+    "pitfalls": "erase(value)会删掉多份相同容量；若还要求容量<=上界，交换论证要重新检查。",
+    "exercise": "tests/round02/test_stl.cpp：重复资源、恰好够用、无人可满足。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL02"
+    ],
+    "patch": false,
+    "id": "STL_WINDOW",
+    "title": "滑窗要删一份旧值，不能删掉全部重复值",
+    "signal": "长度k的每个连续窗口求极差或中位数。",
+    "observe": "窗口固定长度；相同数字是否多次出现；要极值还是秩统计？",
+    "brute": "每个窗口排序，O(n*k log k)。",
+    "redundancy": "相邻窗口仅删一个旧值、加一个新值。",
+    "derive": "极差用multiset最前/最后；下中位数用大小平衡的左右multiset；每次只删一个迭代器。",
+    "conditions": "k>=0；k=0或k>n返回空；极差需ll可表示。",
+    "proof": "维护集合的重数与窗口恰好一致；左右分界和数量不变量确保输出的是目标秩。",
+    "usage": "window_spread(a,k); window_lower_medians(a,k);",
+    "complexity": "O(n log k)，空间O(k)；只需最值还可改为单调队列O(n)。",
+    "pitfalls": "{2,2,5}滑走一个2后仍应留一个2；忽略重复会让窗口大小与中位秩失真。",
+    "exercise": "tests/round02/test_stl.cpp：2000随机窗口与逐窗排序比较。"
+  },
+  {
+    "origins": [
+      "template/data_sturcture.cpp"
+    ],
+    "code_refs": [
+      "STL01",
+      "STL02"
+    ],
+    "patch": true,
+    "id": "STL_SELECT",
+    "title": "先列操作，再选顺序容器、有序集合或堆",
+    "signal": "题目反复加入、删除、取最值、计频或查阈值。",
+    "observe": "是否需要随机访问/两端访问/键有序/重复值/任意删除/前驱？",
+    "brute": "无论需求都用vector扫描，或者看见动态就上线段树。",
+    "redundancy": "每种容器为一组操作保存不同信息；只保存答案需要的信息即可。",
+    "derive": "顺序表vector；两端deque；最近未匹配stack；按到达处理queue；只取最优priority_queue；有序阈值set/multiset；键到值map；仅等值查询unordered。",
+    "conditions": "容器复杂度与数据分布匹配；哈希平均快但最坏线性；固定小值域计数数组通常更直接。",
+    "proof": "先确认每次操作需要的信息，所选结构必须支持全部必要操作，不因某一个O(1)接口忽略其余昂贵操作。",
+    "usage": "STL01所有短例已实际运行；STL02给出对应模型函数。",
+    "complexity": "由操作序列决定，不只看单次API。",
+    "pitfalls": "堆不支持有序前驱；set不提供O(1)第k项；unordered没有排序；vector中间erase搬移O(n)。",
+    "exercise": "template/data_sturcture.cpp原示例扩展为STL01可执行场景。"
+  }
+]

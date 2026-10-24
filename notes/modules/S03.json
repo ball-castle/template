@@ -1,0 +1,15 @@
+{
+  "id": "S03",
+  "title": "基础字符串处理 String Basics",
+  "category": "字符串 String",
+  "priority": "P1",
+  "source": "string/basic_string.hpp",
+  "when": "回文检查、单字符分割、ASCII大小写、相邻相同字符分组，以及含空格输入。",
+  "contract": "按字节处理而非Unicode字符，长度能放进int；回文使用0-indexed半开区间[l,r)。分割保留所有空字段；大小写转换只处理ASCII大写字母。",
+  "complexity": "各函数线性时间；回文 O(1)额外空间，其余按返回内容 O(n)空间。",
+  "pitfalls": ["cin>>后接getline要处理残留换行；cin>>ws会吞掉有意义的前导空白。", "split_char(空串)返回一个空字段；末尾分隔符也产生空字段。", "UTF-8中文由多个字节构成，不能把逐字节操作当成逐汉字处理。"],
+  "example": "Codeforces 266A Stones on the Table：https://codeforces.com/problemset/problem/266/A 。相邻同色分组后累加每组长度减1；未在线提交。",
+  "usage": "bool ok=is_palindrome(s,0,int(s.size())); auto fields=split_char(s,','); auto groups=run_length(s); string lower=ascii_lower(s);",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；边界断言覆盖空串、连续/尾部分隔符、空/偶长回文、ASCII边界和相邻字符分组。"
+}

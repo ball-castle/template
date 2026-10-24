@@ -1,0 +1,41 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [],
+  "patch": false,
+  "id": "PDP05",
+  "title": "树形 DP：最大权独立集",
+  "source": "competition/dp/tree_independent_set.hpp",
+  "when": "树上选点，父子不可同时选，求总点权最大。",
+  "contract": "g和a从1开始，g为无向简单连通树，n>=1，root∈[1,n]；允许空集，sum(abs(a))<2^60。",
+  "complexity": "O(n)时间、O(n)空间；迭代父序逆序不消耗递归栈。",
+  "idea": "把子树压成根不选/根选择两个最优值，父节点只需读取这两个边界状态。",
+  "proof": "固定父亲是否选后各儿子子树互不影响，可以分别选最优再求和。",
+  "pitfalls": [
+    "不是一般图最大独立集；有环不能使用。",
+    "全负返回0因为允许空集；必须非空需另加语义。",
+    "若还有跨子树限制，两个状态不再充分。"
+  ],
+  "example": "根权5、两个孩子权4和3，选两个孩子得到7；20万节点单位权链得到100000。",
+  "usage": "#include \"competition/dp/tree_independent_set.hpp\"\nint main() {\n    vector<vector<int>> g = {{}, {2,3}, {1}, {1}};\n    cout << tree_independent_set(g, {0,5,4,3}) << '\\n'; // 7\n}\n",
+  "origins": [
+    {
+      "path": "template/tree_dp.cpp",
+      "idea": "原稿展示先儿子后父亲的聚合骨架",
+      "issue": "骨架未定义具体题目状态，不能当作已完整解决独立集",
+      "change": "新增完整的选/不选教学模型；原文件不动；深链使用迭代后序",
+      "interface_change": "新增独立函数tree_independent_set",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1096/H_!!dp_tree.cpp",
+      "idea": "ct/mx把整个子树压缩为父亲需要的信息",
+      "issue": "原题未核验，不把叶子奇偶问题解释为独立集",
+      "change": "仅作为状态压缩的个人思维来源，不复制题目特定递推",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ]
+}

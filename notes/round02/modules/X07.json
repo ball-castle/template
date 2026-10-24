@@ -1,0 +1,33 @@
+{
+  "id": "X07",
+  "title": "我的偶数 popcount 计数模型（2268B）",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P0",
+  "source": "competition/xor/popcount_inventory.hpp",
+  "when": "相邻两个数同时XOR 3k(k=1..5)，值在0..15；求能变为3的倍数的最多位置，单点修改。",
+  "contract": "a[1..n]、n>=2、0<=a[i],x<16；原good(int)仅在此域复用。修改pos合法；ans必须是当前all_meat_count。",
+  "complexity": "初始O(n)，每次更新O(1)，空间O(n)。",
+  "idea": "每个位置popcount奇偶不变；偶数类可以全部变到3的倍数。",
+  "proof": "操作掩码张成8个偶popcount数；相邻路径能给任意两位置加同一掩码。若有奇类留它吸收总XOR；若全偶类，保留两个位置，任意偶类总XOR都能写成两个3倍数之XOR。",
+  "pitfalls": [
+    "popcount奇偶不是整数奇偶：3是奇数但popcount偶。",
+    "只证不变量是必要条件，还需可达性；只把前n-1位置清0不足以保证最后值是3倍数，例如总XOR=5。",
+    "不应为原good的int接口报错：原题值<16，完全足够。"
+  ],
+  "example": "cf/1/1124/B.cpp已正确实现；补证明而不重写算法。例[5,0]可到[6,3]，两位置都成功。",
+  "usage": "vector<ll> a={0,10,3}; ll ans=all_meat_count(a); all_meat_update(a,ans,1,0);",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/1/1124/B.cpp",
+      "idea": "popcount奇偶不变量及路径中间抵消。",
+      "issue": "代码正确；原注释末项处理的充分性证明未写全。",
+      "change": "good原样，计数与更新原逻辑抽取；补两位置表示证明。",
+      "interface_change": "去除输入输出，保留good与熟悉的a/ans。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

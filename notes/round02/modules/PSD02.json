@@ -1,0 +1,52 @@
+{
+  "id": "PSD02",
+  "title": "单点树公共骨架与区间和",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "competition/data_structure/segment_point_sum.hpp",
+  "when": "单点赋值，任意区间求和；后续需要换Node信息。",
+  "contract": "1<=n<N；1下标闭区间；modify是赋值；a仅是建树输入；所有中间和须在ll内。",
+  "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+  "pitfalls": [
+    "modify为赋值；加delta需用当前值+delta。",
+    "n=0不能build；查询不接受L>R。",
+    "a仅供建树，修改后请读tree或另行同步a。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/point_sum.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/point_sum.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "父区间等于左右连续区间拼接，保存可合并的区间和。",
+  "proof": "每次修改重算该叶到根路径；查询按从左到右的互不相交段合并。",
+  "origins": [
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "update按用户命名改为modify；保留递归骨架，查询只进入相交儿子。将标量和包装为Node{sum}，保留原求和合并。",
+      "interface_change": "query返回Node，答案取.sum。 查询需合法非空闭区间；modify为点赋值。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；来源0下标半开输入不搬入新例程，新例程使用1下标闭区间。query返回Node，答案取.sum。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [
+    "DS02"
+  ],
+  "dependencies": [],
+  "patch": true,
+  "source_parts": [
+    "competition/data_structure/nodes/sum.inc",
+    "competition/data_structure/segment_point_base.inc"
+  ],
+  "assembly": "工程直接include source；打印时递归展开本地#include，不重复维护整棵树。具体Node+make_node+merge必须位于公共骨架前。同一提交只选一个个人版本。",
+  "example_source": "competition/data_structure/examples/point_sum.cpp",
+  "sample_input": "3 3\n3 -2 4\n2 1 3\n1 2 5\n2 1 3\n",
+  "sample_output": "5\n12\n"
+}

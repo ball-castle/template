@@ -1,0 +1,9 @@
+build/
+_audit/
+_research/
+_qa/
+*.exe
+*.o
+*.out
+__pycache__/
+~$*.docx

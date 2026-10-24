@@ -1,0 +1,860 @@
+{
+  "title": "ROUND02 DP个人来源与验证",
+  "date": "2026-10-25",
+  "policy": "原代码用户验证使用的经验予以保留；线上AC状态另行核验，当前全部UNKNOWN。未核验题意的源码仅提取明确局部模型。原32源码和DP01–04未修改。",
+  "cf_source_count": 14,
+  "template_source_count": 5,
+  "sources": [
+    {
+      "path": "cf/date/8/1/2_digit_dp.cpp",
+      "type": "数位 DP",
+      "local_model": "统计整数区间内非零十进制数位不超过3的数，原calc把0计入。",
+      "state": "dfs(pos,cnt,limit)，仅!limit时缓存dp[pos][cnt]。",
+      "reuse": "最小提取PDP04；全局s/dp与递归lambda保留。",
+      "code_refs": [
+        "PDP04"
+      ],
+      "scope": "本地函数行为已与逐数枚举及稀疏位枚举核验；不宣称在线AC",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+      "lines": 59
+    },
+    {
+      "path": "cf/ICPC/JAKARTA_2018/J.cpp",
+      "type": "候选分层序列 DP",
+      "local_model": "每个字符串选非空子序列字符串，选出的字符串严格字典序递增，最大化总长度。",
+      "state": "dp[j]为上一对象恰选pre[j]的最优长度；cur递增时双指针维护pre<cur的前缀max。",
+      "reuse": "保留get排序去重与双指针转移，提取PDP03；对象索引改1-indexed。",
+      "code_refs": [
+        "PDP03"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+      "lines": 98
+    },
+    {
+      "path": "cf/date/7/7.9/1_interesting_dp.cpp",
+      "type": "方向状态机 DP",
+      "local_model": "从s任意位置开始读t，先向右、后向左，至多一次转向。",
+      "state": "dp0[i]尚未向左，dp1[i]已经向左；每读一字符创建ndp。",
+      "reuse": "原状态与转移直接保留为PDP03独立函数。",
+      "code_refs": [
+        "PDP03"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+      "lines": 73
+    },
+    {
+      "path": "cf/date/6/6.9/3_leaner_dp.cpp",
+      "type": "线性 DP + 长度余数",
+      "local_model": "从代码可确认：最大化连续段元素和减ceil(长度/m)*k，且允许空段得0。",
+      "state": "dp[j]为以上一位置结尾、长度mod m为j的最优值；开新段或接段并在j=0时再次扣k。",
+      "reuse": "DPC01由此讲解普通最大子段为何可只存末尾；有收费时不得删余数。",
+      "code_refs": [
+        "PDP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "b9ebb8fd244891967b0662e618fbb3be06bf518a7d250d94522a18f0473472f5",
+      "lines": 50
+    },
+    {
+      "path": "cf/date/6/6.7/1_leaner_value_dp.cpp",
+      "type": "值域 DAG DP",
+      "local_model": "已出现正整数数值由小值向其倍数传播链长度；重复输入只标记同一数值。",
+      "state": "dp[x]是以出现值x结尾的整除递增链长度，按x递增转移。",
+      "reuse": "DPC09作为隐式DAG实例，不能把其解释成保持原数组顺序的LIS。",
+      "code_refs": [
+        "PG15"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "80b2c3af09dee5ac1e6674827d5cf40791acac3a3d83c2adfbbdbbcd91ae425d",
+      "lines": 29
+    },
+    {
+      "path": "cf/3/1096/H_!!dp_tree.cpp",
+      "type": "树形 DP",
+      "local_model": "ct统计子树叶子，mx按儿子ct奇偶给边+1/-1并保存向下最大增益；根叶子另行调整。",
+      "state": "ct[u]=叶子贡献+Σct[v]；mx[u]=max(0,mx[v]+(ct[v]奇?1:-1))。",
+      "reuse": "DPC08讲子树对父亲只需小量信息；不将该特定叶子公式冒充最大独立集。",
+      "code_refs": [
+        "PDP05"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "5e02c615f352118a1c9415fdec8fc3ab14e64ddb22ad02d3f97d5388ffd4c9b4",
+      "lines": 75
+    },
+    {
+      "path": "cf/2/1057/D.cpp",
+      "type": "线性分块 DP",
+      "local_model": "局部d(l,r)把区间切成长度2/3的段，代价分别为两数差绝对值与三数极差。",
+      "state": "dp[i]=min(dp[i-2]+c2,dp[i-3]+c3)；外层另枚举包含环位置1的块。",
+      "reuse": "DPC01提供另一个前缀划分练习；外层环形枚举依赖题意，未作完整正确性声明。",
+      "code_refs": [
+        "PDP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "c80914ec0c584e77afe07426a70ec6b94dc2de16f6f932ab824928720d49f04b",
+      "lines": 67
+    },
+    {
+      "path": "cf/2/1078/E.cpp",
+      "type": "双向网格 DP",
+      "local_model": "dpS由左上到格点的最大含点权路径，dpT由格点到右下，均只右下移动。",
+      "state": "dpS=点权+max(上,左)，dpT=点权+max(下,右)，拼接减一次当前点权。",
+      "reuse": "DPC02只引用这两个局部状态，不验证后面的规避路径/改点外层结论。",
+      "code_refs": [
+        "PDP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "929fed5663e6b9b4b16412925fe270b1c37cbc41c27a6a1e556d1944659bd313",
+      "lines": 126
+    },
+    {
+      "path": "cf/date/5/5.22/2.cpp",
+      "type": "障碍网格计数",
+      "local_model": "solve(x1,y1,x2,y2)在障碍网格计数右下路径；外层是四个端点组合的乘积差。",
+      "state": "dp[x1][y1]=1，非障碍dp[i][j]+=dp[i-1][j]+dp[i][j-1]。",
+      "reuse": "提取单路径计数至PDP01；外层组合恒等式未核验题意，不收作本卡整题解释。",
+      "code_refs": [
+        "PDP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "98e161a9e9e08b81e974a2f5b7c3ae0fa605c050c20fca3c740b3e16365874bd",
+      "lines": 47
+    },
+    {
+      "path": "cf/date/5/5.21/2.cpp",
+      "type": "二进制小状态合并",
+      "local_model": "按两块合并四种(u,l)布尔状态，并枚举比赛结果分支增加局部分数。",
+      "state": "dp[block][2*u+l]与ndp下一层合并。",
+      "reuse": "保留来源作为有限状态边界信息的练习，不推广题目特定转移；原注释含CF1310/B但本轮未联网核验。",
+      "code_refs": [
+        "PDP03"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "1c30931057f404649b7e2a4f35ba96cc22315afa32758b4c63011d962903e565",
+      "lines": 122
+    },
+    {
+      "path": "cf/luogu/3.cpp",
+      "type": "价值维度 0/1 背包",
+      "local_model": "按天处理物品，以幸福值为维度保存最小花费，并限制支出不超过此前已获得的收入。",
+      "state": "dp[j]：达到价值j的最小总花费；倒序更新且花费<= (i-1)*x。",
+      "reuse": "DPC03说明容量大、价值和小时交换维度；资金到达时刻是额外前缀可行条件。",
+      "code_refs": [
+        "DP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "d69dd87632d1b93abb1d2dc412b25f769cf89d822474f1a8a383310a31f029c1",
+      "lines": 46
+    },
+    {
+      "path": "cf/luogu/4.cpp",
+      "type": "区间 DP",
+      "local_model": "保留左右端点，枚举中间k，合并费用含a[l]*a[k]*a[r]。",
+      "state": "dp[l][r]=min(dp[l][k]+dp[k][r]+a[l]*a[k]*a[r])；相邻两端点初值0。",
+      "reuse": "DPC07对比端点型区间与石子合并；不把费用项混用，不猜原题名称。",
+      "code_refs": [
+        "DP04"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "ccd51cb35b6742f29f42d79cfe70130b8d1811212dbf729b5395832bf281a3d0",
+      "lines": 51
+    },
+    {
+      "path": "cf/luogu/5.cpp",
+      "type": "状压计数",
+      "local_model": "mask表示当前保留位置，从选中序列的每个相同字符连续段只尝试一个删除位置。",
+      "state": "dp[mask]累加删去一位后的dp，dp[0]=1；相邻所选同字符跳过重复分支。",
+      "reuse": "DPC10/DPC14借此提醒集合语义与计数去重；完整对象计数题意未确认。",
+      "code_refs": [
+        "DP03",
+        "PDP04"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "397e43699c9bb74ab676cc485cfaeabb7f69a219bb4001497e8ee8ad3ce72556",
+      "lines": 50
+    },
+    {
+      "path": "cf/other/Bayan 2015 Contest Warm Up/C.cpp",
+      "type": "二维前缀和 + 网格可达",
+      "local_model": "局部check按候选矩形大小，只有对应矩形全X的左上角才可走，布尔dp由上或左到达。",
+      "state": "滚动dp[id]清障碍并合并上一行与当前左侧可达性。",
+      "reuse": "DPC02作为网格判定的局部拓展；外层面积差候选和最优结论未核验。",
+      "code_refs": [
+        "PDP01"
+      ],
+      "scope": "仅核对源码局部模型；原题全文与在线提交未核验",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "2cc67b782876d300dd4d93b623ec0e8672c8ea5b236db61c934812129514ff9f",
+      "lines": 129
+    },
+    {
+      "path": "template/01bag.cpp",
+      "type": "0/1 背包旧稿",
+      "local_model": "1-indexed全局w/v/dp，容量倒序，求容量不超过m时最大价值。",
+      "state": "dp[j]=max(dp[j],dp[j-w[i]]+v[i])。",
+      "reuse": "旧转移保留，正式DP01直接复用；PDP02补数量与分组。",
+      "code_refs": [
+        "DP01",
+        "PDP02"
+      ],
+      "scope": "旧合法int范围转移作为个人基础来源；正式DP01已扩64位与恰好容量并验证",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "e1261c1bd0ac9d3c36e0e32527748ae356d089677c53227e1943db27f98af77e",
+      "lines": 21
+    },
+    {
+      "path": "template/完全背包dp.cpp",
+      "type": "完全背包旧稿",
+      "local_model": "容量正序，允许当前种物品继续使用。",
+      "state": "dp[j]=max(dp[j],dp[j-w[i]]+v[i])。",
+      "reuse": "直接引用正式DP01，不重新实现。",
+      "code_refs": [
+        "DP01"
+      ],
+      "scope": "旧合法int范围转移保留；正式DP01已验证",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "7d74e1a4c2ee04af93fa824f584d239a53774a79b39aa606f76092e360b8ba5e",
+      "lines": 21
+    },
+    {
+      "path": "template/区间dp.cpp",
+      "type": "石子合并旧稿",
+      "local_model": "按长度、左端点、分割点求最小合并费用。",
+      "state": "dp[l][r]=min(dp[l][k]+dp[k+1][r]+sum[r]-sum[l-1])。",
+      "reuse": "直接引用修复过数值范围的DP04；原稿保持不动。",
+      "code_refs": [
+        "DP04"
+      ],
+      "scope": "已知最小范围反例：两堆10^9，旧INF不足；正式DP04保留转移修复，ROUND02不再重写",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "f5377e81678db6783b982b5de7c89b4e5c7a220ca31f49cc584acdf7bd7f625a",
+      "lines": 29
+    },
+    {
+      "path": "template/线性dp.cpp",
+      "type": "LIS旧稿",
+      "local_model": "以末尾i定义最长严格递增子序列。",
+      "state": "dp[i]=max(1,dp[j]+1)，j<i且a[j]<a[i]。",
+      "reuse": "直接引用DP02平方版及已验证二分版。",
+      "code_refs": [
+        "DP02"
+      ],
+      "scope": "原简单合法输入递推保留；正式模块已验证",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "842cf49552279c53ea60502153b3059552d9dde6c6c30738be5eb75dd511077e",
+      "lines": 22
+    },
+    {
+      "path": "template/tree_dp.cpp",
+      "type": "树形聚合骨架",
+      "local_model": "先递归儿子再把dp[v]加入dp[u]；未定义输入或具体目标。",
+      "state": "dp[u]+=dp[v]仅显示后序合并形状。",
+      "reuse": "保留原文件；PDP05新增具体最大权独立集状态与可运行驱动。",
+      "code_refs": [
+        "PDP05"
+      ],
+      "scope": "骨架参考，不据此宣称完整解决某个树DP问题",
+      "online_status": "UNKNOWN",
+      "full_read": true,
+      "lf_sha256": "bb9608681ce0c5fe56e81eff704698bcda4d9d41cb277859d0298a2282745c4d",
+      "lines": 29
+    }
+  ],
+  "new_modules": [
+    {
+      "id": "PDP01",
+      "source": "competition/dp/linear_grid.hpp"
+    },
+    {
+      "id": "PDP02",
+      "source": "competition/dp/knapsack_variants.hpp"
+    },
+    {
+      "id": "PDP03",
+      "source": "competition/dp/sequence_state.hpp"
+    },
+    {
+      "id": "PDP04",
+      "source": "competition/dp/digit_count.hpp"
+    },
+    {
+      "id": "PDP05",
+      "source": "competition/dp/tree_independent_set.hpp"
+    },
+    {
+      "id": "PDP06",
+      "source": "competition/dp/probability_expectation.hpp"
+    }
+  ],
+  "snapshot_manifest": "tests/round02/originals/dp/sources.json",
+  "card_validation": "build/round02/dp/card_validation.json",
+  "validation": {
+    "status": "PASS",
+    "test": "tests/round02/test_dp.cpp",
+    "seed": 20261024,
+    "red": {
+      "test_only_placeholder_run": true,
+      "exit_code": 1,
+      "checks": 10053,
+      "failures": 7779,
+      "reason": "新增函数缺失时的运行失败；不是编译错误。随后用真实头文件替换测试内占位实现。"
+    },
+    "baseline_differential": "原数位/方向/JAKARTA精确Git快照与提取版各120组共享独立oracle；旧DP01与多重cnt=1、充足数量、单元素组共享枚举oracle。",
+    "checks": [
+      {
+        "name": "release",
+        "compile_command": [
+          "g++",
+          "-std=gnu++20",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Wshadow",
+          "tests/round02/test_dp.cpp",
+          "-o",
+          "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\test_dp.exe"
+        ],
+        "run_command": [
+          "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\test_dp.exe"
+        ],
+        "exit_code": 0,
+        "output": "PASS round02 DP: 12483 checks, seed 20261024\nPASS original digit/direction/Jakarta: 120 shared-oracle cases each\n",
+        "seconds": 6.062,
+        "status": "PASS"
+      },
+      {
+        "name": "round01_dp",
+        "compile_command": [
+          "g++",
+          "-std=gnu++20",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Wshadow",
+          "tests/test_dp_math_string.cpp",
+          "-o",
+          "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\test_round01_dp.exe"
+        ],
+        "run_command": [
+          "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\test_round01_dp.exe"
+        ],
+        "exit_code": 0,
+        "output": "PASS dp/math/string fixed-seed differential tests\n",
+        "seconds": 5.828,
+        "status": "PASS"
+      },
+      {
+        "name": "asan_ubsan",
+        "compile_command": [
+          "wsl",
+          "-d",
+          "Ubuntu",
+          "--",
+          "bash",
+          "-lc",
+          "cd /mnt/c/Users/TSOU/Desktop/cf/template && g++ -std=gnu++20 -O1 -g -Wall -Wextra -Wshadow -fno-omit-frame-pointer -fsanitize=address,undefined -fno-pie -no-pie tests/round02/test_dp.cpp -o build/round02/dp/test_dp_san && ASAN_OPTIONS=detect_leaks=1:halt_on_error=1 UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1 build/round02/dp/test_dp_san"
+        ],
+        "run_command": null,
+        "exit_code": 0,
+        "output": "PASS round02 DP: 12483 checks, seed 20261024\nPASS original digit/direction/Jakarta: 120 shared-oracle cases each\n",
+        "seconds": 9.812,
+        "status": "PASS"
+      }
+    ],
+    "source_hashes": {
+      "competition/dp/digit_count.hpp": "1e0b69cea85612694cece8a349c6554f4b143dcb8a126f99b48b19f92beb46eb",
+      "competition/dp/knapsack_variants.hpp": "8165ae1faf1bc90b6f1c3c91b89f375e1dbed19cf2ced00d4d74a5c6bd6e0c29",
+      "competition/dp/linear_grid.hpp": "46a53d1257332e66dee224220ade628939a48c470531953beabd1cf44a745404",
+      "competition/dp/probability_expectation.hpp": "275781bda07cab548b59d8d4c207edd325bfe52c81ba49460ce79f14a55ab7a2",
+      "competition/dp/sequence_state.hpp": "677201aeeb3d47ab682b64def78b79eacd479774b66ae0d615c4ca3dc6574e97",
+      "competition/dp/tree_independent_set.hpp": "8bfd4385d3b23ac2b757c14f20701d9b0d8e99f9f4aa34236647205c8a77300b",
+      "tests/round02/test_dp.cpp": "1bf0991645f2aacb72d3da127a2caa4e9aef30442172ebd2f40dbdef8af6bc7a"
+    },
+    "summary": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+    "card_drivers": {
+      "status": "PASS",
+      "compiler": "g++ (x86_64-posix-seh-rev0, Built by MinGW-Builds project) 15.2.0",
+      "checks": [
+        {
+          "id": "DPC01",
+          "source": "build/round02/dp/cards/DPC01.cpp",
+          "usage_sha256": "a2711295bc4f641678d7a119bd912f527b8b6bc7d4e71aee213bae4675f90a3b",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC01.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC01.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "-2\n",
+          "stderr": "",
+          "expected_output": "-2\n",
+          "status": "PASS",
+          "seconds": 2.563
+        },
+        {
+          "id": "DPC02",
+          "source": "build/round02/dp/cards/DPC02.cpp",
+          "usage_sha256": "b5ab811e721c473ef825d200dc209cb4253765bebe90ddcb04de524618e1f04e",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC02.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC02.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "2 7\n",
+          "stderr": "",
+          "expected_output": "2 7\n",
+          "status": "PASS",
+          "seconds": 2.234
+        },
+        {
+          "id": "DPC03",
+          "source": "build/round02/dp/cards/DPC03.cpp",
+          "usage_sha256": "b3172735ba185c951d1e0a28d5a1d93ae48f630b11db68a6a4f7d4a21510a0e3",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC03.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC03.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "8\n",
+          "stderr": "",
+          "expected_output": "8\n",
+          "status": "PASS",
+          "seconds": 2.156
+        },
+        {
+          "id": "DPC04",
+          "source": "build/round02/dp/cards/DPC04.cpp",
+          "usage_sha256": "e0b2e5c0057732aaff5ef523780f251a910d4a82824a35fe3db926955465d1ab",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC04.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC04.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "6\n",
+          "stderr": "",
+          "expected_output": "6\n",
+          "status": "PASS",
+          "seconds": 2.641
+        },
+        {
+          "id": "DPC05",
+          "source": "build/round02/dp/cards/DPC05.cpp",
+          "usage_sha256": "1cd7a2baca6c3e0721e6a81e81477fd5a0ed00b51a7d839f9cdb72d49f363692",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC05.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC05.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "9\n",
+          "stderr": "",
+          "expected_output": "9\n",
+          "status": "PASS",
+          "seconds": 2.328
+        },
+        {
+          "id": "DPC06",
+          "source": "build/round02/dp/cards/DPC06.cpp",
+          "usage_sha256": "8879fb9acdd264a565a2b0a2d98833d2c6c19f5c9ed0c9c4de4d85ac78b3e7d2",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC06.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC06.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "9\n",
+          "stderr": "",
+          "expected_output": "9\n",
+          "status": "PASS",
+          "seconds": 2.078
+        },
+        {
+          "id": "DPC07",
+          "source": "build/round02/dp/cards/DPC07.cpp",
+          "usage_sha256": "5cfbdaf7c76f4ad9857c83c6ddd12462f039a60c6dcde92d55127e1fba764e62",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC07.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC07.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "9\n",
+          "stderr": "",
+          "expected_output": "9\n",
+          "status": "PASS",
+          "seconds": 2.266
+        },
+        {
+          "id": "DPC08",
+          "source": "build/round02/dp/cards/DPC08.cpp",
+          "usage_sha256": "eb4c1048454cf27e1f5e92c3890369fb12661603a4db9c1c4be6598adc53498a",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC08.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC08.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "7\n",
+          "stderr": "",
+          "expected_output": "7\n",
+          "status": "PASS",
+          "seconds": 5.157
+        },
+        {
+          "id": "DPC09",
+          "source": "build/round02/dp/cards/DPC09.cpp",
+          "usage_sha256": "7303f1cdb3883f991fc3bde6f5835a0f8d5dd0bdb3f2e375292aac98c37085fa",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC09.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC09.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "2 2\n",
+          "stderr": "",
+          "expected_output": "2 2\n",
+          "status": "PASS",
+          "seconds": 4.75
+        },
+        {
+          "id": "DPC10",
+          "source": "build/round02/dp/cards/DPC10.cpp",
+          "usage_sha256": "f22560954b1164a32be27613f76c8aa5286124f8a6493c48939ad842298cf77e",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC10.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC10.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "3\n",
+          "stderr": "",
+          "expected_output": "3\n",
+          "status": "PASS",
+          "seconds": 2.203
+        },
+        {
+          "id": "DPC11",
+          "source": "build/round02/dp/cards/DPC11.cpp",
+          "usage_sha256": "6b1626f366307b1d8fcdd204c1cf425bfe4ab57d0c4d4057fee1fb57353d5e24",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC11.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC11.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "111\n",
+          "stderr": "",
+          "expected_output": "111\n",
+          "status": "PASS",
+          "seconds": 2.235
+        },
+        {
+          "id": "DPC12",
+          "source": "build/round02/dp/cards/DPC12.cpp",
+          "usage_sha256": "ca0f079c86adac3c1058ae4b4b54e030eaed3b0276ba3083cee03e00b36be94e",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC12.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC12.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "2 2 3 4\n",
+          "stderr": "",
+          "expected_output": "2 2 3 4\n",
+          "status": "PASS",
+          "seconds": 2.797
+        },
+        {
+          "id": "DPC13",
+          "source": "build/round02/dp/cards/DPC13.cpp",
+          "usage_sha256": "22c9d7e3b811156cb50d78df7ffbf619ec69df7a5e7d7310874a57e6ef2045d3",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC13.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC13.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "1\n",
+          "stderr": "",
+          "expected_output": "1\n",
+          "status": "PASS",
+          "seconds": 2.187
+        },
+        {
+          "id": "DPC14",
+          "source": "build/round02/dp/cards/DPC14.cpp",
+          "usage_sha256": "2bd0aa622d24778d8f62e64f82ae2c35a861034928cfdf529ed98b756426829a",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC14.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC14.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "5\n",
+          "stderr": "",
+          "expected_output": "5\n",
+          "status": "PASS",
+          "seconds": 2.063
+        },
+        {
+          "id": "DPC15",
+          "source": "build/round02/dp/cards/DPC15.cpp",
+          "usage_sha256": "d626336d873f231bc41d80ffa53b1514c11662b07f535a732e59333de5ac761f",
+          "command": [
+            "g++",
+            "-std=gnu++20",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-I",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC15.cpp",
+            "-o",
+            "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\round02\\dp\\cards\\DPC15.exe"
+          ],
+          "compile_exit": 0,
+          "compile_output": "",
+          "run_exit": 0,
+          "output": "0.500000 3.000000\n",
+          "stderr": "",
+          "expected_output": "0.500000 3.000000\n",
+          "status": "PASS",
+          "seconds": 2.109
+        }
+      ]
+    },
+    "snapshot_notes": "3份测试专用快照的字节来自Git基线，tests/round02/originals/dp/sources.json记录原路径、commit与LF SHA；测试无父仓库依赖。"
+  },
+  "baseline_cf_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+  "baseline_template_commit": "c0792d4a09e34c636eaff03fce69e9b83d8c10a4",
+  "snapshots": [
+    {
+      "origin": "cf/date/8/1/2_digit_dp.cpp",
+      "snapshot": "tests/round02/originals/dp/digit.cpp",
+      "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+      "sha256": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+      "lf_sha256": "fdd744c2660c4b68b1c4ce26e7887291cd8d56ad6d7b80d778d45bed507bcb1a",
+      "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+    },
+    {
+      "origin": "cf/date/7/7.9/1_interesting_dp.cpp",
+      "snapshot": "tests/round02/originals/dp/direction.cpp",
+      "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+      "sha256": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+      "lf_sha256": "1370b959eef7371ef69f26bee9630432bce64e704128057aba620b032cf46385",
+      "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+    },
+    {
+      "origin": "cf/ICPC/JAKARTA_2018/J.cpp",
+      "snapshot": "tests/round02/originals/dp/jakarta.cpp",
+      "git_commit": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+      "sha256": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+      "lf_sha256": "2a571928df218b466f7ca8d50603b95e55baf3b80ed9199e7539fcb3df69fd53",
+      "purpose": "精确基线审计证据，仅进入测试，不作为第二个正式模块"
+    }
+  ],
+  "independent_review": {
+    "status": "PASS after fixes",
+    "reviewer": "/root/r2_dp/dp_review",
+    "scope": "6个competition/dp头文件、测试、3基线快照、6模块元数据、15卡、Atlas和来源清单",
+    "closed_findings": [
+      {
+        "severity": "P2",
+        "issue": "binary_no_adjacent(INT_MAX,1)的1..n循环末次自增溢出",
+        "red": "旧O2+UBSan目标程序不终止；objdump确认main永久自跳，45s timeout命令非零结束。不是宣称UBSan输出了溢出诊断。",
+        "change": "for(int i=0;i<n;++i)，mod==1直接返回0；追加同输入正式回归。",
+        "green": "独立-O2/UBSan目标驱动输出0且exit0；release及ASan/UBSan各12483检查通过。"
+      },
+      {
+        "severity": "P3",
+        "issue": "把环形石子合并与矩阵链统称费用项不同",
+        "change": "卡片和Atlas明确环形仍用区间和，只改变循环边界/答案取法；矩阵链改变费用项。",
+        "green": "只读复核两处表述一致。"
+      }
+    ],
+    "not_reaudited": [
+      "PG15实现由图论代理负责",
+      "原DP01–04内部未重复全面审查，回归套件通过",
+      "三快照外源码及在线AC未由审查员重复核验",
+      "契约外输入及未承诺高级模型",
+      "Word/PDF生成和打印门禁由主流程负责"
+    ]
+  }
+}

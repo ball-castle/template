@@ -1,0 +1,33 @@
+{
+  "id": "BM01",
+  "title": "区间单位操作与总变差",
+  "source": "competition/models/interval_count.hpp",
+  "when": "从零变目标，问任意区间/前缀/后缀±1或二进制翻转的最少次数；相邻转移。",
+  "contract": "a[0]=0、a[1..n]为ll；任意区间mode=1要求非负目标，-1要求非正，0允许任意符号且中间状态无额外限制；计数i128。相邻转移要求总和相同。",
+  "idea": "将区间操作映射为差分两端的一增一减，区分操作集合和单次费用。",
+  "proof": "每次单位区间操作至多消去一单位正差分，故正差分和是下界；正负边界配对的区间构造达到它。前后缀系数则由相邻差唯一确定。",
+  "complexity": "每个计数函数O(n)时间、O(1)额外空间。",
+  "usage": "auto ans=unit_intervals({0,2,1,3},1); // 4；prefix_units({0,2,1,3})=6；suffix_units(...)=5",
+  "example": "[2,1,3]只加1最少4次；[1,-1]允许±1最少2次；从[3,0,0]搬到[0,0,3]需6次相邻转移。",
+  "pitfalls": [
+    "不能把任意区间公式用于只能前缀的题。",
+    "每次可加任意整数且费用为1时，[2,2]只需1次，单位公式2失效。",
+    "LLONG_MIN取绝对值前必须提升i128；不直接ll abs。"
+  ],
+  "patch": true,
+  "origins": [
+    {
+      "path": "cf/date/6/6.9/1_special_segment_tree.cpp",
+      "idea": "参考把全局条件变成区间变化的建模习惯。",
+      "issue": "原文件不是本计数题，不把新公式伪称原有解法。",
+      "change": "补充独立的区间操作公式与证明。",
+      "interface_change": "新增函数",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "dependencies": [],
+  "test": "tests/round02/test_models.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

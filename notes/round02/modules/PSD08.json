@@ -1,0 +1,49 @@
+{
+  "id": "PSD08",
+  "title": "频率线段树：查第k个",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "competition/data_structure/segment_frequency.hpp",
+  "when": "动态维护每个值/位置的出现次数，问第k个元素落在哪。",
+  "contract": "所有频率非负，总频率在ll内；k从1开始；k<=0或k>总量返回-1；modify为频率赋值。",
+  "complexity": "建树O(n)，修改/query/kth均O(log n)，空间O(n)。",
+  "pitfalls": [
+    "负频率破坏前缀单调；如[2,-1,2]不能据左段总和可靠排位。",
+    "这是第k个元素所在下标；若下标来自离散化，还需反查原值。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/frequency.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/frequency.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "左子树总频率若不足k，跳过整段并把k减去左总量。",
+  "proof": "非负性保证前缀和单调，左段包含的正是最前面的left.sum个元素。",
+  "origins": [
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "update按用户命名改为modify；保留递归骨架，查询只进入相交儿子。保留sum聚合但叶子改存非负频率；新增按左子树频率下降的kth。",
+      "interface_change": "query返回Node取.sum；modify是频率赋值；新增kth(...,k)返回下标或-1。 查询需合法非空闭区间；modify为点赋值。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；来源0下标半开输入不搬入新例程，新例程使用1下标闭区间。query返回Node取.sum；modify是频率赋值；新增kth(...,k)返回下标或-1。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [],
+  "dependencies": [],
+  "patch": true,
+  "source_parts": [
+    "competition/data_structure/nodes/frequency.inc",
+    "competition/data_structure/segment_point_base.inc"
+  ],
+  "assembly": "工程直接include source；打印时递归展开本地#include，不重复维护整棵树。具体Node+make_node+merge必须位于公共骨架前。同一提交只选一个个人版本。",
+  "example_source": "competition/data_structure/examples/frequency.cpp",
+  "sample_input": "4 4\n0 2 0 3\n2 1\n2 5\n1 2 0\n2 1\n",
+  "sample_output": "2\n4\n4\n"
+}

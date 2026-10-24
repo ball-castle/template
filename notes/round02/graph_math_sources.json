@@ -1,0 +1,269 @@
+{
+  "scope": "图树个人主版本与基础数学/整数几何补缺",
+  "seed": 20261024,
+  "status_note": "用户验证使用与线上AC是不同证据；所有未核验线上状态统一UNKNOWN。",
+  "cf_practice_count": 16,
+  "sources": [
+    {
+      "path": "template/tree_storage.cpp",
+      "kind": "树基本存储",
+      "idea": "vector<ll> g[200010]；读n-1条边、两次push。",
+      "reuse": "PG01直接收录骨架；补多测和根化。",
+      "sha256": "bf8699e269ab08c358eb399ed767ac85fa5cc598115124478f5b6cf354292324",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/DSU.cpp",
+      "kind": "DSU个人源",
+      "idea": "fa/rk/init/find/unite/same；按秩合并实现正确。",
+      "reuse": "PG02保留；只修注释方向。",
+      "sha256": "a234a592edf7dd48078c71864f4bbaa070efd5e34ecf1d6f80148f4c95aa686f",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/bfs.cpp",
+      "kind": "BFS个人源",
+      "idea": "queue；入队标记。",
+      "reuse": "PG03/07/08思想来源。",
+      "sha256": "36c6999583a80210cd69eb400a6ba6727323341ebf2d92475b26f9cb6912208d",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/dfs.cpp",
+      "kind": "DFS个人源",
+      "idea": "visited；逐邻边递归。",
+      "reuse": "PG04仅深链栈替换。",
+      "sha256": "752a2891fa3b34d13c7510435bfff30b0d22f9ef9a7df67b4049a2af314aa813",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/gcd.cpp",
+      "kind": "欧几里得个人源",
+      "idea": "return b?gcd(b,a%b):a。",
+      "reuse": "M01已有健壮版，PM01从递归扩系数。",
+      "sha256": "12f2bd3587a2578fecec4666491d24a3c86f253506e8ee88735ab7147201dc79",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/ksm.cpp",
+      "kind": "模幂个人源",
+      "idea": "逐位平方；注释写费马逆元。",
+      "reuse": "M02直接引用；PM01补复合模。",
+      "sha256": "cc8b1b61bbdedd084f7bd8246e2be34341d7b339e664ae6d1e3907bc24f837f3",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/Mobius_inversion.cpp",
+      "kind": "筛与数论个人源",
+      "idea": "init_mu可靠线性筛骨架；另get_mu存在覆盖合数mu的赋值。",
+      "reuse": "PM02只提取init_mu循环，不修改旧源。",
+      "sha256": "fd5e7cab04ab8aa50d1a129aad328f7bdddde837a06e44488689fba74f81b8d4",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "template/graph_paint.cpp",
+      "kind": "染色个人源",
+      "idea": "col=3-col[u]；只处理一个源且无冲突分支。",
+      "reuse": "PG11补组件枚举和冲突。",
+      "sha256": "efc5f9e29dffa5eb0585747ad3e586f7b17660afcc33954998b3c47ec5eb2103",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/xian/B.cpp",
+      "kind": "DSU实战",
+      "idea": "对2n位置成对合并，栈中用same判断。",
+      "reuse": "DSU段可直接收录；不对题内栈末尾两元素逻辑另作猜测。",
+      "sha256": "a54d26e4686b60ad4e3f07f05c542c27f13103b909ca27fd06ef8d817c861b2c",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/3/1109/3.cpp",
+      "kind": "图连通实战",
+      "idea": "i与i+x/i+y存在时连接；检查i,p[i]组件。",
+      "reuse": "PG02例子；有限区间不能盲改gcd模环。",
+      "sha256": "b2d2c5a4f12c6689e87add5a12bd4491264a5df2f1c5046f72bf299d6beaf3bf",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/3/1096/H_!!dp_tree.cpp",
+      "kind": "树DP实战",
+      "idea": "g.clear；dfs(u,fa)；ct子树叶计数，mx自底向上。",
+      "reuse": "PG01保留存储/父边/后序；题内ct奇偶与mx不泛化。",
+      "sha256": "a9aee53c55bad98b6b1a12499d1fac691b80d8665dfef0360588d3e5c0fb0a3a",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/4/1090/F_tree_constrcution.cpp",
+      "kind": "树构造实战",
+      "idea": "用一段链和一个星形连接剩余点。",
+      "reuse": "链、星形可作为直径/树统计局部练习。",
+      "sha256": "1df0743dbd3ae811bce0ce382ea9f12f21742b056866eec022e022633cddb15e",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/date/6/6.16/2_bi_paint_.cpp",
+      "kind": "二分染色实战",
+      "idea": "输入配对边与相邻配对边；枚举全部组件染色。",
+      "reuse": "PG11保留结构；补通用同色边检测。",
+      "sha256": "fb036374958abbaea5b5193f13ad665df5580106f002a274a434dd8811b4eed9",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/2/873/B.cpp",
+      "kind": "位移gcd实战",
+      "idea": "ans=gcd(ans,abs(a[i]-i))。",
+      "reuse": "CM07差与共同整除模型，不虚构原题完整证明。",
+      "sha256": "aa4c0074c0a85a58b40211efecf310bcc92a65a39de611c18fe4fcc9d5cda30f",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/date/7/7.28/1.cpp",
+      "kind": "贡献计数实战",
+      "idea": "排序后sum2+=a[i]*(2*i-n+1)，最后gcd约分。",
+      "reuse": "PM04直接保留成对差系数，增加宽中间值。",
+      "sha256": "e09608da8dd190d91f9895b4e2231de1aa91541289122dfc7c4b535c8d7c6975",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/date/6/6.1/3.cpp",
+      "kind": "差分gcd实战",
+      "idea": "b[i]=abs(a[i]-a[i-1])，ST表查询b[l+1..r]。",
+      "reuse": "CM07同余转差分；l=r空差特例。",
+      "sha256": "df49bbb5800e0d05253f6cb4d50cd162f6be3aed05058c37f7631687f6560e9b",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/2/750/A.cpp",
+      "kind": "奇偶实战",
+      "idea": "sum=a+2*b+3*c，输出sum%2。",
+      "reuse": "只引用总和模2局部，充分性依原题。",
+      "sha256": "c6d3d845304e5e26688d1ca79b73838e3a969087a71e930ab7370b85e007d736",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/3/1096/C.cpp",
+      "kind": "整除分类实战",
+      "idea": "按6倍数、仅2倍数、仅3倍数、两者均非分类。",
+      "reuse": "CM09互斥分类与证明需求。",
+      "sha256": "aa752f6988a2be82c9d7adf889af0fb4c4be180816b05329e33da66d67ed7167",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/date/6/6.8/1.cpp",
+      "kind": "奇偶优化实战",
+      "idea": "排序求总和，偶总和时删最小奇数。",
+      "reuse": "非负值条件下最大奇和的局部练习；不把负数范围猜入原题。",
+      "sha256": "3696702d0f07a651b3ff80cd3337aca52c96353970510297060709c30155a224",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/3/1103/4_game_theory.cpp",
+      "kind": "奇偶状态实战",
+      "idea": "ct[i]奇偶，lose集合中查后继。",
+      "reuse": "CM09只提取计数奇偶与压缩状态，未复述未核验博弈规则。",
+      "sha256": "2e87071911146410b136872c1d820425fe412d86eb1efbfe74359313f87e8027",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/2/1129/C.cpp",
+      "kind": "奇偶博弈实战",
+      "idea": "ct0/ct1统计并判断几个特例。",
+      "reuse": "CM09提醒需原题规则才能证明这些特例。",
+      "sha256": "be508baaa19bd690362e2d9d3ace91024c0f94b9272c9e60db929ca071ffdd8f",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/ICPC/IC_14_xian/K.cpp",
+      "kind": "欧几里得计数实战",
+      "idea": "ans+=a/b，随后(a,b)=(b,a%b)，单独处理b=0。",
+      "reuse": "补充欧几里得每步商的含义，不新建重复gcd。",
+      "sha256": "6ad45f3f0313f8550f7b2fc63ed7b32c8953430b8546bd820eaeed4f448d490e",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/ICPC/JAKARTA_2018/H.cpp",
+      "kind": "取整需求实战",
+      "idea": "局部len=r-l+1，need=(c+len+1)/2；整体solve未完成。",
+      "reuse": "PM03只提取取整需求，明确不是完成题解。",
+      "sha256": "8a794b6a70b26c1d5411e9142f4fcb53fe4f96d80e6148b3cb886d425defcf19",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    },
+    {
+      "path": "cf/1704E.cpp",
+      "kind": "DAG路径实战",
+      "idea": "模拟之后Kahn生成tp，逆序沿出边累加dp。",
+      "reuse": "PG15抽拓扑递推；不复制题内模拟/汇点选择。",
+      "sha256": "0f463cefc952bc1efcdeb2db4810e97ff8093db5993353f540a50fcb1335b652",
+      "online_status": "UNKNOWN",
+      "evidence": "已读取本地源码；用户说明原代码经过本人验证使用。未查询或确认线上AC记录。"
+    }
+  ],
+  "module_ids": [
+    "PG01",
+    "PG02",
+    "PG03",
+    "PG04",
+    "PG05",
+    "PG06",
+    "PG07",
+    "PG08",
+    "PG09",
+    "PG10",
+    "PG11",
+    "PG12",
+    "PG13",
+    "PG15",
+    "PM01",
+    "PM02",
+    "PM03",
+    "PM04",
+    "PM05",
+    "PM06"
+  ],
+  "retained_round01": [
+    "G04",
+    "G05",
+    "G07",
+    "G08",
+    "G10",
+    "G11",
+    "G12",
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05"
+  ],
+  "tests": [
+    "tests/round02/test_graph_personal.cpp",
+    "tests/round02/test_math_geometry.cpp"
+  ],
+  "verification": {
+    "windows": "PASS g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow",
+    "wsl": "PASS g++13.3 -std=gnu++20 -O1 -g -Wall -Wextra -Wshadow -fsanitize=address,undefined -fno-omit-frame-pointer",
+    "caveat": "数据结构模块是独立比赛片段；测试用命名空间隔离同名全局变量。正式源码没有cp::类。"
+  }
+}

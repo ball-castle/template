@@ -1,0 +1,20 @@
+{
+  "id": "G12",
+  "title": "无向图找桥 Iterative Bridges",
+  "category": "进阶图论",
+  "priority": "P2",
+  "source": "advanced/bridges.hpp",
+  "when": "找删除后连通块数增加的边；边双连通分量与桥树的基础。",
+  "contract": "n>=0，合法点 [1,n]；无向边每条输入一次，允许重边、自环和不连通图。返回桥在原 edges 中的 0-based 下标，按输入顺序排列。",
+  "complexity": "O(n+m) 时间与空间；迭代 low-link，不占递归调用栈。",
+  "pitfalls": [
+    "必须按边 ID 跳过唯一父边；直接跳过父点会把平行边误判为桥。",
+    "判断桥使用 low[child] > tin[parent]，不是 >=。",
+    "退栈后才把儿子的 low 合并到父亲；自环永远不是桥。"
+  ],
+  "example": "手算例：两条平行边 (1,2)、一条 (2,3)、一条自环 (3,3)，只有原输入下标 2 的 (2,3) 是桥。",
+  "usage": "vector<pair<int,int>> e={{1,2},{1,2},{2,3},{3,3}}; auto ids=cp::bridges(3,e);",
+  "test": "tests/test_graph.cpp",
+  "verify": "g++13.3 GNU++20 零警告；400 轮随机多重图对逐边删除后的连通块数，平行边、自环、不连通；200000 点链及大环；ASan+UBSan 完整测试通过。",
+  "exercise_url": "https://www.luogu.com.cn/problem/P1656 （枚举输出桥的端点并按题意排序，未在线提交）"
+}

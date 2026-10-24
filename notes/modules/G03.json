@@ -1,0 +1,15 @@
+{
+  "id": "G03",
+  "title": "迭代 DFS 连通块与父亲 Iterative DFS Forest",
+  "category": "图论",
+  "priority": "P0",
+  "source": "graph/dfs_forest.hpp",
+  "when": "无向图连通块标号、父亲树、需要避开递归栈溢出的深图遍历。",
+  "contract": "g 长度 n+1，合法点 [1,n]，无向边双向加入；允许自环重边。comp 从 1 开始，根 parent=0，order 是发现顺序。",
+  "complexity": "O(n+m) 时间，O(n) 额外空间；显式栈不占递归调用栈。",
+  "pitfalls": ["有向图调用得到的是搜索森林，不是强连通分量。", "本模板不输出出栈时间；子树闭区间请用 Euler 模板。", "根可能不止一个，处理整张图时不能只从 1 出发。"],
+  "example": "旧版来源：https://github.com/ball-castle/template/blob/main/dfs.cpp 。新测试覆盖断开的图、自环重边及 200000 点链。",
+  "usage": "auto r=cp::dfs_forest(g); int c=r.components; int p=r.parent[u]; bool same=r.comp[u]==r.comp[v];",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 警告检查通过；200 轮连通块对 Floyd 可达性、父边存在性和 200000 深链通过。"
+}

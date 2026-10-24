@@ -1,0 +1,640 @@
+{
+  "artifact": "成都站_赛前小技巧与题型补丁_2026.pdf",
+  "pdf_path": "板子打印版/成都站_赛前小技巧与题型补丁_2026.pdf",
+  "pdf_sha256": "4d5a40cbfa122031bcf52924db65cc1d5337ab12729f352e5bf1c239fd5716d1",
+  "revision_scope": "27页重排版；仅绑定本PDF SHA及逐页图片SHA。",
+  "checked_at_utc": "2026-10-24T16:57:46.188982+00:00",
+  "reviewer": "r2_stl_runtime",
+  "status": "ISSUES_FOUND",
+  "page_count": 27,
+  "render_dpi": 130,
+  "viewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "method": "全部27页重新以view_image original实际查看，未以旧版结果或联系表代替；重点检查收紧分页后的代码底部与页脚。",
+  "summary": "27页均无代码截断、重叠、中文缺字或页脚碰撞；FP01/MEX/X01原孤页已消除。剩余GAME01四行尾页及Fenwick一行样例输出孤页。",
+  "history": "notes/round02/validation/visual_patch_first_pass.json",
+  "resolved_first_pass_issues": [
+    "VP01",
+    "VP02",
+    "VP05"
+  ],
+  "issues": [
+    {
+      "id": "VPF01",
+      "severity": "P2",
+      "pages": [
+        19,
+        20
+      ],
+      "kind": "short_tail_page",
+      "description": "GAME01反常Nim的最后四行独占第20页。",
+      "suggestion": "使用实际剩余页高将四行收回前页，或令完整短函数同页。"
+    },
+    {
+      "id": "VPF02",
+      "severity": "P2",
+      "pages": [
+        25,
+        26
+      ],
+      "kind": "orphan_sample_output",
+      "description": "Fenwick样例输出5 / 6 / 7单独占第26页，与输入分离。",
+      "suggestion": "样例输入输出应作为整体，利用实际剩余页高把输出保留在第25页。"
+    }
+  ],
+  "observations": [
+    {
+      "pages": [
+        18
+      ],
+      "kind": "heading_scope",
+      "description": "标题仅称静态与前缀MEX，但同页代码含动态MEX02；卡片及代码注释已说明动态用法。联合标题可更明确，此项非视觉溢出。"
+    },
+    {
+      "pages": [
+        17,
+        22,
+        24
+      ],
+      "kind": "whitespace",
+      "description": "模块续页留白较多，但包含完整代码块，无单个符号独占页；不影响读取。"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "image": "_qa/round02_patch_final/page-01.png",
+      "image_sha256": "e77d7aae3dbe0aca68c7e2b5e64e99e6cef90b43dcaf4ebddc8dd7a9f5168220",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "封面与容器选择表清晰；原read默认用法和特殊格式cin说明简洁，页脚独立。",
+      "issue_ids": []
+    },
+    {
+      "page": 2,
+      "image": "_qa/round02_patch_final/page-02.png",
+      "image_sha256": "53ed4e0e292693c73d9e26e7b222a8a5a920380441656605cc79d9f6a829bf6d",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "六步思考、DP/debug清单层级清楚，中文完整。",
+      "issue_ids": []
+    },
+    {
+      "page": 3,
+      "image": "_qa/round02_patch_final/page-03.png",
+      "image_sha256": "155de5ee030252c76f526cc0b96fdf2d7687f60380c6428f4ea4654c13b16294",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "个人代码风格与DP状态识别双列表格清楚，无碰撞。",
+      "issue_ids": []
+    },
+    {
+      "page": 4,
+      "image": "_qa/round02_patch_final/page-04.png",
+      "image_sha256": "73b03a39f1c70afe7e2cd850daf3868af5a3e7430759a24322c9ab03dea921c6",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "新27页索引列对齐，模块/卡片名称和页码可读。",
+      "issue_ids": []
+    },
+    {
+      "page": 5,
+      "image": "_qa/round02_patch_final/page-05.png",
+      "image_sha256": "2beb62f20eb267ded13ed12d0b4f447d971642c60b77877a8308a9cc393a7691",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "MEX与两张博弈卡完整，行间距正常。",
+      "issue_ids": []
+    },
+    {
+      "page": 6,
+      "image": "_qa/round02_patch_final/page-06.png",
+      "image_sha256": "6f0b82fc18c49bf7cff912b4bb6d9b3ee36a79cbdbfb9c8bb5a370a76f5a8335",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "三张整数区间操作卡完整，公式与来源正常换行，页底留白充足。",
+      "issue_ids": []
+    },
+    {
+      "page": 7,
+      "image": "_qa/round02_patch_final/page-07.png",
+      "image_sha256": "ed6a4a34d9620f7c1d5a182b36f208e018ece4c60ae190be2c895708df77f8be",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "构造、可行性二分、角度卡完整；长行无越界。",
+      "issue_ids": []
+    },
+    {
+      "page": 8,
+      "image": "_qa/round02_patch_final/page-08.png",
+      "image_sha256": "b39968a9bc141cf5eb0c98bc7bb8a3b5a33c307943f5605b47dd8c38ff062afa",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "实数搜索和小数显示卡完整；RT_DISPLAY完整main未被截断。",
+      "issue_ids": []
+    },
+    {
+      "page": 9,
+      "image": "_qa/round02_patch_final/page-09.png",
+      "image_sha256": "60e87658055fb2163196f33b66e11003bda27a51547bc6ef06956f5a4363d42c",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "SEG-00、STL_SELECT、XOR03卡片完整，密集段落仍清楚。",
+      "issue_ids": []
+    },
+    {
+      "page": 10,
+      "image": "_qa/round02_patch_final/page-10.png",
+      "image_sha256": "8968cbd8ddffc8f43b9a9a089910a10246381cb2e92d06540478aed886f715cf",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "XOR05单卡完整；该区块结束后留白不影响阅读。",
+      "issue_ids": []
+    },
+    {
+      "page": 11,
+      "image": "_qa/round02_patch_final/page-11.png",
+      "image_sha256": "5b5c8952d478a446bc3d1d85c8e64dded4e2fd3db5fa2f1006988afe4d2f16da",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "原ll/getchar read完整显示，长while行完整，不含冗余特殊范围提示。",
+      "issue_ids": []
+    },
+    {
+      "page": 12,
+      "image": "_qa/round02_patch_final/page-12.png",
+      "image_sha256": "922401664d8003e9ed81bbba83afe96bc1870c9dbdfdd53aafe59e35aba06484",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "FP01最后右括号已收入本页；所有代码完整，距页脚有明显空隙。",
+      "issue_ids": []
+    },
+    {
+      "page": 13,
+      "image": "_qa/round02_patch_final/page-13.png",
+      "image_sha256": "536e55dbed0eb16931eb39a4e1cbcabf498daca74b3717e0b6e96d344080a9ef",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "TRS01契约和两个搜索函数完整，无越界。",
+      "issue_ids": []
+    },
+    {
+      "page": 14,
+      "image": "_qa/round02_patch_final/page-14.png",
+      "image_sha256": "df59920750d18adcdba1de20cb698302019f022e1fa0f36e47f2620cdbfd65d0",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "STL容器示例进入stack，页末断言可见；后页续标题明确。",
+      "issue_ids": []
+    },
+    {
+      "page": 15,
+      "image": "_qa/round02_patch_final/page-15.png",
+      "image_sha256": "8cd6546e17c1bda3955a655424924286e1009ae9f6e8c73bd2a117cb98c84c4e",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "STL三种指定ll堆、set/multiset、map/multimap、unordered完整；页末排序lambda自然续接。",
+      "issue_ids": []
+    },
+    {
+      "page": 16,
+      "image": "_qa/round02_patch_final/page-16.png",
+      "image_sha256": "faddc2ec5411f7b1a98bf3ff93fd7441efd6c9371d654948e60e437d264951e9",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "STL排序、二分、nth、去重、排列、前后缀与递归lambda清楚；底部代码未压到页脚。",
+      "issue_ids": []
+    },
+    {
+      "page": 17,
+      "image": "_qa/round02_patch_final/page-17.png",
+      "image_sha256": "038017cb2287273bf7e1301ea520a41118d1dc1794fb97f4796048b4cde2c2c1",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "STL字符串函数完整，前页算法函数收括号可见；余白较多但不是单个符号独占页。",
+      "issue_ids": []
+    },
+    {
+      "page": 18,
+      "image": "_qa/round02_patch_final/page-18.png",
+      "image_sha256": "ff1058ac877853463e3c28c8aff9af3ffe89d092a7e3e92a566f10afffe0aeba",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "MEX静态、前缀、动态代码全在同页，mex_query完整，页脚未被碰到。",
+      "issue_ids": []
+    },
+    {
+      "page": 19,
+      "image": "_qa/round02_patch_final/page-19.png",
+      "image_sha256": "60783bbf24c2137056b4b1fdd1f8d99a767a2ce0509fcd3af3879572210d5a0f",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "ISSUES_FOUND",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "GAME01正常Nim和SG完整；反常Nim函数尾部仍分到后页。",
+      "issue_ids": [
+        "VPF01"
+      ]
+    },
+    {
+      "page": 20,
+      "image": "_qa/round02_patch_final/page-20.png",
+      "image_sha256": "c69d32b86278e121e225e7d4ebb65513a6513395184025bb1030fc8bfb02d506",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "ISSUES_FOUND",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "仅反常Nim最后四行，形成可改善的短尾页；代码与前页接续完整。",
+      "issue_ids": [
+        "VPF01"
+      ]
+    },
+    {
+      "page": 21,
+      "image": "_qa/round02_patch_final/page-21.png",
+      "image_sha256": "545346d784e6c6f706ed4058fb2956239273b9189184924d6be7e16e3f7b25b5",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "BM01区间操作代码清楚，binary_interval_flips最后右括号在后页续接。",
+      "issue_ids": []
+    },
+    {
+      "page": 22,
+      "image": "_qa/round02_patch_final/page-22.png",
+      "image_sha256": "957aac972fe8c1788b178c6a0a439b8237c4059dea7578c31a03f0a4b413e3be",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "BM01最后右括号及adjacent_moves完整；尾页留白较多，无截断。",
+      "issue_ids": []
+    },
+    {
+      "page": 23,
+      "image": "_qa/round02_patch_final/page-23.png",
+      "image_sha256": "8d9ea91b18d4e5ea25188040d0b72721bd3823d1482e591d36071674c8c8225d",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "PG01说明、初始化、读树及根化开头完整，底部没有溢出。",
+      "issue_ids": []
+    },
+    {
+      "page": 24,
+      "image": "_qa/round02_patch_final/page-24.png",
+      "image_sha256": "d233598656b7945ea87ebe6a2d78593fce1d40ff8dfedda8c4f3fd49113e759a",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "PG01根化函数余部完整结束，页脚独立。",
+      "issue_ids": []
+    },
+    {
+      "page": 25,
+      "image": "_qa/round02_patch_final/page-25.png",
+      "image_sha256": "1dbdf57adea9506c4d6d1a33a0730cc58bea252678f0af2e89e4cf458213599b",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "ISSUES_FOUND",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "PSD01定义和完整main已在同页；样例输入位于页末，输出单独分到后页。",
+      "issue_ids": [
+        "VPF02"
+      ]
+    },
+    {
+      "page": 26,
+      "image": "_qa/round02_patch_final/page-26.png",
+      "image_sha256": "4fdaa0d637c48522228fbc3c9c4a4d862ce1d2bc179b614ae844539d653a4676",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "ISSUES_FOUND",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "只有一行样例输出，形成明显孤页；没有代码遗漏。",
+      "issue_ids": [
+        "VPF02"
+      ]
+    },
+    {
+      "page": 27,
+      "image": "_qa/round02_patch_final/page-27.png",
+      "image_sha256": "29371ac9547a1c063dbd5c283c8209e390020245780beac700abc3989b4f03d1",
+      "pixel_dimensions": [
+        1075,
+        1521
+      ],
+      "inspection": "tools.view_image(detail=\"original\")，逐页实际查看原尺寸图片",
+      "result": "PASS",
+      "checks": {
+        "code_not_clipped": true,
+        "no_overlap": true,
+        "chinese_legible": true,
+        "footer_clear": true,
+        "content_continuity": true
+      },
+      "notes": "X01最后return与右括号已收入本页，全部代码完整且页底安全。",
+      "issue_ids": []
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema": "round02-general-models-v1",
+  "checked_on": "2026-10-25",
+  "scope": "ACM02 5.1、5.2、5.3、5.4、5.8与9；专项DP/博弈MEX/回文/XOR按模块交叉引用。",
+  "authoring_contract": "notes/round02/AUTHORING_CONTRACT.md",
+  "editorial_sources": [
+    "notes/round02/cards/general.json",
+    "PROBLEM_MODEL_ATLAS.md",
+    "HOW_TO_THINK.md"
+  ],
+  "code_policy": "优先用户原代码；read.cpp不改。BM05/BM06仅LF归一化复制；BM07/BM08为经父流程批准的明确基础缺口新增独立函数。没有提交或推送，没有改BM01–BM06及他人源码。",
+  "card_count": 34,
+  "patch_cards": [
+    "GEN_NAV",
+    "INT_PLUS",
+    "INT_SIGNED",
+    "INT_LIMITS",
+    "CONSTRUCT_FRAME",
+    "GREEDY_DOMINANCE",
+    "SEARCH_CHECK"
+  ],
+  "canonical_modules": [
+    {
+      "id": "BM01",
+      "source": "competition/models/interval_count.hpp",
+      "role": "单位任意/前后缀计数、二进制翻转、相邻转移"
+    },
+    {
+      "id": "BM02",
+      "source": "competition/models/interval_construct.hpp",
+      "role": "压缩单位操作构造、非零差分m<=20任意整数区间加精确计数"
+    },
+    {
+      "id": "BM03",
+      "source": "competition/models/prefix_grid.hpp",
+      "role": "二维前缀和与离线矩形差分"
+    },
+    {
+      "id": "BM04",
+      "source": "competition/models/enumeration.hpp",
+      "role": "逆序对归并、折半子集和计数"
+    },
+    {
+      "id": "BM05",
+      "source": "competition/models/choose_tasks.cpp",
+      "role": "用户CF913D原程序"
+    },
+    {
+      "id": "BM06",
+      "source": "competition/models/ordered_choice.cpp",
+      "role": "用户CF2065C2原程序"
+    },
+    {
+      "id": "BM07",
+      "source": "competition/models/greedy_construct.hpp",
+      "role": "半开区间最多选择、最小最大配对和、单类括号"
+    },
+    {
+      "id": "BM08",
+      "source": "competition/models/state_search.hpp",
+      "role": "整数状态BFS/路径恢复、非负子集回溯/剪枝"
+    }
+  ],
+  "official_sources": [
+    {
+      "id": "LC1526",
+      "title": "1526. Minimum Number of Increments on Subarrays to Form a Target Array",
+      "url": "https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/",
+      "supports": "题面从全0出发、每次任意子数组+1、最小次数；target正整数范围。",
+      "verification": "已打开并阅读官方题面。",
+      "provenance_limit": "一般补充练习，不声称用户做过。"
+    },
+    {
+      "id": "CF913D",
+      "title": "D. Too Easy Problems",
+      "url": "https://codeforces.com/problemset/problem/913/D",
+      "supports": "a_i资格依赖总做题数、t_i耗时、T预算；n<=2e5,a_i<=n,t_i<=1e4,T<=1e9。",
+      "verification": "已打开并阅读官方题面，与原代码读入、目标和原注释相符。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "id": "CF2065C2",
+      "title": "C2. Skibidus and Fanum Tax (hard version)",
+      "url": "https://codeforces.com/problemset/problem/2065/C2",
+      "supports": "每个a_i最多一次改成b_j-a_i、b可复用、求非降可能性；a_i,b_j<=1e9。",
+      "verification": "已打开并阅读官方题面，与原代码候选和lower_bound相符。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "id": "CF232A",
+      "title": "A. Cycles",
+      "url": "https://codeforces.com/problemset/problem/232/A",
+      "supports": "构造恰好k个三角形的无自环无向图，1<=k<=1e5，3<=V<=100。",
+      "verification": "已打开并阅读官方题面；来源注释包含同一题目链接。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "id": "CF1512C",
+      "title": "C. A-B Palindrome",
+      "url": "https://codeforces.com/problemset/problem/1512/C",
+      "supports": "用0/1替换?，保持回文且恰好a个0、b个1；给定字符不可更改。",
+      "verification": "已打开并阅读官方题面，和cf/construction/1.cpp结构对应；PAL01维护归字符串作者。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "origin_audit": [
+    {
+      "path": "cf/other/Hello_2018/D.cpp",
+      "read_scope": "完整源码与原注释",
+      "original_observation": "原注释先指出不计分题只有负作用，再固定x筛a_i>=x，最后以“x可行则更小可行”二分。",
+      "formal_module": "BM05",
+      "change": "只统一LF，无算法/接口改动。",
+      "interface_limit": "check(0)不在原函数调用域；原main的l=1,r=n,ans=0正确处理0答案。",
+      "sha256_lf": "7dcc5458a2e9e599314a5d996b10acfb8c2dc58c880db7586a99c36c7fd3e53a",
+      "formal_sha256_lf": "7dcc5458a2e9e599314a5d996b10acfb8c2dc58c880db7586a99c36c7fd3e53a",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/7/7.25/1.cpp",
+      "read_scope": "完整源码与原注释",
+      "original_observation": "原注释是先分析需要什么贪心，再做二分优化；代码取>=pre的最小候选。",
+      "formal_module": "BM06",
+      "change": "只统一LF，无算法/接口改动。",
+      "interface_limit": "保留原题数值范围与±4e18哨兵，未泛化为任意ll接口。",
+      "sha256_lf": "4c2bbe0638e2ef1b3361b56bf0f29941e046149884be94b19cf89cbff86625ab",
+      "formal_sha256_lf": "4c2bbe0638e2ef1b3361b56bf0f29941e046149884be94b19cf89cbff86625ab",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/construction/1.cpp",
+      "read_scope": "完整源码",
+      "original_observation": "两次镜像传播，扣除固定位数量，先处理奇数中心，再成对补空位。",
+      "formal_module": "PAL01（由字符串专题维护）",
+      "change": "本作者不改源码；以实际流程支撑构造框架。",
+      "sha256_lf": "e7b737e8c6eb55927bceee7cb45bdac6772779f660d164237479ccb43c547e78",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/5/5.31/3.cpp",
+      "read_scope": "完整源码与原注释",
+      "original_observation": "原注释反对局部增量乱连，提出先完全再补；C(p,3)团+仅连旧团的新点C(s,2)。",
+      "model_card": "CONSTRUCT_BLOCK",
+      "derivation": "官方k<=1e5下p<=85；首补后余数<=83，再<=12,4,2,1,0，最多6补点，总点数<=91。无新新边保证补块之间无额外三角形。",
+      "verification_scope": "本轮未单列运行旧程序，模型推导与源代码参考，MODEL_ONLY；不以文件存在推断测试或AC。",
+      "sha256_lf": "93cb41380d5bd45b49abd78077fa0809b9587cc7a048d58cd85d990a18f15b58",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/7/7.28/1.cpp",
+      "read_scope": "完整源码与原注释",
+      "original_observation": "原注释从路径想到排列；局部sum2使用排序后a[i]*(2*i-n+1)。",
+      "formal_module": "PM04（由数学专题维护）",
+      "interpretation_limit": "只引用二元绝对差的局部贡献公式；完整原题、分数含义与线上AC未知。",
+      "sha256_lf": "f91999ffbcde59674a0e6328922dc0e9ce1c12f0e087f664e002af13bb2ba81e",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "direct_verification": [
+    {
+      "module": "BM07",
+      "test": "tests/round02/test_greedy.cpp",
+      "seed": 20261024,
+      "red_observed": "缺失实现时可执行测试返回1并打印RED: greedy_construct.hpp is not implemented。",
+      "commands": [
+        "g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_greedy.cpp -o tests/round02/test_greedy.exe",
+        "tests/round02/test_greedy.exe",
+        "wsl -d Ubuntu -- bash -lc 'cd /mnt/c/Users/TSOU/Desktop/cf/template && g++ -std=gnu++20 -O1 -g -Wall -Wextra -Wshadow -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie tests/round02/test_greedy.cpp -o /tmp/r2_general_greedy_san && /tmp/r2_general_greedy_san'"
+      ],
+      "result": "PASS Windows零警告与WSL ASan/UBSan",
+      "oracle": "区间：700组n<=10，所有子集逐对相交判定；配对：偶数n<=8的全部{-1,0,1}数组枚举全部完美配对；括号：长度<=16全部串对独立栈。",
+      "boundaries": [
+        "空",
+        "相接半开区间",
+        "LLONG_MIN/MAX端点及配对和",
+        "全负",
+        "重复值",
+        "n=200000"
+      ],
+      "source_sha256_lf": "bb237cfbb28840e781c307a40681f035bcd07df4399154b7192e9830511b3f18",
+      "test_sha256_lf": "78b1e65f895f5c7380e69105eb3ad505324b0d20b40ae7cdad4213ddba919385"
+    },
+    {
+      "module": "BM08",
+      "test": "tests/round02/test_search.cpp",
+      "seed": 20261024,
+      "red_observed": "缺失实现时可执行测试返回1并打印RED: state_search.hpp is not implemented。",
+      "commands": [
+        "g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_search.cpp -o tests/round02/test_search.exe",
+        "tests/round02/test_search.exe",
+        "wsl -d Ubuntu -- bash -lc 'cd /mnt/c/Users/TSOU/Desktop/cf/template && g++ -std=gnu++20 -O1 -g -Wall -Wextra -Wshadow -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie tests/round02/test_search.cpp -o /tmp/r2_general_search_san && /tmp/r2_general_search_san'"
+      ],
+      "result": "PASS Windows零警告与WSL ASan/UBSan",
+      "oracle": "limit=0..30所有起终点距离对Floyd，每条恢复操作重放；n<=6三值非负数组所有目标和300组随机数组对不剪枝全mask枚举。",
+      "boundaries": [
+        "limit=0",
+        "起终点相同",
+        "0乘2自环",
+        "limit=1000000",
+        "空子集",
+        "全0",
+        "重复值按下标",
+        "LLONG_MAX剩余和"
+      ],
+      "source_sha256_lf": "900b8d5e49ea3b505126c1a8fd236117a94165bd049545f02f45e7a5e76591d2",
+      "test_sha256_lf": "f8f9283d8181b2c192248fee848ba5b06f169072824ad6046232138f00fca7bc"
+    }
+  ],
+  "delegated_verification": [
+    {
+      "modules": [
+        "BM01",
+        "BM02"
+      ],
+      "test": "tests/round02/test_models.cpp",
+      "method": "已读测试源码：任意区间±/单向、前后缀与二进制flip有独立BFS；构造重放；任意整数区间数对独立零和分组。相邻转移当前作者读到的版本只有固定样例和总和不等例，父流程已收到补强建议。",
+      "status": "按父流程最终统一报告，不把源码阅读冒充本作者实跑。"
+    },
+    {
+      "modules": [
+        "BM03",
+        "BM04",
+        "BM05",
+        "BM06"
+      ],
+      "test": "tests/round02/test_model_tools.cpp",
+      "method": "父流程提供的二维逐格、逆序对二重枚举、折半对全子集、原选题对全子集、原非降选择对选择穷举。",
+      "status": "按模块verify与父流程最终统一报告。"
+    },
+    {
+      "modules": [
+        "CO02",
+        "CO03",
+        "DS04",
+        "S01",
+        "M05",
+        "PG01",
+        "PG03",
+        "PG04",
+        "PG05",
+        "PG06",
+        "PG07",
+        "PG08",
+        "PG09",
+        "PG10",
+        "PG12",
+        "PG13",
+        "PM04",
+        "PM05",
+        "STL01",
+        "STL02",
+        "PAL01"
+      ],
+      "status": "引用对应负责人/ROUND01的规范源码与验证元数据，不复制同功能实现。"
+    }
+  ],
+  "explicit_limits": [
+    "指定位置不同数值加减：不变量只作必要条件，一般可达性仍MODEL_ONLY，PM05仅实现模环。",
+    "仅+1/-1前后缀的单调充要条件有推导；BM01现成函数是双向前后缀计数。",
+    "INT_FLIP是0/1按位翻转；区间逆序reverse不是此最少次数模型，STL01提供reverse API。",
+    "CONSTRUCT_BLOCK的CF232A预算证明已补齐，但旧程序未单列本轮运行，保留MODEL_ONLY。",
+    "COUNT_ENDPOINT/COUNT_CASES是组合思维框架，使用受测组件不代表任意拼装题解已经测试。",
+    "BM08状态边界是模型前提；非负子集剪枝最坏仍指数，不宣传n=40均可快速完成。",
+    "一般图树/DP/博弈/MEX/回文/XOR详细内容引用专项；不重复整篇教程。",
+    "全部来源在线AC为UNKNOWN，官方题面核验仅确定题目映射和约束。"
+  ],
+  "unresolved_code_refs": []
+}

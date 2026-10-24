@@ -1,0 +1,202 @@
+[
+  {
+    "id": "MEX_GLOBAL",
+    "title": "插删后问最小缺失非负数",
+    "signal": "mex、最小没有出现的整数；单点修改后问全数组mex。",
+    "observe": "从0开始；元素总数上界N；是否有删除或重复值。",
+    "brute": "每次从0向上检查整个数组，O(N²)量级。",
+    "redundancy": "一次修改只改变两个数的出现频次，没有必要重扫其他候选。",
+    "derive": "静态vis扫描；仅插入的前缀维护只增指针；任意插删维护cnt与缺失set。",
+    "conditions": "n元素mex<=n；动态init(N)要求活跃总数<=N且删除值存在。",
+    "proof": "[0,N]有N+1个数，N个元素不能全覆盖；缺失set与cnt==0互补保持。",
+    "code_refs": [
+      "MEX01",
+      "MEX02"
+    ],
+    "usage": "mex_init(n); for(int x:a) mex_add(x); mex_erase(old); mex_add(value); cout<<mex_query();",
+    "complexity": "静态/所有前缀O(n)；动态每次O(log N)。",
+    "pitfalls": "{0,0}删一个0后mex仍1；负数不占mex；所有区间共享一个全局set无法回答每个区间的mex。",
+    "exercise": "cf/3/1096/D_mex_set.cpp::cal局部模型：中心扩展时把遇到的值从候选set中移除；完整题面与线上AC未核验。",
+    "origins": [
+      "template/mex.cpp",
+      "cf/3/1096/D_mex_set.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "MEX_CONSTRUCT",
+    "title": "mex反推出必须出现与必须缺失的元素",
+    "signal": "要求某段mex等于k，或构造指定mex的排列/数组。",
+    "observe": "mex=k等价于0..k-1全部出现且k不出现；段长至少k。",
+    "brute": "枚举所有数组再算mex，状态爆炸。",
+    "redundancy": "可行性直接分解为覆盖集合与禁用元素，无须枚举排列细节。",
+    "derive": "先放齐0..k-1，再用允许的重复值或大于k的值填充；额外限制需单独验证。",
+    "conditions": "仅mex条件时，段长m>=k必要；可用整数不受限时也充分。k=0时必须避免0；若m=0只有mex0。",
+    "proof": "mex定义本身给出两个方向：小于k全在且k不在，当且仅当最小缺失恰为k。",
+    "code_refs": [
+      "MEX01"
+    ],
+    "complexity": "构造后O(m)检验。",
+    "pitfalls": "长度2不可能mex3；排列要求每值唯一时不能重复填0；全数组mex固定不代表每个子区间mex固定。",
+    "exercise": "tests/round02/test_game_string.cpp：用static_mex验证小值构造；排列0..n-1全数组mex=n，真子区间的mex需重新求。",
+    "origins": [
+      "template/mex.cpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "GAME_PN",
+    "title": "先枚举胜败状态，再证明规律",
+    "signal": "两人轮流、询问先手输赢/合法胜着。",
+    "observe": "无路可走谁输？双方可用操作是否相同？状态是否终止、是否有环？",
+    "brute": "从当前状态枚举所有合法后继，递归搜索双方最优行动。",
+    "redundancy": "不同走法可到同一状态，按依赖顺序记忆/DP复用结果。",
+    "derive": "正常规则终态败；存在败态后继则胜，否则败。小范围表格用于猜奇偶/模数规律，再对全部状态归纳证明。",
+    "conditions": "有限无环正常规则可直接递推；有环可能出现平局，不能当成普通SG。",
+    "proof": "能走到败态就把无解留给对手；所有后继都赢时每一步都给对手赢态。",
+    "code_refs": [
+      "GAME01"
+    ],
+    "complexity": "O(状态数+合法转移数)。",
+    "pitfalls": "取1或2时败态是3的倍数，奇偶猜法在2就错；只对前20项成立不是证明。",
+    "exercise": "tests/round02/test_game_string.cpp：取{1,3,4}枚举到50，并验证双游戏的直接P/N递推。",
+    "origins": [
+      "template/mex.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "GAME_NIM",
+    "title": "独立子游戏为何异或，Nim怎样走到败态",
+    "signal": "若干堆，每步仅改变一堆；或已证明独立的公平正常子游戏之和。",
+    "observe": "每一步是否只能影响一个分量？是否共用资源导致联动？最后一步规则是否正常？",
+    "brute": "对所有堆大小构成的笛卡尔积做胜败DP。",
+    "redundancy": "独立分量的复杂状态可分别压成SG值，合并只需异或。",
+    "derive": "Nim堆的SG是堆大小；一般有限公平DAG取后继SG集合的mex。异或非零找最高为1的位，把相应Nim堆ai减到ai xor sum。",
+    "conditions": "有限、无环、公平、完全信息、无随机、正常规则、每步恰改一个独立分量。",
+    "proof": "零异或任意合法改变一个SG都会非零；非零异或存在一个分量可改变为使总异或零的更小SG值。",
+    "code_refs": [
+      "GAME01",
+      "MEX01"
+    ],
+    "complexity": "Nim O(堆数)；一般SG O(V+E)。",
+    "pitfalls": "一步可同时取两堆时不是独立和；反常规则不能直接套SG。反常Nim只有全1时按个数奇偶，其余按xor，不能推广到任意游戏。",
+    "exercise": "tests/round02/test_game_string.cpp：{1,2,3}败；{1,2,4}将4改3；3堆0..5正常/反常穷举。",
+    "origins": [
+      "template/mex.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "MEX_STRUCTURE",
+    "title": "全局MEX与区间MEX，数据结构不能混用",
+    "signal": "问最小缺失数，但还附带区间[l,r]或按缺失秩查询。",
+    "observe": "被询问集合是整个数组还是每次不同子区间？只问首个缺失还是第k个缺失？",
+    "brute": "每次把当前查询区间的值标记后从0扫描。",
+    "redundancy": "单次全局更新只改变一个频次；不同区间的出现状态则可能完全不同。",
+    "derive": "静态一次用vis；前缀只插入用只增指针；全局插删用MEX02。缺失标记0/1放Fenwick或线段树可找第k个缺失。任意区间MEX必须另做离线/区间数据结构：例如扫右端点维护每值最后位置，以值域线段树找最小last[x]<l。",
+    "conditions": "值域截断[0,n]仍成立；Fenwick按秩找位置要求非负0/1频率。区间MEX的last模型只适用于固定数组、离线按右端点推进。",
+    "proof": "x出现在[l,r]当且仅当扫到r时last[x]>=l，故最小last[x]<l的值就是mex。",
+    "code_refs": [
+      "MEX01",
+      "MEX02"
+    ],
+    "complexity": "已有全局实现每次O(log n)；区间模型本卡仅解释选择，不冒充已有可调用区间MEX代码。",
+    "pitfalls": "全数组{0,1}的mex是2，区间只含{1}的mex却是0；全局set直接回答会错。",
+    "exercise": "cf/3/1096/D_mex_set.cpp只研究中心向外的当前集合，不把局部cal当通用区间查询。",
+    "origins": [
+      "template/mex.cpp",
+      "cf/3/1096/D_mex_set.cpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "GAME_SYMMETRY",
+    "title": "奇偶或镜像策略要保证每一步都有合法应答",
+    "signal": "可按相同两半配对，或每步取走固定奇偶性的数量。",
+    "observe": "镜像位置是否独立？中心是否单独存在？对手能否跨两半同时操作？终局是谁输？",
+    "brute": "枚举小状态胜败表，寻找偶数/模数/对称规律。",
+    "redundancy": "若每个回合都能恢复相等两半，无须区分内部操作历史。",
+    "derive": "正常Nim两个相等堆：后手在另一堆镜像对手的减少量，恢复相等。只可取1或3时每步翻转奇偶，偶数败；只可取1或2时败态是3的倍数，显示奇偶并不通用。",
+    "conditions": "镜像动作必须存在且不与对手刚动的部分冲突；两半操作独立；正常规则；无剩余中心。",
+    "proof": "非空相等两堆中一堆可减多少，另一堆也可同量减少；后手每次应答后恢复相等且不先无路可走。取1/2则从3倍数只能走到非倍数，非倍数可一步走回倍数。",
+    "code_refs": [
+      "GAME01"
+    ],
+    "complexity": "有证明时O(1)或O(堆数)；枚举仅用于发现规律。",
+    "pitfalls": "允许一步同时取两堆时镜像应答可能不存在；反常规则拿最后一个输时策略结论改变。",
+    "exercise": "tests/round02/test_game_string.cpp验证取{1,3}/{1,2}的40状态递推以及100组相等堆。",
+    "origins": [
+      "template/mex.cpp"
+    ],
+    "patch": true
+  },
+  {
+    "id": "PAL_CENTER",
+    "title": "连续回文看中心，子序列不能用中心扩展",
+    "signal": "最长连续回文子串、回文子串个数、判断一段字符串是否回文。",
+    "observe": "连续子串还是允许跳过的子序列？按位置计数还是不同内容去重？规模是否允许平方？",
+    "brute": "枚举左右端点并反转比较，每段又花线性时间。",
+    "redundancy": "同一中心的更长回文包含更短回文，可复用向外比较过程。",
+    "derive": "单次判定用S03双指针；枚举奇中心(i,i)与偶中心(i,i+1)向外扩，记录长度和每次成功。",
+    "conditions": "按字节处理；O(n²)适用于相应数据量；空串最长长度0。要求子序列时换序列/区间DP。",
+    "proof": "每个非空回文子串恰有唯一中心和半径，扩展不会遗漏也不重复计数。",
+    "code_refs": [
+      "PAL01",
+      "S03"
+    ],
+    "usage": "auto info=palindrome_centers(s); s.substr(info.l,info.r-info.l);",
+    "complexity": "双指针O(n)，中心扩展O(n²)、O(1)额外空间。",
+    "pitfalls": "aaa有6个位置回文子串但3种内容；abca的最长回文子序列可为aca，中心扩展不能跳过b。大量区间查询可参考S02双哈希但需承认碰撞；Manacher留OPTIONAL。",
+    "exercise": "tests/round02/test_game_string.cpp：4000随机短串，对每个子串反转判定和最长长度。",
+    "origins": [
+      "template/string/basic_string.hpp",
+      "cf/3/1096/D_mex_set.cpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "PAL_CONSTRUCT",
+    "title": "回文构造先镜像，再处理唯一奇数中心",
+    "signal": "重排字符串成回文；或0/1/?固定字符与总数同时限制。",
+    "observe": "是否允许重排？哪些位置已固定？目标各字符数量是否相容？",
+    "brute": "枚举所有排列或每个?的替换再检查。",
+    "redundancy": "镜像位置必须相等；成对位置消耗偶数份字符，仅中心能消耗一份。",
+    "derive": "任意重排时统计频次，最多一个奇数，左右各放freq/2。固定01?时沿原代码传播镜像，扣已用计数，填中心奇数，再填相同字符对。",
+    "conditions": "任意重排的充要条件是奇频字符<=1；固定位置还必须无镜像冲突、余量非负且匹配未知位置。",
+    "proof": "必要性来自每个非中心位置都与镜像配对；充分性由左右半份+可选中心的实际构造给出。",
+    "code_refs": [
+      "PAL01"
+    ],
+    "usage": "palindrome_permutation(s); binary_palindrome_fill(pattern,zeros,ones);",
+    "complexity": "O(n+字符集大小)。",
+    "pitfalls": "aabb可重排，固定字符串aabb却不是回文；仅看奇偶不会发现镜像0/1冲突。数值串010还需单独检查前导零约定。",
+    "exercise": "cf/construction/1.cpp原镜像传播与计数代码；n<=7所有01?与计数穷举对全部替换。",
+    "origins": [
+      "cf/construction/1.cpp"
+    ],
+    "patch": false
+  },
+  {
+    "id": "TRIE_PREFIX",
+    "title": "很多字符串反复查前缀，把相同前缀只存一次",
+    "signal": "查询多少单词以p开头，或某个完整词重复了几次。",
+    "observe": "字符集大小？总字符串长度？查询完整词还是前缀？是否多测？",
+    "brute": "每个查询遍历所有单词，对前缀逐字符比较。",
+    "redundancy": "许多单词的相同前缀被反复扫描。",
+    "derive": "直接沿个人tr[u][c]数组建边；结点代表一个前缀，cnt记录经过次数，word_end记录终止次数。",
+    "conditions": "小写字母；节点上界由总字符数而非单词数决定；多测清除全部已用节点。",
+    "proof": "每个词与每个前缀结点相交至多一次，经过次数正好等于拥有该前缀的词数。",
+    "code_refs": [
+      "TRS02"
+    ],
+    "usage": "trie_init(); trie_insert(\"ab\"); trie_insert(\"abc\"); trie_prefix(\"a\")==2;",
+    "complexity": "单次O(串长)，空间O(26*节点数)。",
+    "pitfalls": "插ab和abc后cnt[ab]=2但word_end[ab]=1；只重置tot不清边会在下组重用脏节点。",
+    "exercise": "cf/ICPC/2026ICPCWeb1/L.cpp原tr/cnt/dep/tot局部模型；不把未核验题目猜成通用模板题。",
+    "origins": [
+      "cf/ICPC/2026ICPCWeb1/L.cpp"
+    ],
+    "patch": false
+  }
+]

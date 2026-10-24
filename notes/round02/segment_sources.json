@@ -1,0 +1,227 @@
+{
+  "schema": "round02-segment-sources-v1",
+  "generated_date": "2026-10-25",
+  "ownership": "原源码不改；新增competition版本与ROUND01同流对照；不把用户使用验证等同线上AC。",
+  "canonical_implementations": [
+    {
+      "kind": "Fenwick",
+      "source": "competition/data_structure/fenwick.hpp",
+      "module": "PSD01"
+    },
+    {
+      "kind": "单点树",
+      "source": "competition/data_structure/segment_point_base.inc",
+      "modules": [
+        "PSD02",
+        "PSD03",
+        "PSD04",
+        "PSD05",
+        "PSD06",
+        "PSD07",
+        "PSD08",
+        "PSD09"
+      ],
+      "contract": "具体Node在前，公共骨架在后；每个hpp已组合完成。"
+    },
+    {
+      "kind": "区间加",
+      "source": "competition/data_structure/segment_range_add.hpp",
+      "module": "PSD10"
+    },
+    {
+      "kind": "赋值与加",
+      "source": "competition/data_structure/segment_set_add.hpp",
+      "module": "PSD11"
+    }
+  ],
+  "origin_audit": [
+    {
+      "path": "template/Fenwick_tree.cpp",
+      "idea": "直接保留Fenwick结构、n、tr、add和lowbit循环。",
+      "issue": "定义query(l,r)，main却调用不存在的rangeSum(l,r)，不能编译。",
+      "change": "只统一接口：sum(x)改名query(x)，旧query(l,r)改名rangeSum(l,r)；size参数避免-Wshadow；加合法调用断言。",
+      "interface_change": "add(x,delta)不变；query(x)为前缀，rangeSum(l,r)为区间。没有query(l,r)重载。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "保留单点递归骨架并将update改名modify；PSD02保持sum，PSD03–09分别替换具体Node/merge，阈值搜索、gcd、次数、最大子段和、第k个等为本轮在骨架上的扩展。查询只进入相交儿子。",
+      "interface_change": "各模块query返回各自Node：PSD02/08取.sum，PSD03取.mn，PSD04取.mx，PSD05取.g，PSD06取.mx/.cnt，PSD07取.best，PSD09取.sum/.mn/.mx/.g。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；示例直接输入1下标闭区间。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/2.cpp",
+      "idea": "直接继承min合并；来源为用户的区间最小值练习。",
+      "issue": "原题常规值域下的4e18空段哨兵可直接使用；扩展到整个ll值域时，大于4e18的元素会被该有限哨兵污染。",
+      "change": "为共用无空节点的Node骨架，查询只进入相交儿子，不再依赖有限INF；不否定旧代码在原约束下的使用验证。",
+      "interface_change": "query返回.mn，update更名modify。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "template/Segment tree2.cpp",
+      "idea": "全局a/tree/lazy；apply、pushdown、modify按原递归结构保留。",
+      "issue": "apply在声明前使用；tree/query用int；query部分覆盖未pushdown；build未清旧lazy。",
+      "change": "公共修复为apply声明顺序、ll和/答案、查询下传、build清标记。PSD10扩展Node{sum,mn,mx}；PSD11保留ll区间和，把lazy扩展为Tag{has_set,set,add}，新set覆盖旧标记，下传先set再add；test_set_add验证赋值0、操作先后、多测和随机差分。",
+      "interface_change": "PSD10的query返回Node取.sum/.mn/.mx；PSD11的query直接返回ll，modify(...,val,is_set)以true表示赋值、false表示加。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/6/6.9/1_special_segment_tree.cpp",
+      "idea": "直接继承区间加、维护最小值的apply/pushdown/build/modify写法。",
+      "issue": "原题维护d[x]=x-count(<=x)及最小位置pos，不能把它当通用数组问题完整题解。",
+      "change": "PSD10沿用区间加与min维护并加入sum/max。PSD11只沿用加法递归和build清标记写法，聚合为ll区间和；has_set与set/add组合是本轮新增，原题mn/pos不搬入。",
+      "interface_change": "原pos只作题目专用见证；PSD10返回统计Node，PSD11返回ll和并用is_set区分赋值与加法。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/6/6.15/1_segment_tree.cpp",
+      "idea": "读取完整原代码；Node保存mat和A/B互换后的rev，区间翻转swap二者、lazy异或；列向量先左后右使父矩阵为right*left。",
+      "issue": "原代码为单次建树的具体题目，未声称支持多测；没有实际缺陷证据需要重写。",
+      "change": "原代码保持原样。仅作为多信息维护与非交换merge的来源讲解，不冒充本轮新增通用矩阵模板。",
+      "interface_change": "无。具体原程序的seg/pull/push/update命名只在来源说明保留；本轮正式树主版本用tree/pushup/pushdown/modify。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "known_name_resolution": {
+    "requested": "template/Segment tree.cpp",
+    "actual": "template/segmen tree1.cpp",
+    "reason": "检索实际仓库得到的文件名；不补造不存在文件。"
+  },
+  "shared_test": {
+    "source": "tests/round02/test_segment.cpp",
+    "seed": 20261024,
+    "legacy_pairs": [
+      [
+        "PSD01",
+        "DS01"
+      ],
+      [
+        "PSD02",
+        "DS02"
+      ],
+      [
+        "PSD10",
+        "DS03"
+      ]
+    ],
+    "oracle": "独立数组逐元素修改与枚举；gcd使用独立Euclid循环；最大子段使用O(n²)枚举。",
+    "cases": [
+      "n=1",
+      "n=200000",
+      "全负/全0/重复最大值",
+      "负数gcd，-LLONG_MAX",
+      "非法k、全0频率",
+      "阈值搜索限制[L,R]",
+      "set0",
+      "set-add",
+      "add-set",
+      "多层覆盖",
+      "多测重建",
+      "超int区间和",
+      "min大于4e18的通用ll值域"
+    ]
+  },
+  "examples": [
+    {
+      "name": "fenwick",
+      "source": "competition/data_structure/examples/fenwick.cpp",
+      "input": "3 4\n3 -2 4\n2 1 3\n1 2 5\n3 2\n2 2 3\n",
+      "output": "5\n6\n7\n"
+    },
+    {
+      "name": "point_sum",
+      "source": "competition/data_structure/examples/point_sum.cpp",
+      "input": "3 3\n3 -2 4\n2 1 3\n1 2 5\n2 1 3\n",
+      "output": "5\n12\n"
+    },
+    {
+      "name": "point_min",
+      "source": "competition/data_structure/examples/point_min.cpp",
+      "input": "3 3\n5 2 7\n2 1 3\n1 2 8\n2 1 3\n",
+      "output": "2\n5\n"
+    },
+    {
+      "name": "point_max",
+      "source": "competition/data_structure/examples/point_max.cpp",
+      "input": "3 3\n5 2 7\n2 1 3\n1 2 8\n2 1 3\n",
+      "output": "7\n8\n"
+    },
+    {
+      "name": "point_gcd",
+      "source": "competition/data_structure/examples/point_gcd.cpp",
+      "input": "3 3\n-6 10 0\n2 1 3\n1 2 -9\n2 1 2\n",
+      "output": "2\n3\n"
+    },
+    {
+      "name": "max_count",
+      "source": "competition/data_structure/examples/max_count.cpp",
+      "input": "4 3\n5 5 1 5\n2 1 4\n1 2 0\n2 1 4\n",
+      "output": "5 3\n5 2\n"
+    },
+    {
+      "name": "max_subarray",
+      "source": "competition/data_structure/examples/max_subarray.cpp",
+      "input": "4 3\n-5 -2 -7 -1\n2 1 4\n1 2 6\n2 1 4\n",
+      "output": "-1\n6\n"
+    },
+    {
+      "name": "point_stats",
+      "source": "competition/data_structure/examples/point_stats.cpp",
+      "input": "4 3\n6 -12 9 3\n2 1 4\n1 2 15\n2 1 3\n",
+      "output": "6 -12 9 3\n30 6 15 3\n"
+    },
+    {
+      "name": "range_add",
+      "source": "competition/data_structure/examples/range_add.cpp",
+      "input": "3 4\n3 -2 4\n2 1 3\n1 1 2 5\n2 1 3\n2 2 2\n",
+      "output": "5 -2 4\n15 3 8\n3 3 3\n"
+    },
+    {
+      "name": "range_set",
+      "source": "competition/data_structure/examples/range_set.cpp",
+      "input": "3 4\n1 2 3\n2 1 3\n1 1 3 0\n1 2 2 5\n2 1 3\n",
+      "output": "6\n5\n"
+    },
+    {
+      "name": "set_add",
+      "source": "competition/data_structure/examples/set_add.cpp",
+      "input": "4 6\n1 2 3 4\n1 1 4 0\n2 2 3 5\n3 1 4\n2 1 4 2\n1 2 3 0\n3 1 4\n",
+      "output": "10\n4\n"
+    },
+    {
+      "name": "frequency",
+      "source": "competition/data_structure/examples/frequency.cpp",
+      "input": "4 4\n0 2 0 3\n2 1\n2 5\n1 2 0\n2 1\n",
+      "output": "2\n4\n4\n"
+    },
+    {
+      "name": "first_ge",
+      "source": "competition/data_structure/examples/first_ge.cpp",
+      "input": "4 4\n8 1 8 2\n2 2 4 8\n2 2 2 8\n1 2 9\n2 2 4 8\n",
+      "output": "3\n-1\n2\n"
+    }
+  ],
+  "commands": [
+    "g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_segment.cpp -o tests/round02/test_segment.exe",
+    "tests/round02/test_segment.exe",
+    "python competition/data_structure/verify_examples.py",
+    "wsl -d Ubuntu -- bash -lc 'cd /mnt/c/Users/TSOU/Desktop/cf/template && g++ -std=gnu++20 -O1 -g -Wall -Wextra -Wshadow -fsanitize=address,undefined -fno-omit-frame-pointer tests/round02/test_segment.cpp -o /tmp/r2_segment_san && /tmp/r2_segment_san'"
+  ],
+  "verification": {
+    "random": "PASS Windows GNU++20 -Wall -Wextra -Wshadow",
+    "sanitizer": "PASS WSL ASan+UBSan",
+    "standalone_examples": "PASS 13个独立main，各自工程include与打印展开两种形式，共26次编译运行；文档I/O一致，无编译警告",
+    "online": "UNKNOWN",
+    "round01_regression": "PASS tests/test_core_data.cpp、test_graph.cpp、test_dp_math_string.cpp"
+  }
+}

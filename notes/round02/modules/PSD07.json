@@ -1,0 +1,50 @@
+{
+  "id": "PSD07",
+  "title": "单点树：最大非空连续子段和",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "competition/data_structure/segment_max_subarray.hpp",
+  "when": "点改后询问一段内部的最大连续子段和。",
+  "contract": "非空子段；全负返回最大负数。sum/pref/suff/best及相加中间量均在ll内；无任意区间加。",
+  "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+  "pitfalls": [
+    "只存sum与best无法计算跨中点最优值。",
+    "全负结果是最大负数；允许空段时应在输出取max(0LL,best)。",
+    "任意区间加不能只修改这四个字段。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/max_subarray.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/max_subarray.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "保存sum、pref、suff、best，跨中点候选是左suff+右pref。",
+  "proof": "任一最优子段恰好属于全在左、全在右、跨中点三类之一。",
+  "origins": [
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "update按用户命名改为modify；保留递归骨架，查询只进入相交儿子。新增四字段sum/pref/suff/best及跨中点合并；原求和源只提供递归骨架，不含该维护公式。",
+      "interface_change": "query返回四字段Node，非空最大子段答案取.best。 查询需合法非空闭区间；modify为点赋值。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；来源0下标半开输入不搬入新例程，新例程使用1下标闭区间。query返回四字段Node，非空最大子段答案取.best。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [],
+  "dependencies": [],
+  "patch": true,
+  "source_parts": [
+    "competition/data_structure/nodes/max_subarray.inc",
+    "competition/data_structure/segment_point_base.inc"
+  ],
+  "assembly": "工程直接include source；打印时递归展开本地#include，不重复维护整棵树。具体Node+make_node+merge必须位于公共骨架前。同一提交只选一个个人版本。",
+  "example_source": "competition/data_structure/examples/max_subarray.cpp",
+  "sample_input": "4 3\n-5 -2 -7 -1\n2 1 4\n1 2 6\n2 1 4\n",
+  "sample_output": "-1\n6\n"
+}

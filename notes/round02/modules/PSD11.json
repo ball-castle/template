@@ -1,0 +1,45 @@
+{
+  "id": "PSD11",
+  "title": "区间赋值与区间加：和",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "competition/data_structure/segment_set_add.hpp",
+  "when": "对区间覆盖成x，也可能随后整体加x；问任意区间和。",
+  "contract": "1<=n<N；合法非空闭区间；true表示赋值、false表示加；所有中间量在ll内；允许赋值0。",
+  "complexity": "建树O(n)，修改/查询O(log n)，空间O(n)。",
+  "pitfalls": [
+    "不能用set!=0判断有无赋值，set=0也是有效操作。",
+    "set(v)后add(d)得到v+d；add(d)后set(v)只剩v。",
+    "下传先set再add，新的set必须清掉旧add。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/set_add.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/set_add.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "has_set独立记录赋值是否存在；标签表示先可选set，再add。",
+  "proof": "新set覆盖全部旧操作，新add接在旧操作后；下传先set后add，等价于原时间顺序。",
+  "origins": [
+    {
+      "path": "template/Segment tree2.cpp",
+      "idea": "直接沿用全局a/tree/lazy、pushup/build/apply/pushdown/modify/query及区间加递归结构；tree仍只存区间和。",
+      "issue": "原版只有加法标记，没有区间赋值；另外apply声明顺序、int区间和、部分查询未下传和build未清标记需要最小修复。",
+      "change": "保留ll区间和；把lazy扩展为Tag{has_set,set,add}。新增赋值覆盖旧标记、加法累加add、pushdown先set后add、build清Tag。tests/round02/test_segment.cpp的test_set_add覆盖set0、set-add、add-set、新set清旧add、多测和随机数组差分。",
+      "interface_change": "modify(...,val,is_set)：true赋值、false增加；query(...)直接返回ll区间和，不返回Node，也没有.mn/.mx字段。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/6/6.9/1_special_segment_tree.cpp",
+      "idea": "只继承apply/pushdown/modify的区间加递归层次，以及build重置lazy的写法。",
+      "issue": "该练习维护mn和pos，不含赋值操作或set/add组合；d[x]与最小位置是原题专用信息。",
+      "change": "PSD11不搬用mn/pos；聚合量取原求和树的ll tree。has_set及set/add按时间顺序组合是本轮新增，赋值0和两种操作先后均由test_set_add验证。",
+      "interface_change": "原题的最小值/位置接口不继承；本版query返回ll和，modify以is_set明确选择覆盖或加法。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [],
+  "dependencies": [],
+  "patch": true,
+  "example_source": "competition/data_structure/examples/set_add.cpp",
+  "sample_input": "4 6\n1 2 3 4\n1 1 4 0\n2 2 3 5\n3 1 4\n2 1 4 2\n1 2 3 0\n3 1 4\n",
+  "sample_output": "10\n4\n"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "S02",
+  "title": "双模字符串哈希 Double Hash",
+  "category": "字符串 String",
+  "priority": "P1",
+  "source": "string/double_hash.hpp",
+  "when": "大量查询子串指纹、子串去重或快速筛选相等候选；可以接受碰撞风险时使用。",
+  "contract": "字符串0-indexed，get(l,r)取半开区间[l,r)，0<=l<=r<=n；长度能放进int。按unsigned char+1编码，固定base与两组模数。比较哈希时也比较长度。",
+  "complexity": "预处理 O(n) 时间、O(n) 空间；子串哈希 O(1)，确定性字符串核验另计。",
+  "pitfalls": ["双模仍有碰撞，固定base还可能被针对构造；随机测试不能证明无碰撞。", "需要确定性匹配可用KMP；重要哈希命中要按原串核验。", "闭区间[l,r]调用时右端改为r+1；不同哈希参数的对象不能互相比。"],
+  "example": "Codeforces 271D Good Substrings：https://codeforces.com/problemset/problem/271/D 。可用坏字符前缀和筛选，再对(长度,双哈希)去重；这仍是有碰撞风险的方案，未在线提交。",
+  "usage": "DoubleHash h(s); auto key=h.get(l,r); 若比较区间先确认长度相等，再比较key；空区间的key为(0,0)。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；1200组随机串的子串哈希与独立重建对照，并核验测试样本的直接字符串比较；覆盖零字节、高位字节、空区间。"
+}

@@ -1,0 +1,236 @@
+{
+  "review": "round02_full_final_visual_qa",
+  "review_date": "2026-10-25",
+  "reviewer": "qa_v2_141_175",
+  "source_pdf": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "pdf_sha256_rechecked_after_review": true,
+  "total_pdf_pages": 276,
+  "scope": {
+    "first_page": 141,
+    "last_page": 175,
+    "pages_reviewed": 35
+  },
+  "method": {
+    "type": "逐页原尺寸视觉检查",
+    "rendering": "既有 130 dpi PNG，_qa/round02_full_final/page-141.png 至 page-175.png",
+    "inspection": "35 页均实际调用 tools.view_image(detail='original') 查看；通过 functions.exec 每批输出不超过 4 张原图；未使用 contact sheet 或文本提取代替视觉验收。",
+    "checks": [
+      "中文/代码裁切",
+      "文字与代码重叠",
+      "页眉页脚及页码",
+      "版心边距与可读性",
+      "表格（本范围未见表格）",
+      "续页及分页"
+    ],
+    "pagination_rule": "独立模型起新页允许留白；仅将孤立 1–3 行函数末尾占据整页标为分页瑕疵。",
+    "limitations": "本报告只评价指定页段的视觉与分页，不重做结构、PAGEREF、source exact 或算法正确性检查。"
+  },
+  "pages": [
+    {
+      "page": 141,
+      "status": "PASS",
+      "notes": "XOR15 独立模型页；中文段落、行末换行、原代码路径与页脚清晰，无裁切或重叠；下部留白符合独立模型起页规则。"
+    },
+    {
+      "page": 142,
+      "status": "PASS",
+      "notes": "XOR16 独立模型页；说明段落和代码入口完整，页眉页脚正常；下部留白符合独立模型起页规则。"
+    },
+    {
+      "page": 143,
+      "status": "PASS",
+      "notes": "主程序骨架说明及完整代码均在版心内，中文注释可读，页码正常；独立页留白可接受。"
+    },
+    {
+      "page": 144,
+      "status": "PASS",
+      "notes": "Basics 说明与多段代码清晰；底部 Compression 代码在完整行后续页，无底端裁切或页脚碰撞。"
+    },
+    {
+      "page": 145,
+      "status": "PASS",
+      "notes": "Basics 续页含约 10 行实际代码及续页标题，非孤立 1–3 行函数末尾；代码、页眉和页脚正常。"
+    },
+    {
+      "page": 146,
+      "status": "PASS",
+      "notes": "Search 说明与全部代码均可读；长段落正常换行，代码末尾及页脚安全间隔充足。"
+    },
+    {
+      "page": 147,
+      "status": "PASS",
+      "notes": "Knapsack 两个实现及说明排版完整，函数参数续行与中文注释清晰，无越界、重叠或分页问题。"
+    },
+    {
+      "page": 148,
+      "status": "PASS",
+      "notes": "LIS 说明、两段函数与末尾示例完整；长引用路径和代码行均未裁切，页脚正常。"
+    },
+    {
+      "page": 149,
+      "status": "PASS",
+      "notes": "Hamilton DP 说明与代码完整，右侧长文本正常换行，缩进层次和页码清晰。"
+    },
+    {
+      "page": 150,
+      "status": "PASS",
+      "notes": "Interval Merge 独立模型页；说明及完整函数清晰，公式样式文本未重叠，页脚正常。"
+    },
+    {
+      "page": 151,
+      "status": "PASS",
+      "notes": "Monotonic 模型文字与两个函数完整，长例子及注释均在版心内，页脚无碰撞。"
+    },
+    {
+      "page": 152,
+      "status": "PASS",
+      "notes": "Sparse Table 长说明与结构体代码完整；函数与构造器续行清晰，页码及边距正常。"
+    },
+    {
+      "page": 153,
+      "status": "PASS",
+      "notes": "Topological Sort 说明、完整函数及命名空间结尾均清晰，标题和页脚正常。"
+    },
+    {
+      "page": 154,
+      "status": "PASS",
+      "notes": "Unicyclic Graph 长说明与代码清晰、无裁切或重叠；页底停在 r.ok = true;，其后仅 3 行被拆到第155页，分页瑕疵记在第155页。"
+    },
+    {
+      "page": 155,
+      "status": "FAIL",
+      "notes": "分页瑕疵：G05 续页标题下仅剩 3 行函数/命名空间末尾：return r;、}、} // namespace cp，其余整页留白。属于孤立 1–3 行函数末尾整页，不是独立模型起页留白。文字及页脚本身无裁切。"
+    },
+    {
+      "page": 156,
+      "status": "PASS",
+      "notes": "Kruskal 说明与结构体、函数、命名空间结尾完整；长文本正常换行，页码与边距正常。"
+    },
+    {
+      "page": 157,
+      "status": "PASS",
+      "notes": "Prim MST 说明与代码完整，中文注释、函数签名和命名空间结尾清晰，页脚正常。"
+    },
+    {
+      "page": 158,
+      "status": "PASS",
+      "notes": "Euler Subtree 说明与较长结构体代码完整且不触及页脚；所有中文与代码行在版心内，无裁切或重叠。"
+    },
+    {
+      "page": 159,
+      "status": "PASS",
+      "notes": "Iterative Kosaraju SCC 标题、说明及完整实现清晰，代码缩进可辨，边距和页码正常。"
+    },
+    {
+      "page": 160,
+      "status": "PASS",
+      "notes": "Iterative Bridges 说明与代码完整，右端长文本可见，函数末尾与页脚间距正常。"
+    },
+    {
+      "page": 161,
+      "status": "PASS",
+      "notes": "Integer and Bits 多个短函数及中文注释清晰完整，公式样式文本无重叠，末尾示例与页脚正常。"
+    },
+    {
+      "page": 162,
+      "status": "PASS",
+      "notes": "Modular Power 说明与完整函数排版清楚，长代码行未越界，末尾中文注释及页码正常。"
+    },
+    {
+      "page": 163,
+      "status": "PASS",
+      "notes": "Matrix Power 说明与依赖代码较密但清晰；页底在完整代码行后续页，无底部裁切或页脚碰撞。"
+    },
+    {
+      "page": 164,
+      "status": "PASS",
+      "notes": "Matrix Power 续页含前一函数结尾、完整 matrix_pow 函数及示例，不是孤立 1–3 行末尾页；标题、代码与页脚正常。"
+    },
+    {
+      "page": 165,
+      "status": "PASS",
+      "notes": "Product Recurrence 说明及依赖实现完整可读；代码在完整行后续页，无左右裁切、底部重叠。"
+    },
+    {
+      "page": 166,
+      "status": "PASS",
+      "notes": "Product Recurrence 续页保留矩阵依赖结尾及完整乘积递推函数，注释和矩阵初始化清晰，页脚正常。"
+    },
+    {
+      "page": 167,
+      "status": "PASS",
+      "notes": "Prime Combinations 说明、依赖代码与结构体主体清晰；底端完整代码行可读，与页脚无碰撞，后续内容见第168页。"
+    },
+    {
+      "page": 168,
+      "status": "PASS",
+      "notes": "Prime Combinations 续页有 4 行正文（结构体闭合及 3 行示例/说明注释），留白较多；按本轮仅标孤立 1–3 行函数末尾整页的判据不计为缺陷。标题、正文和页码清晰。"
+    },
+    {
+      "page": 169,
+      "status": "PASS",
+      "notes": "KMP 与 Z 函数说明及三个实现完整；长文本正常换行，中文注释、末尾示例和页码均清晰。"
+    },
+    {
+      "page": 170,
+      "status": "PASS",
+      "notes": "Double Hash 说明、结构体与示例完整，代码行和注释未越界，页脚正常。"
+    },
+    {
+      "page": 171,
+      "status": "PASS",
+      "notes": "String Basics 多段函数与末尾输入说明完整清晰；中英文混排及代码缩进正常，无裁切或重叠。"
+    },
+    {
+      "page": 172,
+      "status": "PASS",
+      "notes": "BM01 说明和多段函数清晰；页底停在 binary_interval_flips 的 return ans;，行文字未裁切、未碰页脚，后续分页单独检查第173页。"
+    },
+    {
+      "page": 173,
+      "status": "PASS",
+      "notes": "BM01 续页含上一函数闭合及完整 adjacent_moves 函数，非孤立末尾页；标题、注释、代码与页码清晰。"
+    },
+    {
+      "page": 174,
+      "status": "PASS",
+      "notes": "BM02 说明、压缩构造函数及后一函数开头清晰；长代码和中文段落完整，无裁切、重叠或页脚碰撞。"
+    },
+    {
+      "page": 175,
+      "status": "PASS",
+      "notes": "BM02 续页含约 13 行 DP 主体与返回/闭合，不属于孤立 1–3 行尾页；代码缩进、标题和页脚正常。"
+    }
+  ],
+  "findings": [
+    {
+      "page": 155,
+      "related_page": 154,
+      "severity": "minor",
+      "category": "pagination",
+      "status": "FAIL",
+      "title": "G05 末尾 3 行孤立为整页",
+      "evidence": "第154页止于 r.ok = true;，第155页续页标题下仅为 return r;、}、} // namespace cp 三行，其余整页留白。",
+      "suggested_resolution": "调整分页，在不修改算法代码内容的前提下避免这 3 行单独成页；重新渲染对应页面后复核。",
+      "image": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final/page-155.png"
+    }
+  ],
+  "accepted_observations": [
+    {
+      "page": 168,
+      "note": "续页仅有 4 行正文（结构体闭合及 3 行注释）；按本轮限定判据不归入孤立 1–3 行函数末尾分页瑕疵。"
+    }
+  ],
+  "conclusion": {
+    "status": "FAIL",
+    "passed_pages": 34,
+    "failed_pages": [
+      155
+    ],
+    "summary": "已完整检查第141–175页原尺寸图像。发现第155页一处 3 行函数末尾孤页分页瑕疵；其余页未见中文/代码裁切、重叠、页脚碰撞或破损表格。",
+    "source_modified": false,
+    "commit_or_push_performed": false
+  }
+}
+

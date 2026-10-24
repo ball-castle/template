@@ -1,0 +1,15 @@
+{
+  "id": "CO02",
+  "title": "前缀、差分、离散化 Basics",
+  "category": "核心基础",
+  "priority": "P0",
+  "source": "core/basics.hpp",
+  "when": "静态区间和用前缀；离线区间加用差分；值域太大先离散化。",
+  "contract": "a[1..n]，{}或{0}为空；非空查询须1<=l<=r<=n，l>r为0或不修改。Difference初值全0；所有ll中间值须不溢出。rank只查已存在值。",
+  "complexity": "前缀建表O(n)、查询O(1)；差分修改O(1)、还原O(n)；离散化O(n log n)、rank O(log n)；空间O(n)。",
+  "pitfalls": ["前缀差是pre[r]-pre[l-1]。", "离散化保顺序，不保原距离；values[rank]还原原值。", "__int128最小值不能直接取负；输出前必须转字符串。"],
+  "example": "a={0,4,-2,4}：PrefixSum(a).sum(2,3)=2；Compression(a).rank(4)=2。实题：洛谷P8218求区间和（静态闭区间求和）：https://www.luogu.com.cn/problem/P8218 。",
+  "usage": "PrefixSum p(a); p.sum(l,r); Difference d(n); d.add(l,r,x); auto b=d.values(); Compression c(a); c.rank(a[i]); cout<<to_string_i128(x);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：确定边界、固定种子随机对拍、n=200000全部通过。"
+}

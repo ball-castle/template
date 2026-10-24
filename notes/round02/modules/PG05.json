@@ -1,0 +1,36 @@
+{
+  "id": "PG05",
+  "title": "全局数组Dijkstra",
+  "category": "图与树 Graph and Tree",
+  "priority": "P1",
+  "source": "competition/graph/dijkstra.hpp",
+  "when": "稀疏图非负权单源/多源最短路，需要dist/fa与路径。",
+  "contract": "0<=n<200010，点1..n；0<=w<INF=LLONG_MAX/4；距离>=INF视为不可达。dijkstra返回false表示非法端点/源点/边权，false后结果作废；合法空源集合全INF。",
+  "complexity": "堆优化O((n+m)log(n+m))时间，O(n+m)空间。",
+  "idea": "ROUND01堆松弛不变，把Result成员改为熟悉的g/dist/fa全局数组。",
+  "proof": "最小距离候选出堆时，非负边不能通过尚未出堆点改出更短路径；过期距离快照跳过。",
+  "pitfalls": [
+    "负边即使不在源点可达区也拒绝。",
+    "INF不是任意大的真实距离；总路径长度须小于INF。",
+    "等长不改父亲，避免零环导致回溯成环。"
+  ],
+  "example": "1->2权3，1->3权1，3->2权1：dist[2]=2，路径1,3,2。",
+  "usage": "init(3);\ng[1]={{2,3},{3,1}};\ng[3]={{2,1}};\nbool ok=dijkstra(1);\nauto p=path(2);",
+  "origins": [
+    {
+      "path": "template/graph/dijkstra.hpp",
+      "idea": "最小堆、过期项判定、INF减法保护。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "保留算法和拒绝规则，只换全局数组独立函数接口。",
+      "interface_change": "cp::DijkstraResult改为全局dist/fa与bool dijkstra。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。",
+  "replaces": [
+    "G06"
+  ]
+}

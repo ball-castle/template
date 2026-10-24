@@ -1,0 +1,33 @@
+{
+  "id": "PM06",
+  "title": "整数点积、叉积与线段相交",
+  "category": "数学与整数几何",
+  "priority": "P0",
+  "source": "competition/math/integer_geometry.hpp",
+  "when": "整数坐标判转向、共线、点在线段上、闭线段相交；需要精确判定。",
+  "contract": "|每个坐标|<=1e18；Point存ll，先提升到__int128再减。dot/cross以a为共同起点；orientation返回-1/0/1。segments_intersect把端点接触、共线重叠与退化点段都算相交。",
+  "complexity": "全部O(1)时间/空间。",
+  "idea": "叉积符号判两侧；一般相交要求双方严格跨立，零叉积转为包围盒内的在线段判定。",
+  "proof": "两段各自跨过另一条所在直线时交点落在双方区间；共线时退化为一维区间重叠。差分<=2e18，两个乘积绝对值和<=8e36，小于有符号128位上界。",
+  "pitfalls": [
+    "任意完整ll坐标不在契约内；其差的叉积可能超过128位。",
+    "只比较orientation乘积<=0会把共线但分离的段误判相交。",
+    "整型坐标用精确符号；浮点三角与epsilon规则另见对应浮点模块。"
+  ],
+  "example": "(0,0)-(2,2)与(0,2)-(2,0)相交；(0,0)-(1,0)与(2,0)-(3,0)不相交；点段相交按同样规则。",
+  "usage": "Point a{0,0},b{2,2},c{0,2},d{2,0};\nbool ok=segments_intersect(a,b,c,d);\nint turn=orientation(a,b,c);",
+  "origins": [
+    {
+      "path": "template/math/integer_bits.hpp",
+      "idea": "已有宽整数/溢出边界意识。",
+      "issue": "原32模块没有通用整数几何源码；这是明确补缺，不伪称原题直接抽取。",
+      "change": "新增Point和独立点积/叉积/相交函数。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_math_geometry.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_math_geometry.cpp，固定种子20261024；负数整除不等式、Bezout等式、逆元枚举、筛与约数枚举、同余轨道、9^4线段枚举和1e18坐标边界。"
+}

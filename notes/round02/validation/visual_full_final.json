@@ -1,0 +1,3154 @@
+{
+  "status": "PASS",
+  "pdf_sha256": "ce53dad35297bcd527caf10b6e367aa9730100ea7d1d6b861ceab628e432ba45",
+  "page_count": 280,
+  "pages": [
+    {
+      "page": 1,
+      "status": "PASS",
+      "notes": "完整页面实看：封面、双列选择表及页眉完整，右下页脚“第 1 页”清楚，无裁切或重叠。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 2,
+      "body_sha256": "bd8a6b955d9cd0ef12fe0df14fcc854abd4a14b84d0c0dc899973dec971b98b3",
+      "image_sha256": "53ed4e0e292693c73d9e26e7b222a8a5a920380441656605cc79d9f6a829bf6d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 2,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 3,
+      "body_sha256": "3ee29d34f78e6646c2a3624b0f410c2728de583e9d8edaf25ecacc8b647986bf",
+      "image_sha256": "155de5ee030252c76f526cc0b96fdf2d7687f60380c6428f4ea4654c13b16294",
+      "status": "PASS",
+      "matched_review": {
+        "page": 3,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 4,
+      "body_sha256": "da51b09e159722e81e209bafa92988886fdcd6a919effe631f7a73c2ce195a93",
+      "image_sha256": "1940b520db769698b395f4f40d984e28ae9c9be0d7184cbd96efa194d2b268ad",
+      "status": "PASS",
+      "matched_review": {
+        "page": 4,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 5,
+      "body_sha256": "1a1758f06c0928e36db788480d055b110ab128a3f7da16fe70a644ce16f077e4",
+      "image_sha256": "6fef88c154b6f1aba8d943feabf4bb0642425b1d2725f321255037d3e5aff194",
+      "status": "PASS",
+      "matched_review": {
+        "page": 5,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 6,
+      "body_sha256": "3e5b8a1d07ad81b164e8d7e338616b361061cb16d0dbde15ac557cc030cb6077",
+      "image_sha256": "54ba7c90fc16f168508692bb95da9b92acd4b5dac43bf07f9b8e2268b244b17d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 6,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 7,
+      "body_sha256": "6bae16e99531546178285bf64d2503dc5fbc3af7734b24ac5c803218c7e50bd0",
+      "image_sha256": "0b97abf5e61d291e9ac00254901ea9202f52356ef93830458756b67609d00eaf",
+      "status": "PASS",
+      "matched_review": {
+        "page": 7,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 8,
+      "body_sha256": "a437bb1da7fb7ce907a1745cefc124e5c09cb447d54f059c8a936275ae1c2516",
+      "image_sha256": "1c81db96ee30ee1e2f1e19d33c98193280efe9a836204852ae4fa8abe50dc480",
+      "status": "PASS",
+      "matched_review": {
+        "page": 8,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 9,
+      "status": "PASS",
+      "notes": "最终索引页所有条目及更新后的页码列对齐、完整，页脚清楚。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 10,
+      "status": "PASS",
+      "notes": "最终索引页长条目及页码列无碰撞、裁切或异常断行，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 11,
+      "status": "PASS",
+      "notes": "最终索引页条目、更新页码列与页脚完整，行距一致。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 12,
+      "status": "PASS",
+      "notes": "最终索引末页条目与新页码列完整，留白及页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 13,
+      "body_sha256": "756ad6514d5eb47e3550dea6c2a3ca9fa818cddc0d057c37547152c10bef49c0",
+      "image_sha256": "7b82e2f914077753f13c7f5f5391438d30b6a60c6a886123fe783b766ac788da",
+      "status": "PASS",
+      "matched_review": {
+        "page": 13,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 14,
+      "body_sha256": "2ca6a8faed4dc3cbd506d8279756706b9dc3f7e6595f2e6ca3dad6ef14a5babc",
+      "image_sha256": "25b6f600827f3844864315e259b20367c11287ea4f21c8db6458e45cf3e3503c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 14,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 15,
+      "body_sha256": "30842293f5d5d99fdc1fd5d25a354b6f7517fe6490117e1905cd523a2edbcc43",
+      "image_sha256": "01cdde6687f199b5977acde341430ef2ab1949340293dbdbb71686e749bc93ae",
+      "status": "PASS",
+      "matched_review": {
+        "page": 15,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 16,
+      "body_sha256": "18f4b12078f2eb52010e192ab9b7b8985939d1f0e67ed4bed05f3b4db10aed2f",
+      "image_sha256": "05de98fb2d005492d3a786a04e97c8f9a2f316fd03d6ab396902f0dc42101499",
+      "status": "PASS",
+      "matched_review": {
+        "page": 16,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 17,
+      "body_sha256": "05ab58ff70e9d1fecb03b52cf377753bc3d33ff95222c43a42ca7f27ece594e2",
+      "image_sha256": "b3bd18513aa6a618358ef41015384e86d74e8542b2fc6e9c433e7026cf9f24ce",
+      "status": "PASS",
+      "matched_review": {
+        "page": 17,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 18,
+      "body_sha256": "cf9072b3b509d14025f7b1d811e25effd3d1b29fc7a936d68540b3d0d101dc5d",
+      "image_sha256": "90951a7801073682688caf68a8e8c6801324080707d059274159b32fe79b1bda",
+      "status": "PASS",
+      "matched_review": {
+        "page": 18,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 19,
+      "body_sha256": "71a009987fb9cb402d217d02d224d74cc2e741797b15d11c29ba915915036294",
+      "image_sha256": "63dd1406b2c92e38b42bdd951eae917af99c4e6ab31872bf82e4c7799dbdd3ec",
+      "status": "PASS",
+      "matched_review": {
+        "page": 19,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 20,
+      "body_sha256": "5cb79c871366dfeda0cec8da401d96ba4ad3504eaf522bb8aff98dc592115a00",
+      "image_sha256": "afa1fa171321f1743619159d022c5f895ae4fce4a7141c165f6bce1241a90321",
+      "status": "PASS",
+      "matched_review": {
+        "page": 20,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 21,
+      "body_sha256": "ea935330e49edad2b67866227e258192309d6079398f2693c6e8b31255c62e4f",
+      "image_sha256": "6a55b35e20eff435f612bb7ccee4233cd9d882bd45605676be9d7957d416bba1",
+      "status": "PASS",
+      "matched_review": {
+        "page": 21,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 22,
+      "body_sha256": "d4a230244e82aefd0fc18a4776238ddf98785a69df7d999e805634da69d8b2e2",
+      "image_sha256": "4952e99e46ea8f055023affc55086a1ac10e4e459bea1f7ea37455b626e74f60",
+      "status": "PASS",
+      "matched_review": {
+        "page": 22,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 23,
+      "body_sha256": "4dbd26863155ab791ff0ec6c505b448f25b77eeefe498874f16b6cb765e5503e",
+      "image_sha256": "5be4589fe5a021688bd01841f3752b66aea7e3cc2aee0de1a2d854a45a9b4d1e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 23,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 24,
+      "body_sha256": "c5c825541458b9a5d777f74f354e58b822a716d1d9ec1cc9ec74f464710bc2d9",
+      "image_sha256": "57d3eb1878bf0bed7c1edc58056d5a957059bf22896670088119dab88b93d0c2",
+      "status": "PASS",
+      "matched_review": {
+        "page": 24,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 25,
+      "body_sha256": "96c2b710d790732d23b4e0b33739c3504881e532c865f586160c42a831ac382d",
+      "image_sha256": "ccb5be113c952a3ef8634eb0f1d1ed8f6eb59732ff8c2aec3bcc7bb3bb621f99",
+      "status": "PASS",
+      "matched_review": {
+        "page": 25,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 26,
+      "body_sha256": "14f445b61f5e83b4676eb5729644590e02abc328965d650d6bbb7ec2d36214bb",
+      "image_sha256": "7762a74300d3f452e38942f60c30e28d9e3c4b1b2c60aed6e26053fa6b49a255",
+      "status": "PASS",
+      "matched_review": {
+        "page": 26,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 27,
+      "status": "PASS",
+      "notes": "DPC15 说明和代码完整，旧版空“原代码:”标签已消失；无裁切、重叠。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 28,
+      "body_sha256": "27180adae7c0d56fc2acfce37a4ef0f28382e0e02c86b9436e0f9d12e8cf97dd",
+      "image_sha256": "45938ee4451cea6e208eaf7b45d5a53752a66f47e619e5d4ec7135f960d6b519",
+      "status": "PASS",
+      "matched_review": {
+        "page": 28,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 29,
+      "body_sha256": "8ebb0bcca0cbbc10bb95d174e853aebf55488e28edd2072f06c4df9ea9f7246b",
+      "image_sha256": "f7e0c147ff82da2d21ba57e3489fd18738e321c2c3878c3bfc3b3910ac480518",
+      "status": "PASS",
+      "matched_review": {
+        "page": 29,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 30,
+      "body_sha256": "f1b510d54b4868fd32ce5b7489a2b98b6118479f2b0f6998a6fb5f796b7fb1dc",
+      "image_sha256": "70c145bf82b74f36c8071f8df4aa428b0491056b86875cab0179bad9fb9639a4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 30,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 31,
+      "body_sha256": "2df8f41d4d98e3674e8dcfecfd6c8a7fe62ef9641dd5e38285206d700bedd275",
+      "image_sha256": "cb47ee71fe2fde4268e7842062636d06b84b21d85741d57f96d1f62f1c07385f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 31,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 32,
+      "body_sha256": "bb972278e73f5e6d136c75b05dbdecff4520dad9d2ecc8b95096bfd846bd0848",
+      "image_sha256": "e8552e474166c28f0c944074e61b650b35f7664f7e195df4687e6f73123d4318",
+      "status": "PASS",
+      "matched_review": {
+        "page": 32,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 33,
+      "body_sha256": "3f870db4a97b0213486ac08847b3c3321221a630defa7a996581fb5c006de3da",
+      "image_sha256": "0d2e6f8dca28a0b9a2c79a6cde269ae3b23a5ef7b7f77a637ae00d9053d23632",
+      "status": "PASS",
+      "matched_review": {
+        "page": 33,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 34,
+      "body_sha256": "7e3020f6dc30d37ba66e8a6226173f2534d06cb244734fc255a59614d08bd73b",
+      "image_sha256": "1e1fb010fd5ff7ff389d0fd9d3d760e4a892d47a464c7f87b6b61a2fb7657c4e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 34,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 35,
+      "body_sha256": "ccb087d4392e0a32ccbb31dc03d80355de1a3f777cf86da21a3488005d895b02",
+      "image_sha256": "cfa789001635aff3192b14800e22cfcc0e05895f7b9d8768b4f7b594c3b89a88",
+      "status": "PASS",
+      "matched_review": {
+        "page": 35,
+        "report": "notes/round02/validation/visual_full_001_035.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 36,
+      "body_sha256": "91e2df2f99e58b3c12d35fd44742f0275e1e57390f5b0666aec93cc1691743e6",
+      "image_sha256": "f9ac90daebbe69a9bb0697afaa9dea79673121c1be356ca017d33c67579d9387",
+      "status": "PASS",
+      "matched_review": {
+        "page": 36,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 37,
+      "body_sha256": "5a9a810c274f83dc6c8eb4891f664cb6e8cd7d26b810835da7228b6600ba9748",
+      "image_sha256": "9276898c6cf833f271e5ab4dc335eaaf4e46bbfa0dc12a9163e11eecde44c6b7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 37,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 38,
+      "body_sha256": "59ba62627bcdefc3432e887ef060535c9f854abf72840c67529fcb95d8df5333",
+      "image_sha256": "63900342aee1866244c720494cf6767a69c9b32f809e245e090b4f65c47db197",
+      "status": "PASS",
+      "matched_review": {
+        "page": 38,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 39,
+      "body_sha256": "654bd9640db40d3d8736a0de7e78a0442028d6b8ab8bc3afbaade62f01b14f87",
+      "image_sha256": "cf29878f3acc0ca6fda00b200733bd4e91f237f41f5ce891a941c62834fa439c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 39,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 40,
+      "body_sha256": "eb2072c31342336d17b4c9c8c61e70779c5af991775e9fb7eb4a8a9255905208",
+      "image_sha256": "6628e4fe63c729be63cadd23ded5c10e8dc31fe375ac222847623cc928681e37",
+      "status": "PASS",
+      "matched_review": {
+        "page": 40,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 41,
+      "body_sha256": "fafe1670395f57ed50ce835e56069ae317592d1da0025051a60b66379efb715d",
+      "image_sha256": "153b02928d56ac6c658a3d74e35510f5fd2a4726e3af177f1d77715bc8d58dac",
+      "status": "PASS",
+      "matched_review": {
+        "page": 41,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 42,
+      "body_sha256": "8ad8169b5beffbc11c80c06075731656f659a04d3bf6471b11960431954ea6ec",
+      "image_sha256": "9a4dd5e7637fbda592d842a531829c3a6cce51a51976940b26ea5df91b7c1b3a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 42,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 43,
+      "body_sha256": "35fdd76f3dbff048571f28a5991f5c29a54a3add9cfebdd5c9e368b3eec8a265",
+      "image_sha256": "d9ed13d8dbf326c7adc072f202d59f849f5f73c7ef2d7d7ab068a661e930eefb",
+      "status": "PASS",
+      "matched_review": {
+        "page": 43,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 44,
+      "body_sha256": "b0ff456fe7628d4da1770d2cd32e4ef6d5d546c96819ae63bb040aa0405bd045",
+      "image_sha256": "513b35bb03d7fa799c442b6e9b98f6c0c7bfa193820cf572b9b0ac5390ea72ee",
+      "status": "PASS",
+      "matched_review": {
+        "page": 44,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 45,
+      "body_sha256": "cfdebbb446f1207c5d9d5047aa75c71227ea232e5efce7a00cbf7fb986010d4c",
+      "image_sha256": "4fa12628fdee966692f4c5195cdbf57be364745f73c981516e7409ff0c31733b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 45,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 46,
+      "body_sha256": "83333e6238a50e32dcadf72710abb7ba3e4d62aba290b4d4d4e4301dbd2e7464",
+      "image_sha256": "56428e69591e05bf6ab9d218516aa01d0a3d07495f742ce87a3b77833d86be8c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 46,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 47,
+      "body_sha256": "dfdcab4d1bc4be5f25cd0caca35fc2bfbce82ae699d3b6385b78465b2e061596",
+      "image_sha256": "05f596b2393af6bb6e64c45da63bc3ef991bbca737f30584d079532e2e492794",
+      "status": "PASS",
+      "matched_review": {
+        "page": 47,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 48,
+      "body_sha256": "211e7b64d84a03170293b25573c0bd748da846c394cd9ae6d23c14a53b91067d",
+      "image_sha256": "5dc606db901b0045f87f33e41701a797989dd338751df46bb3844374eda7e8f3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 48,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 49,
+      "body_sha256": "742d306c40384dcc2f7739457e4edccd5c43db2d70dc7cdbcac7f800854fe245",
+      "image_sha256": "49690c0a118a299a65a544f345f517889e91e5e21590f3662e13b194b35fe58f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 49,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 50,
+      "body_sha256": "2e0d8c6c4f79d2a37bbda2b7185532acf5489ef735106e239ceb7f2c73f6dc9d",
+      "image_sha256": "88e7508fb1ca6fd77e2c7cd570ec1e13af6254f8b15fcf89792eb099b78043c7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 50,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 51,
+      "body_sha256": "dd56cb0a685bd61378d8b55dbe53f5bae13afcb5174e484cdda41f526173840d",
+      "image_sha256": "0ad62e542d60da116c09acc5adc4bce2a9a7a112fda08e7ad381b9b89fb322a9",
+      "status": "PASS",
+      "matched_review": {
+        "page": 51,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 52,
+      "body_sha256": "2a650f338c0a26229b5447d93f90a5effc501ed250249344d3da86b5a0056fe6",
+      "image_sha256": "63c5c23ae1714464bd5a5f658907d7f684196ce28f088b7eb759b61010dc5f70",
+      "status": "PASS",
+      "matched_review": {
+        "page": 52,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 53,
+      "body_sha256": "702ecae8a985e5459fcc9500772096bf677d345d77286a1ff804eb703f29f880",
+      "image_sha256": "4391c3341b647d0888989eca2bd7d10c69523802e6880991888bbc8c3ec4169f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 53,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 54,
+      "body_sha256": "a74d20642f974916cf4992f25ceb27ee21969b59f52cf0c7952ef83a5ded99cf",
+      "image_sha256": "35aaa6aafaf0a98216589896c62f035040823f1790db9064ed00093b90515590",
+      "status": "PASS",
+      "matched_review": {
+        "page": 54,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 55,
+      "body_sha256": "2df9ba091556eac02774b77eeab3fddbd9999f3d380ce0839a9e4d83a11860cf",
+      "image_sha256": "4389154f78d47a5bff8bae4e2ae0260e5d19d2434d0f4940b08392b21aca42ed",
+      "status": "PASS",
+      "matched_review": {
+        "page": 55,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 56,
+      "body_sha256": "605d0781ed672a03a55713877b5601434023caabc187c1f0fa7f5fd8718f481d",
+      "image_sha256": "1dd94fed3c6c4c185261d2638cf1884bedef2ffec575bf71caaf793d0898a0ec",
+      "status": "PASS",
+      "matched_review": {
+        "page": 56,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 57,
+      "body_sha256": "91c10e0e337492a86fb2059c7b63094b2bc2706a28f6cb30542c971d2984885b",
+      "image_sha256": "e0149ce80f85fe0f0d031ecdfab451634ff88369cab1272b2301339940725eb5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 57,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 58,
+      "body_sha256": "b72719c5c78f5ba70588517b81360a6f97b1d08f6f1fa2f0c939840a48f59847",
+      "image_sha256": "7f21f01c6cdf742ec4c4f9d5694cabb343fe24325d3a09f5d62b50ed1ce89f73",
+      "status": "PASS",
+      "matched_review": {
+        "page": 58,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 59,
+      "body_sha256": "81f43d00da02f63d569593247a7043eb5ce2212cb10f017fc0f7846852e75d83",
+      "image_sha256": "26320553f31d39cd77c9dadccdc9d74938fc5e8acb61db5c99c3d98fb334e4b2",
+      "status": "PASS",
+      "matched_review": {
+        "page": 59,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 60,
+      "body_sha256": "e235f6e736e30e128c328d5e5e074cad98963b96fc7bff987a334b752b23be1b",
+      "image_sha256": "33d8956c587751079f883fc295bccb44cdea59e0c9321b681162a2dac7b1a90e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 60,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 61,
+      "body_sha256": "c688e6c506275430628111d30a2bdffacba3b106ecff07f2129a83e94add003c",
+      "image_sha256": "640c6faed2614974933b14e21c89598b0de249c607eb0745e839536eb6c03cdc",
+      "status": "PASS",
+      "matched_review": {
+        "page": 61,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 62,
+      "body_sha256": "b2b62f27ae67df06f9b1bc1bbff2ca2827e343626b3d3471890bb9548812b007",
+      "image_sha256": "4dade038284d07f3de77d9a204e52b248a3f553bdf3decedf6a4fd51b6f0aa29",
+      "status": "PASS",
+      "matched_review": {
+        "page": 62,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 63,
+      "body_sha256": "a5490459a124c6d245e3ab972ea3942bf5db6c585b3205732fcdd7c58290ff88",
+      "image_sha256": "901ed74552b7a41830ca942a26ebec3c8e2b5d8758095c671ef85d5e17b0c3f6",
+      "status": "PASS",
+      "matched_review": {
+        "page": 63,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 64,
+      "body_sha256": "ca8210ff3c409504270b84c5588770d57abfc7374db5b02adaf33222ccd0da07",
+      "image_sha256": "123137561d3baa815174288b68d22d7c9fe8baa1e5ec134041c06354cb7ff37b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 64,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 65,
+      "body_sha256": "a960b6c33b83c72d823dccc260b04d8a9c0831dcf2449518223080c025641b3b",
+      "image_sha256": "93743b2623abd30d579e7444dd00562b02774685157b2f3f4bf6fa7d4ed591ab",
+      "status": "PASS",
+      "matched_review": {
+        "page": 65,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 66,
+      "body_sha256": "f960105f74f1909dc30c078ed4bc43f8b1bf60bf48753bfeed9b6aff312809a2",
+      "image_sha256": "14bd8d92a24bf86fb1c222449f24f704c5ba554c5bd5ed84c442e8e37e1138ef",
+      "status": "PASS",
+      "matched_review": {
+        "page": 66,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 67,
+      "body_sha256": "d8bf0c035f466ae9aeeb9970df7609605b259ecfbd4470a5f7c64a34ed7b2178",
+      "image_sha256": "0f1b03132dfc927f7470c6606eb06b804de9db3ef5de7451327567fc52678567",
+      "status": "PASS",
+      "matched_review": {
+        "page": 67,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 68,
+      "body_sha256": "2ffb6069002e3fb5aa75bb0197f81791adfe41cbc06b4b22fda1e10f09b8d08f",
+      "image_sha256": "9db6a6507630de0d3f0f037ce9aa4f54a10b88b6000d8235f7892592a145d189",
+      "status": "PASS",
+      "matched_review": {
+        "page": 68,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 69,
+      "body_sha256": "99695a3d9ca46d250afec1cd9afea69420e4fe844846bf776cabd9d5d737395a",
+      "image_sha256": "86a05a45c2473baee1d3cdc0a090c773b54a48226f20306e3ae776d6f2b34bda",
+      "status": "PASS",
+      "matched_review": {
+        "page": 69,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 70,
+      "body_sha256": "0db1c7f3fdd9f7e58348fd2259e298ce9d23fc7e36ca2b5f42b8a698ded9cfd2",
+      "image_sha256": "415da8b23e53dbdbe51bb59f48ca6672639b19a895377b634ecd7b1b90051b71",
+      "status": "PASS",
+      "matched_review": {
+        "page": 70,
+        "report": "notes/round02/validation/visual_full_036_070.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 71,
+      "body_sha256": "6941dd768a5dd39c53bf0042fbf0a921336f6c5d4e2aa5b976d14cab71ea5adf",
+      "image_sha256": "98befd3b07c5c340cc3e75a1e21203302edabe3f4bd497f2029e6ea3b317e0af",
+      "status": "PASS",
+      "matched_review": {
+        "page": 71,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 72,
+      "body_sha256": "386165dfbe1f0e251812b06730e3d0fd917c3a0b4cd0df2ff89b167ea9ae1f7d",
+      "image_sha256": "8816f1171e358c17a2655a93cb499d9ab27ffb0b57e767ef5f0cf1ee60e22b02",
+      "status": "PASS",
+      "matched_review": {
+        "page": 72,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 73,
+      "body_sha256": "ea5f07fdc7d6930c89de348637b95cc76780a576d623e1a7a5b72e711194c9f7",
+      "image_sha256": "d3b6838ca6e9985694b932faeee02e97d1aeb95a9e3183c686d85c2875f42cbd",
+      "status": "PASS",
+      "matched_review": {
+        "page": 73,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 74,
+      "body_sha256": "42e54fe849e1af6d2664d937215a56be23cdca8ac9e03e27dec2b24043e4ba14",
+      "image_sha256": "2756aa898f77c77add2b6d722fbd3baa6afe1fdac71efb89baa37c4ead5b5ffd",
+      "status": "PASS",
+      "matched_review": {
+        "page": 74,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 75,
+      "body_sha256": "536083173e822c418ee7ab49d71b8f9c27339bc791af30463980ac2c68eb26a7",
+      "image_sha256": "193f328bcd4b63fa604fa607dd3dc029ac36c4334cf9ee6a83818b4e781a0e76",
+      "status": "PASS",
+      "matched_review": {
+        "page": 75,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 76,
+      "body_sha256": "f1cd8d80a804913e65c82855e1d25bb2773ed92069e25fcb3ef27a93701be78a",
+      "image_sha256": "c411264c046bb4878bda0e7fb296b3938c871084f4dcd9ee8b34e2ec0b5e2060",
+      "status": "PASS",
+      "matched_review": {
+        "page": 76,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 77,
+      "body_sha256": "10274710989391a96d098e426e2abddceef77f4a69134e95893f29b978666dcb",
+      "image_sha256": "279e78a1d7a9cd667f5cbc178189b139c1a419396a83fd7c9cea9ffcf8cfb491",
+      "status": "PASS",
+      "matched_review": {
+        "page": 77,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 78,
+      "body_sha256": "e0d654aa9fc3352f700f69b9f51aef06ab46b2760ef072f84d5af6a41177e233",
+      "image_sha256": "90fb37d60cb47c5f96b6e3245570662ba2442fbfd773aa017496a4189617af7a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 78,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 79,
+      "body_sha256": "6b36a61b422eda991e478d188de70b5a5cb4329ab185f80cfcaac2c8495a64b4",
+      "image_sha256": "3c2ddcdaefe78f0ba3cced14cd093f2beeb9687ca17c1a6537c826c5f3dd29bd",
+      "status": "PASS",
+      "matched_review": {
+        "page": 79,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 80,
+      "body_sha256": "0e9e1e5b32531a26bd0e6d26aafaa9f65bc06d95743fd41e49b4d1dcba47378f",
+      "image_sha256": "7816c45830fc91e79e9b3c9cadbda8cc64ffe73f5c4892489f0650ccb1aefba5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 80,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 81,
+      "body_sha256": "3b68668cdc9f870d94f5afb108385624865a5990ff15c9bfcc10584158f86eb8",
+      "image_sha256": "8c3a8a16227b40c7b7407f5cdae01a463859fb15cb3d2aeae42149eb85208c98",
+      "status": "PASS",
+      "matched_review": {
+        "page": 81,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 82,
+      "body_sha256": "ea313391eb50de390c0d31fa4d6a490471a415e46b2958a98b5e16d43e897813",
+      "image_sha256": "3e8bda634e5e9a23eb8d8d2b611f775ec9848902c317958593d70d90334ceadf",
+      "status": "PASS",
+      "matched_review": {
+        "page": 82,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 83,
+      "body_sha256": "4159c0e432e30a6e4e6f73220b10d2479489c633b5238da82d2609979a5f5037",
+      "image_sha256": "2a2f0f1df7fd0dfcb3079e3274f5e1000fba9063bc578272cd6b79c07b8cdacd",
+      "status": "PASS",
+      "matched_review": {
+        "page": 83,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 84,
+      "body_sha256": "3dabe383f95d04c388ae279e8227930ebe8f7215dcfcf416cd99020afe492148",
+      "image_sha256": "75b965991d85efd18f762bbac9447bd68c047a119749d1bea2b630b04018c84f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 84,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 85,
+      "body_sha256": "966384dffdf0c91f58dc60a2af14aca1c8a7bf13c66fe0f39b1174f8fc960b88",
+      "image_sha256": "e8113672040abfc0880202009aa1e28c071e47ebe9ddc60c8aacddca90d7acf9",
+      "status": "PASS",
+      "matched_review": {
+        "page": 85,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 86,
+      "body_sha256": "157dac9437696d3122c5dbe67ba726141a274372d903128cb1c3c4e8e1186225",
+      "image_sha256": "3a77fcc48e428e612325a565e530f81d4968c69d7b3e134202d872dd62a4163a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 86,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 87,
+      "body_sha256": "646d8f5e880976e9debede8d821e911b5c6682c46b2e7de80db110d2187f077c",
+      "image_sha256": "4dcdd31dc09d4ddc56e07cc080bb9f5a1b641e3632399f8c3ea5be9d706e3c23",
+      "status": "PASS",
+      "matched_review": {
+        "page": 87,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 88,
+      "body_sha256": "4de5a01b83e02c5c55a891d7da9fbc53f7a70f6f41ee72fb691822709ef6220e",
+      "image_sha256": "3f06d7c0d8d70fddadfa7b0ea08f898ad46a748b8bdae03bb3bb3869cc7cce2b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 88,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 89,
+      "body_sha256": "dcf19e4b6d2d544de6b2592689ce3a7d89dde36eca6036d58bae36c1254e1067",
+      "image_sha256": "167513bae0b72351f5c5472eb7ebfa6bbf8f2a5767bea469dc16eb32ef15de85",
+      "status": "PASS",
+      "matched_review": {
+        "page": 89,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 90,
+      "body_sha256": "32cd7b62429916d574916c7c01402233d155c0e02f1459d0f18eed054f674e85",
+      "image_sha256": "8e2447fa27d629e3c20c30bb7fc6495e60972fecf2515504cc5945a647260f0f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 90,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 91,
+      "body_sha256": "2bb781ba747f31effb3f05a743b2db4d83348daae43a8c371c33eda8ed605a9e",
+      "image_sha256": "bc9f461418b48f4eb6be161ad640260ef2bd3575d4a1f53bb43228491377ee97",
+      "status": "PASS",
+      "matched_review": {
+        "page": 91,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 92,
+      "body_sha256": "599374189cfbea9addf90b0245023c2e7d10133ac776a2d9d894a3e5cfdf7d33",
+      "image_sha256": "a8d10d586d385bce60b9809511721a402b852318ed5b0f24b25b04b352fc83e8",
+      "status": "PASS",
+      "matched_review": {
+        "page": 92,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 93,
+      "body_sha256": "42a679b4047d3b0d2ecaa51acac8fd95abdb8f1e79f2054878e786a5a382af06",
+      "image_sha256": "652c3c2a2e4a2a0539e7f51364fa2fe5b5a47e4a84a70b04e8af75cd7326a60e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 93,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 94,
+      "body_sha256": "9d7ea3470c6b23b9a8a6736c7cf90d222ef927928e95fe0b29fa8ca16da507d0",
+      "image_sha256": "1bf138ca68d621d0d1ab0a48f51f101a9c76deef87399c873960e17ae595f9e4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 94,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 95,
+      "body_sha256": "af51638bb6e4b94c7006fd7eb215f07f92a4576d7954e579cbece0b7e8ddcd05",
+      "image_sha256": "456c3050b02786c9f5526f4607b2d0eb80752fea8113c73eb15faad1c788defb",
+      "status": "PASS",
+      "matched_review": {
+        "page": 95,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 96,
+      "body_sha256": "ab0a08aa6d44f49c2c98e283fbea1e300dd45a836a99010c22acb388b445e50a",
+      "image_sha256": "af9abd270ee3fadfe3b3ff9d273446f46a92e91166042f2c1fd323b92e2f1378",
+      "status": "PASS",
+      "matched_review": {
+        "page": 96,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 97,
+      "body_sha256": "02444d969090d7f75c42532d0789d0eb14e52b75df146774a8c2c40db8939aab",
+      "image_sha256": "7312808fd7918567a0ac1092a1a3bf5c4f1908bc1824b3288b195e738082fdfb",
+      "status": "PASS",
+      "matched_review": {
+        "page": 97,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 98,
+      "body_sha256": "66711f10cd16db676061f5745666bacde312074fca0d2802d5b5cfd0f1bd1562",
+      "image_sha256": "d2853e531f9bbd402814f6a6d07698ae00459ff1be2bed966521bd1a73f4346e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 98,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 99,
+      "body_sha256": "b796f9bac4426b5578afc26f3fad0e8d892b7b08a88d006f7c207e94a30e0647",
+      "image_sha256": "2857fd6c42d674d834e077410894bd124e6121419acb356e3a25c954f4b33a77",
+      "status": "PASS",
+      "matched_review": {
+        "page": 99,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 100,
+      "body_sha256": "7e499fd459591d02ce47cb12eae85df3c583f0d4880b9f1fa84522ad6ca98a0b",
+      "image_sha256": "59c8246ba7f4f5febeea99ef6b457db00f9a2aa5c4590800c600adb6d18a8ebc",
+      "status": "PASS",
+      "matched_review": {
+        "page": 100,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 101,
+      "body_sha256": "701f5514921d634a58a9023f546b72057225004b08e96d3f8ccbf7399b9a4ae1",
+      "image_sha256": "4046ff1a6481fb9ed0642d3299ba7d422913f39c3afdb8316bc33d12278ad301",
+      "status": "PASS",
+      "matched_review": {
+        "page": 101,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 102,
+      "body_sha256": "f00a8a0ff4c52ef8b94b4bd0c4c5dbde2dbc5a9e7cb92906429e297b847f3606",
+      "image_sha256": "7dabb4f87b03675bb5bc865c489bc3a6091b8fe1a35b4d152d86e47462577ed9",
+      "status": "PASS",
+      "matched_review": {
+        "page": 102,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 103,
+      "body_sha256": "015789e4663e7d9978444d96e3fb56ccd463be27977653910770e800a701aff0",
+      "image_sha256": "cf26b44b424d0e27270c82a0a4e082b44859831f14ccdf747e19de172e4e8a80",
+      "status": "PASS",
+      "matched_review": {
+        "page": 103,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 104,
+      "body_sha256": "565bbdb51677466ce04bc43e350e2cb0af6a55d4d78d5758bc812849cadc12b0",
+      "image_sha256": "4b2264f1a5002f7868457a169c0a65b2a74101b73eb72f6ea6f1363234d40117",
+      "status": "PASS",
+      "matched_review": {
+        "page": 104,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 105,
+      "body_sha256": "d2cd3250f84703d3866e466198b0759333ad39924b547b7b13830daba15168fe",
+      "image_sha256": "4003f3d8d953a58c7461d0aa7c08e432f3a13f2363186b7747b674b4132a7a42",
+      "status": "PASS",
+      "matched_review": {
+        "page": 105,
+        "report": "notes/round02/validation/visual_full_071_105.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 106,
+      "body_sha256": "2e9c005e6d1fb920ecf899ead2158b25f3fbed20dec28341513fbac63fbc5013",
+      "image_sha256": "7b1ff72f3ac162b01ef81031e59d2d5f5c0c7b311ff0d2e961c3ba909b2f65ca",
+      "status": "PASS",
+      "matched_review": {
+        "page": 106,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 107,
+      "body_sha256": "088af30f9ade5c5cf9fcc240c0660b100025c73405a804a3df3267a432cf8da1",
+      "image_sha256": "65dcf8afbb9b5872b6dded3cb12f9312b40e4b0b78770a58cb85ce52f28b6625",
+      "status": "PASS",
+      "matched_review": {
+        "page": 107,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 108,
+      "body_sha256": "18dd4448731cfaea0fc672c03ec80d5b0d5d24931e1c5ffb8bd2bb281f0545b0",
+      "image_sha256": "226774f14a601ee8936e8b3603b65afb614471c6b3658b325b301f5c12426a82",
+      "status": "PASS",
+      "matched_review": {
+        "page": 108,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 109,
+      "body_sha256": "e196e407ae0d1c8eaa09715df915e31c643ff963d043aac450f6d6c2c0e6c53b",
+      "image_sha256": "aa51df92728e1f8d2a994b67f20866cd7363bffc60be54c49899ebfda23de83b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 109,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 110,
+      "body_sha256": "1576066b06f61742c76e86af919bb0d55e71abc9fa157d6720662cd8bdd0bf99",
+      "image_sha256": "8d402f988a635cce5989eb8fb5c5c48e44358e1734927675980dfce3ea33fca4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 110,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 111,
+      "body_sha256": "ebdbd2ec219da0963ae424be50d3d4feb457c72bc45d6a831e42a20f08578888",
+      "image_sha256": "48b69f6f000edfc9e06f99d17eb29590ef7f3eae5973b7ef7dea58d4b0b65681",
+      "status": "PASS",
+      "matched_review": {
+        "page": 111,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 112,
+      "body_sha256": "6c7a4fb85ab7d81419529797c74b6fa2fb7beeb3404617c0d490260be1241f10",
+      "image_sha256": "13475698a542d970cf3e73e2cc9abfb032af08f3c027874f7895f622761e743f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 112,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 113,
+      "body_sha256": "9630172145d35e9cacd99ccb9cafd1333c315b3577f95fdf05152b3f6dab58f2",
+      "image_sha256": "ff42a6526ca880cfe5609e0cb54bf5569739d267ba69fac55c2d4d8cf717c51c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 113,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 114,
+      "body_sha256": "1a5fc92f090509ad5b9252474561c807926e2a2191498247226c36696dbab244",
+      "image_sha256": "b21949b04914c4a7befec4d267090d930fba553f510e83cbb80fd239f068e8f0",
+      "status": "PASS",
+      "matched_review": {
+        "page": 114,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 115,
+      "body_sha256": "bfaaeff7b92a80d90ff94454b15794a30f3708c3f24cecd5023b356324fb4767",
+      "image_sha256": "918b749785e56dcb9fb9fcd1b5a091f702e37e83aeeeb9a5a9fd3617bfd7a3e7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 115,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 116,
+      "body_sha256": "0f6fed1b1b02b22f4daee952fb527d1ff65b3cb643442780c7ceeef0a1f2d00e",
+      "image_sha256": "b020717cfb481c0a5f38663d38e035fab0188b67e993217acd0a642132412ad1",
+      "status": "PASS",
+      "matched_review": {
+        "page": 116,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 117,
+      "body_sha256": "e76148ca75bdab4234c52264e478f97060761305e04ce7bb2da8b6ba735f3848",
+      "image_sha256": "66fbc4d23d7ee6952c8515cda011a17abed90f08212ca58abb659f43237b14d0",
+      "status": "PASS",
+      "matched_review": {
+        "page": 117,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 118,
+      "body_sha256": "b97a411f05d39b695667d5382a540083e2309f4e2feb4fa85c0e4af703205fa3",
+      "image_sha256": "cc679a85cadc8590044170ca9faa0d03260fb80e9e9e69ac25fbbb533b5578f3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 118,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 119,
+      "body_sha256": "8a100bc67e19ed41b7d5163aef10470f2802a037e64731927365fc048b33db60",
+      "image_sha256": "2fc9d1cc10ec73574eca6173a651c7659c79eb98958a6237e46a14328beed3f8",
+      "status": "PASS",
+      "matched_review": {
+        "page": 119,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 120,
+      "body_sha256": "b9d174a46cee5c22a5fbb9047a3ace0c8fae76f5dca95b3be8387c86336c7603",
+      "image_sha256": "16be5c143a9a74d2aa8a2de2b1c39e79a1e66b5541728dffb4c631708b398fc2",
+      "status": "PASS",
+      "matched_review": {
+        "page": 120,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 121,
+      "body_sha256": "3206fae9f96a7ad9b9a3d5b5dc28466785a142f461c6c86a384e4cdd3e3a7007",
+      "image_sha256": "cede1e23916184bffa01237e0cfcf628773c3d41a2e376096b95d1090a176176",
+      "status": "PASS",
+      "matched_review": {
+        "page": 121,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 122,
+      "body_sha256": "3ee2940df61bd1cff118e82458ff36da324cafacbe263f2b5afa38ee0b1d1590",
+      "image_sha256": "6900058f9ba45aea425e446e2cdfbe4e5d12d154054e52972f5046ccdf83ef1d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 122,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 123,
+      "body_sha256": "fc98add3a255f463b30d45cc6a6c7e712a6b54056b00ebaad6c07555e8c61292",
+      "image_sha256": "3ebe75eb5dfa912c00c79489b2a20b71725f8c138a9f670ba7e83a4878c25cec",
+      "status": "PASS",
+      "matched_review": {
+        "page": 123,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 124,
+      "body_sha256": "8ef40e6df69005344fd1d749b1d3f1f6749ed1a37392630e009c1c6de8decadb",
+      "image_sha256": "2a08fe0a07983c21b868ef50629ff9dac0a3a238edbc500ade6e703c83b84dfa",
+      "status": "PASS",
+      "matched_review": {
+        "page": 124,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 125,
+      "body_sha256": "ff39251ce51b3918e197029638575859dc97294d315d216d72cb38dbff40cbcf",
+      "image_sha256": "284f1585eeb46e317a5b26bf0543f608a8f89c9df6d6657dc1af5e6c53a8eb1b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 125,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 126,
+      "body_sha256": "51ebcd82bf729d2453c075214022cf215f22f8b8213a8f208167a9fa885f3c5a",
+      "image_sha256": "c752b9026353f195c76b675aa0f2dbc3e120810705ecaf85b615482888de6f85",
+      "status": "PASS",
+      "matched_review": {
+        "page": 126,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 127,
+      "body_sha256": "3e7f715d154f443d8111fddd5194ab8a8b04337a21832fbeccde002b244094c2",
+      "image_sha256": "feaa12b37b1551d0297f59d6ae5fde91a509b76c560a7061159a48d8ca0750e5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 127,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 128,
+      "body_sha256": "0c30e9876b3ef55925790e0abc263458050c9c899840d585aae2fa50d91c71a1",
+      "image_sha256": "703da31ec6e2f235e46b8894d93e6313547c083b9b55d726e1c8d5b61a4217c4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 128,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 129,
+      "body_sha256": "8194c7c89b9c6ab2b458b74674a6f53803b3f704690623a9e762d80969ae54c5",
+      "image_sha256": "ef27269df986ac506e3e6c9cdda28e307f453b04e03fc60722f9587815d51b23",
+      "status": "PASS",
+      "matched_review": {
+        "page": 129,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 130,
+      "body_sha256": "39d7f8d8db2b49f3e8fede697ad5541ce80672c8296fb27b5d197bade7e00cf0",
+      "image_sha256": "fcb9e34407fdfa8b8a9ceb7daa39818f097717720de5ebf64c475ec7f25bab68",
+      "status": "PASS",
+      "matched_review": {
+        "page": 130,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 131,
+      "body_sha256": "c310b72319e1c3e2894b5b3fb6697fbafac10b5f12dedc1dc3fe4072ba4ffccb",
+      "image_sha256": "af5534922d70c07ac2473fe1f4d34e76aca9a30a6e4c7a6612582252e6c21419",
+      "status": "PASS",
+      "matched_review": {
+        "page": 131,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 132,
+      "body_sha256": "f745bf2ac314f0a455b17dafb613ee6ab0a45a8d19318a1b26134adb17061bf9",
+      "image_sha256": "ae6269094cf5df882b8c4d64af3525559a6d16c4c4ba5500f5498e0a14f3d8ad",
+      "status": "PASS",
+      "matched_review": {
+        "page": 132,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 133,
+      "body_sha256": "89e69e2b7f84c38c093a050ef76ef8f009df2d23d0bfc0c569673c87cc7f0911",
+      "image_sha256": "4572f0515ac976886a8a4476e73cf18d965bb3bc53ac4bd069383b4ba617ecc7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 133,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 134,
+      "body_sha256": "c25c9c94dac70829806528be44602ed5381e2b2d2944f73ec4f1448852af43f1",
+      "image_sha256": "7e83365f31c07425dead4930cb8abe5df4e6652be2c80f01c3b6211f10174911",
+      "status": "PASS",
+      "matched_review": {
+        "page": 134,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 135,
+      "body_sha256": "5d0362727745f48807b88fef877090a0085fc33135c7868b37c546af4b5bd048",
+      "image_sha256": "d1c87fbdd56284f3ed4826133a4def7564859b30a65e6742bd83bbf62830f2e3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 135,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 136,
+      "body_sha256": "be2da65ffe9dcf7bd6f8f7c83efa887176b35f846d42cd773fea41eaa39bb065",
+      "image_sha256": "8aa0d14236d9fb79481cfd0dc15e720720790bb0ed47a862fa591a6f36f1eb59",
+      "status": "PASS",
+      "matched_review": {
+        "page": 136,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 137,
+      "body_sha256": "a74d9a1f531e27b171a87bc7474e6da2b03af7342cf6d9879dea5d03e086a6f7",
+      "image_sha256": "af4f783125da685249e9bdeb0919c7391e04401f788c5185d3bca38d5a0310f5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 137,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 138,
+      "body_sha256": "4d34058d1b34c6c589dbc54cade871b282d8c509d5f97fa87bcde6fb9bb8341e",
+      "image_sha256": "6efd38abb538ba027e1cb50a3842aab19d6b19c7e3020085cf8c2c65400e5e68",
+      "status": "PASS",
+      "matched_review": {
+        "page": 138,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 139,
+      "body_sha256": "d539ce7262f9dc4bb7447741b989947192201c3f0c576a385bd4c0cf2122692e",
+      "image_sha256": "80e0ae26595d9d0601173179306c1ea094f87f2ba06042a98c61790cb1df7dea",
+      "status": "PASS",
+      "matched_review": {
+        "page": 139,
+        "report": "notes/round02/validation/visual_full_106_140.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 140,
+      "status": "PASS",
+      "notes": "完整页面实看：XOR14 标题、公式与来源完整，右下三位数页脚“第 140 页”清晰、未裁切。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 141,
+      "body_sha256": "8ddacd3effe28b92a123f7925d173c255779b613302cddde776e9a5347b64564",
+      "image_sha256": "d8d244dccab59d2b1073ae00913cc70d0f16c5feaa1052651bafb237a439e51b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 141,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 142,
+      "body_sha256": "08bc94d11160cad92e82d552def225e18baf01b91634e1b5566ffae658097627",
+      "image_sha256": "8174fdb811a53bed44ed69a37691c069dcd61a483d63705a3e2c65a7ea5a880a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 142,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 143,
+      "body_sha256": "2d741c0250211df448f14854aafa7f9233083830151aa102529f4cbc327c5c25",
+      "image_sha256": "cf167c23b04a30b0a53d8ecf137438054e5387830502a4f4c4e5b9ea9a0beb66",
+      "status": "PASS",
+      "matched_review": {
+        "page": 143,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 144,
+      "body_sha256": "c65c9bf904beb605f5bf0e1910876c9f3f7b5d59af2e997489d76aa47cc5239a",
+      "image_sha256": "6400d0e489c4c389d66d71e46586a2b1f82b20088a4126e87c1a9e1d64a521f7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 144,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 145,
+      "body_sha256": "5e29b19b431bc9dd8530338f7438afe07ba4635d595978635919346f19e42bf9",
+      "image_sha256": "12dd7dcae3858489ef9fb5607a99bf958ee6aa29dfd0dc4fdd87f55a31bb433c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 145,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 146,
+      "body_sha256": "8b22478bc14072faae8eb72411da173a5e963d2331ea4eff60ac3c54a9aa3f2c",
+      "image_sha256": "15bc29e220b8cef031c4e138ac08f361142b6a89fd52006c0b9904390f2a3d69",
+      "status": "PASS",
+      "matched_review": {
+        "page": 146,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 147,
+      "body_sha256": "9f86b132f125bb90c62b5340211be6ba2b44685a4d0b2301706400fdd84162e0",
+      "image_sha256": "ec0f1a8570db1d6e43a002252cf19c960d72da29f9eafc9043c57b667539ff54",
+      "status": "PASS",
+      "matched_review": {
+        "page": 147,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 148,
+      "body_sha256": "3dfbe0fc9bc1edcd8cfb06d235e37b2f163385451a020aba956e35e600df22f5",
+      "image_sha256": "9a53afece837767f23709864decc9c000a86c2f83d6f8a8595ff84608d95c624",
+      "status": "PASS",
+      "matched_review": {
+        "page": 148,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 149,
+      "body_sha256": "08372d5efc17ba27374026d51de3e457a0f641e1ca6300d7a39d76856b8c8045",
+      "image_sha256": "a82d826b8f9cd6e4cda0cbda82675062bc2d49cd892c23fda5550e1f2bc8fda8",
+      "status": "PASS",
+      "matched_review": {
+        "page": 149,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 150,
+      "body_sha256": "eb4c47c4bafc88bd001fadad508468a015d09e4e268f7a3d5a835535060bd732",
+      "image_sha256": "eb9079771cc39931d82ae0f43b1128d0264d893ad7e39a5b9e9beaeb5b7a25f7",
+      "status": "PASS",
+      "matched_review": {
+        "page": 150,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 151,
+      "body_sha256": "2eb2ce13c3a4b751951036266fc7e1c493d189d9b37425bd0951b46a04c19d9b",
+      "image_sha256": "708446b9c72274d14c8ba7c1a102ebd7a833c77f70222c051ed36ef4070342bf",
+      "status": "PASS",
+      "matched_review": {
+        "page": 151,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 152,
+      "body_sha256": "26cb43900890da55ae50e4d4e26decc78e25921e0468876525a685bb8399373e",
+      "image_sha256": "2835603d65ce95db21426dd4345d95f514755606d7d4d951db38d99898fb869e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 152,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 153,
+      "body_sha256": "e7d1cd7f20efe9c0150c183f3a9152a4495a0aa1605ce3d1d5a9c3411b0c032b",
+      "image_sha256": "e8f9be298c84d14f648b24130f8b76a7df4e6ed4ac8ae34b3d4756882f50a961",
+      "status": "PASS",
+      "matched_review": {
+        "page": 153,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 154,
+      "status": "PASS",
+      "notes": "G05 完整函数及末尾 return、函数闭合、namespace 闭合现均收在同一页，末行与页脚有清楚间距，无裁切或孤立尾页。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 155,
+      "body_sha256": "57e613e5867e87f095a8445dd09a3d6bfdf7fb5ed765cf5031fcb2f19945778b",
+      "image_sha256": "19d4ed08ababed4f8defcbab8e7fdf003767bce19a26228161a41776b9004dc6",
+      "status": "PASS",
+      "matched_review": {
+        "page": 156,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 156,
+      "body_sha256": "d89b09646de74d4b04a83fafa82e36de3f06e5eac039d1ce357f6aa2b3f9c84e",
+      "image_sha256": "3d3b2ff66634193f8af8acc6442f0917bfb75e8ca4c141a50e4d7ddb96ef92ba",
+      "status": "PASS",
+      "matched_review": {
+        "page": 157,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 157,
+      "body_sha256": "d9213f31d57984acba0f05f6f7ae473fe5aaf4d7a207084d34c5eacf2c2f270b",
+      "image_sha256": "20c8d7441bb463306287e566deeeb8727a79c4a7b85829c77623b46d05762ba3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 158,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 158,
+      "body_sha256": "9e0e8c7fe9d9b62111a4a79a0fc2ffa82705c0090105d7362a3fea3aa54308cf",
+      "image_sha256": "bce6c5c7b1db5aa0319c913fc506cf6376e18f5c0db892213876560943ee1314",
+      "status": "PASS",
+      "matched_review": {
+        "page": 159,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 159,
+      "body_sha256": "ea9c2e1dd002bcb046a2a23fe59290101e2a0a0a8a615b41a083809e1ce68b58",
+      "image_sha256": "6f74ef2b544e635264d586a30e5b23dbf56f244c510aa557032cd6f5de374705",
+      "status": "PASS",
+      "matched_review": {
+        "page": 160,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 160,
+      "body_sha256": "722b2371c66d726eb254bd369a9186b64d8a03a05e1d209faf0ce20532625f35",
+      "image_sha256": "6537ceac0a3ec190a7cc9469fe00783de209829895b9f11dcfb943a96819615d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 161,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 161,
+      "body_sha256": "95845f6b5842f0fc2dc226b2980c6af4c99b3c1a44646111608adefda661566c",
+      "image_sha256": "963354ecf7d8f3b40ac5d0e14385e15124c3c5ece5de6416fbbf53e2320b94ee",
+      "status": "PASS",
+      "matched_review": {
+        "page": 162,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 162,
+      "body_sha256": "349d2b03ffd84548f0e3987373ff53a1fd265b672dfa69ad100174be790cee5d",
+      "image_sha256": "1056073f097898b2581a3cf270f918d9605059693f3ff59434f8e129823dd935",
+      "status": "PASS",
+      "matched_review": {
+        "page": 163,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 163,
+      "body_sha256": "41a1b11f4a2cd0284c2cc409cf781e0b70b19981cb1b22ab7f984690e3fb84bc",
+      "image_sha256": "6381e6d023505d2e6e3057238b68b32e2f6ac4b93b836c83129f7e30ef0343ac",
+      "status": "PASS",
+      "matched_review": {
+        "page": 164,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 164,
+      "body_sha256": "ae430c4d09fc9fa0f6a35eaae356f5a0a579e953336364492f5764bf62c2b41b",
+      "image_sha256": "e4ac208878715684276b3b7022e903a9ba1341293ab14c2125a928c5837a0a38",
+      "status": "PASS",
+      "matched_review": {
+        "page": 165,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 165,
+      "body_sha256": "510c6292725162ced3146c4b5ecac88fbdd7b1c2bd64fe03e4d861b46c8f3c84",
+      "image_sha256": "06bcfc4bcdda18fcccd769d965b6a782c27bab740b0d538d681eaa4b943f09e4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 166,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 166,
+      "status": "PASS",
+      "notes": "M05 页面有完整正文和代码，已不为空页；PrimeComb 及末尾三行说明同页完整，正文与页脚保持清楚间距。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 167,
+      "body_sha256": "50d63c58fe090155a26bd3006ea0aa1eefff0cc818539de51ddbb9c90008eb4f",
+      "image_sha256": "eccf043caecd33c10de767f8705ada88e76cee4b1c5dd3dbbbb37e13c6df513f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 169,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 168,
+      "body_sha256": "4ed30cb242f79329acf6189855c326256201b84ac4979ffe7f5515582706914a",
+      "image_sha256": "522419c68013cb4143833f2208d9affb6f72b8148d18017d8a3711cdb6e417af",
+      "status": "PASS",
+      "matched_review": {
+        "page": 170,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 169,
+      "body_sha256": "b9b4ee00ef871934b17f81de7477422b509ac91a77724799636d0c599e1e5a2f",
+      "image_sha256": "78db26b1e962f4183e4774da87c71e941826159b3a1c4101597b7e1db67ce7cc",
+      "status": "PASS",
+      "matched_review": {
+        "page": 171,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 170,
+      "body_sha256": "affdf0e544e93be144e8d9749680481270354b8ef07c7b8457a75db8544b134d",
+      "image_sha256": "b20b7f7e3fcaf39abbb34847307e80f5e9d17cc72c9cab58bec5355a0a311984",
+      "status": "PASS",
+      "matched_review": {
+        "page": 172,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 171,
+      "body_sha256": "e2648baea68f80a22b06f369924f9d3a43f61a15c235458701ac9e528415aa26",
+      "image_sha256": "b3f4ec855049e1736abfec71999f17555e8b62b8c9086bd3acc2ab8316f8622c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 173,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 172,
+      "body_sha256": "e5141a8ec7d9ea6fd7daf8e104c987d88aecece23217b9dd82390e01b1899147",
+      "image_sha256": "3c1bbf7f738810419a504d8c9274f1f52acb2ae33cff1079a7195f3954375616",
+      "status": "PASS",
+      "matched_review": {
+        "page": 174,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 173,
+      "body_sha256": "d5e0529b3553c3e19e1bbad46311826b195ae408358d8ab2820a28c435a79c8a",
+      "image_sha256": "5336b7693eee58b5897d1026e124a2766efec7f5192c88eb3cace4f46315dfc4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 175,
+        "report": "notes/round02/validation/visual_full_141_175.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 174,
+      "body_sha256": "380c9afc9e6899bb5d595aa0e1ca4bc151822da709b05d327b9d2e10509afe76",
+      "image_sha256": "69b0be3df5a21c5e6ad31dabbdf9f206cfba035a4fe7e53c97483ae899353eb1",
+      "status": "PASS",
+      "matched_review": {
+        "page": 176,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 175,
+      "body_sha256": "5b85200238db778f3618226feda86ca5e1c1ea1892fb4b414ab53f31a0d0dbdd",
+      "image_sha256": "068c1a50ec1e88e7dbb36a5353ca10d922e94dd2e82ab3c8b244082221959481",
+      "status": "PASS",
+      "matched_review": {
+        "page": 177,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 176,
+      "body_sha256": "83c01b7a3615ab06ce248f7259498d3ae7c2c6d880339e8d5b4f12469b8a74ba",
+      "image_sha256": "452e9ae4c16407ed267ee34cba206ea97e72fa4585faa319c85527cdaf16106d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 178,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 177,
+      "body_sha256": "4545506a2a969850949efd7359ae3fd6a3af7777eafaee783b5d3c0a07f1fd15",
+      "image_sha256": "e9338fef30dee173d943cadf4d4d617d43fa63b29a9bdfac84086831ef30e0c6",
+      "status": "PASS",
+      "matched_review": {
+        "page": 179,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 178,
+      "body_sha256": "2dee8e55b2fe9f9a92ea9bc7bab25a513ad0dcd3032cfe6d89773c11606da65d",
+      "image_sha256": "c64071f608c8e8f5ccdf54d59cf919f19813547881b7e032cc603e6225673b20",
+      "status": "PASS",
+      "matched_review": {
+        "page": 180,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 179,
+      "body_sha256": "d8e78f38f7e7f43c9d7e906409e53a0390643755aca979a3b73e316621288e95",
+      "image_sha256": "d9073d74b4d7bc8d9d8194704ca3c981f7258612a3880cd08b5f8c4880b3550d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 181,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 180,
+      "body_sha256": "c521a990c1e953ac7ffb54e8f5b462118827ca7ec84fd73b05cab6ed7cb9803c",
+      "image_sha256": "d90a84363b3dffbabd5ca594b9366086b641b2da10ed443a05dbfb01cc67d016",
+      "status": "PASS",
+      "matched_review": {
+        "page": 182,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 181,
+      "body_sha256": "bed3b77b983bcbe6667ae6be81f221f459da71c9a5beba3819e6460eaba577fa",
+      "image_sha256": "b7d7f4cad3a354bc9a3bb194a3abf22f18da1be6b5e552b4e170b24bd8e9538e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 183,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 182,
+      "body_sha256": "e361a74482a156c1e7ce7a5f81aeda7737c34e6fe834f8400b36a3e2ec70b017",
+      "image_sha256": "19362422321247b886e207c886124683e79688a9e4c6dad482f5b0b40214ce05",
+      "status": "PASS",
+      "matched_review": {
+        "page": 184,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 183,
+      "body_sha256": "783f79667687f824e973781929a01cecdaa6cd69b6d4652fc6d744749cbcf6d6",
+      "image_sha256": "cca98e37b3ca8925d634743f023d2cfe93822d92617c615e3873ac59588ac310",
+      "status": "PASS",
+      "matched_review": {
+        "page": 185,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 184,
+      "status": "PASS",
+      "notes": "GAME01 正文及各函数完整同页，末尾 misere_nim_win 闭合正常，无孤立尾行、裁切或页脚碰撞。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 185,
+      "body_sha256": "98f352d633f9a84e085c09c8d422d859ef959b76b636fda94f8ab08ac5e40efa",
+      "image_sha256": "10ab15eef5c9f97b77771cb72ab7067bf1d63c79f09f219af1bdccead56244ce",
+      "status": "PASS",
+      "matched_review": {
+        "page": 188,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 186,
+      "body_sha256": "ab411eb5c24fc40f615b6029350d9757538c68a4ecb7ab40ebb41b66a9916288",
+      "image_sha256": "f2ddb59ebfd677f11fb7fae259f5c0d34e8cb0e6a62a7572915becdfca19dd7a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 189,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 187,
+      "status": "PASS",
+      "notes": "IO03 续页代码、长整数输入输出示例与完整 main 全部可见；样例长数换行但无字符裁切，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 188,
+      "body_sha256": "a2a5821464d0099a7d9e60e4ecd497af035282f1dba2c4ae388079b6e47451d8",
+      "image_sha256": "98b1df53dc463435c5f279630994c9681a081b9e2f1ae5250d37edbc6454da0b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 191,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 189,
+      "body_sha256": "8222c72bd0eadf60dad73728e305ac6ca89605404adc41d65c3fdb0424dae297",
+      "image_sha256": "a99802cc3eee4a91ca380a433ac26cc711f4907ae68d7a6db4e49ad8321ac99c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 192,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 190,
+      "body_sha256": "935eb848291017e086736892d8114870e345dd797b6f4cfdd6c1ab3020d102fe",
+      "image_sha256": "e0ba2545f705fd2e4ca80b10f6dd1b64a1d9a5269adc8f843e9c265982df8516",
+      "status": "PASS",
+      "matched_review": {
+        "page": 193,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 191,
+      "body_sha256": "52cd988acc3bbaf4114ec8a83813d99e05953b159ce1113162627869189203a8",
+      "image_sha256": "7bdd75f2127afa7463997181f823429ad4801005d82caef17391131c66b763b8",
+      "status": "PASS",
+      "matched_review": {
+        "page": 194,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 192,
+      "body_sha256": "bd01d6b33869abf0de9b471b26cb98e4f1611e8a52d360d89ba006a2e0340cb7",
+      "image_sha256": "66f9e285e45e26a163e84113acd13d5fbb355ce36e5902924869c48be91c02d5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 195,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 193,
+      "body_sha256": "7eaf8488ad7d65fe87d93d269ced84e604a06e361c0f0b18367976f2f85bfec4",
+      "image_sha256": "86dabb81de11511fae5bcd40395eadb414d24a405203335d7450b3c11845aad3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 196,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 194,
+      "body_sha256": "40cc6b580880c0cf78b62ca9a22c56f05bd14d83461f1c373a19623a8b9f700a",
+      "image_sha256": "29637d6b0ba0f9392e8954f9241d3b918ca8a444cc0cffa245e0b6fa75a5fe93",
+      "status": "PASS",
+      "matched_review": {
+        "page": 197,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 195,
+      "body_sha256": "70cc3a8b19c92f7f3a6e44fee63f700bee39d3c2afe75984893dc912331e1eee",
+      "image_sha256": "b7abfd20c3d0b12e8b137d29eeff654f6056e54af5594c53d93d3623cf69c68b",
+      "status": "PASS",
+      "matched_review": {
+        "page": 198,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 196,
+      "body_sha256": "3a43ddbf36003135e5f743166baeb529e3e0a76c7c1f58dfeac3db0d9291417a",
+      "image_sha256": "a9d0efe8c26064e8ec3a7bcae350134fe100c50be24f107df0ef0aa8726a1b7e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 199,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 197,
+      "body_sha256": "fb25eaeb3ae645b727406d04e3242600a7121c87b6e6adfba2c4ca915840a1b7",
+      "image_sha256": "10a4e5656f4d11e2c7259cd9e69bdec4fff4928c8cb7282e45e8e3c21c63aad4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 200,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 198,
+      "body_sha256": "0c34979a684bd00aad41056f0509a032fb218fe15cd3380feea309f003df9d1f",
+      "image_sha256": "39ed63a908d8d8595ed607832eb908cff078f2d70fc4e08d7079d3be48a80248",
+      "status": "PASS",
+      "matched_review": {
+        "page": 201,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 199,
+      "body_sha256": "149da98f879a6f532d3e855ae1fbcf0adabf0fa87d5b1ab7dbd70cc4945f122c",
+      "image_sha256": "f23a524870b3f1519c55cffa9a8be9b74c8f566b399ae90eca9c72ec26d588fd",
+      "status": "PASS",
+      "matched_review": {
+        "page": 202,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 200,
+      "body_sha256": "1872f5d0835a99412db12dcf9468418bc37e64eab3f98856b0d050cae4c6c541",
+      "image_sha256": "b3f0738ae70edec9961201146a9a97e3074ce6df72ac53e5bbde687b92aaf2c4",
+      "status": "PASS",
+      "matched_review": {
+        "page": 203,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 201,
+      "body_sha256": "096666e42c8466377f3f5975b06984c1cb04a83880e3cb03c9eb66993863149a",
+      "image_sha256": "208a5f668bd2f3ed7e9aaf24c368782e4134665c2fb66b81039dbdd696616244",
+      "status": "PASS",
+      "matched_review": {
+        "page": 204,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 202,
+      "body_sha256": "ed2828a8e787a136f25bebbfde0d8756d62113d41d1d3b510957ab4589680e44",
+      "image_sha256": "a6e1d2abff6185f44a329e46dc53ea9251097406b5a6273a0bc1e9e36fddd53a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 205,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 203,
+      "body_sha256": "ac1b82d09d81f1ff7fa2cd4183dd891796ba7555f55a54feba0766cfa2f75718",
+      "image_sha256": "440a431e045a40aa43dd165228099af67db0372e18b3e20c334e1ad34d58a1d0",
+      "status": "PASS",
+      "matched_review": {
+        "page": 206,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 204,
+      "body_sha256": "2ff6ff33d75c8cd6912e394c907d4270236a172e9af80f30a3ffba70c9a6c1f7",
+      "image_sha256": "dac3038724de348a2b51637b6f0a5b7da878f2f9cdbe1a015991258429e7cd57",
+      "status": "PASS",
+      "matched_review": {
+        "page": 207,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 205,
+      "body_sha256": "74d4695834ce3be16ff1de4a646b099928c0bdde4c430b064e8290d5ebc84d26",
+      "image_sha256": "cab61823fac503933f9e4be7b63a43c7dbd1e6c73f5e5d8b773aa9fe65199b59",
+      "status": "PASS",
+      "matched_review": {
+        "page": 208,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 206,
+      "body_sha256": "3492552ab13c483960c68e733bb20980922a27de805dbd4531af7d5fa0747149",
+      "image_sha256": "aba8ac93c02a881d2c2372e69544b32d4b3a1eb554ae371861838ed9a841fd17",
+      "status": "PASS",
+      "matched_review": {
+        "page": 209,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 207,
+      "body_sha256": "91e16ac37de8094e185a8df5a5b456bd0f56ae754c2febe0ea22bdea7e3e13d3",
+      "image_sha256": "87073e875c8389b6797a45a14aef6bb950e6a3bc5c01a849f3586c25b2d9fa7e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 210,
+        "report": "notes/round02/validation/visual_full_176_210.json",
+        "prior_pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 208,
+      "body_sha256": "e628d3bb969fce2b5626e541166db08caa54ef3d4ec2927ac421a60a5115221a",
+      "image_sha256": "2285df4a4e5278b042e9d265e17cc0b38043c77ab2af18ab55abb157e4f3ab24",
+      "status": "PASS",
+      "matched_review": {
+        "page": 211,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 209,
+      "body_sha256": "7f51db6333d1bd0e7adb16f5ed615a6c1913d32ab43391fba28c33c977d98c50",
+      "image_sha256": "a45a614ddd02d6b2368b56bdeebf2b0d02579c8c3a8be34cd34223a065e35788",
+      "status": "PASS",
+      "matched_review": {
+        "page": 212,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 210,
+      "body_sha256": "72718238f959c06f9abf317750037b065d730f917f504b3b2d4ce45e7f0b67c4",
+      "image_sha256": "051b4025a1292abee03281fd6c71efb6e360f6f712ae2a0b0a5ec2dc44f12409",
+      "status": "PASS",
+      "matched_review": {
+        "page": 213,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 211,
+      "body_sha256": "e7bd3616d477dd58101c40cf555556803a6e93aaf66299a11c87353be88546be",
+      "image_sha256": "39c1082fa1613f65bedbee73d9c16319a69091547f22699fc612463d416b055a",
+      "status": "PASS",
+      "matched_review": {
+        "page": 214,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 212,
+      "body_sha256": "4d273bce9290f76e9ed9c269e5381bc8a330aff55c487c0b547df3041174b3e3",
+      "image_sha256": "b7f834f12f9597a28cc900eb7cd00780c05ed48830054ff6d0ec37181cb25b1e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 215,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 213,
+      "body_sha256": "66f1fb0d571746bfceda8e3efb05762e2393758f66f073878abc16ac558bbdbe",
+      "image_sha256": "59c3b9818cb7b16a6cec6d66f8edff6320c6acd44b9c2e9611d0c3e34c906fac",
+      "status": "PASS",
+      "matched_review": {
+        "page": 216,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 214,
+      "body_sha256": "2d3b56dbb6ca935423e5e931cff5031ee2a318d67185db03fc22b88404110e0d",
+      "image_sha256": "9075a98e94813d94ecb24f14c965f7ee7b3afa288f557231e008ad0f7544f85d",
+      "status": "PASS",
+      "matched_review": {
+        "page": 217,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 215,
+      "body_sha256": "612fa6bb8a937108e5184fbcc47c413f929111615f1fc8c9ca114187e3aca8ee",
+      "image_sha256": "f90c678064c7531b50615f653d67cadca5e3450fd745ead93d575269ba11dc72",
+      "status": "PASS",
+      "matched_review": {
+        "page": 218,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 216,
+      "status": "PASS",
+      "notes": "PG12 说明、调用示例及完整 find_cycle 函数同页，末尾 return false 和闭合括号完整，页脚间距正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 217,
+      "body_sha256": "2b413511a4291dec4cfaaa98ad34d2fb0dcc0d3b2114381e395badde2e7eb35f",
+      "image_sha256": "9d875bd7fd506706d11015f9c6ba916a631927b9a5e164abf839b9b0e1084587",
+      "status": "PASS",
+      "matched_review": {
+        "page": 221,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 218,
+      "body_sha256": "445bba05beec0da698384f745d58a3f190e583291326a3aba134b46853663f92",
+      "image_sha256": "be26d80cb1074ef223f3bfae1fa829f4d88c6323b9b00d95411f9de8538ff182",
+      "status": "PASS",
+      "matched_review": {
+        "page": 222,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 219,
+      "body_sha256": "53a3ba8928477014c93d1a9789cee73d20fbf74e22a1f3501ee4ee829cfdf5c7",
+      "image_sha256": "1bcfc7288fb5ace1fb9da01aec1fad84366c0f115d258512264aed007297b57f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 223,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 220,
+      "body_sha256": "e82402735197cf9fd2ccefb09cdfb20724319a4eeb7907e37996cd40a6b4f90f",
+      "image_sha256": "624d6b7b6868a7a3864dacc36f482409b267e28339090d3677fa0447d2d07568",
+      "status": "PASS",
+      "matched_review": {
+        "page": 224,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 221,
+      "body_sha256": "220f4444fbd7947a518d49625f8ee2a48f9b3162f8858d0fdf9de266f11c9e16",
+      "image_sha256": "ea9e405821f19a2de1db6d11d7fb70dfd4ce0a09b837d6ced1464537f2ffe0bf",
+      "status": "PASS",
+      "matched_review": {
+        "page": 225,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 222,
+      "body_sha256": "6b73a41ee7bcf6e5e1e50fc0e9634f451548eecc5d5780203a57d9f644ff9a8a",
+      "image_sha256": "1b49480c1ddeeb7510cc246d1b850c92f7078199291d5b15f0fd4ded269bf220",
+      "status": "PASS",
+      "matched_review": {
+        "page": 226,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 223,
+      "body_sha256": "0e36bc5389af1e1a9d27c752d982e70e4ea43fbd729f8c496054d23532941c90",
+      "image_sha256": "e424537ef55833ce4853986a6ea1bf910f32d91711c205c651d8e8c45e4f03d3",
+      "status": "PASS",
+      "matched_review": {
+        "page": 227,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 224,
+      "body_sha256": "2ec5e83d9cc97d3d2f89db49c6e8906841774dfe93eec3bbfd1419fcf2e69aea",
+      "image_sha256": "dc57ebf993d093fe8126d00dc74e6ce0b8d40093336ce10aaa5d3c1fe888e467",
+      "status": "PASS",
+      "matched_review": {
+        "page": 228,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 225,
+      "body_sha256": "e988812399375b4405db6c33390de83e1225653aa84b33178605f631cb2f0dd7",
+      "image_sha256": "169f5a21cb7c374470ff9bbd5c5e9fefe0cffc5e898c6f963ff9701dc2bbdaef",
+      "status": "PASS",
+      "matched_review": {
+        "page": 229,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 226,
+      "body_sha256": "6af1cdfe87966a2092ab7758335b6c00cab2e5a48dcd91095832b27c2e83b761",
+      "image_sha256": "aa7fd1721470469a875e7a5b8f8e207469a98fdc7e5dd04f106bf4a7cdb1b320",
+      "status": "PASS",
+      "matched_review": {
+        "page": 230,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 227,
+      "status": "PASS",
+      "notes": "PSD01 说明、Fenwick 全部方法及完整 main 同页，末尾闭合清楚，长路径自然换行且无裁切；页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 228,
+      "body_sha256": "ff3e834bb886f736feed4797f5f883017d353dcbdaf141efe3dbf3fa42b8e2d9",
+      "image_sha256": "9d224a038925128fc277fc607d26d276a72495deb59338c7945bed6a64984766",
+      "status": "PASS",
+      "matched_review": {
+        "page": 233,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 229,
+      "status": "PASS",
+      "notes": "PSD02 续页保留完整 main、输入输出示例和续标题；并非 1–3 行孤立函数末尾，代码及页脚完整。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 230,
+      "body_sha256": "701563590545590193e35476264007bebeac5ea37a6557f4370b4767cf64a505",
+      "image_sha256": "3576f00d111b77c66a8207755e1933bb6ab90ea118d908d677fa35dc923b23c1",
+      "status": "PASS",
+      "matched_review": {
+        "page": 235,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 231,
+      "status": "PASS",
+      "notes": "PSD03 续页：样例输入输出已置于完整 main 前且同页，代码括号完整，无裁切、重叠，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 232,
+      "body_sha256": "2029aff78fa0f200e47bce5512a390598149e862de0410983508f4771d076a91",
+      "image_sha256": "dad29f7a1a1b2114ad34e4621ab742e11be623c3f786a079ef1b4d67bc694acb",
+      "status": "PASS",
+      "matched_review": {
+        "page": 237,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 233,
+      "status": "PASS",
+      "notes": "PSD04 续页：first_ge 函数、样例及完整 main 均完整清晰，段落间距正常，页脚完整。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 234,
+      "status": "PASS",
+      "notes": "PSD05 起始页：query 尾部合并于本页，底部函数闭括号完整且与页脚分离；中文和代码未裁切。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 235,
+      "status": "PASS",
+      "notes": "PSD05 续页：样例输入输出与完整 main 同页，代码完整可读，留白为模型末页正常留白，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 236,
+      "status": "PASS",
+      "notes": "PSD06 起始页：query 短尾块已合并，闭括号完整，底部代码与页脚间有清晰间距，无裁切。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 237,
+      "status": "PASS",
+      "notes": "PSD06 续页：样例输入输出在 main 前，完整 main 与结束括号同页，中文和页脚清晰。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 238,
+      "body_sha256": "51761e256305751c4a84b47774d7ed057f01655ee0da32618abfcc589b18ed8c",
+      "image_sha256": "5f0f8f4ce139530cc74c022da10248e30f4c1399e177f139699dde170077f702",
+      "status": "PASS",
+      "matched_review": {
+        "page": 243,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 239,
+      "status": "PASS",
+      "notes": "PSD07 续页：query 完整，样例与 main 连续排布，无孤立尾页、裁切或重叠，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 240,
+      "body_sha256": "98de00b1717f4ad327f191318a09ebb6f8af49e6cccbb03e8cb08f8076e55296",
+      "image_sha256": "ef4c737605c923d854242a9d6a176c0713a8de0928ede777e9a438e5254c89fc",
+      "status": "PASS",
+      "matched_review": {
+        "page": 245,
+        "report": "notes/round02/validation/visual_full_211_245.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 241,
+      "status": "PASS",
+      "notes": "PSD08 续页：query 正常接续，kth、样例和完整 main 均清晰，代码末尾完整，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 242,
+      "body_sha256": "102ba2b516e8ad0abde1c8deba6bd58c4ead3df0680f4d29d34e13e95edb9759",
+      "image_sha256": "7e7a4a20d48c0496adf2b354f1e4374944e95462c0753917a49a26d9729c74f6",
+      "status": "PASS",
+      "matched_review": {
+        "page": 247,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 243,
+      "status": "PASS",
+      "notes": "PSD09 续页：query 续段、样例与完整 main 连续清晰，长输出语句续行正常，页脚完整。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 244,
+      "body_sha256": "c37b0c21c3e4af89543b59847dd6b1b776ba01b6706ef171e6742316307e8406",
+      "image_sha256": "5eceb61c3a8024c09fdc7577f77e87414b35604064506b69dceccf4248199919",
+      "status": "PASS",
+      "matched_review": {
+        "page": 249,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 245,
+      "status": "PASS",
+      "notes": "PSD10 续页：modify 尾段及完整 query 清晰，样例合并于 main 前，无裁切重叠，页脚正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 246,
+      "body_sha256": "754600d249f56089bb7812a8edc8ab87b812aadd21edb720fe75a86708e23b57",
+      "image_sha256": "922b7e147f93d0eb1de54f11c7d1b446a7488e57124baded51670bd4c1619801",
+      "status": "PASS",
+      "matched_review": {
+        "page": 251,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 247,
+      "status": "PASS",
+      "notes": "PSD11 续页：query、样例和完整 main 都在页内，函数收尾清晰，无孤尾分页或页脚碰撞。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 248,
+      "body_sha256": "6d0e0f6e6d06c5b6ca0e11a4316f9e201bdd30837a1839d4d675dfd36f17bc65",
+      "image_sha256": "de1978d1072f51520984ded383093bd9729e0daf0aeed1cc325be12e21391c32",
+      "status": "PASS",
+      "matched_review": {
+        "page": 253,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 249,
+      "body_sha256": "ee53ae25d35feb0923e24ff7caa28b1fe4e1c6bca6b86f79bdf64d6129714c7d",
+      "image_sha256": "5ac152a1d70192fe44d68e3556195b55bda13165e81b5aa13b7d4e17ae51d128",
+      "status": "PASS",
+      "matched_review": {
+        "page": 254,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 250,
+      "body_sha256": "e3a66f05f250e698444a524afba792308cb7a546cb735d93c1903780cb655d34",
+      "image_sha256": "4c9252b184c02e516e2216b9223fa10fa9a2a87e1589b2dcf1f6d90af057a6bb",
+      "status": "PASS",
+      "matched_review": {
+        "page": 255,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 251,
+      "body_sha256": "55e02f411302f5c4df40b3cf4629e60b6f18cc811176f4fea57edb0c63bd2add",
+      "image_sha256": "73161caeee08a3396b8289753aa494998715914589453bdff19aadf4966fe1e0",
+      "status": "PASS",
+      "matched_review": {
+        "page": 256,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 252,
+      "body_sha256": "39ce6b46fbade769f3b7fd521f43c82b1f58d4f4929d3578432c5ad738c4419c",
+      "image_sha256": "eff8ca594245a7260340421e365e5776a56ac1bcdb7595ddeab2b3050091fd02",
+      "status": "PASS",
+      "matched_review": {
+        "page": 257,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 253,
+      "body_sha256": "412eb51e2aab12943bae88e32f507be163161948520b1043fc2fd50215572e01",
+      "image_sha256": "1c37197fc7742273500488a982c4036f9d8b5bda92a1db5239fc4c4edd1b6fd8",
+      "status": "PASS",
+      "matched_review": {
+        "page": 258,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 254,
+      "body_sha256": "cad844473bcda550fd8601f2d71768e515fa14aeeb0c73e556caa38391aebce6",
+      "image_sha256": "a3fd0f228c7bd4ff3dcbde9542dab055dff4a067e1ae060a80f9bddfa79fb56f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 259,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 255,
+      "body_sha256": "ab3acb3e30284202cdcc2411b1e7a30de16c75aecbdaa3ea356a276ee5c3babb",
+      "image_sha256": "f21aec3b1ac9542cf039e4f9be12f1f5f97e6633244db96800dc0cc5379d827f",
+      "status": "PASS",
+      "matched_review": {
+        "page": 260,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 256,
+      "status": "PASS",
+      "notes": "TRS02 单页：Trie 短函数尾块已完整合并于页底；trie_prefix 和 trie_count 的结尾均完整，正文与页脚分离，无裁切重叠。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 257,
+      "body_sha256": "0feadbc2cb03241fce44eb387081cf1629b38fb146a34916d61e32476cd1d303",
+      "image_sha256": "5996819236c4fc1ea566b931f63f2c2522008d9d282445b7741b21138a0fd96c",
+      "status": "PASS",
+      "matched_review": {
+        "page": 263,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 258,
+      "body_sha256": "ac7f34a8901e6756b9fb6a5fa762aac8d373bcf22d9bbbb9588080cc46b6b6a8",
+      "image_sha256": "db7129d2bae25bb9d14888153ff9198e2a43d8204558c931928c95056948fdc5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 264,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 259,
+      "body_sha256": "1232a266318bb44e715f8d97a5b6a6d70fd988a670761b7498239eff271cd6ae",
+      "image_sha256": "9d02297cdb78c72842f18ffe99b0c13c5847af6723a68ddc635d33b259896853",
+      "status": "PASS",
+      "matched_review": {
+        "page": 265,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 260,
+      "body_sha256": "67134a45a14a1c16d238d247eb109f072b50c55c3b80fad1f1aafeda88c23a5f",
+      "image_sha256": "446b26777148ae5e3ddf16778c59c3f551f18573f0073ba3466c18a7aded4e01",
+      "status": "PASS",
+      "matched_review": {
+        "page": 266,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 261,
+      "body_sha256": "47bb86adde96b85f138acd5fa89fdbfd462bec4e68cb03a91aa98141e006575f",
+      "image_sha256": "7cc851e82bb307c8788922d4d2434918d2235ef0609c6c6c8b6f33aa333af55e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 267,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 262,
+      "body_sha256": "df88c92d9ed7d2cdf8ea8a92dc0a2ad38f9fba9011d4604df1dcdc672c66acbc",
+      "image_sha256": "01f3d8c46c1d68d6b71858e5c9799105f3cf8423b0edcca5672feec6cf439dd5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 268,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 263,
+      "body_sha256": "69b8d56e43210a1ee703ef328334bf883b168477337e7cd2ca614fcf17163935",
+      "image_sha256": "18151a0f652fb4b85234a67191937739bd15b7f1c2583e8e372f06733cdb26a9",
+      "status": "PASS",
+      "matched_review": {
+        "page": 269,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 264,
+      "body_sha256": "96e75c277460ceacc11aaf1b0df5fb8796f0e3159c359cc020d7344a4b93298e",
+      "image_sha256": "40b6c462e5b349e6ba3e3a5cf41d5710c6a2e6e986964030defea34ce1aa231e",
+      "status": "PASS",
+      "matched_review": {
+        "page": 270,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 265,
+      "body_sha256": "76daf6747fe7d6b30256885ce34efcf57288d62381d2381d39ad3c125275c80a",
+      "image_sha256": "729dbacf7e231148f5a047665020afa5206c6e5346ec28d2a8927cc27a8ef310",
+      "status": "PASS",
+      "matched_review": {
+        "page": 271,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 266,
+      "body_sha256": "dbbf8606f6427605d9360a1e8432b6d1389e220a51e6f368de6971a024f0cda0",
+      "image_sha256": "258edd7b31bcb858f2599dad2e10e340cb3a881ce54cd0bb5b620eeff82b4ed5",
+      "status": "PASS",
+      "matched_review": {
+        "page": 272,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 267,
+      "body_sha256": "c6db7a74ff931de6fdc836fd3f84f3707e0ef6e3743f23ae2f13187366d89a23",
+      "image_sha256": "d81744ef8737043e38209f8837b8cc39f7d7072e659219b08677ecfdecb4f106",
+      "status": "PASS",
+      "matched_review": {
+        "page": 273,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 268,
+      "body_sha256": "348b81680beaf53b95fd6b18d2da27b4e660f54fc0ad5b2191cdbf02c911fe5f",
+      "image_sha256": "f3dfbeb32de7178bb71c8c0601348b265c67f034919c25567816f3350e05d112",
+      "status": "PASS",
+      "matched_review": {
+        "page": 274,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 269,
+      "body_sha256": "2e2ce55faa99d27044c155c85f1a9345dc351499c9346be9915dc1bce8170640",
+      "image_sha256": "d38aede7e1f4c4e3bf5b689bce6d2c442415afe2d8d2980d6f115b333af47187",
+      "status": "PASS",
+      "matched_review": {
+        "page": 275,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 270,
+      "body_sha256": "852fd996ba07e1dd12f9c115c2db2591492ae35fbb6d33fc3fc1064bca546d34",
+      "image_sha256": "6d9263d6f0ad5a41f02382648e2b4a501c2e2507ad945292c0f491b47faf6d57",
+      "status": "PASS",
+      "matched_review": {
+        "page": 276,
+        "report": "notes/round02/validation/visual_full_246_276.json",
+        "prior_pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718"
+      },
+      "method": "Actually viewed prior body; current RGB body pixels identical; footer number checked separately"
+    },
+    {
+      "page": 271,
+      "status": "PASS",
+      "notes": "附录总标题与说明完整；array、vector、deque、string四项标题及用途/实际调用/复杂度/易错/已检查例子/代码与来源均在本页成组显示。无跨页碎片、裁切或重叠，页脚271正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 272,
+      "status": "PASS",
+      "notes": "pair、tuple、stack、queue四项完整；stack来源路径虽换为两行，但同页连续，标题与字段未被跨页拆散；页脚272清晰且与正文分离。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 273,
+      "status": "PASS",
+      "notes": "大根堆、小根堆、pair小根堆与自定义cmp、set四项完整；最长小根堆标题在页内，set例子换行未跨页；字段清晰，无裁切重叠，页脚273正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 274,
+      "status": "PASS",
+      "notes": "multiset、map、multimap、unordered_set四项标题与全部字段完整成组；中文、模板调用和复杂度均可读，未见跨页碎片或页脚干扰。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 275,
+      "status": "PASS",
+      "notes": "unordered_map、sort、stable_sort、lower_bound/upper_bound四项完整；长标题与复杂度上标可读，标题字段均同页连续，页脚275正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 276,
+      "status": "PASS",
+      "notes": "binary_search、降序比较器、nth_element、sort+unique+erase四项完整；用途、调用、复杂度、易错、测试例与来源均未跨页拆散，无裁切重叠。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 277,
+      "status": "PASS",
+      "notes": "erase-remove/remove_if、reverse、rotate、next_permutation/prev_permutation四项完整；最后一项长标题不越界，字段在页内成组，页脚277清晰。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 278,
+      "status": "PASS",
+      "notes": "accumulate、partial_sum、min_element/max_element、递归lambda四项完整；数字例子与复杂度清晰，所有标题字段均同页连续，页脚278与正文分离。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 279,
+      "status": "PASS",
+      "notes": "前缀/后缀信息、位操作、mask子集与补集、gcd/lcm四项完整；长调用行和例子均在页内，标题与六类字段无跨页碎片，页脚279正常。",
+      "method": "Current PDF page actually viewed at original resolution"
+    },
+    {
+      "page": 280,
+      "status": "PASS",
+      "notes": "ceil_div/floor_div/负数除模、__int128、迭代器失效与多测清空、复杂度估计与容器选择四项完整；来源路径同页自然换行，文档末页无字段截断，页脚280清晰且不与正文重叠。",
+      "method": "Current PDF page actually viewed at original resolution"
+    }
+  ],
+  "method": "All 276 first-pass pages viewed at original 130dpi. After fixing short tails and adding STL appendix, 246 final page bodies match reviewed RGB pixels exactly; all 34 changed/new bodies plus footer samples 1/140 were viewed again uncropped. Every final footer number and index position checked against PDF.",
+  "structural_evidence": "notes/round02/validation/print_full.json",
+  "remaining_issues": []
+}

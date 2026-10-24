@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "task": "round02_full_final_visual_qa",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718",
+  "review_date": "2026-10-25",
+  "page_range": {
+    "start": 71,
+    "end": 105
+  },
+  "reviewed_page_count": 35,
+  "method": {
+    "type": "逐页原尺寸渲染图视觉检查",
+    "image_directory": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final",
+    "image_pattern": "page-071.png 至 page-105.png",
+    "supplied_render_dpi": 130,
+    "viewer": "tools.view_image",
+    "detail": "original",
+    "max_pages_per_batch": 4,
+    "actual_pages_viewed": [
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "contact_sheet_used": false,
+    "text_extraction_used_for_visual_judgment": false,
+    "checks": [
+      "中文及代码裁切",
+      "重叠、缺字与可读性",
+      "页眉、页脚及页码",
+      "表格版面（本段无表格）",
+      "换行、分页及孤立函数尾行"
+    ],
+    "pagination_policy": "独立模型起新页允许留白；只有孤立 1–3 行函数末尾占整页时标为分页瑕疵。",
+    "scope": "只读视觉 QA；结构、PAGEREF 和 source exact 的已有 PASS 不用于替代逐页看图；未改生成器、算法或 PDF。"
+  },
+  "pages": [
+    {
+      "page": 71,
+      "status": "PASS",
+      "notes": "CG01 独立模型页；中文正文、调用示例及来源行完整，页眉页脚清晰；下方留白符合独立模型起页规则。"
+    },
+    {
+      "page": 72,
+      "status": "PASS",
+      "notes": "CG02 独立模型页；标题、正文与调用示例无裁切或重叠，页码位置正常。"
+    },
+    {
+      "page": 73,
+      "status": "PASS",
+      "notes": "CG03 独立模型页；正文换行和调用示例完整，来源行及页脚可读，无分页瑕疵。"
+    },
+    {
+      "page": 74,
+      "status": "PASS",
+      "notes": "CG04 独立模型页；中文与代码调用行完整，长段落换行正常，页眉页脚正常。"
+    },
+    {
+      "page": 75,
+      "status": "PASS",
+      "notes": "CG05 独立模型页；条件与易错段落的多行换行完整，Dijkstra 调用示例、来源及页脚无裁切。"
+    },
+    {
+      "page": 76,
+      "status": "PASS",
+      "notes": "CG06 独立模型页；LCA 标题、中文与下划线标识符清楚，示例完整，无重叠或分页瑕疵。"
+    },
+    {
+      "page": 77,
+      "status": "PASS",
+      "notes": "CG07 独立模型页；网格字符串中的符号可读，正文和调用行均在版心内，页脚正常。"
+    },
+    {
+      "page": 78,
+      "status": "PASS",
+      "notes": "CG08 独立模型页；长 for 调用行完整可读，正文及来源行无裁切，独立模型留白正常。"
+    },
+    {
+      "page": 79,
+      "status": "PASS",
+      "notes": "CG09 独立模型页；数字、箭头、正文换行及调用示例清晰完整，页眉页脚无异常。"
+    },
+    {
+      "page": 80,
+      "status": "PASS",
+      "notes": "CG10 独立模型页；Floyd 公式文本与长条件行正常换行，代码调用和来源行无裁切。"
+    },
+    {
+      "page": 81,
+      "status": "PASS",
+      "notes": "CG11 独立模型页；标题、中文段落及调用示例完整，版心和页脚留距正常。"
+    },
+    {
+      "page": 82,
+      "status": "PASS",
+      "notes": "CG12 独立模型页；含下划线标识符及边编号的正文、示例、来源行全部可读，无重叠。"
+    },
+    {
+      "page": 83,
+      "status": "PASS",
+      "notes": "CG13 独立模型页；较长证明、易错段落和来源路径均完整，调用示例无裁切，页脚正常。"
+    },
+    {
+      "page": 84,
+      "status": "PASS",
+      "notes": "CG15 独立模型页；DAG 正文、模数示例和来源行清晰，行距正常，无重叠。"
+    },
+    {
+      "page": 85,
+      "status": "PASS",
+      "notes": "CG16 独立模型页；短模型正文、代码入口与来源全部完整；大面积留白符合独立模型起页约定。"
+    },
+    {
+      "page": 86,
+      "status": "PASS",
+      "notes": "CG17 独立模型页；MST 中文正文及较长来源行未越出版心，页眉页脚完整。"
+    },
+    {
+      "page": 87,
+      "status": "PASS",
+      "notes": "CG18 独立模型页；SCC 标题、正文和代码入口排列正常，页眉页脚及来源清楚。"
+    },
+    {
+      "page": 88,
+      "status": "PASS",
+      "notes": "CG19 独立模型页；桥判定符号与数组文本完整可读，正文无挤压、重叠或裁切。"
+    },
+    {
+      "page": 89,
+      "status": "PASS",
+      "notes": "CG20 独立模型页；树 DP/Euler 正文与长来源行完整，标题和页码位置正常。"
+    },
+    {
+      "page": 90,
+      "status": "PASS",
+      "notes": "CM01 独立模型页；数学符号、长条件行与调用示例清晰完整，正文换行正常，无重叠。"
+    },
+    {
+      "page": 91,
+      "status": "PASS",
+      "notes": "CM02 独立模型页；长条件与证明段落换行完整，符号、调用示例和来源行可读，无裁切。"
+    },
+    {
+      "page": 92,
+      "status": "PASS",
+      "notes": "CM03 独立模型页；负数及取整符号、下划线函数名完整；条件段落末尾短换行仍在同页，无分页残片。"
+    },
+    {
+      "page": 93,
+      "status": "PASS",
+      "notes": "CM04 独立模型页；公式、__int128 标识符和调用示例清楚，页眉页脚及来源行正常。"
+    },
+    {
+      "page": 94,
+      "status": "PASS",
+      "notes": "CM05 独立模型页；长数学条件、证明及示例完整排版，中文与代码无重叠或越界。"
+    },
+    {
+      "page": 95,
+      "status": "PASS",
+      "notes": "CM06 独立模型页；几何条件、长证明与调用示例清晰，右侧文本完整，无裁切和重叠。"
+    },
+    {
+      "page": 96,
+      "status": "PASS",
+      "notes": "CM07 独立模型页；gcd/lcm 正文、代码入口及来源完整，较大留白符合模型起页规则。"
+    },
+    {
+      "page": 97,
+      "status": "PASS",
+      "notes": "CM08 独立模型页；快速幂与组合数公式文本可读，长来源行未越界，页脚正常。"
+    },
+    {
+      "page": 98,
+      "status": "PASS",
+      "notes": "CM09 独立模型页；长标题与来源段落完整，正文换行无重叠；独立模型留白正常。"
+    },
+    {
+      "page": 99,
+      "status": "PASS",
+      "notes": "RT_IO 独立模型页；标题、正文及来源段完整，长测试路径与数值示例发生同段自然换行，未裁切；页脚正常。"
+    },
+    {
+      "page": 100,
+      "status": "PASS",
+      "notes": "RT_ANGLE 独立模型页；π、θ、近似号及长调用行清晰可读，正文和来源均在版心内。"
+    },
+    {
+      "page": 101,
+      "status": "PASS",
+      "notes": "RT_SEARCH 独立模型页；长标题与条件段完整，来源段同页换行正常，无代码尾行残页。"
+    },
+    {
+      "page": 102,
+      "status": "PASS",
+      "notes": "RT_DISPLAY 独立模型页；完整 main 示例在同页，中文注释、字符串及缩进清晰，长 cout 行未裁切，来源和页脚正常。"
+    },
+    {
+      "page": 103,
+      "status": "PASS",
+      "notes": "SEG-00 独立模型页；密集选型段落、箭头及长来源行均清楚，换行有序，无表格/文本裁切或重叠。"
+    },
+    {
+      "page": 104,
+      "status": "PASS",
+      "notes": "SEG-01 独立模型页；Node/pushup/lazy 等长段落自然换行，完整调用示例和来源行在同页，页脚正常。"
+    },
+    {
+      "page": 105,
+      "status": "PASS",
+      "notes": "SEG-02 独立模型页；长模型说明与路径完整，代码调用行可读，标题、正文和页脚均无裁切或重叠。"
+    }
+  ],
+  "issues": [],
+  "conclusion": {
+    "status": "PASS",
+    "pages_passed": 35,
+    "pages_with_issues": 0,
+    "summary": "第 71–105 页均已通过 tools.view_image 原尺寸逐页检查。未发现中文/代码裁切、重叠、缺字、页脚异常、破损表格或孤立函数末尾残页。独立模型页的留白符合约定。"
+  }
+}

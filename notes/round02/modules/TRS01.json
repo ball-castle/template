@@ -1,0 +1,33 @@
+{
+  "id": "TRS01",
+  "title": "实数二分与三分",
+  "category": "运行基础",
+  "priority": "P0",
+  "source": "competition/runtime/real_search.hpp",
+  "when": "实数答案可行性单调，或目标函数在区间内单谷。",
+  "contract": "二分check仅false->true且右端可行；三分函数连续，最小区间外严格下降/上升，可全程单调，不允许非最优平台。边界和r-l有限；check/f数值可靠。",
+  "complexity": "固定200轮，O(200*一次check/f)，空间O(1)。",
+  "pitfalls": [
+    "二分需要谓词单调，三分需要目标单峰，两者不互相替代。",
+    "双谷函数或非最优平台会误删最优点；迭代更多不会修复模型。",
+    "200轮后仍受浮点精度与函数计算误差限制；不能把相等输出当成精确根。"
+  ],
+  "example": "check(x):x*x>=2，在[0,2]返回sqrt(2)近似；f(x)=(x-3)^2+7在[-100,100]最小点3。",
+  "usage": "auto x=real_first_true(0,2,[](long double t){return t*t>=2;}); auto p=ternary_min(-100,100,[](long double t){return (t-3)*(t-3)+7;});",
+  "test": "tests/round02/test_runtime.cpp",
+  "verify": "2026-10-24 Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 -O1 ASan+UBSan -fno-pie -no-pie，tests/round02/test_runtime.cpp 通过：原read合法整数50007个、IO显示与i128边界、浮点几何/二分/三分固定种子20261024的2000组。",
+  "idea": "二分保留可行/不可行分界；三分通过两点函数值删去不含最小值的一侧。",
+  "proof": "若m1<m2且f(m1)<=f(m2)，单谷且无非最优平台保证右侧m2以外不会更优，因此可令r=m2。",
+  "origins": [
+    {
+      "path": "template/Ternary_Search.cpp",
+      "idea": "原for循环200轮与m1/m2比较的实数三分。",
+      "issue": "原源是具体几何题，不能将其目标函数搬到别题；单峰需独立证明。",
+      "change": "保留循环核心，抽出独立函数并补单调/单峰契约。",
+      "interface_change": "double局部变量改long double参数；返回最小点",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

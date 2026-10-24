@@ -1,0 +1,552 @@
+[
+  {
+    "id": "DPC01",
+    "title": "连续选择只能接前一段：线性 DP",
+    "signal": "选一个非空连续子段，使元素和最大；加入当前元素后，只能自己开头或接在上一段后。",
+    "observe": "连续与子序列不同；必须非空时全负答案也为负。",
+    "brute": "枚举左右端点，计算每个连续区间的和；不使用前缀和时甚至会重复求和。",
+    "redundancy": "所有以i结尾的候选，接上未来元素的能力相同，只保留和最大的候选。",
+    "derive": "以i结尾的段长度为1或更长：dp[i]=max(a[i],dp[i-1]+a[i])；最终对所有末尾取max。",
+    "conditions": [
+      "a[1..n]，n>=1，选择非空连续段。",
+      "任意子段和绝对值<2^60；不是要求选k段，也不是子序列问题。"
+    ],
+    "proof": "最优非空段若长度大于1，删去末位后仍是以i-1结尾的段；替换为该末尾最优前缀不会变差。",
+    "code_refs": [
+      "PDP01"
+    ],
+    "complexity": "O(n)时间，O(1)额外空间。",
+    "pitfalls": [
+      "[-8,-2,-5]答案-2；答案初值0等价于偷偷允许空段。",
+      "若每m个数额外扣k，必须增加长度模m状态；只记最大子段和不够。"
+    ],
+    "exercise": "cf/date/6/6.9/3_leaner_dp.cpp：代码中的局部模型对每段长度每满/新开m个收k，dp[j]记录长度模m；用本卡理解为何还要记余数。cf/2/1057/D.cpp：长度2/3分块的线性子问题，环形枚举另行处理。",
+    "origins": [
+      "cf/date/6/6.9/3_leaner_dp.cpp",
+      "cf/2/1057/D.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp[i]：以第i个元素结尾的非空连续子段的最大和；滚动变量dp只保存上一末尾。",
+    "transition": "dp=max(a[i],dp+a[i])；ans=max(ans,dp)。",
+    "initial": "dp=ans=a[1]；从i=2开始。",
+    "order": "下标递增，只读取上一末尾。",
+    "usage": "#include \"competition/dp/linear_grid.hpp\"\nint main() {\n    cout << max_subarray({0, -8, -2, -5}) << '\\n'; // -2\n}\n",
+    "expected_output": "-2\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC02",
+    "title": "只能右下到达：网格 DP",
+    "signal": "矩形网格里从左上走到右下，只能向右或向下，求路径数或最小费用。",
+    "observe": "能否后退决定依赖是否有环；有障碍的格子不能继承上方或左方状态。",
+    "brute": "枚举所有右/下步序列，遇障碍丢弃；许多路径会到达相同格子。",
+    "redundancy": "到同一格子后未来可走区域一致，计数合并方案数，费用只保留最小代价。",
+    "derive": "最后一步只可能来自上方或左方。计数相加，最小费用取二者较小值再加当前格费用；两者都不可达时保持INF。",
+    "conditions": [
+      "n,m>=1；g[1..n][1..m]，'#'为障碍。",
+      "只能右/下；模数1..INT_MAX。最小费用可有负数，任意路径和绝对值<2^60，费用含起终点。"
+    ],
+    "proof": "两种最后一步互斥且覆盖全部路径；固定格子下最优前缀可以独立替换。",
+    "code_refs": [
+      "PDP01"
+    ],
+    "complexity": "O(nm)时间，O(m)额外空间。",
+    "pitfalls": [
+      "滚动时障碍格必须清0/INF，否则上一行的旧值会穿墙。",
+      "若允许上下左右移动，不能继续按行递推；无权最短路通常转BFS。",
+      "起点被堵答案0/INF；1x1可走格有1条空移动路径。"
+    ],
+    "exercise": "cf/date/5/5.22/2.cpp的solve只抽取单条右下路径计数；其四个路径乘积作差需要额外组合解释，不当成本卡整题题解。cf/2/1078/E.cpp只引用dpS/dpT的单向最大路径局部状态。",
+    "origins": [
+      "cf/date/5/5.22/2.cpp",
+      "cf/2/1078/E.cpp"
+    ],
+    "patch": false,
+    "dp_state": "计数dp[j]：当前已处理位置的路径数；费用dp[j]：到当前格子的最小含点费用。更新前dp[j]是上方，dp[j-1]已是左方。",
+    "transition": "计数dp[j]=(上+左)%mod；费用dp[j]=min(上,左)+a[i][j]，仅从可达状态转移。",
+    "initial": "计数dp[1]=1，其余0；费用dp[1]=0，其余INF，统一在第一次循环加起点费用。",
+    "order": "行1..n、列1..m，滚动列必须正序。",
+    "usage": "#include \"competition/dp/linear_grid.hpp\"\nint main() {\n    vector<string> g = {\"\", \" ..\", \" ..\"};\n    vector<vector<ll>> a = {{}, {0, 1, 2}, {0, 3, 4}};\n    cout << grid_paths(g) << ' ' << grid_min_path(a, g) << '\\n'; // 2 7\n}\n",
+    "expected_output": "2 7\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC03",
+    "title": "每件最多选一次：0/1 背包",
+    "signal": "若干物品有重量和价值，总重量不能超过容量，每件最多取一次。",
+    "observe": "先问容量是否足够小；目标是重量恰好等于容量，还是不超过容量。",
+    "brute": "枚举每件取/不取，共2^n个子集，计算重量和价值。",
+    "redundancy": "处理前i件后，未来只关心已用重量；相同重量只保留最大价值。",
+    "derive": "按最后一件取或不取划分：f[i][j]=max(f[i-1][j],f[i-1][j-w[i]]+v[i])。滚动为dp[j]后倒序更新，读取的仍是上一层。",
+    "conditions": [
+      "w[i]>0，cap>=0；物品彼此独立。",
+      "价值与任意可达总价值绝对值<2^60；恰好型不能把不可达初始化成0。"
+    ],
+    "proof": "每个合法子集唯一属于不取第i件或取第i件两类；保留相同重量下的最大价值不会降低任何后续选择的效果。",
+    "code_refs": [
+      "DP01"
+    ],
+    "complexity": "O(n*cap)时间，O(cap)空间。",
+    "pitfalls": [
+      "w={2},v={3},cap=4：若正序会错误得到6，正确为3。",
+      "恰好重3但只有重2物品时不可达；负价值可达状态不能被0吞掉。"
+    ],
+    "exercise": "template/01bag.cpp；把容量4、物品(2,3)手推一次，随后练习luogu/3.cpp的价值维度与资金到达时刻。",
+    "origins": [
+      "template/01bag.cpp",
+      "cf/luogu/3.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp[j]：处理完当前物品后，总重量至多j的最大价值；exact=true时改为重量恰好j。",
+    "transition": "dp[j]=max(dp[j],dp[j-w[i]]+v[i])，仅从可达前驱转移。",
+    "initial": "至多型全0；恰好型dp[0]=0，其余KNAP_NEG。",
+    "order": "物品1..n；容量cap..w[i]倒序。",
+    "usage": "#include \"dp/knapsack.hpp\"\nint main() {\n    auto dp = knapsack01({0, 2, 3}, {0, 3, 5}, 5, true);\n    cout << dp[5] << '\\n'; // 8\n}\n",
+    "expected_output": "8\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC04",
+    "title": "每种可无限取：完全背包",
+    "signal": "有限种物品，每种可用任意次；容量小，求最大价值。",
+    "observe": "零重量正价值会无界；先确认重量正数。",
+    "brute": "枚举每种物品的数量0..cap/w[i]，枚举树会反复遇到同一剩余容量。",
+    "redundancy": "同一物品阶段、同一容量下，只需保存最优值，不需记完整数量方案。",
+    "derive": "取第i种一次后，仍可从当前阶段的j-w[i]取该种；所以f[i][j]=max(f[i-1][j],f[i][j-w[i]]+v[i])。",
+    "conditions": [
+      "每种数量无限；w[i]>0。",
+      "只求价值最优；若改计数必须先区分排列还是组合。",
+      "任意可达总价值绝对值<2^60。"
+    ],
+    "proof": "最优方案若含第i种，删去一件后仍是允许继续选择第i种的较小容量问题。",
+    "code_refs": [
+      "DP01"
+    ],
+    "complexity": "O(n*cap)时间，O(cap)空间。",
+    "pitfalls": [
+      "(2,3),cap=4应得到6；倒序只会得到3。",
+      "把物品循环和容量循环交换，在计数题里可能把组合数改成排列数。"
+    ],
+    "exercise": "template/完全背包dp.cpp；与0/1例子用相同输入比较容量方向。",
+    "origins": [
+      "template/完全背包dp.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp[j]：已处理物品种类中可重复选择，总重至多j（或恰好j）的最大价值。",
+    "transition": "dp[j]=max(dp[j],dp[j-w[i]]+v[i])。",
+    "initial": "与0/1相同：至多全0，恰好只有dp[0]=0。",
+    "order": "物品1..n；容量w[i]..cap正序，让当前物品可继续使用。",
+    "usage": "#include \"dp/knapsack.hpp\"\nint main() {\n    cout << knapsack_complete({0, 2}, {0, 3}, 4)[4] << '\\n'; // 6\n}\n",
+    "expected_output": "6\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC05",
+    "title": "每种有数量上限：多重背包",
+    "signal": "每种物品最多选cnt[i]件，重量限制仍较小。",
+    "observe": "cnt大时逐件展开太慢；最多只能装cap/w[i]件，先截断无用数量。",
+    "brute": "每种枚举取0..cnt[i]件，再递归下一种。",
+    "redundancy": "同一已处理阶段与容量下只保留最大价值；数量可以拆成少量0/1组合包。",
+    "derive": "把数量拆为1,2,4,...和最后剩余包，每包重量价值乘份数；任何0..cnt数量都可由这些包组成，然后直接复用0/1倒序转移。",
+    "conditions": [
+      "w[i]>0，cnt[i]>=0，容量非负。",
+      "各件同种物品价值相同；任意可达总价值绝对值<2^60。",
+      "拆包只用于最优值/可达性；多个包可能重复表达同一件数，不能用于按件数去重计数。"
+    ],
+    "proof": "拆包的可表示数量区间每次无缝扩张到0..累计份数，最终恰覆盖所有允许的选取数量。",
+    "code_refs": [
+      "PDP02",
+      "DP01"
+    ],
+    "complexity": "O(cap*Σlog(cnt[i]+1))时间，O(cap+Σlog(cnt[i]+1))空间；cnt先按容量截断。",
+    "pitfalls": [
+      "cnt=0不能生成一包；cnt极大时先截断避免无意义循环与乘积。",
+      "把拆出的包当完全背包会突破数量限制。"
+    ],
+    "exercise": "从template/01bag.cpp出发，先手算同一物品w=2,v=3,cnt=3,cap=7；再把cnt设1与原DP01在同一枚举oracle下比较。",
+    "origins": [
+      "template/01bag.cpp",
+      "template/dp/knapsack.hpp"
+    ],
+    "patch": false,
+    "dp_state": "沿用0/1：处理完当前组合包后，重量至多/恰好j的最大价值。",
+    "transition": "每个组合包作为一件0/1物品，读上一层j-包重。",
+    "initial": "至多型全0；恰好型只有0可达，其余KNAP_NEG。",
+    "order": "组合包逐个处理，容量倒序。",
+    "usage": "#include \"competition/dp/knapsack_variants.hpp\"\nint main() {\n    auto dp = knapsack_bounded({0, 2}, {0, 3}, {0, 3}, 7);\n    cout << dp[7] << '\\n'; // 9\n}\n",
+    "expected_output": "9\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC06",
+    "title": "同组互斥：分组背包",
+    "signal": "物品分组，每组最多选一个，或整组不选。",
+    "observe": "互斥限制属于整组；转移时必须保持上一组的状态快照。",
+    "brute": "每组枚举“不选”或选其中一个，所有组选择作笛卡尔积。",
+    "redundancy": "处理相同组数且容量相同的方案，未来仅需知道最大价值。",
+    "derive": "从old[j]继承不选；每件(w,v)只用old[j-w]+v更新本组dp[j]，不从同组新状态继续转移。",
+    "conditions": [
+      "groups[1..n]，组内每个重量>0；最多一个允许不选。",
+      "若要求每组恰选一个，应把每组新层初始化为NEG且不继承old；本函数不提供该语义。",
+      "任意可达总价值绝对值<2^60。"
+    ],
+    "proof": "每个合法方案在当前组只有一种选择；统一从上一组转移保证不会取同组两件。",
+    "code_refs": [
+      "PDP02",
+      "DP01"
+    ],
+    "complexity": "O(cap*物品总数 + cap*组数)时间，O(cap)DP空间。",
+    "pitfalls": [
+      "一组两件(1,4),(1,5)、cap=2正确答案5，错误原地逐件会得到9。",
+      "空组允许直接跳过；负价值且不要求装满时不选可能更好。"
+    ],
+    "exercise": "把template/01bag.cpp中的每件扩成一组多个替代方案；单元素组与原0/1在相同oracle下应一致。",
+    "origins": [
+      "template/01bag.cpp",
+      "template/dp/knapsack.hpp"
+    ],
+    "patch": false,
+    "dp_state": "dp[j]：已处理所有组里，每组至多选一件、重量至多/恰好j的最大价值。",
+    "transition": "dp=old；枚举本组每件，dp[j]=max(dp[j],old[j-w]+v)。",
+    "initial": "至多型全0；恰好型dp[0]=0，其余NEG。",
+    "order": "先组、再组内物品、再容量；所有候选都读取固定old，所以容量顺序不影响语义。",
+    "usage": "#include \"competition/dp/knapsack_variants.hpp\"\nint main() {\n    vector<vector<pair<int,ll>>> a = {{}, {{2,3},{3,5}}, {{2,4}}};\n    cout << knapsack_grouped(a, 5)[5] << '\\n'; // 9\n}\n",
+    "expected_output": "9\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC07",
+    "title": "最后一次合并切开区间：区间 DP",
+    "signal": "每次只能合并相邻部分，最终把整个序列合成一个对象。",
+    "observe": "固定最后一步；它把[l,r]分成哪两个已经完成的子区间。",
+    "brute": "枚举所有相邻合并顺序；很多顺序反复求同一段的最优合并代价。",
+    "redundancy": "当前段内部怎样合成不影响未来，只需记住边界和最小代价。",
+    "derive": "最后一刀在k：dp[l][r]=min(dp[l][k]+dp[k+1][r]+sum(l,r))。",
+    "conditions": [
+      "直线非负石子堆；合并代价为两堆重量和。",
+      "n*sum(a)<2^60。环形石子合并仍用区间和作费用，但要处理循环边界并对长度n的起点取优；矩阵链乘法则需改费用项。"
+    ],
+    "proof": "最后一刀唯一分开左右两段；若任一侧不是最优，可替换成更优方案而不影响另一侧。",
+    "code_refs": [
+      "DP04"
+    ],
+    "complexity": "O(n^3)时间，O(n^2)空间。",
+    "pitfalls": [
+      "先左端点再长度可能用到未算的子区间。",
+      "[10^9,10^9]答案2*10^9；旧int无穷大不足，已正式修复。"
+    ],
+    "exercise": "template/区间dp.cpp与cf/luogu/4.cpp对比：后者保留端点并增加a[l]*a[k]*a[r]，不能照抄石子合并费用。",
+    "origins": [
+      "template/区间dp.cpp",
+      "cf/luogu/4.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp[l][r]：把闭区间[l,r]内的石子全部合为一堆的最小代价。",
+    "transition": "枚举l<=k<r，左右最优代价加整段重量。",
+    "initial": "dp[i][i]=0；其他待求状态置INF；空数组或一堆答案0。",
+    "order": "长度2..n，左端点1..n-len+1，分割点l..r-1。",
+    "usage": "#include \"dp/interval_merge.hpp\"\nint main() {\n    cout << interval_merge({0, 1, 2, 3}) << '\\n'; // 9\n}\n",
+    "expected_output": "9\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC08",
+    "title": "父子选择互相限制：树形 DP",
+    "signal": "在树上选点，相邻点不能同时选，最大化点权和。",
+    "observe": "子树之间是否真的独立；固定父亲是否选后，儿子的限制就明确。",
+    "brute": "枚举所有2^n个点集，检查是否存在同时选中的相邻点。",
+    "redundancy": "父亲只需要知道儿子是否被选和儿子子树的最优值，不需要子树内部完整方案。",
+    "derive": "选u时儿子v必须不选；不选u时每个儿子可选或不选，独立取较大值并求和。",
+    "conditions": [
+      "无向简单连通树，g/a均1-indexed，n>=1。",
+      "允许空集，所有点权绝对值之和<2^60；一般图或有额外跨子树约束不能照用。"
+    ],
+    "proof": "删去父子边后子树互不相连；固定u是否选时，每个儿子的最佳合法选择可独立合并。",
+    "code_refs": [
+      "PDP05"
+    ],
+    "complexity": "O(n)时间、O(n)空间。",
+    "pitfalls": [
+      "全负时允许空集所以答案0；若必须选至少一点，需要额外处理。",
+      "20万链递归可能爆栈；实现用父序逆序作后序。",
+      "只记dp[u]会遗漏u是否选，从而无法给父亲提供正确边界条件。"
+    ],
+    "exercise": "template/tree_dp.cpp只提供儿子先算骨架；本模块补为完整最大权独立集。cf/3/1096/H_!!dp_tree.cpp的ct/mx展示子树信息如何压成小状态，未确认原题，不把叶子奇偶递推解释成独立集。",
+    "origins": [
+      "template/tree_dp.cpp",
+      "cf/3/1096/H_!!dp_tree.cpp"
+    ],
+    "patch": false,
+    "dp_state": "dp[u][0]：u子树内不选u的最大权和；dp[u][1]：u子树内选u的最大权和。",
+    "transition": "dp[u][0]+=max(dp[v][0],dp[v][1])；dp[u][1]+=dp[v][0]。",
+    "initial": "每个点先令dp[u][0]=0，dp[u][1]=a[u]；叶子无需额外转移。",
+    "order": "先记录父亲和父序，再逆序处理，确保所有儿子已完成。",
+    "usage": "#include \"competition/dp/tree_independent_set.hpp\"\nint main() {\n    vector<vector<int>> g = {{}, {2,3}, {1}, {1}};\n    cout << tree_independent_set(g, {0,5,4,3}) << '\\n'; // 7\n}\n",
+    "expected_output": "7\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC09",
+    "title": "依赖无环：DAG DP",
+    "signal": "对象依赖形成有向无环图，求从起点到各点的路径数或最长边数。",
+    "observe": "先确认边方向与全图是否有环；只按编号顺序未必是合法依赖顺序。",
+    "brute": "从起点枚举全部有向路径，多个路径会到达同一结点。",
+    "redundancy": "同一结点之后的可选后缀相同；路径数相加，最长前缀保留最大值。",
+    "derive": "拓扑序中对每条u->v，把ways[u]加到ways[v]，把dist[u]+1作为dist[v]候选；不可达点不转移。",
+    "conditions": [
+      "PG15只求最长边数，边权均按1；重边视为不同边选择，计数会重复贡献。",
+      "1<=s<=n<200010，1<=mod<=LLONG_MAX；全图有环返回false，结果作废。"
+    ],
+    "proof": "拓扑序保证u的全部前驱先处理；每条路径按最后一条边唯一分类，所以求和不漏不重。",
+    "code_refs": [
+      "PG15"
+    ],
+    "complexity": "O(n+m)时间、O(n+m)空间。",
+    "pitfalls": [
+      "最长边数与加权最长路不同，不可直接把权值丢掉。",
+      "空路径让ways[s]=1；不可达dist=-1，不能设0。",
+      "cf/date/6/6.7/1_leaner_value_dp.cpp的整除值域递增只是一个隐式DAG，并不保留原序列下标顺序。"
+    ],
+    "exercise": "cf/date/6/6.7/1_leaner_value_dp.cpp：只检查局部模型“已出现数值从小倍数推大倍数”；先画2->4->8等边，再解释为什么升序是拓扑序。",
+    "origins": [
+      "cf/date/6/6.7/1_leaner_value_dp.cpp",
+      "template/competition/graph/dag_dp.hpp"
+    ],
+    "patch": false,
+    "dp_state": "dist[v]：从s到v的最长路径边数，未到达为-1；ways[v]：从s到v的路径数模mod。",
+    "transition": "每条可达u->v：dist[v]=max(dist[v],dist[u]+1)，ways[v]+=ways[u]取模。",
+    "initial": "dist全-1，ways全0；dist[s]=0，ways[s]=1%mod。",
+    "order": "Kahn拓扑顺序；出队点数不足n表示有环。",
+    "usage": "#include \"competition/graph/dag_dp.hpp\"\nint main() {\n    init(4); g[1] = {2,3}; g[2] = {4}; g[3] = {4};\n    if (!dag_dp(1, 1000000007)) return 1;\n    cout << dist[4] << ' ' << ways[4] << '\\n'; // 2 2\n}\n",
+    "expected_output": "2 2\n",
+    "test": "tests/round02/test_graph_personal.cpp；独立调用驱动DPC09",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC10",
+    "title": "小集合选到哪里：状压 DP",
+    "signal": "n约18以内，要恰好访问每个点一次，代价还依赖最后停在哪个点。",
+    "observe": "集合丢失顺序，但未来只需要已访问集合和当前末尾；这两项都不能少。",
+    "brute": "枚举中间点的所有排列，累加从1到n的路径费用。",
+    "redundancy": "访问了相同集合且终点相同的前缀，未来可选点和下一条边都相同，只留最短前缀。",
+    "derive": "从(mask,u)扩展尚未访问v：dp[mask|1<<(v-1)][v]=min(原值,dp[mask][u]+w[u][v])。",
+    "conditions": [
+      "有向图，n<=18，固定1出发n结束，每点恰好一次。",
+      "缺边用HAMILTON_INF；可有负边，但任意路径总权值在(-2^60,2^60)。"
+    ],
+    "proof": "按访问点数归纳；任一合法路径删掉最后一个点恰好对应一个较小状态。",
+    "code_refs": [
+      "DP03"
+    ],
+    "complexity": "O(n^2*2^n)时间，O(n*2^n)空间；n=18约36MiB。",
+    "pitfalls": [
+      "只记mask会丢失末尾，下一条边费用无法确定。",
+      "点i对应第i-1位；程序内部末尾u为0-indexed。",
+      "cf/luogu/5.cpp按相同字符去重的计数语义与Hamilton最短路不同，不能互换。"
+    ],
+    "exercise": "cf/luogu/5.cpp只核对局部子集删位递推，不据此猜原题；先把Hamilton用n<=8的全排列对拍。",
+    "origins": [
+      "template/dp/hamilton_path.hpp",
+      "cf/luogu/5.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp[mask][u]：从1出发，恰访问mask内的点，最后停在u的最小总费用。",
+    "transition": "枚举不在mask中且有边u->v的点，将费用推给新增v的状态。",
+    "initial": "只设dp[{1}][1]=0，其余INF；n=0/1约定0。",
+    "order": "mask递增（每条转移都增加一位），再枚举末尾和下一点。",
+    "usage": "#include \"dp/hamilton_path.hpp\"\nint main() {\n    vector<vector<ll>> w(4, vector<ll>(4, HAMILTON_INF));\n    w[1][2] = 4; w[2][3] = -1; w[1][3] = 1;\n    cout << hamilton_path(w) << '\\n'; // 3\n}\n",
+    "expected_output": "3\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC11",
+    "title": "巨大数值区间但数位少：数位 DP",
+    "signal": "统计[L,R]里十进制非零数位不超过3的整数，R很大但至多19位。",
+    "observe": "按位从高到低构造；只需记已用非零位数和是否仍贴着上界。",
+    "brute": "逐个枚举[L,R]，数每个数的非零位；区间长时不可行。",
+    "redundancy": "未贴上界的同位置、同计数拥有完全一样的后缀选择，所以可以缓存。",
+    "derive": "枚举当前位d，下一层非零数位数加(d!=0)；超过3立即返回0；走完全部位返回1。用F(R)-F(L-1)求区间答案。",
+    "conditions": [
+      "0<=L<=R<=LLONG_MAX；F(x<0)=0。",
+      "0计入，前导零不增加非零计数；该条件无需额外started维度。",
+      "这是固定最多3个非零位的模板；若限制相邻数位或数位乘积，必须重新设计状态。"
+    ],
+    "proof": "每个整数在补前导零到上界位数后有唯一数位序列；逐位分支互斥，limit确保不超过上界。",
+    "code_refs": [
+      "PDP04"
+    ],
+    "complexity": "最多19*4*2个有效状态，每状态10次转移，O(位数*4*10)时间与O(位数*4)空间。",
+    "pitfalls": [
+      "x换成不同位数后必须清除dp；只缓存!limit状态。",
+      "上界末位取相同时limit才继续；前导零不是实际非零位。",
+      "如果题目只要正整数，[0,0]模板答案1，需在题目层排除0。"
+    ],
+    "exercise": "cf/date/8/1/2_digit_dp.cpp原个人实现，递归lambda和全局s/dp保留，仅提取calc/range接口。测试[1000,1111]=111与LLONG_MAX。",
+    "origins": [
+      "cf/date/8/1/2_digit_dp.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dfs(pos,cnt,limit)：已处理pos位、已用cnt个非零数位且是否贴上界时，合法补完的方案数。dp[pos][cnt]仅缓存未贴上界情形。",
+    "transition": "枚举0..up，递归pos+1、cnt+(d!=0)、limit&&(d==up)。",
+    "initial": "从dfs(0,0,true)出发；cnt>3为0，pos到末尾为1，缓存初值-1。",
+    "order": "递归自顶向下记忆化；pos严格增加，天然无环。",
+    "usage": "#include \"competition/dp/digit_count.hpp\"\nint main() {\n    cout << digit_range(1000, 1111) << '\\n'; // 111\n}\n",
+    "expected_output": "111\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC12",
+    "title": "保持原序的序列：LIS、LCS、编辑距离",
+    "signal": "从序列中删元素但保留相对次序；或比较两个序列的前缀。",
+    "observe": "子序列不要求连续；严格递增和非递减要分开。双序列一般保留两个前缀长度。",
+    "brute": "LIS枚举所有下标子集，判断递增；LCS枚举两个字符串子序列找相同者；编辑距离枚举删除、插入、替换操作。",
+    "redundancy": "LIS的未来只看末尾值与长度；LCS/编辑距离的未来只看尚未处理的两个后缀。",
+    "derive": "LIS以最后位置i分类，枚举j<i且a[j]<a[i]；按长度保存最小末尾可用二分优化。LCS相等匹配，不等删去一侧末位；编辑距离枚举最后一步。",
+    "conditions": [
+      "LIS数组1-indexed；只返回长度。",
+      "LCS按字符相等，编辑距离每次插入/删除/替换费用均为1；加权版本需另改转移。"
+    ],
+    "proof": "更小的同长度末尾可接上的未来元素集合不会更少；双序列末步分类覆盖全部合法对齐。",
+    "code_refs": [
+      "DP02",
+      "PDP03"
+    ],
+    "complexity": "LIS O(n²)或O(n log n)；LCS/编辑距离O(nm)时间、空间。JAKARTA局部模型每个字符串长度L<=15，枚举O(L*2^L)，排序最坏O(L*2^L*log(2^L))，相邻层扫描线性于候选数。",
+    "pitfalls": [
+      "[2,2]严格LIS=1，非递减=2。",
+      "tails不是实际答案序列；连续子段不能调用LIS。",
+      "JAKARTA的候选是不同子序列字符串，必须排序去重；用<=会把严格字典序误写成非严格。"
+    ],
+    "exercise": "template/线性dp.cpp；cf/ICPC/JAKARTA_2018/J.cpp理解为何枚举当前候选后只查上一层字典序前缀最大值。",
+    "origins": [
+      "template/线性dp.cpp",
+      "cf/ICPC/JAKARTA_2018/J.cpp"
+    ],
+    "patch": true,
+    "dp_state": "LIS：dp[i]为以a[i]结尾的最长合法子序列长度。LCS：dp[i][j]为前i、前j字符的LCS长度。编辑距离：dp[i][j]为前i变成前j的最少操作数。",
+    "transition": "LIS取1和dp[j]+1最大值；LCS字符同则加1，否则取删一侧的max；编辑距离取删除、插入、匹配/替换的min。",
+    "initial": "LIS每个非空末尾至少1；LCS空前缀0；编辑距离dp[i][0]=i，dp[0][j]=j。",
+    "order": "LIS i递增且j<i；双序列i、j递增，滚动时保留左上角旧值。",
+    "usage": "#include \"dp/lis.hpp\"\n#include \"competition/dp/sequence_state.hpp\"\nint main() {\n    cout << lis_length({0, 3, 1, 2, 2}) << ' '\n         << lcs_length(\"abc\", \"ac\") << ' '\n         << edit_distance(\"kitten\", \"sitting\") << ' '\n         << lex_subsequence_chain({\"\", \"ab\", \"bc\"}) << '\\n'; // 2 2 3 4\n}\n",
+    "personal_extension": "JAKARTA J只提取可从代码确认的局部模型：每个对象选一个非空子序列，候选严格字典序递增，最大化总长度。dp[j]是上一对象恰选pre[j]时的最优总长度；cur递增时用双指针维护pre<cur的前缀最大值，避免候选集合的笛卡尔积。原题与在线状态未核验。",
+    "expected_output": "2 2 3 4\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC13",
+    "title": "历史只剩阶段与位置：状态机 DP",
+    "signal": "在字符串中先向右再向左、最多转向一次，问能否读出目标串。",
+    "observe": "同样停在位置i，是否已经转向会改变下一步合法方向，不能只存位置。",
+    "brute": "枚举起点和向右走的步数（转向点），直接模拟目标串。",
+    "redundancy": "匹配了同样长度、停在同位置、方向阶段相同的历史，未来选择完全一样。",
+    "derive": "dp0可向右留dp0，或向左进dp1；dp1只能继续向左。走到的字符必须等于目标下一位。",
+    "conditions": [
+      "每步移动相邻一个位置；可在第一步前转向，也可始终向右；最多一次右转左。",
+      "允许重新访问旧位置；空目标约定true，非空目标配空源串为false。"
+    ],
+    "proof": "合法路径的每步属于三种状态转移之一；阶段只能0->1，保证绝不会二次转向。",
+    "code_refs": [
+      "PDP03"
+    ],
+    "complexity": "O(|s|*|t|)时间，O(|s|)空间。",
+    "pitfalls": [
+      "只记位置可能允许先左再右；复用本层会在同一目标字符上走多步。",
+      "每个目标字符都要清新层；原地修改会把还未发生的移动串联起来。"
+    ],
+    "exercise": "cf/date/7/7.9/1_interesting_dp.cpp原个人实现，保留dp0/dp1/ndp0/ndp1。用s=abc,t=abcba检验右后左，用s=abc,t=abca检查非法绕行。",
+    "origins": [
+      "cf/date/7/7.9/1_interesting_dp.cpp"
+    ],
+    "patch": true,
+    "dp_state": "dp0[i]：匹配完当前目标前缀，停在s[i]且尚未向左；dp1[i]：匹配完同一前缀，停在s[i]且已向左。",
+    "transition": "0->0向右，0->1向左，1->1向左；按下一字符过滤。",
+    "initial": "所有s[i]==t[0]的位置设dp0[i]=true，dp1全false；空t直接true。",
+    "order": "目标前缀长度递增；每层新建ndp，完成后交换。",
+    "usage": "#include \"competition/dp/sequence_state.hpp\"\nint main() {\n    cout << right_then_left_match(\"abc\", \"abcba\") << '\\n'; // 1\n}\n",
+    "expected_output": "1\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC14",
+    "title": "互斥的最后一步相加：计数 DP",
+    "signal": "求长度n的01串数量，要求没有相邻两个1；相似题常是局部禁用模式。",
+    "observe": "给不同的构造路径是否会生成同一对象；最后一位足以判断能否追加1。",
+    "brute": "枚举全部2^n个串，检查相邻位置是否同时为1。",
+    "redundancy": "长度相同且最后一位相同的前缀，合法后缀集合相同，只需累计前缀数量。",
+    "derive": "末尾补0可接任意旧状态，补1只能接旧末位0；两类新串按最后一位互斥。",
+    "conditions": [
+      "统计不同长度n的二进制字符串，n>=0；空串是一种。",
+      "模数1..INT_MAX；不返回完整精确大整数。"
+    ],
+    "proof": "每个新串删去最后一位得到唯一前缀，因而每条合法转移贡献的对象不重复。",
+    "code_refs": [
+      "PDP04"
+    ],
+    "complexity": "O(n)时间，O(1)额外空间。",
+    "pitfalls": [
+      "dp[0]的空对象初值应为1；设0会让全部答案为0。",
+      "用更新后的末位0计数再算末位1，会误把本层串作为上一层。",
+      "多重背包二进制拆分只保证可表示，不保证计数唯一，不能据此数数量方案。"
+    ],
+    "exercise": "cf/luogu/5.cpp展示按子集删位累计的局部递推及相同字符去重判定；本卡只用明确的01串模型练习计数不重不漏，原状压题题意UNKNOWN。",
+    "origins": [
+      "cf/luogu/5.cpp"
+    ],
+    "patch": false,
+    "dp_state": "f[0/1]：当前前缀最后一位为0/1的合法串数量；空前缀虚拟放在0状态。",
+    "transition": "new[0]=(f[0]+f[1])%mod；new[1]=f[0]。",
+    "initial": "f={1%mod,0}；n=0答案1%mod。",
+    "order": "长度从1到n，使用独立新层；最后答案两状态求和。",
+    "usage": "#include \"competition/dp/digit_count.hpp\"\nint main() {\n    cout << binary_no_adjacent(3) << '\\n'; // 5\n}\n",
+    "expected_output": "5\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  },
+  {
+    "id": "DPC15",
+    "title": "加权求和与自环移项：概率/期望 DP",
+    "signal": "独立试验求成功次数分布；或按阶段反复尝试，成功前进、失败留在原阶段，求平均尝试次数。",
+    "observe": "概率是方案的权重，不能按路径条数平均；有自环的期望式需要移项，不能假装拓扑递推。",
+    "brute": "概率枚举每次成功/失败的2^n个结果并乘概率。期望枚举所有尝试历史，失败次数没有有限上界。",
+    "redundancy": "成功次数分布只依赖已做试验数和成功数；等待模型只依赖当前阶段，过去失败次数不改变固定成功概率。",
+    "derive": "概率dp[i][j]=dp[i-1][j]*(1-p[i])+dp[i-1][j-1]*p[i]。期望E[i]=1+(1-p[i])*E[i]+p[i]*E[i+1]，移项得E[i]=E[i+1]+1/p[i]。",
+    "conditions": [
+      "分布模型要求试验相互独立，0<=p[i]<=1，均为有限数。",
+      "等待模型要求每阶段各次尝试相互独立、成功概率固定，0<p[i]<=1；sum(1/p[i])须有限且落在long double范围。",
+      "p=0的等待阶段可能永远过不去，期望无限，不能调用有限期望函数；概率分布函数则允许p=0。"
+    ],
+    "proof": "概率按最后一次成败作全概率划分；期望按第一次尝试分解，再利用失败回到同一状态的条件期望。",
+    "code_refs": [
+      "PDP06"
+    ],
+    "complexity": "成功次数分布O(n²)时间、O(n)空间；阶段等待O(n)时间、O(n)空间。",
+    "pitfalls": [
+      "分布更新正序会把同一次试验成功多次；应倒序或新数组。",
+      "E取min/max不是随机过程的期望；除以出度也不等于使用真实转移概率。",
+      "若成功率随失败次数变化，状态必须增加次数；直接1/p不成立。"
+    ],
+    "exercise": "明确基础例：两枚独立公平硬币，恰一正面概率1/2；两个阶段成功率1/2、1，期望尝试次数2+1=3。个人目录未发现已确认的概率期望原题，本模块标记ROUND02基础补缺。",
+    "origins": [],
+    "patch": false,
+    "dp_state": "概率dp[j]：做完当前前i次试验，恰j次成功的概率。期望dp[i]：从阶段i开始直到全部成功所需的期望尝试次数。",
+    "transition": "概率按失败留j、成功从j-1加入；期望先移项自环后加1/p[i]。",
+    "initial": "概率dp[0]=1，其余0；期望终止状态dp[n+1]=0。",
+    "order": "概率试验i递增、成功数j倒序；期望阶段i从n递减到1。",
+    "usage": "#include \"competition/dp/probability_expectation.hpp\"\nint main() {\n    auto dp = coin_heads_probability({0, 0.5L, 0.5L});\n    cout << fixed << setprecision(6) << dp[1] << ' '\n         << expected_stage_attempts({0, 0.5L, 1.0L}) << '\\n'; // 0.500000 3.000000\n}\n",
+    "expected_output": "0.500000 3.000000\n",
+    "test": "tests/round02/test_dp.cpp",
+    "verify": "独立GNU++20完整调用驱动编译/运行PASS，输出匹配expected_output；算法差分见各模块verify。"
+  }
+]

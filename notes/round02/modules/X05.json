@@ -1,0 +1,33 @@
+{
+  "id": "X05",
+  "title": "图上的 XOR 约束",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P1",
+  "source": "competition/xor/graph_xor.hpp",
+  "when": "关系value[u]^value[v]=w；需要找一组值或判断矛盾。",
+  "contract": "1-indexed图，先init(n)，边端点合法；w为uint64。允许重边、自环。xor_assign返回true才可使用完整value/comp/components；false时只是部分状态。",
+  "complexity": "O(n+m)时间、O(n+m)空间；BFS不依赖递归栈。",
+  "idea": "每个分量选根为0，沿边推出邻居值，回边核验。",
+  "proof": "任意边给出value[v]=value[u]^w。树路径唯一确定相对值；所有已赋值边一致当且仅当各环边权XOR为0。每个连通分量整体XOR任意t仍满足全部边。",
+  "pitfalls": [
+    "不同连通分量的根可以分别选择；并非全图只剩一个自由变量。",
+    "若另有限制0<=value<=K，K非2^B-1时，自由平移可能越界，不能直接宣称2^(Bc)种解。",
+    "在线加约束可考虑带XOR势能的DSU；静态只需BFS。"
+  ],
+  "example": "由XOR自反和路径抵消推导的新模型；不是六份旧训练代码中的既有实现。",
+  "usage": "xor_graph_init(3); xor_add_edge(1,2,5); xor_add_edge(2,3,7); bool ok=xor_assign();",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/1/1124/B.cpp",
+      "idea": "原相邻操作注释已经运用中间两次抵消；迁移到图上路径关系。",
+      "issue": "原文件不含图约束实现。",
+      "change": "明确新增BFS约束模型，不能声称直接搬自旧图模板。",
+      "interface_change": "独立函数；无类、无cp命名空间。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": false
+}

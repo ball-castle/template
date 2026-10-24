@@ -1,0 +1,33 @@
+{
+  "id": "BM03",
+  "title": "二维前缀和与矩形差分",
+  "source": "competition/models/prefix_grid.hpp",
+  "when": "静态矩形求和；离线对多个矩形整体加值后恢复网格。",
+  "contract": "1<=坐标<=n,m<=500；先init再填a；所有前缀和、差分和及中间表达式在ll内。restore每批调用一次，重新查询需build_prefix。",
+  "idea": "二维容斥；矩形修改只改变四个角。",
+  "proof": "前缀查询两次减去外部条带，再补回重复减的角；差分的两重前缀只在矩形内部保留val。",
+  "complexity": "预处理/恢复O(nm)，一次矩形查询/修改O(1)，空间O(nm)。",
+  "usage": "init(2,2); a[1][1]=1; build_prefix(); query(1,1,2,2); add_rect(1,1,2,2,3); restore_difference();",
+  "example": "2x2全0加整个矩形3，再[2,2]加-1，恢复[[3,3],[3,2]]，总和11。",
+  "pitfalls": [
+    "x2+1/y2+1哨兵需要留容量。",
+    "二维前缀快照不会随a自动更新。",
+    "不能把离线差分当在线任意矩形求和结构。"
+  ],
+  "patch": false,
+  "origins": [
+    {
+      "path": "template/core/basics.hpp",
+      "idea": "复用已有一维前缀/差分含义，扩展为二维容斥。",
+      "issue": "ROUND01缺二维实现。",
+      "change": "新增全局a/s/d与独立build/query/add函数。",
+      "interface_change": "新增",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "category": "操作与通用模型",
+  "priority": "P0",
+  "dependencies": [],
+  "test": "tests/round02/test_model_tools.cpp",
+  "verify": "PASS：统一GNU++20 release与WSL ASan/UBSan，源码/测试/依赖哈希绑定见notes/round02/validation/release.json、sanitizers.json。"
+}

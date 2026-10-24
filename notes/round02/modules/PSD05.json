@@ -1,0 +1,49 @@
+{
+  "id": "PSD05",
+  "title": "单点树：区间gcd",
+  "category": "数据结构",
+  "priority": "P1",
+  "source": "competition/data_structure/segment_point_gcd.hpp",
+  "when": "修改一个数，询问一段数共同的最大公约数。",
+  "contract": "沿用PSD02边界；负数先取绝对值，gcd(0,0)=0；LLONG_MIN不在契约内。",
+  "complexity": "建树O(n log V)，修改/查询O(log n log V)，空间O(n)。",
+  "pitfalls": [
+    "std::gcd返回非负；LLONG_MIN的绝对值不能用ll表示，不支持。",
+    "区间加无法只用旧gcd推出新gcd；[2,4]与[2,6]原gcd同为2，加2后分别为2和4。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/point_gcd.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/point_gcd.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "叶子统一非负，父节点gcd(left.g,right.g)。",
+  "proof": "gcd结合律使分段方式无关；取绝对值不改变共同正因数。",
+  "origins": [
+    {
+      "path": "template/segmen tree1.cpp",
+      "idea": "全局a/tree、1下标和pushup/build/递归单点修改结构直接继承。",
+      "issue": "原结构可用；原文件名就是segmen tree1.cpp，没有Segment tree.cpp。",
+      "change": "update按用户命名改为modify；保留递归骨架，查询只进入相交儿子。Node改为非负g并用gcd合并；叶子取绝对值且排除LLONG_MIN。",
+      "interface_change": "query返回Node，gcd答案取.g。 查询需合法非空闭区间；modify为点赋值。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/segment_tree_cf_edu/1.cpp",
+      "idea": "沿用用户的node/l/r/mid、左右儿子编号和单点赋值递归。",
+      "issue": "代码已由用户使用验证；本地未核验在线提交。",
+      "change": "输入0下标[l,r)的转换只保留在来源说明，正式接口统一用户熟悉的1下标闭区间。",
+      "interface_change": "来源update更名modify；来源0下标半开输入不搬入新例程，新例程使用1下标闭区间。query返回Node，gcd答案取.g。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [],
+  "dependencies": [],
+  "patch": false,
+  "source_parts": [
+    "competition/data_structure/nodes/gcd.inc",
+    "competition/data_structure/segment_point_base.inc"
+  ],
+  "assembly": "工程直接include source；打印时递归展开本地#include，不重复维护整棵树。具体Node+make_node+merge必须位于公共骨架前。同一提交只选一个个人版本。",
+  "example_source": "competition/data_structure/examples/point_gcd.cpp",
+  "sample_input": "3 3\n-6 10 0\n2 1 3\n1 2 -9\n2 1 2\n",
+  "sample_output": "2\n3\n"
+}

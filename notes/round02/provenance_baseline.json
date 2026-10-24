@@ -1,0 +1,2433 @@
+{
+  "schema_version": 1,
+  "audit_started": "2026-10-24",
+  "audit_completed": "2026-10-25",
+  "template_head": "c0792d4a09e34c636eaff03fce69e9b83d8c10a4",
+  "cf_head": "d8d0b4ed1b58c54540e45c26f0a872e309a9edcf",
+  "scope_note": "Frozen ROUND01 tracked sources only. No algorithm edits or test execution by this audit. Formal VERIFIED_CODE inherits source-bound ROUND01 runtime evidence; personal files only get static reviews. User-reported use and online verdict are separate fields.",
+  "formal_modules": [
+    {
+      "id": "CO01",
+      "title": "主程序骨架 Main",
+      "priority": "P0",
+      "source": "template/core/main.cpp",
+      "line_count": 19,
+      "sha256": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "sha256_lf_normalized": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "git_blob_sha256": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "GNU++20；默认单测，只有题面给出测试组数时才取消 cin >> T 注释。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20、-Wall -Wextra -Wshadow独立编译及空输入运行，退出码0。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": false
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [
+        "cf/segment_tree_cf_edu/1.cpp:91-99"
+      ],
+      "note": "默认solve/T骨架一致；仅cin.tie和T类型有差异，没必要重写已正确骨架。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "CO02",
+      "title": "前缀、差分、离散化 Basics",
+      "priority": "P0",
+      "source": "template/core/basics.hpp",
+      "line_count": 62,
+      "sha256": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+      "sha256_lf_normalized": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+      "git_blob_sha256": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a[1..n]，{}或{0}为空；非空查询须1<=l<=r<=n，l>r为0或不修改。Difference初值全0；所有ll中间值须不溢出。rank只查已存在值。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：确定边界、固定种子随机对拍、n=200000全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [
+        "cf/3/1096/E_suffix.cpp:23-34",
+        "cf/3/1096/F_counting.cpp:21-27"
+      ],
+      "note": "正式PrefixSum/Difference/Compression是已验证完整接口；个人片段是模型来源，不冒称同一实现的原始祖先。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "CO03",
+      "title": "答案二分、双指针、窗口 Search",
+      "priority": "P0",
+      "source": "template/core/search_window.hpp",
+      "line_count": 51,
+      "sha256": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+      "sha256_lf_normalized": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+      "git_blob_sha256": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "二分范围为整数闭区间；first_true要求假到真，last_true要求真到假，无解/空区间为nullopt。数组1下标；two_sum需非降序，窗口元素须非负。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：ll全范围二分、确定边界、随机对拍、n=200000全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPES",
+      "reviewed_reuse_candidates": [
+        "template/binary_search_num.cpp:9-19",
+        "cf/other/Hello_2018/D.cpp:31-77"
+      ],
+      "note": "旧数组值二分与答案二分不是同一语义；保留正式函数，主例子优先原check与循环。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DP01",
+      "title": "0/1 与完全背包 Knapsack",
+      "priority": "P0",
+      "source": "template/dp/knapsack.hpp",
+      "line_count": 42,
+      "sha256": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+      "sha256_lf_normalized": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+      "git_blob_sha256": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "w、v 从1开始，w[i]>0，cap>=0；价值和任意可达总价值绝对值<2^60。默认总重量不超过容量；exact=true 表示恰好重量，不可达为 KNAP_NEG。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；600组随机物品枚举对照，覆盖负价值、不可达、空物品、64位价值。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE",
+      "reviewed_reuse_candidates": [
+        "template/01bag.cpp:4-18",
+        "template/完全背包dp.cpp:4-18"
+      ],
+      "note": "原全局w/v/dp和容量方向直接复用；ll扩展与exact不可达语义是额外功能，不能无说明丢掉。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DP02",
+      "title": "线性 DP 与最长递增子序列 LIS",
+      "priority": "P0",
+      "source": "template/dp/lis.hpp",
+      "line_count": 35,
+      "sha256": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+      "sha256_lf_normalized": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+      "git_blob_sha256": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a 从1开始，空序列传 {0}；strict=true 严格递增，false 非递减。只返回长度，不恢复实际序列。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；350组随机数组对照全部子序列枚举，覆盖严格/非严格、空序列与重复值。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE_FOR_QUADRATIC",
+      "reviewed_reuse_candidates": [
+        "template/线性dp.cpp:4-19"
+      ],
+      "note": "原平方LIS可直接收录；正式nlogn版本另有用途，避免强行视为等价代码替换。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DP03",
+      "title": "小规模状压最短路径 Hamilton DP",
+      "priority": "P0",
+      "source": "template/dp/hamilton_path.hpp",
+      "line_count": 37,
+      "sha256": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+      "sha256_lf_normalized": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+      "git_blob_sha256": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "w 为1-indexed有向图方阵，缺边为 HAMILTON_INF；从1到n，每点恰好一次。0<=n<=18，n=0/1约定为0；允许负边，任意路径总权值在(-2^60,2^60)。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；250组n<=8随机图与中间点全排列对照，覆盖负边、缺边、n=0/1。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [
+        "cf/luogu/5.cpp:20-38",
+        "cf/ICPC/JAKARTA_2018/J.cpp:18-35"
+      ],
+      "note": "个人候选仅集合状态和子集枚举相关，不是Hamilton路径原实现；不虚构直接继承。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DP04",
+      "title": "石子合并区间 DP Interval Merge",
+      "priority": "P1",
+      "source": "template/dp/interval_merge.hpp",
+      "line_count": 30,
+      "sha256": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+      "sha256_lf_normalized": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+      "git_blob_sha256": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a 从1开始且非负；直线石子合并，单次代价为两堆之和；n=0/1返回0。要求n*sum(a)<2^60；本函数不处理环形合并。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow通过；180组小数组对照全部相邻合并顺序，覆盖n=0/1、零权与超过32位总代价。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE",
+      "reviewed_reuse_candidates": [
+        "template/区间dp.cpp:4-25"
+      ],
+      "note": "直接保留长度/左端点/分割点循环，int扩ll为明确宽度修复，非负直线契约不变。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DS01",
+      "title": "树状数组 Fenwick",
+      "priority": "P0",
+      "source": "template/data_structure/fenwick.hpp",
+      "line_count": 33,
+      "sha256": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+      "sha256_lf_normalized": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+      "git_blob_sha256": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "n>=0，1下标；add位置须1..n，sum允许0；range_sum(l,r)的l>r返回0。树节点、前缀、答案及中间值均须在ll范围。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：空树、负增量、随机对拍及200000次更新全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE",
+      "reviewed_reuse_candidates": [
+        "template/Fenwick_tree.cpp:8-31"
+      ],
+      "note": "原本就是struct/vector；只修main的rangeSum为query，保持add/sum/query；不强制全局化。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DS02",
+      "title": "单点线段树 Segment Tree",
+      "priority": "P0",
+      "source": "template/data_structure/segment_tree.hpp",
+      "line_count": 47,
+      "sha256": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+      "sha256_lf_normalized": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+      "git_blob_sha256": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a[1..n]；{}或{0}为空树；set位置须1..n，非空sum须1<=l<=r<=n，空区间返回0。n<=INT_MAX/4；区间和及中间值须在ll范围。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：超过int的区间和、随机赋值对拍、n=200000全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE",
+      "reviewed_reuse_candidates": [
+        "template/segmen tree1.cpp:18-89",
+        "cf/segment_tree_cf_edu/1.cpp:5-55"
+      ],
+      "note": "原全局tree和独立函数可靠；正式set/sum与原update/query有名字差异，点加另有add。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DS03",
+      "title": "懒标记线段树 Lazy Segment Tree",
+      "priority": "P0",
+      "source": "template/data_structure/lazy_segment_tree.hpp",
+      "line_count": 61,
+      "sha256": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+      "sha256_lf_normalized": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+      "git_blob_sha256": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a[1..n]；{}或{0}为空树；l>r时add无操作、sum为0，非空范围须合法。n<=INT_MAX/4；节点和、累积tag、长度*x及中间值均须在ll范围。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：旧溢出/未下传反例、随机区间操作、n=200000全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE_MINIMAL_FIX",
+      "reviewed_reuse_candidates": [
+        "template/Segment tree2.cpp:11-88"
+      ],
+      "note": "补apply声明顺序、query/update下传、tree和query为ll；保留原pushup/pushdown/build/modify/query。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DS04",
+      "title": "单调栈与单调队列 Monotonic",
+      "priority": "P0",
+      "source": "template/data_structure/monotonic.hpp",
+      "line_count": 31,
+      "sha256": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+      "sha256_lf_normalized": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+      "git_blob_sha256": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "输入和输出均1下标；{}或{0}为空。previous_less无解下标为0；window_min返回ans[l]=min(a[l..l+k-1])，k<=0或k>n返回{0}。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：重复值/空窗口边界、随机对拍、n=200000全部通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [],
+      "note": "未在已深读个人源中找到等价完整单调栈/队列模板，保留可靠旧正式代码。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "DS05",
+      "title": "稀疏表 Sparse Table",
+      "priority": "P1",
+      "source": "template/data_structure/sparse_table.hpp",
+      "line_count": 40,
+      "sha256": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+      "sha256_lf_normalized": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+      "git_blob_sha256": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "a[1..n]，{}或{0}为空；非空query需1<=l<=r<=n，空区间返回传入identity。op必须结合且幂等；GcdOp只接收非负ll。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_core_data.cpp",
+        "prior_verification": "Windows GNU++20与WSL ASan+UBSan：空表/单点/重复值、全部随机子区间对拍、n=200000通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPE",
+      "reviewed_reuse_candidates": [
+        "template/ST表.cpp:15-37"
+      ],
+      "note": "原差分gcd与st[i][j]可直接作个人案例；正式泛型静态表覆盖min/gcd更广，不为统一机械复制。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G01",
+      "title": "并查集 Disjoint Set Union",
+      "priority": "P0",
+      "source": "template/graph/dsu.hpp",
+      "line_count": 31,
+      "sha256": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+      "sha256_lf_normalized": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+      "git_blob_sha256": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "n>=0，点编号 [1,n]；unite 返回是否真的合并；components 是当前块数；size 返回所在块大小。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 g++13.3 -O2 -Wall -Wextra -Wshadow：120 轮 DSU 对 BFS、重复合并、块大小及 200000 点链通过；随机种子 20261024。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE",
+      "reviewed_reuse_candidates": [
+        "template/DSU.cpp:13-36",
+        "cf/xian/B.cpp:18-41"
+      ],
+      "note": "保留fa/rk与init/find/unite/same；修反向文字注释；bool返回、size、components都是正式版新增接口。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G02",
+      "title": "BFS 最短路与路径恢复 BFS Path",
+      "priority": "P0",
+      "source": "template/graph/bfs_path.hpp",
+      "line_count": 33,
+      "sha256": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+      "sha256_lf_normalized": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+      "git_blob_sha256": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "g 长度 n+1，点 [1,n]；边端点必须合法；有向/无向均可，重边自环可用。dist=-1 表示不可达；path(t) 返回起点到 t（含端点），非法或不可达目标返回空。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 警告检查通过；200 轮距离对 Floyd、逐边验证恢复路径、不可达与 200000 深链通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE_WITH_DISTANCE_EXTENSION",
+      "reviewed_reuse_candidates": [
+        "template/bfs.cpp:4-25"
+      ],
+      "note": "原g[N]队列遍历直接用；dist/parent/路径恢复是追加能力，需保留按入队标记。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G03",
+      "title": "迭代 DFS 连通块与父亲 Iterative DFS Forest",
+      "priority": "P0",
+      "source": "template/graph/dfs_forest.hpp",
+      "line_count": 31,
+      "sha256": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+      "sha256_lf_normalized": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+      "git_blob_sha256": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "g 长度 n+1，合法点 [1,n]，无向边双向加入；允许自环重边。comp 从 1 开始，根 parent=0，order 是发现顺序。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 警告检查通过；200 轮连通块对 Floyd 可达性、父边存在性和 200000 深链通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_AND_EXPOSE_PERSONAL_BASIC",
+      "reviewed_reuse_candidates": [
+        "template/dfs.cpp:4-14",
+        "template/tree_storage.cpp:6-19"
+      ],
+      "note": "原递归基础必须收录；正式迭代全图遍历解决深链，两者职责不同，不应都泛称同一DFS接口。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G04",
+      "title": "拓扑排序 Topological Sort",
+      "priority": "P0",
+      "source": "template/graph/topological_sort.hpp",
+      "line_count": 22,
+      "sha256": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+      "sha256_lf_normalized": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+      "git_blob_sha256": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "n>=1，g 长度 n+1，点 [1,n]，有向边；返回全部 n 点的一个合法顺序，有环返回空。允许重边，自环判为环。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 警告检查通过；250 轮随机 DAG 逐边验证顺序，重边、自环、三点有向环通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE_RECIPE",
+      "reviewed_reuse_candidates": [
+        "cf/1704E.cpp:58-73"
+      ],
+      "note": "个人Kahn队列+in/tp完整可提取；若通用化补tp.size()==n判断，不能套题目保证。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G05",
+      "title": "简单无向基环图环恢复 Unicyclic Graph",
+      "priority": "P0",
+      "source": "template/graph/unicyclic_graph.hpp",
+      "line_count": 56,
+      "sha256": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+      "sha256_lf_normalized": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+      "git_blob_sha256": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "点 [1,n]，每条无向边输入一次；检查 n>=3、边数=n、合法端点、无自环重边与连通性。无效时 ok=false 且 cycle 为空；成功时 cycle 不重复首点，末尾与首点有边。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 警告检查通过；400 轮随机基环图对删边可达性，逐边验证闭环顺序；重边、自环、越界、非 n 边、不连通双环均安全拒绝。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [],
+      "note": "原正式基环图恢复已有验证；没有已核实的个人等价源，不强行改写。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G06",
+      "title": "单源与多源最短路 Dijkstra",
+      "priority": "P1",
+      "source": "template/graph/dijkstra.hpp",
+      "line_count": 54,
+      "sha256": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+      "sha256_lf_normalized": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+      "git_blob_sha256": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "g 长度 n+1，点 [1,n]，边 (v,w)；支持有向、重边、自环、零权。所有边要求 0<=w<DIJK_INF=LLONG_MAX/4；非法边或源点返回 ok=false。空源集合法，全不可达。距离>=INF 饱和为 INF，path 为空。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "g++13.3 GNU++20 -O2 -Wall -Wextra -Wshadow 零警告；350 轮单/多源对 Floyd、路径权重、零权重边、空源、不可达、负边与距离饱和通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_UNTIL_MINIMAL_PERSONAL_ADAPTATION",
+      "reviewed_reuse_candidates": [],
+      "note": "已深读个人源没有对应Dijkstra完整实现；不能伪造来源。若去cp/结果类，只是正式版适配并须同输入oracle对照。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G07",
+      "title": "Kruskal 最小生成树与森林 Kruskal MST",
+      "priority": "P1",
+      "source": "template/graph/kruskal.hpp",
+      "line_count": 37,
+      "sha256": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+      "sha256_lf_normalized": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+      "git_blob_sha256": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "n>=0，合法点 [1,n]；每条无向边输入一次，允许负权、自环、重边。返回 weight、components、connected 和原边数组 0-based 下标 edges；不连通时 weight 是森林总权；n=0 时 connected=false。总权和中间累加必须在 ll 范围内。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 零警告；300 轮 n<=6,m<=10 随机图对穷举森林，包含负权、自环、平行边、不连通；恢复边无环性及超过 int 的总权通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPE",
+      "reviewed_reuse_candidates": [
+        "template/kruskal MST.cpp:9-70"
+      ],
+      "note": "原是恰k分量森林，正式返回完整最小森林；保留个人fa/edge/cmp，ll权和是明确宽度扩展。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G08",
+      "title": "堆优化 Prim 最小生成森林 Prim MST",
+      "priority": "P1",
+      "source": "template/graph/prim.hpp",
+      "line_count": 34,
+      "sha256": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+      "sha256_lf_normalized": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+      "git_blob_sha256": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "g 长度 n+1，合法点 [1,n]，无向边双向加入，允许负权、自环、重边。返回 weight、components、connected、parent；每个分量根 parent=0；不连通时仍返回森林权重；n=0 时 connected=false。累加需在 ll 范围内。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 零警告；300 轮小图对穷举最小生成森林，包含零/负权、平行边、自环、单点和不连通图。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPE",
+      "reviewed_reuse_candidates": [
+        "template/prim MST.cpp:5-58"
+      ],
+      "note": "原链式前向星/独立Prim熟悉但单连通分量且int；正式vector/森林返回语义更广，不可静默替换。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G09",
+      "title": "树上倍增最近公共祖先 Binary Lifting LCA",
+      "priority": "P1",
+      "source": "template/graph/lca.hpp",
+      "line_count": 55,
+      "sha256": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+      "sha256_lf_normalized": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+      "git_blob_sha256": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "合法点 [1,n]，无向邻接表双向且对称，root 默认 1。检查边数与连通性，非树/非法根时 ok=false。根的父亲为哨兵 0；越界、k<0、跳过根返回 0；无效 lca 返回 0，无效 distance 返回 -1。depth[root]=0。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 零警告；250 轮随机树任意根对逐级父亲比较，单点、超根跳跃、非树拒绝及 200000 深链通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_UNTIL_MINIMAL_PERSONAL_ADAPTATION",
+      "reviewed_reuse_candidates": [],
+      "note": "旧binary_lifting实际是未完成ST，不是LCA来源。若个人化沿已验证倍增算法，只改存储/接口并对照。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G10",
+      "title": "Euler 子树区间与迭代树 DP Euler Subtree",
+      "priority": "P1",
+      "source": "template/graph/euler_subtree.hpp",
+      "line_count": 49,
+      "sha256": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+      "sha256_lf_normalized": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+      "git_blob_sha256": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "合法点 [1,n]，无向邻接表双向对称；root 默认 1；检查边数和连通性。每点仅计入 Euler 序一次，order[1..n]，order[tin[u]]=u；子树闭区间 [tin[u],tout[u]]。subtree_sum 输入长度 n+1，返回含自身的子树和。无效树或长度不符返回空。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "GNU++20 零警告；250 轮随机树对子树朴素枚举，负权、单点、不同根、区间与逆映射、200000 深链通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_BASIC_WITH_BASELINE_EULER",
+      "reviewed_reuse_candidates": [
+        "template/tree_storage.cpp:6-19",
+        "template/tree_dp.cpp:8-19",
+        "cf/hdu/B.cpp:19-30"
+      ],
+      "note": "原存储与子后父合并直接收录；Euler序/深链迭代是正式新增能力，须保留其独立契约。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G11",
+      "title": "强连通分量 Iterative Kosaraju SCC",
+      "priority": "P2",
+      "source": "template/advanced/scc.hpp",
+      "line_count": 47,
+      "sha256": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+      "sha256_lf_normalized": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+      "git_blob_sha256": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "g 长度 n+1，合法点 [1,n]；允许重边自环。返回 count、comp[1..n]、groups[1..count]；0 为保留位置。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "g++13.3 GNU++20 零警告；350 轮随机有向图对逐对双向可达性，重边自环；200000 点链及大环；ASan+UBSan 完整测试通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [],
+      "note": "已有可靠迭代SCC，非赛前大改优先项；没有个人等价源不虚构。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "G12",
+      "title": "无向图找桥 Iterative Bridges",
+      "priority": "P2",
+      "source": "template/advanced/bridges.hpp",
+      "line_count": 43,
+      "sha256": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+      "sha256_lf_normalized": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+      "git_blob_sha256": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "n>=0，合法点 [1,n]；无向边每条输入一次，允许重边、自环和不连通图。返回桥在原 edges 中的 0-based 下标，按输入顺序排列。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_graph.cpp",
+        "prior_verification": "g++13.3 GNU++20 零警告；400 轮随机多重图对逐边删除后的连通块数，平行边、自环、不连通；200000 点链及大环；ASan+UBSan 完整测试通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": true,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [],
+      "note": "已有可靠迭代桥，非赛前大改优先项；平行边须保留边id语义。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "M01",
+      "title": "整数与位运算 Integer and Bits",
+      "priority": "P0",
+      "source": "template/math/integer_bits.hpp",
+      "line_count": 36,
+      "sha256": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+      "sha256_lf_normalized": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+      "git_blob_sha256": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "gcd_abs 接受完整ll范围并返回unsigned long long；gcd(0,0)=0。lcm_checked只接受能放进非负ll的结果，否则nullopt。位操作用ull，位号0..63；最低位不存在返回-1。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；覆盖负数、0、LLONG_MIN、lcm溢出、第63位与全部mask<128的子集枚举。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": false
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPES",
+      "reviewed_reuse_candidates": [
+        "template/gcd.cpp:6-8",
+        "cf/2/873/B.cpp:6-18"
+      ],
+      "note": "非负域原gcd可直接用；正式完整ll域/无符号绝对值是更强契约，不强制塞入每个基础例子。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "M02",
+      "title": "安全模运算与快速幂 Modular Power",
+      "priority": "P0",
+      "source": "template/math/modular.hpp",
+      "line_count": 31,
+      "sha256": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+      "sha256_lf_normalized": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+      "git_blob_sha256": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "1<=mod<=LLONG_MAX，底数可为任意ll；结果在[0,mod)。指数为非负unsigned long long；0^0按1处理后取模，mod=1返回0。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；1500组朴素乘法对照，覆盖负底数、0指数、mod=1、LLONG_MIN及接近LLONG_MAX的乘法。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": false
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPE",
+      "reviewed_reuse_candidates": [
+        "template/ksm.cpp:7-15",
+        "cf/date/5/5.19/3.cpp:22-33"
+      ],
+      "note": "原ksm在固定质数/安全乘法域可直接采用；正式mod=1/全ll域保护不要当原合法题域内的缺陷。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "M03",
+      "title": "普通模矩阵快速幂 Matrix Power",
+      "priority": "P1",
+      "source": "template/math/matrix_power.hpp",
+      "line_count": 41,
+      "sha256": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+      "sha256_lf_normalized": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+      "git_blob_sha256": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "矩阵0-indexed，只接受同阶方阵，元素可为任意ll，1<=mod<=LLONG_MAX；非负unsigned指数，0次幂为单位矩阵。依赖M02。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；200组矩阵与朴素重复乘法对照，覆盖空矩阵、指数0、mod=1、负元素和64位乘法。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [
+        "template/matrix_ksm.cpp:16-40"
+      ],
+      "note": "原vector矩阵mul/mksm也是熟悉写法；正式值域更广，无需全局化；不是max-plus。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "M04",
+      "title": "乘积递推修正版 Product Recurrence",
+      "priority": "P1",
+      "source": "template/math/product_recurrence.hpp",
+      "line_count": 34,
+      "sha256": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+      "sha256_lf_normalized": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+      "git_blob_sha256": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "f[n]=f[n-1]*f[n-2]*f[n-3]*c^(2n-6)，固定模P=10^9+7；n>=1，四个底数可为任意ll；n<=3直接返回初值。依赖M02、M03。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；200组初值的n=1..24朴素递推对照、两条官方样例、n=10^18和底数modP为0。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": false
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [
+        "template/matrix_ksm.cpp:54-91"
+      ],
+      "note": "旧ans=0为具体缺陷，正式修复已有证据；保留原指数矩阵观察，不再次写同功能实现。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "M05",
+      "title": "质数模数组合数 Prime Combinations",
+      "priority": "P1",
+      "source": "template/math/combinations.hpp",
+      "line_count": 30,
+      "sha256": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+      "sha256_lf_normalized": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+      "git_blob_sha256": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "prime必须为质数且0<=max_n<prime；模板不检测质数。有效查询须0<=n<=max_n；k<0或k>n返回0。依赖M02。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；n<=30逐项对照Pascal三角，覆盖C(0,0)、无效k、小质数和2^61-1质数模。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "PREFER_PERSONAL_SOURCE_RECIPE",
+      "reviewed_reuse_candidates": [
+        "cf/date/5/5.19/3.cpp:19-46"
+      ],
+      "note": "全局fac/ifac/ksm/ncr/init完整；动态prime/上限的类接口非必须，按用途选一规范主版本。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "S01",
+      "title": "KMP 与 Z 函数 Prefix Matching",
+      "priority": "P1",
+      "source": "template/string/kmp_z.hpp",
+      "line_count": 47,
+      "sha256": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+      "sha256_lf_normalized": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+      "git_blob_sha256": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "字符串按字节、0-indexed，长度能放进int。KMP返回所有匹配起点，允许重叠；空模式匹配0..n。pi为最长相等真前后缀长度；Z约定z[0]=0。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；1200组随机串逐一对照naive search、枚举真前后缀、朴素LCP，覆盖空串与重叠。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_RECIPES",
+      "reviewed_reuse_candidates": [
+        "template/KMP.cpp:21-60",
+        "cf/date/6/6.14/1.cpp:4-42"
+      ],
+      "note": "原get_pi/kmp对非空模式正确；正式增加空模式/Z，0下标保留。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "S02",
+      "title": "双模字符串哈希 Double Hash",
+      "priority": "P1",
+      "source": "template/string/double_hash.hpp",
+      "line_count": 34,
+      "sha256": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+      "sha256_lf_normalized": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+      "git_blob_sha256": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "字符串0-indexed，get(l,r)取半开区间[l,r)，0<=l<=r<=n；长度能放进int。按unsigned char+1编码，固定base与两组模数。比较哈希时也比较长度。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；1200组随机串的子串哈希与独立重建对照，并核验测试样本的直接字符串比较；覆盖零字节、高位字节、空区间。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": true,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE",
+      "reviewed_reuse_candidates": [],
+      "note": "未发现已深读个人等价哈希实现，保留正式双哈希，回文调用另为新增模型。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    },
+    {
+      "id": "S03",
+      "title": "基础字符串处理 String Basics",
+      "priority": "P1",
+      "source": "template/string/basic_string.hpp",
+      "line_count": 38,
+      "sha256": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786",
+      "sha256_lf_normalized": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786",
+      "git_blob_sha256": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786",
+      "baseline_git_content_match": true,
+      "read_in_full": true,
+      "contract": "按字节处理而非Unicode字符，长度能放进int；回文使用0-indexed半开区间[l,r)。分割保留所有空字段；大小写转换只处理ASCII大写字母。",
+      "coverage_status": "VERIFIED_CODE",
+      "online_status": "UNKNOWN",
+      "user_validation": "NOT_APPLIED_TO_ROUND01_NEW_CODE",
+      "evidence": {
+        "release_status": "PASS",
+        "sanitizers_status": "PASS",
+        "release_hash_match": true,
+        "sanitizers_hash_match": true,
+        "test_source": "template/tests/test_dp_math_string.cpp",
+        "prior_verification": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；边界断言覆盖空串、连续/尾部分隔符、空/偶长回文、ASCII边界和相邻字符分组。",
+        "runtime_rerun_by_this_audit": false
+      },
+      "interface_features": {
+        "namespace_cp": false,
+        "struct": false,
+        "vector": true
+      },
+      "recommendation": "KEEP_BASELINE_WITH_PERSONAL_CONSTRUCTION",
+      "reviewed_reuse_candidates": [
+        "cf/construction/1.cpp:13-64"
+      ],
+      "note": "原回文构造不是is_palindrome实现祖先；两者能力不同，补构造卡不要重写基础字符串。",
+      "relation_disclaimer": "Reviewed source/reuse candidates; not an unsupported claim that ROUND01 copied these exact lines."
+    }
+  ],
+  "legacy_sources": [
+    {
+      "path": "template/01bag.cpp",
+      "line_count": 21,
+      "sha256": "d7e5808f0391ed6ec6fdba70c70cd7412add849b63974e71028ba30a0de79fa1",
+      "sha256_lf_normalized": "e1261c1bd0ac9d3c36e0e32527748ae356d089677c53227e1943db27f98af77e",
+      "git_blob_sha256": "e1261c1bd0ac9d3c36e0e32527748ae356d089677c53227e1943db27f98af77e",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        21
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "01背包，容量与物品数均<1010，重量正数，int价值和不溢出。",
+      "prior_evidence": "16组子集穷举对照；包含零容量、物品放不下。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            18
+          ]
+        ],
+        "original_comment_observation": "原注释定义w/v/dp，明确倒序防同一物品重复选择。",
+        "reusable_fragment": "全局数组与倒序容量循环直接复用。",
+        "specific_issue_or_contract": "n/cap<1010、正重量、int总价值不溢出；多测才需清空。"
+      }
+    },
+    {
+      "path": "template/bfs.cpp",
+      "line_count": 39,
+      "sha256": "36c6999583a80210cd69eb400a6ba6727323341ebf2d92475b26f9cb6912208d",
+      "sha256_lf_normalized": "6b278dbf06022e5173f3ac4e29b97c0ed3e45735b6696c1b554e9839fbd18734",
+      "git_blob_sha256": "6b278dbf06022e5173f3ac4e29b97c0ed3e45735b6696c1b554e9839fbd18734",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        39
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "只遍历从1可达的分量；1<=n<100010。不是最短路输出程序。",
+      "prior_evidence": "驱动检查可达标记与未连通点；全图需外层遍历，多测需清空。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            25
+          ],
+          [
+            31,
+            37
+          ]
+        ],
+        "original_comment_observation": "原注释说明起点入队、访问时标记、无向图双向存边。",
+        "reusable_fragment": "g[N]、visited、队列和独立bfs。",
+        "specific_issue_or_contract": "只遍历起点分量，距离/路径未实现；主图合法点1..n。"
+      }
+    },
+    {
+      "path": "template/binary_lifting.cpp",
+      "line_count": 27,
+      "sha256": "aa982444f5ca70debfc0e21e86b286280c25eec16feeb6aceac08d6c5533d0d6",
+      "sha256_lf_normalized": "f6a0eb0a98cf02fb05ded8bc75ecdaf4ef9b2ecdb5088863bb0d9b41e221c54a",
+      "git_blob_sha256": "f6a0eb0a98cf02fb05ded8bc75ecdaf4ef9b2ecdb5088863bb0d9b41e221c54a",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        27
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "FAIL",
+      "prior_contract": "未完成的ST表草稿，不是可用倍增/LCA实现。",
+      "prior_evidence": "使用了未定义的log，原数组定义为logn；for条件/递增和表构造均未完成，编译失败。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            14
+          ],
+          [
+            25,
+            26
+          ]
+        ],
+        "original_comment_observation": "原注释讨论幂等op与gcd/max，实际是ST而非LCA。",
+        "reusable_fragment": "幂等条件可作ST思维说明。",
+        "specific_issue_or_contract": "log与logn不一致，末尾for未完成，不能直接收录为可用代码。"
+      }
+    },
+    {
+      "path": "template/binary_search_num.cpp",
+      "line_count": 30,
+      "sha256": "4653b2adb7a4697a4030ea55830cb20c12479786e08fbf8ed8f6990f7ea5f154",
+      "sha256_lf_normalized": "1f4826b00ee7e8dc7d54fbe047a7a9874ec52d22fd20f4c1f8f23cea6134d179",
+      "git_blob_sha256": "1f4826b00ee7e8dc7d54fbe047a7a9874ec52d22fd20f4c1f8f23cea6134d179",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        30
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "升序数组、n<1000010；返回任意相等位置或-1，不保证第一个。",
+      "prior_evidence": "15组独立数组查询对照及重复值位置检查。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            19
+          ]
+        ],
+        "original_comment_observation": "无原理长注释；全局数组和闭区间二分。",
+        "reusable_fragment": "找任意相等位置的普通二分。",
+        "specific_issue_or_contract": "不保证重复值的第一个位置；输入必须有序、容量内。"
+      }
+    },
+    {
+      "path": "template/data_sturcture.cpp",
+      "line_count": 109,
+      "sha256": "79c59079985b1f887f7a28fc463071c009a01f379af3d2252aa6e8ff6a71c70d",
+      "sha256_lf_normalized": "2f6d0040a8b43b36227da3a323f979ad8b96e3f3c90402c846948ab9cde40647",
+      "git_blob_sha256": "2f6d0040a8b43b36227da3a323f979ad8b96e3f3c90402c846948ab9cde40647",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        109
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "STL语法演示，不是通用算法模块。",
+      "prior_evidence": "编译成功但有未使用变量警告；unordered容器复杂度只能说平均O(1)。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            106
+          ]
+        ],
+        "original_comment_observation": "原注释逐类说明vector/字符串/队列/集合/查找等用途。",
+        "reusable_fragment": "STL几行演示可按主题直接引用。",
+        "specific_issue_or_contract": "unordered复杂度只能说平均O(1)，emplace_back不保证比push_back更快；语法演示不是通用算法验证。"
+      }
+    },
+    {
+      "path": "template/dfs.cpp",
+      "line_count": 27,
+      "sha256": "752a2891fa3b34d13c7510435bfff30b0d22f9ef9a7df67b4049a2af314aa813",
+      "sha256_lf_normalized": "dd4882ac72f6602fa48248a967b1b844624a25771ece4d5408e9f6280fde221d",
+      "git_blob_sha256": "dd4882ac72f6602fa48248a967b1b844624a25771ece4d5408e9f6280fde221d",
+      "encoding": "gb18030",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        27
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "递归访问单个可达分量；小图、递归深度安全、1<=n<100010。",
+      "prior_evidence": "驱动验证标记；长链可能栈溢出，不作大树可用性承诺；中文注释原编码显示异常。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            14
+          ],
+          [
+            17,
+            25
+          ]
+        ],
+        "original_comment_observation": "原英文占位提醒每点操作，中文说明无向图双向边和从1出发。",
+        "reusable_fragment": "全局g/visited与递归dfs。",
+        "specific_issue_or_contract": "只起点分量；深链栈风险与多测reset属适用说明，不需默认重写。"
+      }
+    },
+    {
+      "path": "template/DSU.cpp",
+      "line_count": 38,
+      "sha256": "a234a592edf7dd48078c71864f4bbaa070efd5e34ecf1d6f80148f4c95aa686f",
+      "sha256_lf_normalized": "3a6c0792cc4f1a275bfa2a378713917d7970f6732c049f0c71ae3a2d7e9034ee",
+      "git_blob_sha256": "3a6c0792cc4f1a275bfa2a378713917d7970f6732c049f0c71ae3a2d7e9034ee",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        38
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "1..n，n<100005，调用init后按秩合并与路径压缩。",
+      "prior_evidence": "合理main驱动检查传递连接、重复合并、重新初始化。注释“挂到秩小”与实现相反。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            8
+          ],
+          [
+            13,
+            36
+          ]
+        ],
+        "original_comment_observation": "原注释“挂到秩小”与实现相反，判断同集合的意图清晰。",
+        "reusable_fragment": "fa/rk、init/find/unite/same全部直接复用。",
+        "specific_issue_or_contract": "仅纠正注释为小秩挂大秩；int返回find在原n<100005域内安全。"
+      }
+    },
+    {
+      "path": "template/Fenwick_tree.cpp",
+      "line_count": 66,
+      "sha256": "6a9df4aa942adcbf8937a742a2f6a325a01894abf8f9629d20e5c7d79f181dd9",
+      "sha256_lf_normalized": "a5a473207839b06294d5b30c2a276cd72f534e20c8a1c48df456d74b134c2d67",
+      "git_blob_sha256": "a5a473207839b06294d5b30c2a276cd72f534e20c8a1c48df456d74b134c2d67",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        66
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "FAIL",
+      "prior_contract": "当前文件不能编译。有效下标应为1..n；add(0)会死循环。",
+      "prior_evidence": "定义query却调用rangeSum，编译器已证实；原文件保持原状。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            8,
+            31
+          ],
+          [
+            40,
+            61
+          ]
+        ],
+        "original_comment_observation": "没有额外原理长注释，原结构就是struct+vector tr。",
+        "reusable_fragment": "add/sum/query低位循环与前缀相减。",
+        "specific_issue_or_contract": "main第61行调用未定义rangeSum，应改query；add必须1..n。"
+      }
+    },
+    {
+      "path": "template/gcd.cpp",
+      "line_count": 16,
+      "sha256": "12f2bd3587a2578fecec4666491d24a3c86f253506e8ee88735ab7147201dc79",
+      "sha256_lf_normalized": "a21ba53b90eeda70a7ae2c41ba901c439895e4746017772325a84809750186c4",
+      "git_blob_sha256": "a21ba53b90eeda70a7ae2c41ba901c439895e4746017772325a84809750186c4",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        16
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "非负long long输入，支持gcd(0,0)=0。",
+      "prior_evidence": "5个边界与Python math.gcd对照；负数未规范化，不保证返回非负值。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            8
+          ]
+        ],
+        "original_comment_observation": "没有原理长注释，递归Euclid短式。",
+        "reusable_fragment": "非负gcd函数原样可用。",
+        "specific_issue_or_contract": "负数规范化是扩展契约；不能据此否定非负题域实现。"
+      }
+    },
+    {
+      "path": "template/graph_paint.cpp",
+      "line_count": 26,
+      "sha256": "efc5f9e29dffa5eb0585747ad3e586f7b17660afcc33954998b3c47ec5eb2103",
+      "sha256_lf_normalized": "82ff1f01f0bf182b72e4f3cbd3fbc7d7d6d81f9cc902686b515ed8220c368513",
+      "git_blob_sha256": "82ff1f01f0bf182b72e4f3cbd3fbc7d7d6d81f9cc902686b515ed8220c368513",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        26
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "PASS",
+      "prior_contract": "二分染色草稿。",
+      "prior_evidence": "没有读边、没有检测同色冲突、没有遍历所有分量；编译成功不能当判二分图。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            23
+          ]
+        ],
+        "original_comment_observation": "无原理长注释；col用1/2并以3-col切换。",
+        "reusable_fragment": "颜色传播的几行核心。",
+        "specific_issue_or_contract": "未读边、没有已染色冲突检查、仅一个分量，是草稿。"
+      }
+    },
+    {
+      "path": "template/interaction.cpp",
+      "line_count": 3,
+      "sha256": "619ca49da719c69e82ba1a021dcab288134c371de6f6ba4d6812357eb0f170d7",
+      "sha256_lf_normalized": "23e29210a14e79bfe82170007b3862d4dd98f7d24909de04ae2294a6653ad1cc",
+      "git_blob_sha256": "23e29210a14e79bfe82170007b3862d4dd98f7d24909de04ae2294a6653ad1cc",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        3
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "PASS",
+      "prior_contract": "只有include和宏。",
+      "prior_evidence": "加空main能编译，但没有询问、flush、读回复或协议处理。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            1,
+            3
+          ]
+        ],
+        "original_comment_observation": "只有头文件、ll宏、using。",
+        "reusable_fragment": "主骨架语言片段。",
+        "specific_issue_or_contract": "没有交互或算法；OPTIONAL，不算完整模块。"
+      }
+    },
+    {
+      "path": "template/KMP.cpp",
+      "line_count": 74,
+      "sha256": "2b1420ac714f2f68fa3976bbc6f9f0e0696cb6a6dfef8fca26a59451f858b76a",
+      "sha256_lf_normalized": "730799d240c1e90fac4668a1b264070c5299b17dc7a369e476c160456e223ff9",
+      "git_blob_sha256": "730799d240c1e90fac4668a1b264070c5299b17dc7a369e476c160456e223ff9",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        74
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "非空模式串；输出0-based全部匹配，允许重叠。",
+      "prior_evidence": "20组朴素子串对照和aaaaa/aa重叠反例；空模式接口没有契约保护。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            16
+          ],
+          [
+            21,
+            60
+          ]
+        ],
+        "original_comment_observation": "原注释从O(nm)暴力想到模式串最长相同真前后缀pi。",
+        "reusable_fragment": "get_pi与非空模式kmp完整函数，含重叠回退。",
+        "specific_issue_or_contract": "空模式不在原契约；多余include无需为形式改写算法。"
+      }
+    },
+    {
+      "path": "template/kruskal MST.cpp",
+      "line_count": 72,
+      "sha256": "17f7b7d4a757809d99e6ece155584d1431b01a5862dadf01111e3cd83c3e7e46",
+      "sha256_lf_normalized": "1a31664df3c65a1dd24d34e70d84f330155aea709a82726e050039fc950aca30",
+      "git_blob_sha256": "1a31664df3c65a1dd24d34e70d84f330155aea709a82726e050039fc950aca30",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        72
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "求恰k个分量的最小生成森林；1<=k<=n<1010，m<10010，边权及总和在int范围。",
+      "prior_evidence": "14组边子集穷举对照（连通/断开/负边/n=1）及k=2；无法达目标打印No Answer。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            7
+          ],
+          [
+            9,
+            70
+          ]
+        ],
+        "original_comment_observation": "原注释不成环、取最小边，46行说明合并一次分量减一。",
+        "reusable_fragment": "edge数组、cmp、fa、独立kruskal及k分量目标。",
+        "specific_issue_or_contract": "int权和/容量和合法k要说明；普通MST与k森林接口不同。"
+      }
+    },
+    {
+      "path": "template/ksm.cpp",
+      "line_count": 24,
+      "sha256": "cc8b1b61bbdedd084f7bd8246e2be34341d7b339e664ae6d1e3907bc24f837f3",
+      "sha256_lf_normalized": "dc4ab6c41e69ef6d096af08db34ff7dcdf1f271085ddb1c07134891405125d41",
+      "git_blob_sha256": "dc4ab6c41e69ef6d096af08db34ff7dcdf1f271085ddb1c07134891405125d41",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        24
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "旧快速幂缺少完整模运算契约。",
+      "prior_evidence": "2 0 1输出1而非0；p=0非法，负指数不终止；未先规范化a，乘法可能溢出。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            15
+          ]
+        ],
+        "original_comment_observation": "5行提到a^(p-2)逆元，需补质数且a非0模p前提。",
+        "reusable_fragment": "固定模数合法域的短快速幂。",
+        "specific_issue_or_contract": "p=1且指数0时原sum=1；乘法超ll、负指数不在合法契约，按实际需求最小处理。"
+      }
+    },
+    {
+      "path": "template/lambda.cpp",
+      "line_count": 20,
+      "sha256": "abe04322b6c10241eb75c55f3275c1d83aeeaf32c628a5239ce3f99aaa5b90cd",
+      "sha256_lf_normalized": "96d015de5096b26ad7394ff26a38ecea86ea5c178e7f0c04fc7b4e867e6957c7",
+      "git_blob_sha256": "96d015de5096b26ad7394ff26a38ecea86ea5c178e7f0c04fc7b4e867e6957c7",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        20
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "捕获、排序和递归lambda语法演示。",
+      "prior_evidence": "编译成功且有未使用lambda警告；定义未调用，不能视作算法测试。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            7,
+            18
+          ]
+        ],
+        "original_comment_observation": "没有中文长注释，展示捕获、排序与self递归。",
+        "reusable_fragment": "递归lambda显式传self的写法。",
+        "specific_issue_or_contract": "定义未调用不构成算法行为验证；保留语法演示用途。"
+      }
+    },
+    {
+      "path": "template/linklist.cpp",
+      "line_count": 138,
+      "sha256": "b897554e4963a8eda917e35e93a8611cb0f82f7c0dd715877e6c8038883ce11a",
+      "sha256_lf_normalized": "4a6fb72108d1aa3e8c457c86f4769dc4e73c6285d60c7dbecf7b04edd32118be",
+      "git_blob_sha256": "4a6fb72108d1aa3e8c457c86f4769dc4e73c6285d60c7dbecf7b04edd32118be",
+      "encoding": "gb18030",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        138
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "带头结点的教学链表。",
+      "prior_evidence": "全源码审读；未做一般链表行为验证。CreateListT实际头插导致逆序；无销毁函数，中文字符串原编码异常。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            10
+          ],
+          [
+            77,
+            85
+          ]
+        ],
+        "original_comment_observation": "原注释解释指针/new与头插。",
+        "reusable_fragment": "链表教学片段。",
+        "specific_issue_or_contract": "CreateListT名字像尾插实为头插、未释放全部节点；不占铜牌P0。"
+      }
+    },
+    {
+      "path": "template/lower_bound.cpp",
+      "line_count": 25,
+      "sha256": "9ca6e7203309dd5a3c50a59139e89e36c21a97ee3bfc6feefd2b8541b51445f2",
+      "sha256_lf_normalized": "88f5702069871180e8dbb602b8dae33277809e3c8b191d3fef74a3a7530c93c5",
+      "git_blob_sha256": "88f5702069871180e8dbb602b8dae33277809e3c8b191d3fef74a3a7530c93c5",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        25
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "文件名/注释讲lower_bound，实际调用降序比较器的upper_bound固定查4。",
+      "prior_evidence": "要求数组降序；未检查end就解引用。不能复制作为常规升序lower_bound。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            23
+          ]
+        ],
+        "original_comment_observation": "5行解释升序lower_bound，20行实际降序upper_bound。",
+        "reusable_fragment": "降序比较器与read调用可供小技巧对照。",
+        "specific_issue_or_contract": "数组须降序且结果不为end；不能凭文件名当升序lower_bound。"
+      }
+    },
+    {
+      "path": "template/matrix_ksm.cpp",
+      "line_count": 104,
+      "sha256": "fe65f6b4a9bdd605fd3e21fcc3922f373e89d25f9f96ee4d4b4e752b1f3196fe",
+      "sha256_lf_normalized": "1637c12dd7f943c2d951fd5dab13850c3efd83c3375696887dfb1eb6cc490b07",
+      "git_blob_sha256": "1637c12dd7f943c2d951fd5dab13850c3efd83c3375696887dfb1eb6cc490b07",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        104
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "CF1182E专用指数矩阵推导，原题n>=4。",
+      "prior_evidence": "4 1 1 1 1期望1实得0；ans=0连乘。扩展到n<3时负指数不终止（原题域外，不作为该题合法反例）。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            7,
+            14
+          ],
+          [
+            16,
+            40
+          ],
+          [
+            64,
+            89
+          ]
+        ],
+        "original_comment_observation": "原注释说明指数递推矩阵、费马小定理及底数不能被p整除。",
+        "reusable_fragment": "mul/mksm与指数系数提取的原思路。",
+        "specific_issue_or_contract": "85行乘积ans=0是具体缺陷；正式M04已修，旧源保持不动。"
+      }
+    },
+    {
+      "path": "template/mex.cpp",
+      "line_count": 20,
+      "sha256": "7992596e313c789045fc190aba29406de439957f959278de2b20f88e24f8de62",
+      "sha256_lf_normalized": "cbf0167a9748de0d5b7d37bfa4439857aac1dbea09c41881ef8654790932ee85",
+      "git_blob_sha256": "cbf0167a9748de0d5b7d37bfa4439857aac1dbea09c41881ef8654790932ee85",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        20
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "FAIL",
+      "prior_contract": "只有思路注释，没有mex实现。",
+      "prior_evidence": "uisng拼写错误导致编译失败；修正拼写也不构成算法。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            11
+          ]
+        ],
+        "original_comment_observation": "原注释明确静态vis，动态ct[x]==0存set。",
+        "reusable_fragment": "静态/动态MEX的完整方向。",
+        "specific_issue_or_contract": "第3行uisng拼写错误且main没有实现；MODEL_ONLY。"
+      }
+    },
+    {
+      "path": "template/Mobius_inversion.cpp",
+      "line_count": 111,
+      "sha256": "fd5e7cab04ab8aa50d1a129aad328f7bdddde837a06e44488689fba74f81b8d4",
+      "sha256_lf_normalized": "805f5bae5c18f434c247c50516ae6ee20f850a7046efbb2ee90ce8c554b122b4",
+      "git_blob_sha256": "805f5bae5c18f434c247c50516ae6ee20f850a7046efbb2ee90ce8c554b122b4",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        111
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "活动main为P2522矩形gcd计数；另有错误的备用get_mu。",
+      "prior_evidence": "活动main10组gcd穷举通过；get_mu(10)返回mu[4]=-1、mu[6]=-1，正确为0、1。每轮无条件mu[x]=-1覆盖合数值。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            37
+          ],
+          [
+            39,
+            55
+          ],
+          [
+            61,
+            88
+          ]
+        ],
+        "original_comment_observation": "原注释从容斥奇偶、平方因子为0推反演，84行说明整除分块边界。",
+        "reusable_fragment": "主程序线性筛、前缀mu与整除分块观察。",
+        "specific_issue_or_contract": "备用get_mu第46行无条件mu[x]=-1覆盖合数；与活动main区别记录，反演OPTIONAL。"
+      }
+    },
+    {
+      "path": "template/prim MST.cpp",
+      "line_count": 60,
+      "sha256": "8a3650a45f03e11aa80253800fc681bef7b181866852be2eb2689d8809a19f11",
+      "sha256_lf_normalized": "1853a3de7a9d0b2f0be1f0c2f12fdce487eab9b3748144b7a9841f10aecb961c",
+      "git_blob_sha256": "1853a3de7a9d0b2f0be1f0c2f12fdce487eab9b3748144b7a9841f10aecb961c",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        60
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "1<=n<5050，m<=200000；边权<0x3f3f3f3f，权和int安全，单次调用。",
+      "prior_evidence": "14组边子集穷举对照含断图/负边/n=1；全局状态多测需重置；大权和会溢出。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            58
+          ]
+        ],
+        "original_comment_observation": "无长原理注释，前向星E与小根堆S组织简洁。",
+        "reusable_fragment": "adde、h/e数组、独立Prim与cnt连通检查。",
+        "specific_issue_or_contract": "原单测状态和int总权；泛化多测或大权需具体扩展。"
+      }
+    },
+    {
+      "path": "template/read.cpp",
+      "line_count": 11,
+      "sha256": "cfc7fc4bcc3d8c5f59da2e209aee3103d27ef12ef745079e048d983e365a5fb4",
+      "sha256_lf_normalized": "a3aced46d7ce2356b9ec352e87ea37dd9b1544df36c65a7c6476b38ed536528e",
+      "git_blob_sha256": "a3aced46d7ce2356b9ec352e87ea37dd9b1544df36c65a7c6476b38ed536528e",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        11
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "有输入保证且数值范围安全的教学读整数片段。",
+      "prior_evidence": "驱动读取-12345；空输入0.3秒超时。getchar返回值存char丢EOF语义；极值累积可能溢出。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "latest_user_override": {
+        "decision": "DIRECT_INCLUDE_UNCHANGED",
+        "source_lines": [
+          6,
+          11
+        ],
+        "contract": "Guaranteed next ordinary legal signed integer; magnitude accumulation fits ll. Use cin for other input needs. Preserve inline ll read(), ll, getchar and original body.",
+        "prior_status_scope": "Historical audit status preserved as evidence only; EOF/extreme-domain observations do not require redesign of the user-requested ordinary-integer reader."
+      },
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            11
+          ]
+        ],
+        "original_comment_observation": "原函数没有长注释；ll/getchar是稳定使用接口。",
+        "reusable_fragment": "完整函数原样收录。",
+        "specific_issue_or_contract": "保证有下一个常规整数且绝对值累积在ll范围；其他输入用cin，不做EOF/超域重构。"
+      }
+    },
+    {
+      "path": "template/segmen tree1.cpp",
+      "line_count": 134,
+      "sha256": "651d981c30c4dbdc5c15f54cc097324be83bd17e33d7cbed87ff99068a96add9",
+      "sha256_lf_normalized": "42d41b62fb40d764d8d09007bc7bbbf5d02095174c1fbd34ed1fca7413d7802b",
+      "git_blob_sha256": "42d41b62fb40d764d8d09007bc7bbbf5d02095174c1fbd34ed1fca7413d7802b",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        134
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "非空数组n<200005、闭区间1-based；单点赋值/加，区间和long long不溢出。",
+      "prior_evidence": "12组每组70操作与独立vector对照；零长度未支持。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            14
+          ],
+          [
+            18,
+            89
+          ]
+        ],
+        "original_comment_observation": "原注释列单点赋值/单点加/区间和且明确不需lazy。",
+        "reusable_fragment": "全局a/tree与独立pushup/build/update/add/query。",
+        "specific_issue_or_contract": "n>=1、容量内、ll和安全；空树另为扩展而非原题缺陷。"
+      }
+    },
+    {
+      "path": "template/Segment tree2.cpp",
+      "line_count": 88,
+      "sha256": "5a6bebd9904b7afa554633bb518ffdda0fd90d84db82100c3c6840da3ce348a4",
+      "sha256_lf_normalized": "a23568b058ceae95650a66eb9330330f34b5605d776b0d06e0f59a11bb6f3bdd",
+      "git_blob_sha256": "a23568b058ceae95650a66eb9330330f34b5605d776b0d06e0f59a11bb6f3bdd",
+      "encoding": "gb18030",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        88
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "FAIL",
+      "prior_contract": "当前片段不能编译，且存在独立逻辑/宽度缺陷。",
+      "prior_evidence": "apply调用在声明前。仅在临时副本补声明后：全加10查单点得1而非11；再赋值7查总和得9而非19；3个1e9求和得-1294967296。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            17
+          ],
+          [
+            21,
+            88
+          ]
+        ],
+        "original_comment_observation": "14行lazy定义准确：节点已加但尚未传给儿子。",
+        "reusable_fragment": "原pushup/build/modify/apply/pushdown骨架。",
+        "specific_issue_or_contract": "apply在调用后才声明；query与update下行缺pushdown；tree/query为int。这些可逐点最小修。"
+      }
+    },
+    {
+      "path": "template/sort.cpp",
+      "line_count": 36,
+      "sha256": "eeb2c5371955a50ab52be5ff6e8fdb9b81ee297eff3fe7de6c334e3fb6969523",
+      "sha256_lf_normalized": "4114cbb106f1747a83988b577b2f4df121f889d9c0783273ea803f0ef4647149",
+      "git_blob_sha256": "4114cbb106f1747a83988b577b2f4df121f889d9c0783273ea803f0ef4647149",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        36
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "降序比较器语法示例。",
+      "prior_evidence": "编译成功；固定样例不是通用排序测试，参见比较器严格弱序约束。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            7,
+            30
+          ]
+        ],
+        "original_comment_observation": "28行明确lambda参数代表值不是下标，具有实际防错价值。",
+        "reusable_fragment": "cmp、降序lambda、自定义结构体排序。",
+        "specific_issue_or_contract": "比较器需严格弱序；固定示例不作通用排序算法证明。"
+      }
+    },
+    {
+      "path": "template/ST表.cpp",
+      "line_count": 52,
+      "sha256": "df49bbb5800e0d05253f6cb4d50cd162f6be3aed05058c37f7631687f6560e9b",
+      "sha256_lf_normalized": "d24d45b1c0e0c8f38f7616efe60be7cedb37586ee58b2fad1c0636f3a1ae95de",
+      "git_blob_sha256": "d24d45b1c0e0c8f38f7616efe60be7cedb37586ee58b2fad1c0636f3a1ae95de",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        52
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "CF2050F差分gcd静态查询；1<=n<=200000，合法闭区间，差值不溢出。",
+      "prior_evidence": "12组数组所有区间与直接差分gcd对照；单点输出0。不是动态区间结构。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            8
+          ],
+          [
+            15,
+            37
+          ]
+        ],
+        "original_comment_observation": "原注释强调倍增，16行完整定义st[i][j]。",
+        "reusable_fragment": "差分gcd与双重叠块查询，单点特判。",
+        "specific_issue_or_contract": "原区间[l,r]映射差分[l+1,r]，静态不可修改；差值须不溢出。"
+      }
+    },
+    {
+      "path": "template/Ternary_Search.cpp",
+      "line_count": 47,
+      "sha256": "025ab22b92771745ce4f228983224231cb6268419d88215497e6352f316a9769",
+      "sha256_lf_normalized": "246a625ea086e542c32d56dd1f4f27a6eb7faa904f5ca9d5fcda94322f658d22",
+      "git_blob_sha256": "246a625ea086e542c32d56dd1f4f27a6eb7faa904f5ca9d5fcda94322f658d22",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        47
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "UNVERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "特定几何表达式的三分求极小；未核实其原题与全域单峰性。",
+      "prior_evidence": "GNU++20编译成功。源码链接2227/B实际是括号题Party Monster，与代码不符；不能作已核验题源。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            5,
+            15
+          ],
+          [
+            25,
+            37
+          ]
+        ],
+        "original_comment_observation": "原注释说三分常用for固定迭代次数。",
+        "reusable_fragment": "200次循环三分骨架及printf精度输出。",
+        "specific_issue_or_contract": "原题链/表达式未核验，单峰与sqrt定义域须先证明；不猜题意。"
+      }
+    },
+    {
+      "path": "template/tree_dp.cpp",
+      "line_count": 29,
+      "sha256": "2da423e3eee88491f7b193d785533708617a0f38601f847af0b8a882653c7e30",
+      "sha256_lf_normalized": "bb9608681ce0c5fe56e81eff704698bcda4d9d41cb277859d0298a2282745c4d",
+      "git_blob_sha256": "bb9608681ce0c5fe56e81eff704698bcda4d9d41cb277859d0298a2282745c4d",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        29
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "INCOMPLETE",
+      "prior_local_compile": "PASS",
+      "prior_contract": "只有子树累加遍历骨架。",
+      "prior_evidence": "无输入、无状态初始化/含义、无答案输出；编译成功不等于树DP完整。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            19
+          ]
+        ],
+        "original_comment_observation": "6行“先递归处理儿子，再用儿子状态更新父亲”。",
+        "reusable_fragment": "g[N]、dfs(u,fa)、dp[u]+=dp[v]的树合并骨架。",
+        "specific_issue_or_contract": "main无读边和dp初值；应收录为骨架而非完整题解。"
+      }
+    },
+    {
+      "path": "template/tree_storage.cpp",
+      "line_count": 22,
+      "sha256": "bf8699e269ab08c358eb399ed767ac85fa5cc598115124478f5b6cf354292324",
+      "sha256_lf_normalized": "12d478a40eca9374455cc4d6a486b01f8919bef96b2b2d0dc6b233de6875e9d3",
+      "git_blob_sha256": "12d478a40eca9374455cc4d6a486b01f8919bef96b2b2d0dc6b233de6875e9d3",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        22
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "REFERENCE_ONLY",
+      "prior_local_compile": "PASS",
+      "prior_contract": "读取n-1条无向边的邻接表骨架。",
+      "prior_evidence": "编译成功；不验证输入确为树，不含任何查询/遍历/输出，多测需清空。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            6,
+            19
+          ]
+        ],
+        "original_comment_observation": "没有长注释，直接读n-1条边双向push_back。",
+        "reusable_fragment": "vector<ll> g[N]双向邻接表原样可用。",
+        "specific_issue_or_contract": "基础存储本身完整，不能因没有查询算法判为无价值；合法树输入与多测清空说明即可。"
+      }
+    },
+    {
+      "path": "template/区间dp.cpp",
+      "line_count": 29,
+      "sha256": "8aeab239fc6a49132ef1e497a23702d720874ae7eb29e693e073510abc2542f8",
+      "sha256_lf_normalized": "f5377e81678db6783b982b5de7c89b4e5c7a220ca31f49cc584acdf7bd7f625a",
+      "git_blob_sha256": "f5377e81678db6783b982b5de7c89b4e5c7a220ca31f49cc584acdf7bd7f625a",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        29
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "线性相邻石子合并，1<=n<310，非负权；前缀和/int代价低于INF。",
+      "prior_evidence": "12组小数组枚举全部相邻合并顺序独立对照；不是环形石子合并。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            25
+          ]
+        ],
+        "original_comment_observation": "5行定义区间合并最小代价，18行明确先长度再左端点。",
+        "reusable_fragment": "对角线0、枚举分割点、前缀和转移。",
+        "specific_issue_or_contract": "原int总成本范围有限；需要大权时只扩ll并选合适INF。"
+      }
+    },
+    {
+      "path": "template/完全背包dp.cpp",
+      "line_count": 21,
+      "sha256": "7e28c55d12ab6f5dbf58dc5699403bdff2968a6704c19088ce147beb45455fe7",
+      "sha256_lf_normalized": "7d74e1a4c2ee04af93fa824f584d239a53774a79b39aa606f76092e360b8ba5e",
+      "git_blob_sha256": "7d74e1a4c2ee04af93fa824f584d239a53774a79b39aa606f76092e360b8ba5e",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        21
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "正重量、非负价值，n,m<1010，int价值和安全。",
+      "prior_evidence": "16组容量转移独立对照，含零容量；重量0且价值正没有有限最优。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            18
+          ]
+        ],
+        "original_comment_observation": "14行正序表示当前物品可以选多次。",
+        "reusable_fragment": "原全局w/v/dp与正序容量循环。",
+        "specific_issue_or_contract": "正重量、容量内、int价值范围；恰好装满需新增不可达语义。"
+      }
+    },
+    {
+      "path": "template/线性dp.cpp",
+      "line_count": 22,
+      "sha256": "6d95995f9ef28efe01730c732043f51522d143268737eedf29ac44083033e36d",
+      "sha256_lf_normalized": "842cf49552279c53ea60502153b3059552d9dde6c6c30738be5eb75dd511077e",
+      "git_blob_sha256": "842cf49552279c53ea60502153b3059552d9dde6c6c30738be5eb75dd511077e",
+      "encoding": "utf-8",
+      "read_in_full": true,
+      "full_read_line_range": [
+        1,
+        22
+      ],
+      "baseline_git_content_match": true,
+      "prior_legacy_manifest_hash_match": true,
+      "prior_audit_status": "VERIFIED",
+      "prior_local_compile": "PASS",
+      "prior_contract": "严格上升LIS长度，0<=n<1010，O(n^2)。",
+      "prior_evidence": "16组所有子序列穷举；重复值不扩展；未恢复具体序列。",
+      "online_status": "UNKNOWN",
+      "user_validation": "USER_REPORTED_USED_COLLECTION_LEVEL",
+      "runtime_rerun_by_this_audit": false,
+      "current_review": "Full source read; exact per-file reuse and limitations recorded in CURRENT_COVERAGE_AUDIT.md.",
+      "deep_review": {
+        "relevant_line_ranges": [
+          [
+            4,
+            19
+          ]
+        ],
+        "original_comment_observation": "5行定义以i结尾，13行说明初始只有自己。",
+        "reusable_fragment": "平方LIS原状态与循环。",
+        "specific_issue_or_contract": "严格递增用<；非降序为不同变体，不能静默换比较符。"
+      }
+    }
+  ],
+  "thinking_cards_source_sha256": "a38a08db81adac2b0ce2f2506a718352b4a2f7099bc371e606420f3dbe37c88d",
+  "thinking_cards": [
+    {
+      "id": "ROUND01_CARD_01",
+      "title": "1. 构造：先满足被迫位置，再分配自由度",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        5,
+        12
+      ],
+      "coverage_status": "MODEL_ONLY",
+      "read_in_full": true
+    },
+    {
+      "id": "ROUND01_CARD_02",
+      "title": "2. 操作题：找不变量，再看能否达到",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        13,
+        19
+      ],
+      "coverage_status": "MODEL_ONLY",
+      "read_in_full": true
+    },
+    {
+      "id": "ROUND01_CARD_03",
+      "title": "3. 贪心：写出一次交换",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        20,
+        26
+      ],
+      "coverage_status": "MODEL_ONLY",
+      "read_in_full": true
+    },
+    {
+      "id": "ROUND01_CARD_04",
+      "title": "4. 差分与区间：先确定查询对象",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        27,
+        33
+      ],
+      "coverage_status": "PARTIAL",
+      "read_in_full": true
+    },
+    {
+      "id": "ROUND01_CARD_05",
+      "title": "5. 图论：边的含义比算法名先出现",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        34,
+        40
+      ],
+      "coverage_status": "PARTIAL",
+      "read_in_full": true
+    },
+    {
+      "id": "ROUND01_CARD_06",
+      "title": "6. DP：状态语义、可达性、转移范围",
+      "source": "template/notes/thinking_cards.md",
+      "line_range": [
+        41,
+        48
+      ],
+      "coverage_status": "PARTIAL",
+      "read_in_full": true
+    }
+  ],
+  "preserved_print_artifacts": [
+    {
+      "path": "template/板子打印版/ACM_ICPC_铜牌算法板子_完整版.docx",
+      "sha256": "e45d0617d36839f34344bb037957bedc2404d3ae8dd02d5ba1e3d2b2dcf272f4",
+      "baseline_git_bytes_match": true
+    },
+    {
+      "path": "template/板子打印版/ACM_ICPC_铜牌算法板子_完整版.pdf",
+      "sha256": "87279374a44f95aa1deb8a2ea99b1e045565fc5061db1bc9e94f995c257af4cb",
+      "baseline_git_bytes_match": true
+    },
+    {
+      "path": "template/板子打印版/成都站_铜牌冲刺板子_2026.docx",
+      "sha256": "18b7cef0dc23841f13c243a3ecfd2473a452979bd51d7cd490499dd0b810108c",
+      "baseline_git_bytes_match": true
+    },
+    {
+      "path": "template/板子打印版/成都站_铜牌冲刺板子_2026.pdf",
+      "sha256": "78132eec669e1830bd18f67930ec68a80d0101788037bd16158348112e72ffce",
+      "baseline_git_bytes_match": true
+    }
+  ],
+  "cf_inventory": "template/notes/round02/source_inventory.json",
+  "integrity_summary": {
+    "formal_count": 32,
+    "legacy_count": 32,
+    "card_count": 6,
+    "preserved_print_count": 4,
+    "formal_all_source_hashes_match_prior_release_and_sanitizers": true,
+    "legacy_all_hashes_match_prior_manifest": true,
+    "all_tracked_sources_match_frozen_git_content": true,
+    "print_all_bytes_match_frozen_git": true,
+    "cf_source_count": 215,
+    "cf_all_bytes_match_inventory": true,
+    "cf_all_lf_contents_match_frozen_git_commit": true,
+    "cf_deep_read_count": 50,
+    "cf_deep_read_distinct_contents": 49,
+    "all_recorded_line_ranges_valid": true,
+    "checked_on": "2026-10-25",
+    "validation_scope": "JSON structure, counts, path existence, line ranges, byte hashes, LF-normalized frozen Git content and preservation of four original print artifacts. Algorithm runtime tests were not rerun by this audit."
+  }
+}

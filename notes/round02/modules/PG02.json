@@ -1,0 +1,52 @@
+{
+  "id": "PG02",
+  "title": "个人原版并查集 fa/rk",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/dsu.hpp",
+  "when": "只增加等价关系，查询两个位置是否连通；组件内置换、Kruskal合并。",
+  "contract": "0<=n<200010，调用点为1..n；init/find/unite/same沿用原接口。unite是void，rk是秩不是集合大小。",
+  "complexity": "init O(n)，合并和查询均摊O(alpha(n))，空间O(n)。",
+  "idea": "先找根，把较低秩的根挂到较高秩根；同秩合并后新根秩加一。",
+  "proof": "每次只合并两个连通块，find路径压缩不改变根所属集合；按秩合并避免构造线性高度。",
+  "pitfalls": [
+    "原注释“挂到秩小的那里”写反，算法本身正确。",
+    "不能按rk推集合大小；需要大小时另设sz。",
+    "普通DSU不支持删边；不能直接套带撤销题。"
+  ],
+  "example": "init(4); unite(1,2); unite(2,1)不改变集合；same(1,2)=true而same(1,3)=false。",
+  "usage": "init(4);\nunite(1,2);\nunite(2,1);\nbool ok=same(1,2);",
+  "origins": [
+    {
+      "path": "template/DSU.cpp",
+      "idea": "fa/rk，init/find/unite/same。",
+      "issue": "只有“挂到秩小”注释方向错误；容量内int find足够，无需重写正确算法。",
+      "change": "仅头文件化、容量与注释；原合并表达式保留。",
+      "interface_change": "无，unite仍为void。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/xian/B.cpp",
+      "idea": "位置合并后用same判断栈顶与当前是否同组。",
+      "issue": "init(2*n)是该题的有效位置范围，不应固定到通用init内部。",
+      "change": "通用init参数就是元素总数；题内调用init(2*n)。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1109/3.cpp",
+      "idea": "按i+x/i+y连边，检查i与p[i]是否同组件。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "直接引用该局部思想。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。",
+  "replaces": [
+    "G01"
+  ]
+}

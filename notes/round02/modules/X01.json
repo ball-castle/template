@@ -1,0 +1,33 @@
+{
+  "id": "X01",
+  "title": "前缀 XOR、子数组计数与离线区间异或",
+  "category": "XOR / AND / OR 位运算",
+  "priority": "P0",
+  "source": "competition/xor/prefix_xor.hpp",
+  "when": "连续区间XOR查询、统计XOR为k的子数组，或全部更新后只输出最终数组。",
+  "contract": "a至少为{0}，采用a[1..n]且n<=1e9；值为unsigned long long完整64位。range_xor仅接收合法非空区间；离线操作{l,r,x}满足1<=l<=r<=n。{}不是空数组表示。",
+  "complexity": "前缀O(n)/查询O(1)；哈希计数期望O(n)、最坏O(n²)；离线更新O(n+q)。空间O(n)。",
+  "idea": "两次出现的前缀抵消；统计时查p^k；区间更新只在两端翻转标记。",
+  "proof": "p[r]^p[l-1]中1..l-1出现两次。p[r]^p[l-1]=k等价于p[l-1]=p[r]^k，只统计过去前缀。差分标记在l开始、r+1取消。",
+  "pitfalls": [
+    "cnt[0]=1；先查询后插入，否则k=0计入空区间。",
+    "不适合混合在线区间修改/区间查询；哈希有最坏退化，可用map得O(n log n)。",
+    "计数用ll；值用ull，避免符号位比较混入。"
+  ],
+  "example": "cf/1/1124/C.cpp先写出了p[r]^p[l-1]；真实2268C还需要AND区间最大值，完整解见X11。",
+  "usage": "vector<ull> a={0,3,1,2}; auto p=xor_prefix(a); ull x=range_xor(p,1,3); ll cnt=count_subarray_xor(a,0); a=xor_offline_update(a,{{1,2,7}});",
+  "test": "tests/round02/test_xor.cpp",
+  "verify": "Windows g++15.2：g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow tests/round02/test_xor.cpp -o build/round02_xor.exe；320024条检查通过。WSL Ubuntu g++13.3：-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 同测试通过。种子20261024。",
+  "origins": [
+    {
+      "path": "cf/1/1124/C.cpp",
+      "idea": "原注释已经写出区间前缀抵消。",
+      "issue": "solve为空；仅此变换不足以解真实2268C。",
+      "change": "实现独立前缀/计数/差分模型，与真实完整题解X11区分。",
+      "interface_change": "独立函数；无类、无cp命名空间。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true
+}

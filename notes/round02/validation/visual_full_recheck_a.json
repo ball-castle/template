@@ -1,0 +1,122 @@
+{
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "CE53DAD35297BCD527CAF10B6E367AA9730100EA7D1D6B861CEAB628E432BA45",
+  "total_document_pages": 280,
+  "reviewed_date": "2026-10-25",
+  "requested_pages": [
+    9,
+    10,
+    11,
+    12,
+    27,
+    154,
+    166,
+    184,
+    187,
+    216,
+    227,
+    229
+  ],
+  "additional_full_footer_pages": [
+    1,
+    140
+  ],
+  "method": {
+    "type": "对最终发布版 PNG 逐页实际原尺寸视觉检查",
+    "tool": "tools.view_image",
+    "detail": "original",
+    "image_directory": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_release",
+    "pages_reviewed": 14,
+    "batch_max_pages": 4,
+    "full_page_including_footer": true,
+    "text_extraction_substitute": false,
+    "checks": [
+      "中文与代码裁切",
+      "重叠",
+      "表格与索引列对齐",
+      "页眉页脚",
+      "长行换行",
+      "修复页的孤立函数尾行及空页"
+    ],
+    "pdf_sha256_verified_before_and_after": true,
+    "limitation": "本报告仅涵盖列出的 14 页；其余页像素映射由另行报告记录。",
+    "modified_files": [
+      "notes/round02/validation/visual_full_recheck_a.json"
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "status": "PASS",
+      "notes": "完整页面实看：封面、双列选择表及页眉完整，右下页脚“第 1 页”清楚，无裁切或重叠。"
+    },
+    {
+      "page": 9,
+      "status": "PASS",
+      "notes": "最终索引页所有条目及更新后的页码列对齐、完整，页脚清楚。"
+    },
+    {
+      "page": 10,
+      "status": "PASS",
+      "notes": "最终索引页长条目及页码列无碰撞、裁切或异常断行，页脚正常。"
+    },
+    {
+      "page": 11,
+      "status": "PASS",
+      "notes": "最终索引页条目、更新页码列与页脚完整，行距一致。"
+    },
+    {
+      "page": 12,
+      "status": "PASS",
+      "notes": "最终索引末页条目与新页码列完整，留白及页脚正常。"
+    },
+    {
+      "page": 27,
+      "status": "PASS",
+      "notes": "DPC15 说明和代码完整，旧版空“原代码:”标签已消失；无裁切、重叠。"
+    },
+    {
+      "page": 140,
+      "status": "PASS",
+      "notes": "完整页面实看：XOR14 标题、公式与来源完整，右下三位数页脚“第 140 页”清晰、未裁切。"
+    },
+    {
+      "page": 154,
+      "status": "PASS",
+      "notes": "G05 完整函数及末尾 return、函数闭合、namespace 闭合现均收在同一页，末行与页脚有清楚间距，无裁切或孤立尾页。"
+    },
+    {
+      "page": 166,
+      "status": "PASS",
+      "notes": "M05 页面有完整正文和代码，已不为空页；PrimeComb 及末尾三行说明同页完整，正文与页脚保持清楚间距。"
+    },
+    {
+      "page": 184,
+      "status": "PASS",
+      "notes": "GAME01 正文及各函数完整同页，末尾 misere_nim_win 闭合正常，无孤立尾行、裁切或页脚碰撞。"
+    },
+    {
+      "page": 187,
+      "status": "PASS",
+      "notes": "IO03 续页代码、长整数输入输出示例与完整 main 全部可见；样例长数换行但无字符裁切，页脚正常。"
+    },
+    {
+      "page": 216,
+      "status": "PASS",
+      "notes": "PG12 说明、调用示例及完整 find_cycle 函数同页，末尾 return false 和闭合括号完整，页脚间距正常。"
+    },
+    {
+      "page": 227,
+      "status": "PASS",
+      "notes": "PSD01 说明、Fenwick 全部方法及完整 main 同页，末尾闭合清楚，长路径自然换行且无裁切；页脚正常。"
+    },
+    {
+      "page": 229,
+      "status": "PASS",
+      "notes": "PSD02 续页保留完整 main、输入输出示例和续标题；并非 1–3 行孤立函数末尾，代码及页脚完整。"
+    }
+  ],
+  "status": "PASS",
+  "issues": [],
+  "conclusion": "14/14 页视觉复查通过。第 27 页空来源标签已移除；第 154 页函数末尾已收回；第 166 页正文与完整代码正常。所有复查页未发现裁切、重叠、页脚异常或 1–3 行孤立函数末尾整页。第 1、140 页完整页脚已实际查看。"
+}

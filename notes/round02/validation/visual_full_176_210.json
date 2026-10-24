@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "review": "round02_full_final_visual",
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89ce1803633a78f8408e782acfde60acdbf60a0ed616bf5623b53d684dcbc718",
+  "pdf_sha256_unchanged_during_review": true,
+  "pdf_total_pages": 276,
+  "page_range": {
+    "start": 176,
+    "end": 210
+  },
+  "reviewed_page_count": 35,
+  "method": {
+    "skill": "C:/Users/TSOU/.codex/plugins/cache/openai-primary-runtime/pdf/26.1017.22136/skills/pdf/SKILL.md",
+    "type": "逐页原尺寸 PNG 视觉检查",
+    "render_dpi": 130,
+    "image_pattern": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final/page-{page}.png",
+    "inspection_tool": "tools.view_image",
+    "image_detail": "original",
+    "batch_size_max": 4,
+    "each_page_actually_viewed": true,
+    "contact_sheet_used": false,
+    "text_extraction_used_for_visual_judgment": false,
+    "checks": [
+      "中文与代码裁切",
+      "文本或代码重叠",
+      "页眉、页脚及页码",
+      "表格（本页段未出现）",
+      "续页衔接与异常分页"
+    ],
+    "pagination_rule": "独立模型起新页允许留白；仅孤立 1–3 行函数末尾占整页时标记分页瑕疵。",
+    "scope": "只读视觉 QA；未修改 PDF、生成器或算法；结构、PAGEREF 和 source exact 的既有 PASS 不作为视觉替代。"
+  },
+  "pages": [
+    {
+      "page": 176,
+      "status": "PASS",
+      "notes": "BM03：中文说明、完整代码及页脚清晰，无裁切、重叠或异常分页。"
+    },
+    {
+      "page": 177,
+      "status": "PASS",
+      "notes": "BM04：中文长行正常换行，代码完整可读，页脚正常。"
+    },
+    {
+      "page": 178,
+      "status": "PASS",
+      "notes": "BM05 首页：代码跨页进入 main 函数，标题、正文和代码均无裁切重叠，续页衔接正常。"
+    },
+    {
+      "page": 179,
+      "status": "PASS",
+      "notes": "BM05 续页：main 主体及结尾完整，约半页内容，非孤立 1–3 行函数末尾；页脚正常。"
+    },
+    {
+      "page": 180,
+      "status": "PASS",
+      "notes": "BM06：整段程序在单页收束，正文、代码和页脚清晰，无裁切重叠。"
+    },
+    {
+      "page": 181,
+      "status": "PASS",
+      "notes": "BM07 首页：中文和代码边界正常；括号函数注释在本页末，完整函数接续下一页。"
+    },
+    {
+      "page": 182,
+      "status": "PASS",
+      "notes": "BM07 续页：完整 regular_brackets 函数占约 11 行，非孤立 1–3 行函数末尾；大面积留白按验收口径允许。"
+    },
+    {
+      "page": 183,
+      "status": "PASS",
+      "notes": "BM08 首页：长段中文正常换行，BFS 代码无裁切，子集函数接续下一页，页脚正常。"
+    },
+    {
+      "page": 184,
+      "status": "PASS",
+      "notes": "BM08 续页：完整子集回溯函数清晰，代码缩进与边界正常，非孤立函数尾部。"
+    },
+    {
+      "page": 185,
+      "status": "PASS",
+      "notes": "FP01：正文换行、数学符号和代码均清晰，无裁切重叠，页脚正常。"
+    },
+    {
+      "page": 186,
+      "status": "PASS",
+      "notes": "GAME01 首页：中文说明及长类型代码可读，misere_nim_win 接续下一页，无裁切重叠。"
+    },
+    {
+      "page": 187,
+      "status": "PASS",
+      "notes": "GAME01 续页仅 4 行函数尾部，留白较多；按本次仅孤立 1–3 行函数末尾才标分页瑕疵的口径不判缺陷。四行及页脚均完整清晰。"
+    },
+    {
+      "page": 188,
+      "status": "PASS",
+      "notes": "IO01：独立短模型单页留白允许；示例长整数和完整快读代码均未越界，页脚正常。"
+    },
+    {
+      "page": 189,
+      "status": "PASS",
+      "notes": "IO03 首页：正文、C++ 长类型和代码清晰，Compression 结构体跨页衔接，无裁切重叠。"
+    },
+    {
+      "page": 190,
+      "status": "PASS",
+      "notes": "IO03 续页：解析、main 和极值样例均完整可读；样例长行正常换行，页脚正常。"
+    },
+    {
+      "page": 191,
+      "status": "PASS",
+      "notes": "MEX01/MEX02：正文与全部代码在本页完整呈现，缩进、边界和页脚正常。"
+    },
+    {
+      "page": 192,
+      "status": "PASS",
+      "notes": "PAL01 首页：正文、代码、中文注释完整；PalindromeInfo 结构体接续下一页，无越界。"
+    },
+    {
+      "page": 193,
+      "status": "PASS",
+      "notes": "PAL01 续页：密集代码及注释清晰，页边距和页脚均正常，无裁切重叠。"
+    },
+    {
+      "page": 194,
+      "status": "PASS",
+      "notes": "PAL01 续页保留 6 行函数尾部，非本次定义的孤立 1–3 行分页瑕疵；代码与页脚完整。"
+    },
+    {
+      "page": 195,
+      "status": "PASS",
+      "notes": "PDP01 首页：多行调用示例、说明和代码均可读；grid_min_path 正常跨页，页脚无挤压。"
+    },
+    {
+      "page": 196,
+      "status": "PASS",
+      "notes": "PDP01 续页：grid_min_path 主体及结尾约 12 行完整，非孤立 1–3 行尾部，页脚正常。"
+    },
+    {
+      "page": 197,
+      "status": "PASS",
+      "notes": "PDP02 首页：调用示例、中文说明与代码均清晰，长类型正常换行，无裁切重叠。"
+    },
+    {
+      "page": 198,
+      "status": "PASS",
+      "notes": "PDP02 续页：两个函数完整呈现，缩进与中文注释清晰，页脚正常。"
+    },
+    {
+      "page": 199,
+      "status": "PASS",
+      "notes": "PDP03 首页：多行示例及正文换行正常，代码跨页位置清楚，无裁切重叠。"
+    },
+    {
+      "page": 200,
+      "status": "PASS",
+      "notes": "PDP03 续页：函数主体与结尾完整，密集代码缩进清晰，无裁切重叠，页脚正常。"
+    },
+    {
+      "page": 201,
+      "status": "PASS",
+      "notes": "PDP04：中文、状态公式、调用示例和全部代码清晰，页底代码与页脚有足够间距。"
+    },
+    {
+      "page": 202,
+      "status": "PASS",
+      "notes": "PDP05：多行示例及树形 DP 代码正常排列，长类型换行自然，页脚完整。"
+    },
+    {
+      "page": 203,
+      "status": "PASS",
+      "notes": "PDP06：概率与期望说明、公式、示例和代码均清晰，无裁切、重叠或异常分页。"
+    },
+    {
+      "page": 204,
+      "status": "PASS",
+      "notes": "PG01 首页：多行调用说明、中文和代码清晰，root_tree 主体跨页，无裁切重叠。"
+    },
+    {
+      "page": 205,
+      "status": "PASS",
+      "notes": "PG01 续页：遍历、子树累加与返回完整显示，非孤立 1–3 行函数尾部，页脚正常。"
+    },
+    {
+      "page": 206,
+      "status": "PASS",
+      "notes": "PG02：说明和并查集代码完整，缩进及长行正常，无裁切、重叠或异常分页。"
+    },
+    {
+      "page": 207,
+      "status": "PASS",
+      "notes": "PG03：调用例子、BFS 与路径恢复代码完整呈现，中文、代码和页脚均正常。"
+    },
+    {
+      "page": 208,
+      "status": "PASS",
+      "notes": "PG04：完整 DFS 模型，调用示例、正文和代码边界正常，页脚清晰。"
+    },
+    {
+      "page": 209,
+      "status": "PASS",
+      "notes": "PG05 首页：中文说明和 Dijkstra 主体完整清晰，函数在页内收束，无裁切重叠。"
+    },
+    {
+      "page": 210,
+      "status": "PASS",
+      "notes": "PG05 续页：单源重载和完整路径恢复函数清晰，非孤立函数末尾；留白和页脚正常。"
+    }
+  ],
+  "observations": [
+    {
+      "page": 187,
+      "type": "non_defect_pagination_observation",
+      "notes": "续页仅 4 行函数尾部；已按本次 1–3 行阈值记录为 PASS。"
+    },
+    {
+      "page": 194,
+      "type": "non_defect_pagination_observation",
+      "notes": "续页为 6 行函数尾部；不属于本次 1–3 行阈值。"
+    }
+  ],
+  "conclusion": {
+    "status": "PASS",
+    "passed_pages": 35,
+    "failed_pages": 0,
+    "defect_pages": [],
+    "notes": "第 176–210 页已全部实际查看原尺寸渲染图，未发现中文/代码裁切、重叠、页脚异常或符合本次定义的分页瑕疵。"
+  }
+}

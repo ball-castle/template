@@ -1,0 +1,15 @@
+{
+  "id": "DS03",
+  "title": "懒标记线段树 Lazy Segment Tree",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "data_structure/lazy_segment_tree.hpp",
+  "when": "在线区间加、区间和；更新整段后仍需查询任意子段。",
+  "contract": "a[1..n]；{}或{0}为空树；l>r时add无操作、sum为0，非空范围须合法。n<=INT_MAX/4；节点和、累积tag、长度*x及中间值均须在ll范围。",
+  "complexity": "建树O(n)；区间加/求和O(log n)；空间O(n)。",
+  "pitfalls": ["tag表示已计入本节点、尚未传给子节点的增量。", "查询部分覆盖时也必须push；完全覆盖直接返回。", "本模板仅有加法标记，不可直接混入赋值或乘法。"],
+  "example": "旧Segment tree2.cpp最小反例：[0,0]全段+1后查[1,1]，旧值0、正确值1。实题：洛谷P3372线段树1，区间加与区间和：https://www.luogu.com.cn/problem/P3372 。",
+  "usage": "LazySegmentTree seg(a); seg.add(l,r,delta); ll ans=seg.sum(l,r);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：旧溢出/未下传反例、随机区间操作、n=200000全部通过。"
+}

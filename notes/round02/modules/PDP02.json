@@ -1,0 +1,35 @@
+{
+  "category": "动态规划 DP",
+  "priority": "P1",
+  "test": "tests/round02/test_dp.cpp",
+  "verify": "GNU++20 g++15.2 -O2 -Wall -Wextra -Wshadow：12483检查PASS；WSL g++13.3 ASan+UBSan相同12483检查PASS；旧DP/math/string套件PASS。固定种子20261024；原数位/方向/JAKARTA基线快照各120组同oracle一致；所有15份卡片完整main独立编译运行输出PASS。",
+  "dependencies": [
+    "DP01"
+  ],
+  "patch": false,
+  "id": "PDP02",
+  "title": "多重背包与分组背包",
+  "source": "competition/dp/knapsack_variants.hpp",
+  "when": "有限数量重复物品，或同组互斥的容量最优化。",
+  "contract": "数组和组从1开始；w>0，cnt>=0，cap>=0。exact=false至多、true恰好；不可达KNAP_NEG。每组最多选一个，允许不选。任意可达总价值绝对值<2^60。",
+  "complexity": "多重O(cap*Σlog(cnt+1))，计数先截到cap/w；分组O(cap*(总物品数+组数))；DP空间O(cap)。",
+  "idea": "多重二进制拆包后复用原0/1；分组保留上一组快照，避免选中同组两个物品。",
+  "proof": "拆包完整表示0..cnt的每个数量；按组转移只从上一组进入，严格满足互斥。",
+  "pitfalls": [
+    "二进制拆分可能重复表示件数，不能照搬来计数。",
+    "组内逐件原地0/1更新会取多个同组物品。",
+    "每组恰选一个与最多一个不同，本函数不提供前者。"
+  ],
+  "example": "DPC05：重2值3最多3件、容量7，答案9。DPC06：组{(2,3),(3,5)}与{(2,4)}容量5，答案9。",
+  "usage": "#include \"competition/dp/knapsack_variants.hpp\"\nint main() {\n    auto dp = knapsack_bounded({0, 2}, {0, 3}, {0, 3}, 7);\n    cout << dp[7] << '\\n'; // 9\n}\n",
+  "origins": [
+    {
+      "path": "template/dp/knapsack.hpp",
+      "idea": "保留经过验证的0/1倒序转移与exact语义",
+      "issue": "旧DP01已正确，不重写",
+      "change": "多重拆包后直接调用knapsack01；分组新增快照合并",
+      "interface_change": "原DP01接口不变，新增bounded/grouped",
+      "online_status": "UNKNOWN"
+    }
+  ]
+}

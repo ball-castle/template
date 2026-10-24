@@ -1,0 +1,20 @@
+{
+  "id": "CO03",
+  "title": "答案二分、双指针、窗口 Search",
+  "category": "核心基础",
+  "priority": "P0",
+  "source": "core/search_window.hpp",
+  "when": "答案满足单调判断时二分；有序数组找二元和用双指针；非负数组求最长受限和区间用窗口。",
+  "contract": "二分范围为整数闭区间；first_true要求假到真，last_true要求真到假，无解/空区间为nullopt。数组1下标；two_sum需非降序，窗口元素须非负。",
+  "complexity": "二分O(log范围)次check、O(1)空间；双指针和窗口O(n)时间、O(1)额外空间。",
+  "pitfalls": [
+    "必须先证明check单调；check自己的乘加仍可能溢出。",
+    "two_sum返回不同下标i<j；无解为{0,0}。",
+    "窗口含负数时不能套用；limit<0返回0。"
+  ],
+  "example": "first_true(1,10,[](ll x){return x>=7;})得到7；窗口{0,2,1,3}、limit=3的最长长度为2。仓库实例：cf/other/Hello_2018/D.cpp，按时间排序后check(x)判断能否选x题，二分最大可行x。",
+  "usage": "auto ans=first_true(lo,hi,check); if(ans) cout<<*ans; auto [i,j]=two_sum_sorted(a,target); int len=longest_sum_at_most(a,k);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：ll全范围二分、确定边界、随机对拍、n=200000全部通过。",
+  "exercise_url": "https://github.com/ball-castle/cf/blob/main/other/Hello_2018/D.cpp"
+}

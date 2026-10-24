@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "document": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "CE53DAD35297BCD527CAF10B6E367AA9730100EA7D1D6B861CEAB628E432BA45",
+  "review_date": "2026-10-25",
+  "reviewer": "qa_v2_246_276",
+  "total_pdf_pages": 280,
+  "page_range": {
+    "start": 271,
+    "end": 280
+  },
+  "pages_inspected": 10,
+  "status": "PASS",
+  "overall_status": "PASS",
+  "method": {
+    "type": "逐页原尺寸视觉复查",
+    "source_images": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_release/page-271.png ... page-280.png",
+    "tool": "tools.view_image",
+    "image_detail": "original",
+    "max_pages_per_batch": 4,
+    "actually_viewed_every_page": true,
+    "contact_sheets_used": false,
+    "text_extraction_used_for_visual_verdict": false,
+    "checks": [
+      "附录总标题",
+      "40项STL/API标题",
+      "用途/实际调用/复杂度/易错/已检查例子/代码与来源字段",
+      "标题或字段跨页碎片",
+      "中文与调用文字裁切或重叠",
+      "页眉页脚及连续页码"
+    ],
+    "scope": "仅视觉复查最终280页PDF的271–280页新附录；未重复检查像素匹配的旧正文；未修改生成器、算法、PDF或PNG。"
+  },
+  "appendix_entries_reviewed": 40,
+  "findings": [],
+  "conclusion": "第271–280页共10页均已用view_image(original)实际逐页查看。40项按每页4项完整排布，标题及用途、实际调用、复杂度、易错、已检查例子、代码与来源字段全部同页成组显示。未发现跨页碎片、裁切、重叠或页脚异常。",
+  "pages": [
+    {
+      "page": 271,
+      "status": "PASS",
+      "notes": "附录总标题与说明完整；array、vector、deque、string四项标题及用途/实际调用/复杂度/易错/已检查例子/代码与来源均在本页成组显示。无跨页碎片、裁切或重叠，页脚271正常。"
+    },
+    {
+      "page": 272,
+      "status": "PASS",
+      "notes": "pair、tuple、stack、queue四项完整；stack来源路径虽换为两行，但同页连续，标题与字段未被跨页拆散；页脚272清晰且与正文分离。"
+    },
+    {
+      "page": 273,
+      "status": "PASS",
+      "notes": "大根堆、小根堆、pair小根堆与自定义cmp、set四项完整；最长小根堆标题在页内，set例子换行未跨页；字段清晰，无裁切重叠，页脚273正常。"
+    },
+    {
+      "page": 274,
+      "status": "PASS",
+      "notes": "multiset、map、multimap、unordered_set四项标题与全部字段完整成组；中文、模板调用和复杂度均可读，未见跨页碎片或页脚干扰。"
+    },
+    {
+      "page": 275,
+      "status": "PASS",
+      "notes": "unordered_map、sort、stable_sort、lower_bound/upper_bound四项完整；长标题与复杂度上标可读，标题字段均同页连续，页脚275正常。"
+    },
+    {
+      "page": 276,
+      "status": "PASS",
+      "notes": "binary_search、降序比较器、nth_element、sort+unique+erase四项完整；用途、调用、复杂度、易错、测试例与来源均未跨页拆散，无裁切重叠。"
+    },
+    {
+      "page": 277,
+      "status": "PASS",
+      "notes": "erase-remove/remove_if、reverse、rotate、next_permutation/prev_permutation四项完整；最后一项长标题不越界，字段在页内成组，页脚277清晰。"
+    },
+    {
+      "page": 278,
+      "status": "PASS",
+      "notes": "accumulate、partial_sum、min_element/max_element、递归lambda四项完整；数字例子与复杂度清晰，所有标题字段均同页连续，页脚278与正文分离。"
+    },
+    {
+      "page": 279,
+      "status": "PASS",
+      "notes": "前缀/后缀信息、位操作、mask子集与补集、gcd/lcm四项完整；长调用行和例子均在页内，标题与六类字段无跨页碎片，页脚279正常。"
+    },
+    {
+      "page": 280,
+      "status": "PASS",
+      "notes": "ceil_div/floor_div/负数除模、__int128、迭代器失效与多测清空、复杂度估计与容器选择四项完整；来源路径同页自然换行，文档末页无字段截断，页脚280清晰且不与正文重叠。"
+    }
+  ]
+}

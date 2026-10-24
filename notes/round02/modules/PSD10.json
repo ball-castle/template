@@ -1,0 +1,47 @@
+{
+  "id": "PSD10",
+  "title": "区间加：和、最小值、最大值",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "competition/data_structure/segment_range_add.hpp",
+  "when": "在线对一段整体加x，再询问该段或任意子段的和/最小/最大。",
+  "contract": "1<=n<N；修改和查询是合法非空闭区间；a为初始输入；和、标记、长度*x及中间量在ll内。",
+  "complexity": "建树O(n)，区间修改/查询O(log n)，空间O(n)。",
+  "pitfalls": [
+    "查询部分覆盖也必须pushdown。",
+    "sum加len*x，mn/mx只加x。",
+    "build清lazy后才可多测复用；不要直接调用旧update跳过标记。"
+  ],
+  "example": "完整可运行例程：competition/data_structure/examples/range_add.cpp；样例见segment_sources.json。",
+  "usage": "读取a[1..n]后build(1,1,n)；具体可编译调用见competition/data_structure/examples/range_add.cpp。",
+  "test": "tests/round02/test_segment.cpp",
+  "verify": "PASS：Windows g++15.2 -std=gnu++20 -O2 -Wall -Wextra -Wshadow；WSL g++13.3 ASan+UBSan；seed=20261024独立随机差分与n=200000；DS01/02/03相同输入流一致性；13个独立例程编译与文档I/O逐项相等。 工程include与打印展开版均分别编译并运行样例通过。",
+  "idea": "整段加x使sum增加len*x，mn/mx各增加x；lazy记录已计入本节点尚未传子的增量。",
+  "proof": "整段平移保持大小顺序，标记相加表示时间上的连续平移；下传后子树与父树状态一致。",
+  "origins": [
+    {
+      "path": "template/Segment tree2.cpp",
+      "idea": "全局a/tree/lazy；apply、pushdown、modify按原递归结构保留。",
+      "issue": "apply在声明前使用；tree/query用int；query部分覆盖未pushdown；build未清旧lazy。",
+      "change": "apply移到pushdown前；和/答案用ll；查询下传；build清标记。额外把已用min维护与sum/max放进Node。",
+      "interface_change": "query返回Node，分别取.sum/.mn/.mx；不保留与lazy混用不安全的旧update。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/date/6/6.9/1_special_segment_tree.cpp",
+      "idea": "直接继承区间加、维护最小值的apply/pushdown/build/modify写法。",
+      "issue": "原题维护d[x]=x-count(<=x)及最小位置pos，不能把它当通用数组问题完整题解。",
+      "change": "保留区间加骨架；建叶从mn=l改为输入a[l]；通用Node同时保存sum/min/max。",
+      "interface_change": "原pos用于特定约束见证；通用版本不保留题目专用pos。",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "replaces": [
+    "DS03"
+  ],
+  "dependencies": [],
+  "patch": true,
+  "example_source": "competition/data_structure/examples/range_add.cpp",
+  "sample_input": "3 4\n3 -2 4\n2 1 3\n1 1 2 5\n2 1 3\n2 2 2\n",
+  "sample_output": "5 -2 4\n15 3 8\n3 3 3\n"
+}

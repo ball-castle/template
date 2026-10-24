@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "pdf_path": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "CE53DAD35297BCD527CAF10B6E367AA9730100EA7D1D6B861CEAB628E432BA45",
+  "pdf_sha256_verified_before_and_after_review": true,
+  "pdf_page_count": 280,
+  "reviewed_at": "2026-10-25T01:12:02.2939264+08:00",
+  "reviewer": "qa_v2_211_245",
+  "reviewed_page_count": 12,
+  "requested_pages": [
+    231,
+    233,
+    234,
+    235,
+    236,
+    237,
+    239,
+    241,
+    243,
+    245,
+    247,
+    256
+  ],
+  "method": {
+    "inspection": "全部指定页逐页以 tools.view_image(detail=original) 实际查看原尺寸 PNG，每批最多 4 页；未使用 contact sheet 或文本提取替代视觉检查。",
+    "png_directory": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_release",
+    "png_pattern": "page-NNN.png",
+    "render_dpi": 130,
+    "image_dimensions_px": {
+      "width": 1075,
+      "height": 1521
+    },
+    "checks": [
+      "中文与代码裁切",
+      "文字重叠",
+      "代码整体与函数收尾",
+      "样例输入输出和 main 的同页排布",
+      "短尾块合并后的正文及页脚间距",
+      "页眉页码完整性"
+    ],
+    "scope": "只复核所列 12 页；其他最终页面的像素映射与结构验证由主任务负责。"
+  },
+  "pages": [
+    {
+      "page": 231,
+      "status": "PASS",
+      "notes": "PSD03 续页：样例输入输出已置于完整 main 前且同页，代码括号完整，无裁切、重叠，页脚正常。"
+    },
+    {
+      "page": 233,
+      "status": "PASS",
+      "notes": "PSD04 续页：first_ge 函数、样例及完整 main 均完整清晰，段落间距正常，页脚完整。"
+    },
+    {
+      "page": 234,
+      "status": "PASS",
+      "notes": "PSD05 起始页：query 尾部合并于本页，底部函数闭括号完整且与页脚分离；中文和代码未裁切。"
+    },
+    {
+      "page": 235,
+      "status": "PASS",
+      "notes": "PSD05 续页：样例输入输出与完整 main 同页，代码完整可读，留白为模型末页正常留白，页脚正常。"
+    },
+    {
+      "page": 236,
+      "status": "PASS",
+      "notes": "PSD06 起始页：query 短尾块已合并，闭括号完整，底部代码与页脚间有清晰间距，无裁切。"
+    },
+    {
+      "page": 237,
+      "status": "PASS",
+      "notes": "PSD06 续页：样例输入输出在 main 前，完整 main 与结束括号同页，中文和页脚清晰。"
+    },
+    {
+      "page": 239,
+      "status": "PASS",
+      "notes": "PSD07 续页：query 完整，样例与 main 连续排布，无孤立尾页、裁切或重叠，页脚正常。"
+    },
+    {
+      "page": 241,
+      "status": "PASS",
+      "notes": "PSD08 续页：query 正常接续，kth、样例和完整 main 均清晰，代码末尾完整，页脚正常。"
+    },
+    {
+      "page": 243,
+      "status": "PASS",
+      "notes": "PSD09 续页：query 续段、样例与完整 main 连续清晰，长输出语句续行正常，页脚完整。"
+    },
+    {
+      "page": 245,
+      "status": "PASS",
+      "notes": "PSD10 续页：modify 尾段及完整 query 清晰，样例合并于 main 前，无裁切重叠，页脚正常。"
+    },
+    {
+      "page": 247,
+      "status": "PASS",
+      "notes": "PSD11 续页：query、样例和完整 main 都在页内，函数收尾清晰，无孤尾分页或页脚碰撞。"
+    },
+    {
+      "page": 256,
+      "status": "PASS",
+      "notes": "TRS02 单页：Trie 短函数尾块已完整合并于页底；trie_prefix 和 trie_count 的结尾均完整，正文与页脚分离，无裁切重叠。"
+    }
+  ],
+  "status": "PASS",
+  "findings": [],
+  "conclusion": "12/12 页通过原尺寸视觉复核。样例合并位置、代码整体与短函数尾块均完整清晰，未见裁切、重叠、孤尾分页或页脚碰撞。"
+}

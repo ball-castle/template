@@ -1,0 +1,760 @@
+{
+  "mode": "release",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "flags": [
+    "-std=gnu++20",
+    "-Wall",
+    "-Wextra",
+    "-Wshadow",
+    "-g",
+    "-O2"
+  ],
+  "compiler": "g++ (x86_64-posix-seh-rev0, Built by MinGW-Builds project) 15.2.0",
+  "sources": {
+    "core/main.cpp": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+    "core/basics.hpp": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+    "core/search_window.hpp": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+    "dp/knapsack.hpp": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+    "dp/lis.hpp": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+    "dp/hamilton_path.hpp": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+    "dp/interval_merge.hpp": "f4fb06f2c344df0b0b7dc8beb79db8503219456e486bf2fd1be0e937beb9422b",
+    "data_structure/fenwick.hpp": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+    "data_structure/segment_tree.hpp": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+    "data_structure/lazy_segment_tree.hpp": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+    "data_structure/monotonic.hpp": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+    "data_structure/sparse_table.hpp": "16bd5eecb70ee15362668f1a821aedb571eb1580eb3948234c305dc33c5ea774",
+    "graph/dsu.hpp": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+    "graph/bfs_path.hpp": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+    "graph/dfs_forest.hpp": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+    "graph/topological_sort.hpp": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+    "graph/unicyclic_graph.hpp": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+    "graph/dijkstra.hpp": "d222689fd69d1c5dd4536d3ab27e82fa98e199653d396e3397188edd73342179",
+    "graph/kruskal.hpp": "31da749ae769c9b1777120ca6d6d6b2ced2a8b05b2f9a90e8dfc0ba5a1c02361",
+    "graph/prim.hpp": "5ed6fb656e07f0f19166b7ad3bf656d7303308dc1419d40f55dc3340283626b2",
+    "graph/lca.hpp": "ff3c0fd72475bf5fe10d697a20b541c25625b7328ae3bf03dee1ff6d11feb588",
+    "graph/euler_subtree.hpp": "01d4f8959e60578e6cc361cc3be115a904544a24171d44070d622e12aa1d3a23",
+    "advanced/scc.hpp": "560b92bcb4517411b7d5faf58da8c91f09a8b9554e633b3e4beccd29b9be4274",
+    "advanced/bridges.hpp": "c2fc9b47e2710fdf2ba8136ad0928d3bc2f8cc7cedf090544e6a0ffe107849df",
+    "math/integer_bits.hpp": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+    "math/modular.hpp": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+    "math/matrix_power.hpp": "495077bf096eeae2db72446bf1c5380d9b77d7bcc015b793aee3827a7f6ccb32",
+    "math/product_recurrence.hpp": "bd820eefabee538e579d36ad0c2f08c42c0e94b78f71a6491706feedd053a89b",
+    "math/combinations.hpp": "583be8a987b1116a19b689489bcbebb3121a14f3aeed9a6477c245666d0c7dfb",
+    "string/kmp_z.hpp": "70cb3a2a0de6059d93cd306013834d53d108133c088afe4ce154cc57f8e61007",
+    "string/double_hash.hpp": "0b338a8ec93238eefc6babdd02ccd99dfb02bc99f3504705b90d43b4b9d3bf6d",
+    "string/basic_string.hpp": "56ae4e270f99e9e4e8feb823f0a15c9aeb3ad08fe893098b9a212201eb80f786"
+  },
+  "test_sources": {
+    "tests/test_core_data.cpp": "8dc54ff607c45c21d12b55b339f74e8b3b4eb822caac0e524a5b5df61cbcaa92",
+    "tests/test_dp_math_string.cpp": "40a93f647661525d9c6bdd8e00a2f66889e6ba1dcfac4195c4be283e9a3eb41f",
+    "tests/test_graph.cpp": "cebe09d0566e3b9fbe1fa1ed9651d3c02382dd5ac685afb9e935773619a4627e"
+  },
+  "checks": [
+    {
+      "name": "standalone_CO01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\core\\main.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.594,
+      "output": "",
+      "log": "build/release/standalone_CO01.log"
+    },
+    {
+      "name": "standalone_CO01_smoke",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.125,
+      "output": "",
+      "log": "build/release/standalone_CO01_smoke.log"
+    },
+    {
+      "name": "standalone_CO02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.594,
+      "output": "",
+      "log": "build/release/standalone_CO02.log"
+    },
+    {
+      "name": "standalone_CO03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_CO03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.547,
+      "output": "",
+      "log": "build/release/standalone_CO03.log"
+    },
+    {
+      "name": "standalone_DP01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.531,
+      "output": "",
+      "log": "build/release/standalone_DP01.log"
+    },
+    {
+      "name": "standalone_DP02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.578,
+      "output": "",
+      "log": "build/release/standalone_DP02.log"
+    },
+    {
+      "name": "standalone_DP03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.641,
+      "output": "",
+      "log": "build/release/standalone_DP03.log"
+    },
+    {
+      "name": "standalone_DP04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP04.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DP04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.281,
+      "output": "",
+      "log": "build/release/standalone_DP04.log"
+    },
+    {
+      "name": "standalone_DS01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.0,
+      "output": "",
+      "log": "build/release/standalone_DS01.log"
+    },
+    {
+      "name": "standalone_DS02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.0,
+      "output": "",
+      "log": "build/release/standalone_DS02.log"
+    },
+    {
+      "name": "standalone_DS03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.859,
+      "output": "",
+      "log": "build/release/standalone_DS03.log"
+    },
+    {
+      "name": "standalone_DS04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS04.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.907,
+      "output": "",
+      "log": "build/release/standalone_DS04.log"
+    },
+    {
+      "name": "standalone_DS05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS05.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_DS05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": "",
+      "log": "build/release/standalone_DS05.log"
+    },
+    {
+      "name": "standalone_G01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.047,
+      "output": "",
+      "log": "build/release/standalone_G01.log"
+    },
+    {
+      "name": "standalone_G02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.437,
+      "output": "",
+      "log": "build/release/standalone_G02.log"
+    },
+    {
+      "name": "standalone_G03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.25,
+      "output": "",
+      "log": "build/release/standalone_G03.log"
+    },
+    {
+      "name": "standalone_G04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G04.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.063,
+      "output": "",
+      "log": "build/release/standalone_G04.log"
+    },
+    {
+      "name": "standalone_G05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G05.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.031,
+      "output": "",
+      "log": "build/release/standalone_G05.log"
+    },
+    {
+      "name": "standalone_G06",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G06.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G06.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.016,
+      "output": "",
+      "log": "build/release/standalone_G06.log"
+    },
+    {
+      "name": "standalone_G07",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G07.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G07.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.109,
+      "output": "",
+      "log": "build/release/standalone_G07.log"
+    },
+    {
+      "name": "standalone_G08",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G08.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G08.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.188,
+      "output": "",
+      "log": "build/release/standalone_G08.log"
+    },
+    {
+      "name": "standalone_G09",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G09.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G09.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.984,
+      "output": "",
+      "log": "build/release/standalone_G09.log"
+    },
+    {
+      "name": "standalone_G10",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G10.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G10.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.86,
+      "output": "",
+      "log": "build/release/standalone_G10.log"
+    },
+    {
+      "name": "standalone_G11",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G11.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G11.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.812,
+      "output": "",
+      "log": "build/release/standalone_G11.log"
+    },
+    {
+      "name": "standalone_G12",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G12.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_G12.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.875,
+      "output": "",
+      "log": "build/release/standalone_G12.log"
+    },
+    {
+      "name": "standalone_M01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.813,
+      "output": "",
+      "log": "build/release/standalone_M01.log"
+    },
+    {
+      "name": "standalone_M02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.75,
+      "output": "",
+      "log": "build/release/standalone_M02.log"
+    },
+    {
+      "name": "standalone_M03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": "",
+      "log": "build/release/standalone_M03.log"
+    },
+    {
+      "name": "standalone_M04",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M04.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M04.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.735,
+      "output": "",
+      "log": "build/release/standalone_M04.log"
+    },
+    {
+      "name": "standalone_M05",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M05.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_M05.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.718,
+      "output": "",
+      "log": "build/release/standalone_M05.log"
+    },
+    {
+      "name": "standalone_S01",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S01.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S01.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.797,
+      "output": "",
+      "log": "build/release/standalone_S01.log"
+    },
+    {
+      "name": "standalone_S02",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S02.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S02.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.688,
+      "output": "",
+      "log": "build/release/standalone_S02.log"
+    },
+    {
+      "name": "standalone_S03",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S03.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\standalone_S03.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.765,
+      "output": "",
+      "log": "build/release/standalone_S03.log"
+    },
+    {
+      "name": "test_core_data_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_core_data.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_core_data.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 4.781,
+      "output": "",
+      "log": "build/release/test_core_data_compile.log"
+    },
+    {
+      "name": "test_core_data",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_core_data.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.485,
+      "output": "PASS core/data: deterministic + random(seed=20261024) + n=200000\n",
+      "log": "build/release/test_core_data.log"
+    },
+    {
+      "name": "test_dp_math_string_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_dp_math_string.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_dp_math_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 5.109,
+      "output": "",
+      "log": "build/release/test_dp_math_string_compile.log"
+    },
+    {
+      "name": "test_dp_math_string",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_dp_math_string.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 1.047,
+      "output": "PASS dp/math/string fixed-seed differential tests\n",
+      "log": "build/release/test_dp_math_string.log"
+    },
+    {
+      "name": "test_graph_compile",
+      "command": [
+        "g++",
+        "-std=gnu++20",
+        "-Wall",
+        "-Wextra",
+        "-Wshadow",
+        "-g",
+        "-O2",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\tests\\test_graph.cpp",
+        "-o",
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_graph.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 6.0,
+      "output": "",
+      "log": "build/release/test_graph_compile.log"
+    },
+    {
+      "name": "test_graph",
+      "command": [
+        "C:\\Users\\TSOU\\Desktop\\cf\\template\\build\\release\\test_graph.exe"
+      ],
+      "exit_code": 0,
+      "seconds": 2.078,
+      "output": "PASS graph P0: seed=20261024; deep_chain=200000\nPASS graph P1: Dijkstra/MST/LCA/Euler; deep_chain=200000\nPASS graph P2: SCC/bridges; deep_chain=200000\n",
+      "log": "build/release/test_graph.log"
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "G07",
+  "title": "Kruskal 最小生成树与森林 Kruskal MST",
+  "category": "图论",
+  "priority": "P1",
+  "source": "graph/kruskal.hpp",
+  "when": "无向带权图求最小生成树；图可能不连通时求最小生成森林。",
+  "contract": "n>=0，合法点 [1,n]；每条无向边输入一次，允许负权、自环、重边。返回 weight、components、connected 和原边数组 0-based 下标 edges；不连通时 weight 是森林总权；n=0 时 connected=false。总权和中间累加必须在 ll 范围内。",
+  "complexity": "O(m log m + (n+m)alpha(n)) 时间，O(n+m) 额外空间。",
+  "pitfalls": ["只比较权重，不能将权重强转 int；总权使用 ll。", "自环不会被选中，平行边只按最优连接选择。", "输出 MST 前先判断 connected；不连通时返回的是森林。", "edges 是输入边下标，不是点编号。"],
+  "example": "旧来源：https://github.com/ball-castle/template/blob/main/kruskal%20MST.cpp ，原文件求指定 k 个连通块；新模块提供通常的 MST/森林契约，不冒充原题 AC。",
+  "usage": "vector<cp::KruskalEdge> e={{1,2,3},{2,3,-1}}; auto r=cp::kruskal(3,e); if(r.connected) cout<<r.weight;",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 零警告；300 轮 n<=6,m<=10 随机图对穷举森林，包含负权、自环、平行边、不连通；恢复边无环性及超过 int 的总权通过。"
+}

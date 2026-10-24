@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "document": "C:/Users/TSOU/Desktop/cf/template/板子打印版/ACM_ICPC_铜牌稳妥覆盖_算法与模型_V2.pdf",
+  "pdf_sha256": "89CE1803633A78F8408E782ACFDE60ACDBF60A0ED616BF5623B53D684DCBC718",
+  "review_date": "2026-10-25",
+  "reviewer": "qa_v2_246_276",
+  "page_range": {
+    "start": 246,
+    "end": 276
+  },
+  "pages_inspected": 31,
+  "method": {
+    "type": "逐页原尺寸视觉检查",
+    "source_images": "C:/Users/TSOU/Desktop/cf/template/_qa/round02_full_final/page-246.png ... page-276.png",
+    "source_render_dpi": 130,
+    "tool": "tools.view_image",
+    "image_detail": "original",
+    "max_pages_per_batch": 4,
+    "actually_viewed_every_page": true,
+    "contact_sheets_used": false,
+    "text_extraction_used_for_visual_verdict": false,
+    "checks": [
+      "中文与代码裁切",
+      "文字与代码重叠",
+      "字体和字符可读性",
+      "页眉与页脚及页码",
+      "正文边界",
+      "表格（本范围未出现表格）",
+      "分页与跨页衔接"
+    ],
+    "pagination_rule": "独立模型起新页允许留白；只有孤立1–3行函数末尾占据整页才标为分页瑕疵。完整函数所在的稀疏续页按指定规则接受。",
+    "scope": "仅复核最终PDF视觉版式；未修改生成器、算法、PDF或PNG；结构/PAGEREF/source exact为已知PASS，不作为视觉证据。"
+  },
+  "overall_status": "PASS",
+  "findings": [],
+  "conclusion": "第246–276页共31页均已通过view_image以original细节实际逐页查看。未发现中文或代码裁切、重叠、缺字、页脚异常或符合本次判定规则的分页瑕疵。第262页与265页留白明显，但包含完整函数，已在对应逐页记录中说明并按指定规则接受。",
+  "pages": [
+    {
+      "page": 246,
+      "status": "PASS",
+      "notes": "PSD08续页；查询尾部、kth函数、完整main及样例清晰完整，页眉页脚正常，无裁切重叠。"
+    },
+    {
+      "page": 247,
+      "status": "PASS",
+      "notes": "PSD09首页；中文说明、来源路径及代码均在页内；代码正常续至下一页，无裁切重叠，页码247清晰。"
+    },
+    {
+      "page": 248,
+      "status": "PASS",
+      "notes": "PSD09续页；query续段、完整main与样例完整，页尾留白为模型结束后换页，非孤立函数尾部。"
+    },
+    {
+      "page": 249,
+      "status": "PASS",
+      "notes": "PSD10首页；中文长行自然换行，代码与页脚分离，modify跨页衔接位置正常，无裁切重叠。"
+    },
+    {
+      "page": 250,
+      "status": "PASS",
+      "notes": "PSD10续页；modify尾部、query、完整main及样例排版完整；模型结束留白可接受，无孤立1–3行尾部整页。"
+    },
+    {
+      "page": 251,
+      "status": "PASS",
+      "notes": "PSD11首页；中文说明与代码注释清晰，长说明换行正常，代码及页脚均无裁切重叠。"
+    },
+    {
+      "page": 252,
+      "status": "PASS",
+      "notes": "PSD11续页；完整查询段、main和长样例行均处于正文区，留白符合模型独立起页规则。"
+    },
+    {
+      "page": 253,
+      "status": "PASS",
+      "notes": "STL01首页；多行中文段落、复杂度和代码缩进正常，页面下方代码清晰且与页脚有充足间距。"
+    },
+    {
+      "page": 254,
+      "status": "PASS",
+      "notes": "STL01续页；容器短例与算法函数衔接清楚，代码长行、注释和页码完整，无裁切重叠。"
+    },
+    {
+      "page": 255,
+      "status": "PASS",
+      "notes": "STL01续页；排序、二分、去重、64位运算和递归lambda代码清晰，正文底部与页脚分离。"
+    },
+    {
+      "page": 256,
+      "status": "PASS",
+      "notes": "STL01续页；页首虽有上一函数闭括号，但下方包含完整stl_string_recipes函数，非孤立1–3行函数尾部整页；留白可接受。"
+    },
+    {
+      "page": 257,
+      "status": "PASS",
+      "notes": "STL02首页；多行说明与Huffman、TopK代码自然排布，所有行在页内，页眉页脚正常。"
+    },
+    {
+      "page": 258,
+      "status": "PASS",
+      "notes": "STL02续页；中位数、延迟删除、前驱后继及滑窗代码在正文边界内，页底续段和页码均清晰。"
+    },
+    {
+      "page": 259,
+      "status": "PASS",
+      "notes": "STL02续页；滑窗极差尾部和完整滑窗中位数函数排版正常，非仅数行函数尾部，留白可接受。"
+    },
+    {
+      "page": 260,
+      "status": "PASS",
+      "notes": "TRS01整页；实数二分与三分说明、公式和两个函数完整，中文与代码均无裁切重叠。"
+    },
+    {
+      "page": 261,
+      "status": "PASS",
+      "notes": "TRS02首页；长标题、说明与Trie代码清晰，trie_prefix正常续至下一页，页脚间距足够。"
+    },
+    {
+      "page": 262,
+      "status": "PASS",
+      "notes": "TRS02续页；有上一函数闭括号及完整4行trie_count函数，共5行代码。留白明显，但不是孤立1–3行函数尾部整页，按指定规则接受；无裁切重叠。"
+    },
+    {
+      "page": 263,
+      "status": "PASS",
+      "notes": "X01整页；前缀XOR说明、长调用行换行和全部代码可读，末尾函数完整且页脚正常。"
+    },
+    {
+      "page": 264,
+      "status": "PASS",
+      "notes": "X02首页；按位贡献说明、uint128类型文字与代码完整清晰，底部闭括号位于正文区，无裁切重叠。"
+    },
+    {
+      "page": 265,
+      "status": "PASS",
+      "notes": "X02续页；包含完整6行to_string_u128函数。留白明显，但不属于孤立1–3行函数尾部整页，按指定规则接受；页眉页脚正常。"
+    },
+    {
+      "page": 266,
+      "status": "PASS",
+      "notes": "X03整页；XOR构造中文说明和代码清晰，长行正常换行，全部函数和页脚均完整。"
+    },
+    {
+      "page": 267,
+      "status": "PASS",
+      "notes": "X04首页；长标题和多行约定可读，代码在正文区内；trie_erase声明后续至下一页，无裁切重叠。"
+    },
+    {
+      "page": 268,
+      "status": "PASS",
+      "notes": "X04续页；trie_erase、trie_query以及最大XOR数对/子数组函数衔接完整，缩进和页码正常。"
+    },
+    {
+      "page": 269,
+      "status": "PASS",
+      "notes": "X05整页；图上XOR约束说明、公式和BFS代码全部清晰，正文与页脚分离，无裁切重叠。"
+    },
+    {
+      "page": 270,
+      "status": "PASS",
+      "notes": "X06整页；线性基说明与三个函数排版完整，标题、中文、代码及页码均无裁切重叠。"
+    },
+    {
+      "page": 271,
+      "status": "PASS",
+      "notes": "X07整页；popcount计数模型说明及更新函数清晰，长说明换行自然，留白符合独立模型起页规则。"
+    },
+    {
+      "page": 272,
+      "status": "PASS",
+      "notes": "X08整页；最大数对双循环说明、英文题名和代码均清晰完整，无裁切重叠，页脚正常。"
+    },
+    {
+      "page": 273,
+      "status": "PASS",
+      "notes": "X09整页；最高位分类与前缀枚举说明、三重循环代码可读，正文留白及页码正常。"
+    },
+    {
+      "page": 274,
+      "status": "PASS",
+      "notes": "X10整页；AND排列说明与两个构造函数排版完整，中文、代码和页码无裁切重叠。"
+    },
+    {
+      "page": 275,
+      "status": "PASS",
+      "notes": "X11首页；Energy Intervals长标题、说明及energy_check代码清晰；页底循环正常续页，与页脚无干扰。"
+    },
+    {
+      "page": 276,
+      "status": "PASS",
+      "notes": "X11续页及文档末页；energy_check尾段和完整energy_max函数清晰完整，文末闭括号、页眉与276页页脚均正常。"
+    }
+  ]
+}

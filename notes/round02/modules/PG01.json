@@ -1,0 +1,41 @@
+{
+  "id": "PG01",
+  "title": "树的存储、多测与根化",
+  "category": "图与树 Graph and Tree",
+  "priority": "P0",
+  "source": "competition/graph/tree_storage.hpp",
+  "when": "n个点n-1条无向边；先建立树，再求父亲、深度、子树大小或树DP。",
+  "contract": "1<=n<200010；g[1..n]是双向对称邻接表，端点合法。read_tree读n及n-1条边并先init。root_tree(root)非树返回false；成功时根fa=0、dep=0，sz包括自己，order父亲先于儿子。",
+  "complexity": "建图/根化O(n)，空间O(n)。",
+  "idea": "原vector<ll> g[N]双向存边；显式栈给父亲和深度，逆序把sz加给父亲。",
+  "proof": "连通无向图有n-1条边当且仅当是树。入栈时标记保证每点唯一父亲；父先子后的顺序逆转后，所有孩子先于父亲完成累加。",
+  "pitfalls": [
+    "每测先清1..n，不能只清数组不清g。",
+    "度为1是无根树叶子；有根树的根不能直接套此判断。",
+    "order是父先子后的次序，不能直接当Euler闭区间；子树区间用G10。"
+  ],
+  "example": "边1-2、2-3、2-4，根1：fa[2]=1，dep[3]=2，sz[2]=3；换根3后应重做root_tree。",
+  "usage": "istringstream in(\"4 1 2 2 3 2 4\");\nread_tree(in);\nbool ok=root_tree(1);\n// ok && sz[2]==3",
+  "origins": [
+    {
+      "path": "template/tree_storage.cpp",
+      "idea": "vector<ll> g[200010]，读n-1条边并双向push_back。",
+      "issue": "该用途内未发现需要修改的功能问题。",
+      "change": "原样保留存储和读边；补init与root_tree。",
+      "interface_change": "去掉main，增加独立函数与fa/dep/sz。",
+      "online_status": "UNKNOWN"
+    },
+    {
+      "path": "cf/3/1096/H_!!dp_tree.cpp",
+      "idea": "solve内clear 1..n；dfs(u,fa)孩子完成后累加。",
+      "issue": "递归深链可能超过进程栈；题内ct/mx不应混入通用sz。",
+      "change": "保留遍历/父亲思想，必要时用显式栈与逆序。",
+      "interface_change": "无",
+      "online_status": "UNKNOWN"
+    }
+  ],
+  "dependencies": [],
+  "patch": true,
+  "test": "tests/round02/test_graph_personal.cpp",
+  "verify": "Windows g++15.2 GNU++20 -O2 -Wall -Wextra -Wshadow 和 WSL Ubuntu g++13.3 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer 实测通过；命令源 tests/round02/test_graph_personal.cpp，固定种子20261024；DSU/BFS/DFS/Dijkstra/LCA/子树统计与ROUND01同输入并对独立oracle；20万点深链。"
+}
