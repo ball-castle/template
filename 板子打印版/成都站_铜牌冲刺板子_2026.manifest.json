@@ -1,0 +1,111 @@
+{
+  "book": "成都站_铜牌冲刺板子_2026",
+  "planned_pages": 24,
+  "module_count": 17,
+  "code_lines": 658,
+  "code_parity": "PASS",
+  "modules": [
+    {
+      "id": "CO01",
+      "source": "core/main.cpp",
+      "sha256": "962b97842d43da8c1169b0277b8514c428b35b1b2be470cbf6a8078ca6154f07",
+      "start_page": 5
+    },
+    {
+      "id": "CO02",
+      "source": "core/basics.hpp",
+      "sha256": "7990dc7775f1279e5f9a2a8047837516d50737d8c1cd2c07373a9f06cb01edf4",
+      "start_page": 6
+    },
+    {
+      "id": "CO03",
+      "source": "core/search_window.hpp",
+      "sha256": "19be512d0364f0deeeb5a89c66b39f2ba87918e1c513f90ebb9e01dbbe5650de",
+      "start_page": 8
+    },
+    {
+      "id": "DP01",
+      "source": "dp/knapsack.hpp",
+      "sha256": "0116f7c39627196a6cb33e66506726c371dedc6acea7a4e2bfafd36fd93cdb4e",
+      "start_page": 9
+    },
+    {
+      "id": "DP02",
+      "source": "dp/lis.hpp",
+      "sha256": "aa9803e028a50d5cd942f4f0ca3d0e3b72076f0fc78ee5192e017684ecbf75aa",
+      "start_page": 10
+    },
+    {
+      "id": "DP03",
+      "source": "dp/hamilton_path.hpp",
+      "sha256": "06050364efea18aae9437eb6516363af7eb0c39d53e9deb123187ae216e831a1",
+      "start_page": 11
+    },
+    {
+      "id": "DS01",
+      "source": "data_structure/fenwick.hpp",
+      "sha256": "61080e655f4feec36071a7570893d7320aa931bd949a476459aea46df4321e36",
+      "start_page": 12
+    },
+    {
+      "id": "DS02",
+      "source": "data_structure/segment_tree.hpp",
+      "sha256": "39d0fdd78d7fb116a377936f8181d81ba0eed74cf611f072a544b80497a329eb",
+      "start_page": 13
+    },
+    {
+      "id": "DS03",
+      "source": "data_structure/lazy_segment_tree.hpp",
+      "sha256": "d06dc2711cb94d742bc2b04d24e82c81aebd206deffb4eee8331fed0b3f4ec97",
+      "start_page": 14
+    },
+    {
+      "id": "DS04",
+      "source": "data_structure/monotonic.hpp",
+      "sha256": "50fddb1c0f954dff0a943785bd3d9bf5003bce41407c8df0deec39bf8493c35d",
+      "start_page": 16
+    },
+    {
+      "id": "G01",
+      "source": "graph/dsu.hpp",
+      "sha256": "52405b16ea52448a69489a63c3d770f79866c9d2a658049e4c9b03eb3e231f96",
+      "start_page": 17
+    },
+    {
+      "id": "G02",
+      "source": "graph/bfs_path.hpp",
+      "sha256": "fc7b67f9056ff076217c27b0844e8a6a20bf31e7a7497105483d23561cb5dde2",
+      "start_page": 18
+    },
+    {
+      "id": "G03",
+      "source": "graph/dfs_forest.hpp",
+      "sha256": "f2dd8461a0e0cc6c156ca863908ebfc66169ac2c131a367b28690a4804a245f0",
+      "start_page": 19
+    },
+    {
+      "id": "G04",
+      "source": "graph/topological_sort.hpp",
+      "sha256": "1ea4bc282e6053f0f6c7fd2988560b53e1c974bc1c1cba31119c710924bf697c",
+      "start_page": 20
+    },
+    {
+      "id": "G05",
+      "source": "graph/unicyclic_graph.hpp",
+      "sha256": "c8ea742f5f4513e5c1790562b34ad3865a413f190e33a5b13a91cce95562a28b",
+      "start_page": 21
+    },
+    {
+      "id": "M01",
+      "source": "math/integer_bits.hpp",
+      "sha256": "4cd609b7373be40665c71b511376978a300ad726f08d244a36c04a855d8f13c9",
+      "start_page": 23
+    },
+    {
+      "id": "M02",
+      "source": "math/modular.hpp",
+      "sha256": "1c99bac15775f32cec35dab4e25826079c6ea7daf89f802b3e159106a27091c0",
+      "start_page": 24
+    }
+  ]
+}

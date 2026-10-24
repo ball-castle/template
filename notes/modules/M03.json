@@ -1,0 +1,15 @@
+{
+  "id": "M03",
+  "title": "普通模矩阵快速幂 Matrix Power",
+  "category": "数学 Math",
+  "priority": "P1",
+  "source": "math/matrix_power.hpp",
+  "when": "线性递推阶数很小但n很大，能把一次转移写成固定矩阵乘状态列向量。",
+  "contract": "矩阵0-indexed，只接受同阶方阵，元素可为任意ll，1<=mod<=LLONG_MAX；非负unsigned指数，0次幂为单位矩阵。依赖M02。",
+  "complexity": "d阶矩阵乘法 O(d^3)，幂 O(d^3 log exp)，空间 O(d^2)。",
+  "pitfalls": ["先手算一次转移检查状态顺序，行向量和列向量不能混用。", "这是普通模加模乘；最短路min-plus和最大值max-plus须修改运算及单位元，不能直接用于对应赛题。", "负指数不合法；矩阵及中间乘积使用64位和__int128。"],
+  "example": "CSES Fibonacci Numbers：https://cses.fi/problemset/task/1722 。用{{1,1},{1,0}}的n次幂，结果[0][1]是F[n]，包含n=0；未在线提交。",
+  "usage": "Matrix t={{1,1},{1,0}}; auto r=matrix_pow(t,n,1000000007); cout<<r[0][1]; 工程中头文件自动包含M02，纸面抄写需带上M02。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；200组矩阵与朴素重复乘法对照，覆盖空矩阵、指数0、mod=1、负元素和64位乘法。"
+}

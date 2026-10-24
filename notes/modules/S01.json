@@ -1,0 +1,15 @@
+{
+  "id": "S01",
+  "title": "KMP 与 Z 函数 Prefix Matching",
+  "category": "字符串 String",
+  "priority": "P1",
+  "source": "string/kmp_z.hpp",
+  "when": "线性时间寻找全部模式串出现位置、分析前后缀相等长度，或比较字符串每个后缀与全串前缀。",
+  "contract": "字符串按字节、0-indexed，长度能放进int。KMP返回所有匹配起点，允许重叠；空模式匹配0..n。pi为最长相等真前后缀长度；Z约定z[0]=0。",
+  "complexity": "KMP O(|s|+|p|) 时间，O(|p|+匹配数)空间；pi/Z为 O(n) 时间和空间。",
+  "pitfalls": ["完全匹配后令j=pi[j-1]，否则会漏重叠匹配或越界。", "不同资料可能定义z[0]=n，使用公式时先核对约定。", "空模式不能直接访问pi[-1]；新版先单独处理。"],
+  "example": "CSES String Matching：https://cses.fi/problemset/task/1753 。调用kmp_find_all(text,pattern).size()；函数来自原KMP.cpp的转移提炼并修复空模式边界，未在线提交。",
+  "usage": "auto pos=kmp_find_all(text,pattern); auto pi=prefix_function(s); auto z=z_function(s); 字符串无需人为补第0个字符。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU++20 -O2 -Wall -Wextra -Wshadow及WSL ASan/UBSan通过；1200组随机串逐一对照naive search、枚举真前后缀、朴素LCP，覆盖空串与重叠。"
+}

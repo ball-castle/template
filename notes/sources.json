@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-24",
+  "timezone": "Asia/Shanghai",
+  "scope": "2024/2025 historical contest research and public 2026 precontest rules only; no 2026 problems",
+  "sources": [
+    {
+      "id": "contest2024",
+      "type": "official_contest_archive",
+      "title": "The 2024 ICPC Asia Chengdu Regional Contest",
+      "url": "https://contest.ucup.ac/contest/1821?v=1",
+      "supports": [
+        "13 problem titles",
+        "problem URLs",
+        "editorial attachment provenance"
+      ]
+    },
+    {
+      "id": "tutorial2024",
+      "type": "official_editorial",
+      "publisher": "电子科技大学出题组",
+      "url": "https://contest.ucup.ac/download.php?id=1821&r=1&type=attachments",
+      "published_date": "2024-10-27",
+      "pages": 40,
+      "difficulty_page": 2,
+      "sha256": "251a5c9b8caf62fc90d381861523416150cf912b07efe1b78ae338f8f2e0d7ba",
+      "verified_by": [
+        "web PDF extraction for all problem sections",
+        "local render and visual inspection of page 2"
+      ],
+      "problem_pages": {
+        "A": [
+          5,
+          6
+        ],
+        "B": [
+          7,
+          8
+        ],
+        "C": [
+          27,
+          28
+        ],
+        "D": [
+          21,
+          24
+        ],
+        "E": [
+          15,
+          17
+        ],
+        "F": [
+          25,
+          26
+        ],
+        "G": [
+          9,
+          12
+        ],
+        "H": [
+          29,
+          31
+        ],
+        "I": [
+          13,
+          14
+        ],
+        "J": [
+          4,
+          4
+        ],
+        "K": [
+          18,
+          20
+        ],
+        "L": [
+          3,
+          3
+        ],
+        "M": [
+          32,
+          39
+        ]
+      },
+      "difficulty": {
+        "Easy": [
+          "J",
+          "L"
+        ],
+        "Easy-Medium": [
+          "A",
+          "B",
+          "G",
+          "I"
+        ],
+        "Medium": [
+          "E",
+          "K"
+        ],
+        "Medium-Hard": [
+          "C",
+          "D",
+          "F"
+        ],
+        "Hard": [
+          "H",
+          "M"
+        ]
+      }
+    },
+    {
+      "id": "contest2025",
+      "type": "official_contest_archive",
+      "title": "The 2025 ICPC Asia Chengdu Regional Contest",
+      "url": "https://contest.ucup.ac/contest/2567?v=1",
+      "supports": [
+        "13 problem titles",
+        "problem URLs",
+        "editorial attachment provenance"
+      ]
+    },
+    {
+      "id": "tutorial2025",
+      "type": "official_editorial",
+      "publisher": "电子科技大学出题组",
+      "url": "https://contest.ucup.ac/download.php?id=2567&r=1&type=attachments",
+      "published_date": "2025-10-26",
+      "pages": 46,
+      "difficulty_page": 2,
+      "sha256": "6d0bf4659c5c1c40699b090a21728fdacdfefb9c673ccd8c5cc55459bd616683",
+      "verified_by": [
+        "web PDF and local text extraction for all problem sections",
+        "local render and visual inspection of page 2"
+      ],
+      "problem_pages": {
+        "A": [
+          7,
+          9
+        ],
+        "B": [
+          10,
+          11
+        ],
+        "C": [
+          19,
+          20
+        ],
+        "D": [
+          12,
+          15
+        ],
+        "E": [
+          39,
+          43
+        ],
+        "F": [
+          44,
+          46
+        ],
+        "G": [
+          5,
+          6
+        ],
+        "H": [
+          33,
+          38
+        ],
+        "I": [
+          29,
+          32
+        ],
+        "J": [
+          3,
+          4
+        ],
+        "K": [
+          21,
+          24
+        ],
+        "L": [
+          16,
+          18
+        ],
+        "M": [
+          25,
+          28
+        ]
+      },
+      "difficulty": {
+        "Easy": [
+          "G",
+          "J"
+        ],
+        "Easy-Medium": [
+          "A",
+          "B",
+          "D",
+          "L"
+        ],
+        "Medium": [
+          "C",
+          "K",
+          "M"
+        ],
+        "Medium-Hard": [
+          "H",
+          "I"
+        ],
+        "Hard": [
+          "E",
+          "F"
+        ]
+      },
+      "title_discrepancies": [
+        {
+          "letter": "A",
+          "dashboard": "A Lot of Paintings",
+          "tutorial_heading": "Arrow Painting",
+          "page": 7
+        },
+        {
+          "letter": "I",
+          "dashboard": "Inside Triangle",
+          "tutorial_heading": "Inside Polygon",
+          "page": 29
+        }
+      ]
+    },
+    {
+      "id": "standings2024",
+      "type": "contest_host_imported_onsite_records",
+      "url": "https://contest.ucup.ac/contest/1821/standings?v=1",
+      "sha256_snapshot": "0855711813ec42da9542cb55e51ee3f021074395926f72094613b5cea2a7936f",
+      "imported_record_count_including_unofficial": 309,
+      "warning": "HTML standings also contains later virtual/replay participants. Medal identity is taken from the official award PDF; only matched imported onsite records are used for score/time."
+    },
+    {
+      "id": "standings2025",
+      "type": "contest_host_imported_onsite_records",
+      "url": "https://contest.ucup.ac/contest/2567/standings?v=1",
+      "sha256_snapshot": "d035deb231a765ef041a43bf5ce5f96fb60dd6529432ad3dcf30cea08f029f04",
+      "imported_record_count_including_unofficial": 328,
+      "warning": "HTML standings also contains later virtual/replay participants. Medal identity is taken from the official award PDF; only matched imported onsite records are used for score/time."
+    },
+    {
+      "id": "awards2024",
+      "type": "official_award_list",
+      "publisher": "ICPC北京总部",
+      "index_url": "https://icpc.pku.edu.cn/hjmd/164749.htm",
+      "url": "https://icpc.pku.edu.cn/docs/20250403154317586746.pdf",
+      "pages": 10,
+      "bronze_boundary_page": 6,
+      "sha256": "d5519266317ec20cb09cc673e766f53041efa69e01b6b95f559eccbe8d0afc54",
+      "verified_by": [
+        "web PDF extraction",
+        "local render and visual inspection of page 6"
+      ]
+    },
+    {
+      "id": "awards2025",
+      "type": "official_award_list",
+      "publisher": "ICPC北京总部",
+      "index_url": "https://icpc.pku.edu.cn/hjmd/b0d1b0bf191a4732a58a041cccf52197.htm",
+      "url": "https://icpc.pku.edu.cn/docs/2026-09/af24206f3813422584a27b6a78065ed5.pdf",
+      "pages": 10,
+      "bronze_boundary_page": 6,
+      "sha256": "395858145adb64356695763cc4f5f16daab96f3bdb04fd217f51ebec29644625",
+      "verified_by": [
+        "web PDF extraction",
+        "local render and visual inspection of page 6"
+      ]
+    },
+    {
+      "id": "invitation2026",
+      "type": "official_precontest_invitation",
+      "publisher": "ICPC北京总部/电子科技大学",
+      "index_url": "https://icpc.pku.edu.cn/tzgg/16b0883826d74a238e0ca1423ea52a2e.htm",
+      "url": "https://icpc.pku.edu.cn/docs/2026-09/8bb3449cf16246568dbccbaa631cc242.pdf",
+      "published_date": "2026-09-18",
+      "document_signed_date": "2026-09-17",
+      "pages": 3,
+      "sha256": "0965bb3e049771a806c3ec2622e667ee851d9c018b12e6bb8b2fff369e94e5b7",
+      "provenance": "Official announcement iframe data-src resolves to this PDF.",
+      "verified_by": [
+        "download from official domain",
+        "local rendering",
+        "visual inspection of pages 1 and 3"
+      ],
+      "schedule": {
+        "formal_contest_date": "2026-10-25",
+        "start": "09:00",
+        "end": "14:00",
+        "timezone": "Asia/Shanghai",
+        "page": 3,
+        "status": "official draft schedule; check final onsite notices"
+      },
+      "paper_material_rules_in_this_document": "not established"
+    },
+    {
+      "id": "manual2026_mirror",
+      "type": "third_party_mirror_of_alleged_official_precontest_manual",
+      "url": "https://raw.githubusercontent.com/JunjieCharles/xcpc-sight/main/static/sources/icpc-2026-chengdu-manual.pdf",
+      "provenance_note_url": "https://github.com/JunjieCharles/xcpc-sight/blob/main/doc/season-2026-2027-preview.md",
+      "official_origin_url": null,
+      "official_origin_status": "not independently found; confirm with contest organizers",
+      "pages": 29,
+      "sha256": "10526a069e7b69a1abd6f16fbb53a948325bb7e8f7f6b2df9526ee5d8dc0f257",
+      "verified_by": [
+        "local text extraction of relevant precontest pages",
+        "local rendering and visual inspection of PDF page 15"
+      ],
+      "relevant_pages": {
+        "schedule": 11,
+        "paper_materials_and_discipline": 15,
+        "environment": 16
+      },
+      "paper_rules": {
+        "paper_references_allowed": true,
+        "electronic_materials_forbidden": true,
+        "page_count": null,
+        "binding": null,
+        "font_size": null,
+        "number_of_copies": null,
+        "inspection_process": null,
+        "status": "pending organizer confirmation"
+      },
+      "warning": "No stated limit found is not proof of unlimited pages. Do not promote this mirror to independently verified official distribution."
+    }
+  ],
+  "historical_bronze_boundaries": [
+    {
+      "year": 2024,
+      "award_source": "awards2024",
+      "score_source": "standings2024",
+      "award": "Bronze",
+      "official_team_rank": 186,
+      "tied": true,
+      "school": "大连理工大学盘锦校区",
+      "team": "这技校真练技术",
+      "imported_record_id": "$DEFAULT_DAT_PREFIX_188",
+      "solved": 5,
+      "penalty_minutes": 953,
+      "solved_letters": [
+        "A",
+        "G",
+        "I",
+        "J",
+        "L"
+      ]
+    },
+    {
+      "year": 2024,
+      "award_source": "awards2024",
+      "score_source": "standings2024",
+      "award": "Bronze",
+      "official_team_rank": 186,
+      "tied": true,
+      "school": "东北师范大学",
+      "team": "巴别塔",
+      "imported_record_id": "$DEFAULT_DAT_PREFIX_189",
+      "solved": 5,
+      "penalty_minutes": 953,
+      "solved_letters": [
+        "A",
+        "G",
+        "I",
+        "J",
+        "L"
+      ]
+    },
+    {
+      "year": 2024,
+      "award_source": "awards2024",
+      "score_source": "standings2024",
+      "award": "Honorable",
+      "official_team_rank": 188,
+      "school": "乐山师范学院",
+      "team": "漫云征途",
+      "imported_record_id": "$DEFAULT_DAT_PREFIX_190",
+      "solved": 5,
+      "penalty_minutes": 989
+    },
+    {
+      "year": 2025,
+      "award_source": "awards2025",
+      "score_source": "standings2025",
+      "award": "Bronze",
+      "official_team_rank": 192,
+      "school": "吉林大学",
+      "team": "夏日空调幻想时刻",
+      "imported_record_id": "$DEFAULT_DAT_PREFIX_200",
+      "solved": 4,
+      "penalty_minutes": 558,
+      "solved_letters": [
+        "A",
+        "B",
+        "G",
+        "J"
+      ]
+    },
+    {
+      "year": 2025,
+      "award_source": "awards2025",
+      "score_source": "standings2025",
+      "award": "Honorable",
+      "official_team_rank": 193,
+      "school": "西南科技大学",
+      "team": "飘零之剑",
+      "imported_record_id": "$DEFAULT_DAT_PREFIX_201",
+      "solved": 4,
+      "penalty_minutes": 563
+    }
+  ],
+  "standings_extraction_method": {
+    "location": "inline JavaScript variables standings and score in fetched public HTML",
+    "onsite_filter": "record user id starts with $DEFAULT_DAT_PREFIX_",
+    "matching": "match school + team against official award PDF; do not use mixed page rank",
+    "solved": "standings record[0] / 100",
+    "penalty_minutes": "standings record[1] / 60",
+    "problem_letters": "score[user_id] keys map to A..M; accepted entry first field equals 100"
+  },
+  "interpretation_limit": "Historical cutoffs do not predict or guarantee a 2026 medal; CF1500 training priorities and print inclusion are editorial judgments."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "M02",
+  "title": "安全模运算与快速幂 Modular Power",
+  "category": "数学 Math",
+  "priority": "P0",
+  "source": "math/modular.hpp",
+  "when": "大整数模乘、非负整数快速幂、负数归一化，以及质数条件成立时求逆元。",
+  "contract": "1<=mod<=LLONG_MAX，底数可为任意ll；结果在[0,mod)。指数为非负unsigned long long；0^0按1处理后取模，mod=1返回0。",
+  "complexity": "归一化/模加/模乘 O(1)，快速幂 O(log exp)。",
+  "pitfalls": [
+    "先转__int128再乘；乘完再转类型已来不及。",
+    "费马逆元a^(mod-2)只适用于mod为质数且a%mod!=0。",
+    "不能把负指数直接转成unsigned传入；指数取模也需要额外数论前提。"
+  ],
+  "example": "原仓库 ksm.cpp：https://github.com/ball-castle/template/blob/main/ksm.cpp 。旧(-2)^3 mod5为-3、3^0 mod1为1；新版分别为2和0。",
+  "usage": "ll y=mod_pow(a,e,mod); ll p=mod_mul(a,b,mod); 若确认mod为质数且a不为0模mod，可用mod_pow(a,mod-2,mod)求逆元。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；1500组朴素乘法对照，覆盖负底数、0指数、mod=1、LLONG_MIN及接近LLONG_MAX的乘法。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "CO01",
+  "title": "主程序骨架 Main",
+  "category": "核心基础",
+  "priority": "P0",
+  "source": "core/main.cpp",
+  "when": "每场比赛新建文件；单测、多测都从这份骨架开始。",
+  "contract": "GNU++20；默认单测，只有题面给出测试组数时才取消 cin >> T 注释。",
+  "complexity": "骨架 O(T) 次调用；具体复杂度由 solve 决定。",
+  "pitfalls": [
+    "把单测题第一个数字误读为 T。",
+    "关闭同步后不要混用 scanf 与 cin。",
+    "多测数据、答案和容器应在 solve 内初始化。"
+  ],
+  "example": "在solve内先读n，再声明vector<ll> a(n+1)并读入a[1..n]。仓库实例：cf/date/7/7.25/1.cpp，main读取T并逐组调用solve。",
+  "usage": "把题目逻辑写进 solve()；需要多测时启用 cin >> T。",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20、-Wall -Wextra -Wshadow独立编译及空输入运行，退出码0。",
+  "exercise_url": "https://github.com/ball-castle/cf/blob/main/date/7/7.25/1.cpp"
+}

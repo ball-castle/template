@@ -1,0 +1,18 @@
+{
+  "id": "DP02",
+  "title": "线性 DP 与最长递增子序列 LIS",
+  "category": "动态规划 DP",
+  "priority": "P0",
+  "source": "dp/lis.hpp",
+  "when": "寻找保持原顺序的最长严格递增或非递减子序列；先用朴素状态理解，再用二分优化。",
+  "contract": "a 从1开始，空序列传 {0}；strict=true 严格递增，false 非递减。只返回长度，不恢复实际序列。",
+  "complexity": "lis_quadratic：O(n^2) 时间；lis_length：O(n log n) 时间；空间均 O(n)。",
+  "pitfalls": [
+    "严格递增对应 lower_bound；重复值可接在后面时用 upper_bound。",
+    "tails 表示各长度的最小末尾，最终 tails 通常不是原数组的一个子序列。"
+  ],
+  "example": "原仓库线性dp.cpp：https://github.com/ball-castle/template/blob/main/%E7%BA%BF%E6%80%A7dp.cpp 。保留原O(n^2)状态，增加二分版。",
+  "usage": "vector<ll> a(n+1); 读入a[1..n]；int ans=lis_length(a); 初学调试可用lis_quadratic(a)对照。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；350组随机数组对照全部子序列枚举，覆盖严格/非严格、空序列与重复值。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "G06",
+  "title": "单源与多源最短路 Dijkstra",
+  "category": "图论",
+  "priority": "P1",
+  "source": "graph/dijkstra.hpp",
+  "when": "非负边权最短路；多个起点同时出发时求离最近源点的距离；恢复一条最短路径。",
+  "contract": "g 长度 n+1，点 [1,n]，边 (v,w)；支持有向、重边、自环、零权。所有边要求 0<=w<DIJK_INF=LLONG_MAX/4；非法边或源点返回 ok=false。空源集合法，全不可达。距离>=INF 饱和为 INF，path 为空。",
+  "complexity": "设源数为 s，时间 O(s+(n+m)log(n+m))，额外空间 O(n+m)，使用懒删除堆。",
+  "pitfalls": [
+    "不能处理负边，即使负边在不可达分量也会拒绝。",
+    "真实有限答案必须严格小于 INF；不能把等于 INF 的答案当可达。",
+    "出堆要跳过过期距离，入队不能直接永久标记。",
+    "多源路径从实际选中的源点开始，等距时不保证字典序。"
+  ],
+  "example": "手算例：1->2 权 0，2->3 权 5，4->3 权 2；源 {1,4} 时 dist[3]=2，路径 [4,3]。",
+  "usage": "vector<vector<pair<int,ll>>> g(n+1); g[u].push_back({v,w}); auto r=cp::dijkstra(g,vector<int>{s1,s2}); if(r.ok && r.dist[t]!=cp::DIJK_INF) { auto path=r.path(t); } 单源用 cp::dijkstra(g,s)。",
+  "test": "tests/test_graph.cpp",
+  "verify": "g++13.3 GNU++20 -O2 -Wall -Wextra -Wshadow 零警告；350 轮单/多源对 Floyd、路径权重、零权重边、空源、不可达、负边与距离饱和通过。",
+  "exercise_url": "https://www.luogu.com.cn/problem/P4779 （非负权单源最短路；多源时扩展初始化，未在线提交）"
+}

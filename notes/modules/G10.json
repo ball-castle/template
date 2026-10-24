@@ -1,0 +1,15 @@
+{
+  "id": "G10",
+  "title": "Euler 子树区间与迭代树 DP Euler Subtree",
+  "category": "图论",
+  "priority": "P1",
+  "source": "graph/euler_subtree.hpp",
+  "when": "将树上子树映射为数组闭区间，配合前缀和/Fenwick/线段树；逆序处理简单树形 DP。",
+  "contract": "合法点 [1,n]，无向邻接表双向对称；root 默认 1；检查边数和连通性。每点仅计入 Euler 序一次，order[1..n]，order[tin[u]]=u；子树闭区间 [tin[u],tout[u]]。subtree_sum 输入长度 n+1，返回含自身的子树和。无效树或长度不符返回空。",
+  "complexity": "预处理、一次子树和 DP 均 O(n)，空间 O(n)，subtree_size 查询 O(1)。",
+  "pitfalls": ["tout 为子树最后一点的编号，不是第二次访问的时间戳；区间包含两端。", "逆序 order 才能先计算儿子，再将状态合并给父亲。", "先确认 ok；求和过程须在 ll 范围内。", "这不是用于 RMQ 求 LCA 的长度 2n-1 欧拉游走。"],
+  "example": "仓库树 DP 实例：https://github.com/ball-castle/cf/blob/main/3/1096/H_%21%21dp_tree.cpp ，旧代码递归合并儿子状态；已读源码，AC 未核验。新模板示范同类依赖顺序的子树求和。",
+  "usage": "cp::EulerTree e(g,root); if(e.ok) { auto sums=e.subtree_sum(value); int L=e.tin[u], R=e.tout[u]; int size=e.subtree_size(u); }",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 零警告；250 轮随机树对子树朴素枚举，负权、单点、不同根、区间与逆映射、200000 深链通过。"
+}

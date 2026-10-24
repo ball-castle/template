@@ -1,0 +1,15 @@
+{
+  "id": "DS01",
+  "title": "树状数组 Fenwick",
+  "category": "数据结构",
+  "priority": "P0",
+  "source": "data_structure/fenwick.hpp",
+  "when": "单点加、前缀和、区间和；频次累计、逆序对可先离散化。",
+  "contract": "n>=0，1下标；add位置须1..n，sum允许0；range_sum(l,r)的l>r返回0。树节点、前缀、答案及中间值均须在ll范围。",
+  "complexity": "单次增量/查询O(log n)，空间O(n)；逐点初始化O(n log n)。",
+  "pitfalls": ["add(0,x)非法，旧写法会死循环。", "这里是增量add；改成新值要传new-old。", "区间最小值不能照搬两个前缀相减。"],
+  "example": "由旧Fenwick_tree.cpp提炼；修复rangeSum与query接口不一致。实题：洛谷P3374树状数组1，单点加与闭区间求和：https://www.luogu.com.cn/problem/P3374 。",
+  "usage": "Fenwick f(n); for(int i=1;i<=n;++i) f.add(i,a[i]); f.add(p,delta); ll ans=f.range_sum(l,r);",
+  "test": "tests/test_core_data.cpp",
+  "verify": "Windows GNU++20与WSL ASan+UBSan：空树、负增量、随机对拍及200000次更新全部通过。"
+}

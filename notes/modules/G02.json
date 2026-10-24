@@ -1,0 +1,15 @@
+{
+  "id": "G02",
+  "title": "BFS 最短路与路径恢复 BFS Path",
+  "category": "图论",
+  "priority": "P0",
+  "source": "graph/bfs_path.hpp",
+  "when": "无权图最短距离、最少操作次数、输出一条最短路径。",
+  "contract": "g 长度 n+1，点 [1,n]；边端点必须合法；有向/无向均可，重边自环可用。dist=-1 表示不可达；path(t) 返回起点到 t（含端点），非法或不可达目标返回空。",
+  "complexity": "BFS O(n+m)，路径恢复 O(路径长度)，空间 O(n)。",
+  "pitfalls": ["入队立即标记，不能等出队再标记。", "仅适用单位边权；0/1 权用 0-1 BFS，非负任意权用 Dijkstra。", "无向边必须双向加入；多测传入新图。"],
+  "example": "来源起点：https://github.com/ball-castle/template/blob/main/bfs.cpp 。新测试中孤立点返回空路径，起点到自身返回单点路径；不声明旧源码 AC。",
+  "usage": "vector<vector<int>> g(n+1); g[u].push_back(v); auto r=cp::bfs(g,s); auto p=r.path(t);",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 警告检查通过；200 轮距离对 Floyd、逐边验证恢复路径、不可达与 200000 深链通过。"
+}

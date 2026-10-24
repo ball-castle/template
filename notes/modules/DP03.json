@@ -1,0 +1,19 @@
+{
+  "id": "DP03",
+  "title": "小规模状压最短路径 Hamilton DP",
+  "category": "动态规划 DP",
+  "priority": "P0",
+  "source": "dp/hamilton_path.hpp",
+  "when": "n很小，需要每个点恰好访问一次；用mask记录已选集合，末尾点作为第二维。",
+  "contract": "w 为1-indexed有向图方阵，缺边为 HAMILTON_INF；从1到n，每点恰好一次。0<=n<=18，n=0/1约定为0；允许负边，任意路径总权值在(-2^60,2^60)。",
+  "complexity": "时间 O(n^2*2^n)，空间 O(n*2^n)；n=18约36MiB。",
+  "pitfalls": [
+    "点i对应第i-1位，状态里的u是0-indexed。",
+    "最短路、方案计数、是否可行的转移不同，不能原封不动混用。",
+    "终点固定为n；任意终点需对最终mask的末尾状态取最小值。"
+  ],
+  "example": "相关变体 CSES Hamiltonian Flights：https://cses.fi/problemset/task/1690 。原题计数且n<=20，需把min转移改成求和并重新评估复杂度；当前模板是最短路，未在线提交。",
+  "usage": "vector<vector<ll>> w(n+1,vector<ll>(n+1,HAMILTON_INF)); 填边；ll ans=hamilton_path(w); ans==HAMILTON_INF表示无解。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；250组n<=8随机图与中间点全排列对照，覆盖负边、缺边、n=0/1。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

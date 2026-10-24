@@ -1,0 +1,15 @@
+{
+  "id": "G01",
+  "title": "并查集 Disjoint Set Union",
+  "category": "图论",
+  "priority": "P0",
+  "source": "graph/dsu.hpp",
+  "when": "只增加连边、判断同集合、维护连通块大小；Kruskal 的基础。",
+  "contract": "n>=0，点编号 [1,n]；unite 返回是否真的合并；components 是当前块数；size 返回所在块大小。",
+  "complexity": "初始化 O(n)，路径减半与按大小合并的操作均摊 O(alpha(n))，空间 O(n)。",
+  "pitfalls": ["合并必须先找根；sz 只有根位置有效。", "普通 DSU 不支持删边和回滚；多测重新构造。", "下标 0 只作预留，不能作为真实点调用。"],
+  "example": "仓库实用记录：https://github.com/ball-castle/cf/blob/main/3/1109/3.cpp ，通过偏移边合并后判断置换可达性；已读源码，AC 状态未核验。",
+  "usage": "cp::DSU d(n); d.unite(u,v); bool ok=d.same(u,v); int cnt=d.size(u);",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 g++13.3 -O2 -Wall -Wextra -Wshadow：120 轮 DSU 对 BFS、重复合并、块大小及 200000 点链通过；随机种子 20261024。"
+}

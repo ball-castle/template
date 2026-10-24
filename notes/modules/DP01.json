@@ -1,0 +1,19 @@
+{
+  "id": "DP01",
+  "title": "0/1 与完全背包 Knapsack",
+  "category": "动态规划 DP",
+  "priority": "P0",
+  "source": "dp/knapsack.hpp",
+  "when": "按物品选择、总重量受容量限制，价值最大化；能区分每件一次与无限次。",
+  "contract": "w、v 从1开始，w[i]>0，cap>=0；价值和任意可达总价值绝对值<2^60。默认总重量不超过容量；exact=true 表示恰好重量，不可达为 KNAP_NEG。",
+  "complexity": "时间 O(n*cap)，空间 O(cap)。",
+  "pitfalls": [
+    "0/1 容量倒序，完全背包容量正序。",
+    "恰好装满必须只初始化 dp[0]=0，其他为负无穷；不能把负无穷直接相加。",
+    "不支持零重量物品；完全背包零重正价值会使答案无界。"
+  ],
+  "example": "原仓库 01bag.cpp：https://github.com/ball-castle/template/blob/main/01bag.cpp 。保留原正确转移，新增64位与恰好容量契约；不宣称在线AC。",
+  "usage": "vector<int> w(n+1); vector<ll> v(n+1); 读入1..n；auto f=knapsack01(w,v,m,true); 判断f[m]==KNAP_NEG后输出。无限次改调knapsack_complete。",
+  "test": "tests/test_dp_math_string.cpp",
+  "verify": "GNU g++15.2 / GNU++20 / -O2 -Wall -Wextra -Wshadow，P0测试通过；600组随机物品枚举对照，覆盖负价值、不可达、空物品、64位价值。 最终全量WSL g++13.3 ASan/UBSan及单头文件独立编译也通过。"
+}

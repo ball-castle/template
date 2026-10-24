@@ -1,0 +1,17 @@
+# Keep canonical new sources byte-identical on Windows and Linux.
+# Historical root .cpp files retain their existing treatment.
+*.hpp text eol=lf
+core/** text eol=lf
+data_structure/** text eol=lf
+graph/** text eol=lf
+dp/** text eol=lf
+math/** text eol=lf
+string/** text eol=lf
+advanced/** text eol=lf
+tests/** text eol=lf
+scripts/** text eol=lf
+notes/** text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.docx binary
+*.pdf binary

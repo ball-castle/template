@@ -1,0 +1,15 @@
+{
+  "id": "G04",
+  "title": "拓扑排序 Topological Sort",
+  "category": "图论",
+  "priority": "P0",
+  "source": "graph/topological_sort.hpp",
+  "when": "DAG 处理顺序、依赖任务、DAG DP、有向环检测。",
+  "contract": "n>=1，g 长度 n+1，点 [1,n]，有向边；返回全部 n 点的一个合法顺序，有环返回空。允许重边，自环判为环。",
+  "complexity": "O(n+m) 时间，O(n) 额外空间。",
+  "pitfalls": ["重边也要各自计入入度和扣减。", "不要把无向边双向加入后直接求拓扑。", "普通队列不保证字典序最小；需要时换小根堆。"],
+  "example": "仓库实例：https://github.com/ball-castle/cf/blob/main/1704E.cpp ，使用拓扑序逆序做 DAG DP；已读源码，AC 状态未核验。",
+  "usage": "auto order=cp::topological_sort(g); if(order.empty()) { /* 有环 */ }",
+  "test": "tests/test_graph.cpp",
+  "verify": "GNU++20 警告检查通过；250 轮随机 DAG 逐边验证顺序，重边、自环、三点有向环通过。"
+}
